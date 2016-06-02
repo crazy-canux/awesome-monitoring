@@ -4,6 +4,10 @@
 
 All these are opensource tools to monitior your servers、network devices、OS、 applications and business.
 
+<http://crazy-canux.github.io/2016/05/18/Monitoring/>
+
+<http://crazy-canux.github.io/2016/04/08/Monitoring%E4%B9%8BPlugins/>
+
 ***
 
 # Nagios
@@ -54,8 +58,3 @@ These are independent tools but based on nagios.
 
 <http://ganglia.info/>
 
-# Related Links
-
-<http://crazy-canux.github.io/2016/05/18/Monitoring/>
-
-<http://crazy-canux.github.io/2016/04/08/Monitoring%E4%B9%8BPlugins/>
