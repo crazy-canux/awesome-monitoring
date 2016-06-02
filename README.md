@@ -2,7 +2,7 @@
 
 > How to monitoring infrastructure and operation systems?
 
-All these are opensource tools to monitior your servers、network devices、OS、 applications and business.
+All these are open source tools to monitor your servers、network devices、 applications and business etc....
 
 <http://crazy-canux.github.io/2016/05/18/Monitoring/>
 
