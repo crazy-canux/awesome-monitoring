@@ -1,8 +1,8 @@
 # Monitoring
 
-> How to monitoring infrastructure and systems operations?
+> How to monitoring infrastructure and operation systems?
 
-All these are opensource tools to monitior your server、network devices、OS、 applications and business.
+All these are opensource tools to monitior your servers、network devices、OS、 applications and business.
 
 ***
 
@@ -12,7 +12,9 @@ All these are opensource tools to monitior your server、network devices、OS、
 
 <https://www.nagios.com/>
 
-Below are independent tools but based on nagios.
+<http://crazy-canux.github.io/2016/03/25/Monitoring%E4%B9%8BNagios/>
+
+These are independent tools but based on nagios.
 
 ## Icinga
 
@@ -27,6 +29,8 @@ Below are independent tools but based on nagios.
 ## Op5 monitor
 
 ## check_MK
+
+<http://crazy-canux.github.io/2016/05/12/Monitoring%E4%B9%8Bcheck_MK/>
 
 ***
 
@@ -49,3 +53,9 @@ Below are independent tools but based on nagios.
 ## Ganglia
 
 <http://ganglia.info/>
+
+# Related Links
+
+<http://crazy-canux.github.io/2016/05/18/Monitoring/>
+
+<http://crazy-canux.github.io/2016/04/08/Monitoring%E4%B9%8BPlugins/>
