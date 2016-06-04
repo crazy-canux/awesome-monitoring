@@ -10,7 +10,7 @@ Collect monitoring tools which is the industry standard in IT infrastructure mon
 
 ***
 
-# Nagios
+# Nagios(*****)
 
 <https://www.nagios.org/>
 
@@ -50,7 +50,7 @@ These are independent tools but based on nagios.
 
 <https://github.com/sensu>
 
-## centreon
+## centreon(?)
 
 <https://www.centreon.com>
 
@@ -66,7 +66,7 @@ These are independent tools but based on nagios.
 
 ***
 
-# Zabbix
+# Zabbix(*****)
 
 <http://www.zabbix.org/wiki/Main_Page>
 
@@ -76,7 +76,7 @@ These are independent tools but based on nagios.
 
 ***
 
-# Ganglia
+# Ganglia(*****)
 
 <http://ganglia.info/>
 
