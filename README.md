@@ -1,6 +1,12 @@
-# Monitoring
+<h1 align="center">
+	<br>
+	<img width="400" src="https://cdn.rawgit.com/sindresorhus/awesome/master/media/logo.svg" alt="awesome">
+	<br>
+	<br>
+	<br>
+</h1>
 
-[![Awesome](https://github.com/sindresorhus/awesome/blob/master/media/badge.svg)
+# Monitoring [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
 > How to monitoring infrastructure and operation systems?
 
