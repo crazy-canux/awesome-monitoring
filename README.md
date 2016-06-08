@@ -291,3 +291,9 @@ You must put 1 readme file and some other files you think it's necessary.
 <https://github.com/lozzd/Nagdash>
 
 ***
+
+# License
+
+[![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)
+
+To the extent possible under law, [Canux](https://github.com/crazy-canux) has waived all copyright and related or neighboring rights to this work.
