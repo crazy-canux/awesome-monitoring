@@ -1,5 +1,4 @@
-Awesome-Monitoring [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
-==========
+# Awesome-Monitoring [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
 > Collect monitoring tools which is the industry standard in IT infrastructure monitoring and have open source version.
 
@@ -10,125 +9,97 @@ Awesome-Monitoring [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305
 
 ***
 
-Contents
-==========
+# Table of Contents
 
-# Contents
+* [Monitoring](#Monitoring)
+* [Nagios](#Nagios)
+    * [Icinga](#Icinga)
+    * [Naemon](#Naemon)
+    * [Shinken](#Shinken)
+    * [Sensu](#Sensu)
+    * [Plugins](#Pluings)
+    * [Addons](#Addons)
+* [Check_mk](#Check_mk)
+* [Centreon](#Centreon)
+* [Zabbix](#Zabbix)
+* [Ganglia](#Ganglia)
+* [Zenoss](#Zenoss)
+* [Opserver](#Opserver)
+* [Contributing](#Contributing)
+* [License](#License)
 
-- [Monitoring](#Monitoring)
-- [Nagios](#Nagios)
-    - [Icinga](#Icinga)
-    - [Naemon](#Naemon)
-    - [Shinken](#Shinken)
-    - [Sensu](#Sensu)
-    - [Centreon](#Centreon)
-    - [Check_mk](#Check_mk)
-- [Zabbix](#Zabbix)
-- [Ganglia](#Ganglia)
-- [Zenoss](#Zenoss)
-- [Opserver](#Opserver)
-- [Plugins](#Pluings)
-- [Addons](#Addons)
+## Monitoring
 
-# Monitoring
+> All these are open source tools to monitor your servers、network devices、applications and services etc....
 
-All these are open source tools to monitor your servers、network devices、applications and services etc....
+* [Monitoring-Blog](http://crazy-canux.github.io/2016/05/18/Monitoring/)
 
-* [Blog](http://crazy-canux.github.io/2016/05/18/Monitoring/)
+## Nagios
 
-# Nagios
-
-Nagios and some other monitoring tools based on nagios.
+> Nagios and some other monitoring tools based on nagios.
 
 * [Nagios-Official](https://www.nagios.com/)
 * [Nagios-Opensource](https://www.nagios.org/)
 * [Nagios-Github](https://github.com/NagiosEnterprises)
 * [Nagios-Blog](http://crazy-canux.github.io/2016/03/25/Monitoring%E4%B9%8BNagios/)
+* [nagios-plugins-Official](http://nagios-plugins.org/) - Replaced by monitoring plugins
+* [nagios-plugins-Github](https://github.com/nagios-plugins) - Replaced by monitoring plugins
 
-## Icinga
+### Icinga
 
 * [Icinga-Official](https://www.icinga.org/)
 * [Icinga-Github](https://github.com/Icinga)
 
-## Naemon
+### Naemon
 
 * [Naemon-Official](http://www.naemon.org/)
 * [Naemon-Github](https://github.com/naemon)
 
-## Shinken
+### Shinken
 
 * [Shinken-Official](http://www.shinken-monitoring.org/)
 * [Shinken-Github](https://github.com/naparuba/shinken)
 * [Shinken-Github](https://github.com/shinken-monitoring)
 
-## Sensu
+### Sensu
 
 * [Sensu-Official](https://sensuapp.org/)
 * [Sensu-Github](https://github.com/sensu)
 
-## centreon
+### Plugins
 
-* [Centreon-Official](https://www.centreon.com)
-* [Centreon-Github](https://github.com/centreon)
+> Collect the monitoring plugins on github which star more than 1 hundred. And some exchange plugins.
 
-## check_MK
+* [Plugins-Blog](http://crazy-canux.github.io/2016/04/08/Monitoring%E4%B9%8BPlugins/)
 
-* [Check_mk-Official](http://mathias-kettner.de/check_mk.html)
-* [Check_mk-Blog](http://crazy-canux.github.io/2016/05/12/Monitoring%E4%B9%8Bcheck_MK/)
+#### Monitoring Plugins
 
-***
+> The Monitoring Plugins Development Team, maintain a bundle of more than
+fifty standard plugins for Icinga, Naemon, Nagios, Shinken, Sensu, and other
+monitoring applications.
 
-# Zabbix
+* [monitoring-plugins-Official](https://www.monitoring-plugins.org/)
+* [monitoring-plugins-Github](https://github.com/monitoring-plugins)
 
-* [Zabbix-Official](http://www.zabbix.com/)
-* [Zabbix-Opensource](https://www.zabbix.org/wiki/Main_Page)
-* [Zabbix-Github](https://github.com/zabbix)
+#### Exchange
 
-***
+* [Nagios-Exchange](https://exchange.nagios.org/)
+* [Icinga-Exchange](https://exchange.icinga.org/)
 
-# Ganglia
+### Consol Plugins
 
-* [Ganglia-Official](http://ganglia.info/)
-* [Ganglia-Github](https://github.com/ganglia)
+### Op5 Plugins
 
-***
+### Develop Plugins
 
-# Zenoss
+* [monitoring-guidelines](https://www.monitoring-plugins.org/doc/guidelines.html)
+* [nagios-guidelines](https://nagios-plugins.org/doc/guidelines.html)
 
-* [Zenoss-Official](https://www.zenoss.com/)
-* [Zenoss-Opensource](https://www.zenoss.org/)
-* [Zenoss-Github](https://github.com/zenoss)
+#### Misc
 
-***
+* [xPlugin_Monitoring](https://github.com/crazy-canux/xPlugin_Monitoring)
 
-# Opserver
-
-* [Opserver-Official](http://opserver.org/)
-* [Opserver-Github](https://github.com/opserver)
-
-***
-
-# Monitoring-Plugins
-
-<http://crazy-canux.github.io/2016/04/08/Monitoring%E4%B9%8BPlugins/>
-
-<https://github.com/monitoring-plugins/monitoring-plugins>
-
-<https://github.com/nagios-plugins/nagios-plugins>
-
-Collect the monitoring plugins on github which star more than 1 hundred.
-
-If your project inclued, please push your folder to the plugins folder.
-
-Every project just allowed to push 1 folder and use the same name with your project.
-
-You must put 1 readme file and some other files you think it's necessary.
-
-> "awesome-monitoring/plugins/xPlugin_Monitoring" for project "xPlugin_Monitoring"
-
-<https://github.com/crazy-canux/xPlugin_Monitoring>
-
-<https://github.com/HariSekhon/nagios-plugins>
+* [nagios-plugins](https://github.com/HariSekhon/nagios-plugins)
 
 <https://github.com/anchor/nagios-plugin-elasticsearch>
 
@@ -146,152 +117,193 @@ You must put 1 readme file and some other files you think it's necessary.
 
 <https://github.com/jedda/OSX-Monitoring-Tools>
 
-***
+### Addons
 
-# Monitoring-Addons
+> Collect the monitoring addons on github which star more than 1 hundred. And others addons.
 
-<http://crazy-canux.github.io/2016/06/08/Monitoring%E4%B9%8BAddons/>
+* [Addons-Blog](http://crazy-canux.github.io/2016/06/08/Monitoring%E4%B9%8BAddons/)
+
+#### Distributions
 
 <https://www.nagios.org/downloads/nagios-core-addons/>
 
 <https://github.com/NagiosEnterprises>
 
-Collect the monitoring addons on github which star more than 1 hundred.
 
-If your project inclued, please push your folder to the addons folder.
+#### Graphics and Logos
 
-Every project just allowed to push 1 folder and use the same name with your project.
+#### Media coverage
 
-You must put 1 readme file and some other files you think it's necessary.
+#### Documentation
 
-> "awesome-monitoring/addons/pnp4nagios" for addon "pnp4nagios"
 
-## DNX
+### DNX
 
  <http://dnx.sourceforge.net/>
 
 <https://sourceforge.net/projects/dnx/>
 
-## Nagiosgraph
+### Nagiosgraph
 
 <http://nagiosgraph.sourceforge.net/>
 
 <https://sourceforge.net/projects/nagiosgraph/>
 
-## NCONF
+### NCONF
 
 <http://www.nconf.org/dokuwiki/doku.php>
 
 <https://github.com/nconf/nconf>
 
-## NSClient++(NSCP)
+### NSClient++(NSCP)
 
 <https://www.nsclient.org/>
 
 <https://github.com/mickem/nscp>
 
-## BP
+### BP
 
 <http://bp-addon.monitoringexchange.org/>
 
 <https://github.com/booboo-at-gluga-de/bp-addon>
 
-## Nagvis
+### Nagvis
 
 <http://www.nagvis.org/>
 
 <https://github.com/NagVis/nagvis>
 
-## dokuwiki
+### dokuwiki
 
 <https://www.dokuwiki.org/dokuwiki/>
 
 <https://github.com/splitbrain/dokuwiki>
 
-## rrdtool
+### rrdtool
 
 <http://oss.oetiker.ch/rrdtool/>
 
 <https://github.com/oetiker/rrdtool-1.x>
 
-## Mod gearman
+### Mod gearman
 
 <http://www.mod-gearman.org/>
 
 <https://github.com/sni/mod_gearman>
 
-## OMD
+### OMD
 
 <http://omdistro.org/>
 
 <https://github.com/ConSol/omd>
 
-## pnp4nagios
+### pnp4nagios
 
 <http://docs.pnp4nagios.org/>
 
 <https://github.com/lingej/pnp4nagios>
 
-## Thruk
+### Thruk
 
 <http://www.thruk.org/>
 
 <https://github.com/sni/Thruk>
 
-## nagios cookbook
+### nagios cookbook
 
 <https://github.com/schubergphilis/nagios>
 
-## Nagstamon
+### Nagstamon
 
 <https://nagstamon.ifw-dresden.de/>
 
 <https://github.com/HenriWahl/Nagstamon>
 
-## cucumber-nagios
+### cucumber-nagios
 
 <http://cucumber-nagios.org/>
 
 <https://github.com/auxesis/cucumber-nagios>
 
-## nagios-herald
+### nagios-herald
 
 <https://codeascraft.com/2014/06/06/introducing-nagios-herald/>
 
 <https://github.com/etsy/nagios-herald>
 
-## adagios
+### adagios
 
 <http://adagios.org/>
 
 <https://github.com/opinkerfi/adagios>
 
-## nagios-api
+### nagios-api
 
 <https://github.com/zorkian/nagios-api>
 
-## nagiosharder
+### nagiosharder
 
 <https://github.com/railsmachine/nagiosharder>
 
-## graphios
+### graphios
 
 <https://github.com/shawn-sterling/graphios>
 
-## pynag
+### pynag
 
 <http://pynag.org/>
 
 <https://github.com/pynag/pynag>
 
-## nagdash
+### nagdash
 
 <https://github.com/lozzd/Nagdash>
 
 ***
 
-Contributing
-==========
+## check_mk
+
+* [Check_mk-Official](http://mathias-kettner.de/check_mk.html)
+* [Check_mk-Blog](http://crazy-canux.github.io/2016/05/12/Monitoring%E4%B9%8Bcheck_MK/)
+
+## Centreon
+
+* [Centreon-Official](https://www.centreon.com)
+* [Centreon-Github](https://github.com/centreon)
+
+***
+
+## Zabbix
+
+* [Zabbix-Official](http://www.zabbix.com/)
+* [Zabbix-Opensource](https://www.zabbix.org/wiki/Main_Page)
+* [Zabbix-Github](https://github.com/zabbix)
+
+***
+
+## Ganglia
+
+* [Ganglia-Official](http://ganglia.info/)
+* [Ganglia-Github](https://github.com/ganglia)
+
+***
+
+## Zenoss
+
+* [Zenoss-Official](https://www.zenoss.com/)
+* [Zenoss-Opensource](https://www.zenoss.org/)
+* [Zenoss-Github](https://github.com/zenoss)
+
+***
+
+## Opserver
+
+* [Opserver-Official](http://opserver.org/)
+* [Opserver-Github](https://github.com/opserver)
+
+***
+
+## Contributing
 
 > Everyone is welcomed to push your code to this repository.
 
@@ -299,8 +311,7 @@ Contributing
 
 ***
 
-License
-==========
+## License
 
 [![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)
 
