@@ -2,10 +2,10 @@
 
 > Collect monitoring tools which is the industry standard in IT infrastructure monitoring and have open source version.
 
-[The mother repository](https://github.com/sindresorhus/awesome)
-[What is an awesome list?](https://github.com/sindresorhus/awesome/blob/master/awesome.md)
-[How to creating a list?](https://github.com/sindresorhus/awesome/blob/master/create-list.md)
-[How to pull request?](https://github.com/sindresorhus/awesome/blob/master/pull_request_template.md)
+* [The mother repository](https://github.com/sindresorhus/awesome)
+* [What is an awesome list?](https://github.com/sindresorhus/awesome/blob/master/awesome.md)
+* [How to creating a list?](https://github.com/sindresorhus/awesome/blob/master/create-list.md)
+* [How to pull request?](https://github.com/sindresorhus/awesome/blob/master/pull_request_template.md)
 
 ***
 
