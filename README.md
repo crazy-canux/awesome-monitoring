@@ -1,11 +1,3 @@
-<h1 align="center">
-	<br>
-	<img width="400" src="https://cdn.rawgit.com/sindresorhus/awesome/master/media/logo.svg" alt="awesome">
-	<br>
-	<br>
-	<br>
-</h1>
-
 # Monitoring [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
 > How to monitoring infrastructure and operation systems?
@@ -152,7 +144,7 @@ You must put 1 readme file and some other files you think it's necessary.
 
 # Monitoring-Addons
 
-## Nagios addons
+<http://crazy-canux.github.io/2016/06/08/Monitoring%E4%B9%8BAddons/>
 
 <https://www.nagios.org/downloads/nagios-core-addons/>
 
@@ -174,11 +166,17 @@ You must put 1 readme file and some other files you think it's necessary.
 
 <https://sourceforge.net/projects/dnx/>
 
- ## Nagiosgraph
+## Nagiosgraph
 
 <http://nagiosgraph.sourceforge.net/>
 
 <https://sourceforge.net/projects/nagiosgraph/>
+
+## NCONF
+
+<http://www.nconf.org/dokuwiki/doku.php>
+
+<https://github.com/nconf/nconf>
 
 ## NSClient++(NSCP)
 
@@ -209,12 +207,6 @@ You must put 1 readme file and some other files you think it's necessary.
 <http://oss.oetiker.ch/rrdtool/>
 
 <https://github.com/oetiker/rrdtool-1.x>
-
-## NCONF
-
-<http://www.nconf.org/dokuwiki/doku.php>
-
-<https://github.com/nconf/nconf>
 
 ## Mod gearman
 
