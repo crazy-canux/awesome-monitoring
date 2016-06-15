@@ -25,6 +25,7 @@
 * [Ganglia](#ganglia)
 * [Zenoss](#zenoss)
 * [Opserver](#opserver)
+* [Opsview](#opsview)
 * [Contributing](#contributing)
 * [License](#license)
 
@@ -40,31 +41,31 @@
 
 > Nagios and some other monitoring tools based on nagios.
 
-* [Nagios-Official](https://www.nagios.com/)
-* [Nagios-Opensource](https://www.nagios.org/)
-* [Nagios-Github](https://github.com/NagiosEnterprises)
 * [Nagios-Blog](http://crazy-canux.github.io/2016/03/25/Monitoring%E4%B9%8BNagios/)
-* [Nagios-CN](https://sourceforge.net/projects/nagios-cn/files/?source=navbar)
-* [Nagios-Exchange](https://exchange.nagios.org/)
+* [Nagios-official](https://www.nagios.com/)
+* [Nagios-opensource](https://www.nagios.org/)
+* [Nagioscore-github](https://github.com/NagiosEnterprises/nagioscore)
+* [Nagios-cn](https://sourceforge.net/projects/nagios-cn/files/?source=navbar)
+* [Nagios-exchange](https://exchange.nagios.org/)
 
 ### Naemon
 
-> Next generation of nagios.
-
-* [Naemon-Official](http://www.naemon.org/)
-* [Naemon-Github](https://github.com/naemon)
+* [Naemon-official](http://www.naemon.org/)
+* [Naemoncore-github](https://github.com/naemon/naemon-core) - Next generation of nagioscore
 
 ### Icinga
 
-* [Icinga-Official](https://www.icinga.org/)
-* [Icinga-Github](https://github.com/Icinga)
-* [Icinga-CN](https://sourceforge.net/projects/icinga-cn/files/)
-* [Icinga-Exchange](https://exchange.icinga.org/)
+* [Icinga-official](https://www.icinga.org/)
+* [Icinga2-github](https://github.com/Icinga/icinga2) - Icinga2 core
+* [Icinga-cn](https://sourceforge.net/projects/icinga-cn/files/)
+* [Icinga-exchange](https://exchange.icinga.org/)
 
 ### Shinken
 
-* [Shinken-Official](http://www.shinken-monitoring.org/)
-* [Shinken-Github](https://github.com/naparuba/shinken)
+* [Shinken-official](http://www.shinken-monitoring.org/)
+* [Shinken-github](https://github.com/naparuba/shinken) - Shinken core
+
+***
 
 ### Plugins
 
@@ -78,10 +79,10 @@
 fifty standard plugins for Icinga, Naemon, Nagios, Shinken, Sensu, and other
 monitoring applications.
 
-* [monitoring-plugins-Official](https://www.monitoring-plugins.org/)
-* [monitoring-plugins-Github](https://github.com/monitoring-plugins)
-* [nagios-plugins-Official](http://nagios-plugins.org/) - Replaced by monitoring plugins
-* [nagios-plugins-Github](https://github.com/nagios-plugins) - Replaced by monitoring plugins
+* [monitoring-plugins-official](https://www.monitoring-plugins.org/)
+* [monitoring-plugins-github](https://github.com/monitoring-plugins)
+* [nagios-plugins-official](http://nagios-plugins.org/) - Replaced by monitoring plugins
+* [nagios-plugins-github](https://github.com/nagios-plugins) - Replaced by monitoring plugins
 
 #### Develop Plugins
 
@@ -92,7 +93,9 @@ monitoring applications.
 
 * [check_wmi_plus.pl](http://www.edcint.co.nz/checkwmiplus/)
 
-#### Monitoring Linux server
+#### Monitoring OS X
+
+* [OSX-Monitoring-Tools](https://github.com/jedda/OSX-Monitoring-Tools)
 
 #### Monitoring Vitual Machine
 
@@ -105,14 +108,16 @@ monitoring applications.
 * [nagios-plugin-mongodb](https://github.com/mzupan/nagios-plugin-mongodb)
 * [check_postgres](https://github.com/bucardo/check_postgres)
 
+#### Monitoring Application
+
+* [nagios-plugin-elasticsearch](https://github.com/anchor/nagios-plugin-elasticsearch)
+* [nagios-plugins-rabbitmq](https://github.com/nagios-plugins-rabbitmq/nagios-plugins-rabbitmq)
+* [nagios_tools](https://github.com/etsy/nagios_tools)
+
 #### Misc
 
 * [xPlugin_Monitoring](https://github.com/crazy-canux/xPlugin_Monitoring)
 * [nagios-plugins](https://github.com/HariSekhon/nagios-plugins)
-* [nagios-plugin-elasticsearch](https://github.com/anchor/nagios-plugin-elasticsearch)
-* [nagios_tools](https://github.com/etsy/nagios_tools)
-* [OSX-Monitoring-Tools](https://github.com/jedda/OSX-Monitoring-Tools)
-* [nagios-plugins-rabbitmq](https://github.com/nagios-plugins-rabbitmq/nagios-plugins-rabbitmq)
 
 ***
 
@@ -121,135 +126,121 @@ monitoring applications.
 > Collect the monitoring addons on github which star more than 1 hundred. And others addons.
 
 * [Addons-Blog](http://crazy-canux.github.io/2016/06/08/Monitoring%E4%B9%8BAddons/)
-* [nagios-addons-Github](https://github.com/NagiosEnterprises)
-* [naemon-addons-Github](https://github.com/naemon)
-* [icinga-addons-Github](https://github.com/Icinga)
-* [shinken-addons-Github](https://github.com/shinken-monitoring)
+* [nagios-addons-github](https://github.com/NagiosEnterprises)
+* [naemon-addons-github](https://github.com/naemon)
+* [icinga-addons-github](https://github.com/Icinga)
+* [shinken-addons-github](https://github.com/shinken-monitoring)
+
+#### Agent
+
+* [NRPE-github](https://github.com/NagiosEnterprises/nrpe) - Nagios Remote Plugin Executor for Linux.
+* [NRPE_NT-SF](https://sourceforge.net/projects/nrpent/) - Nagios Remote Plugin Executor for Windows.
+* [NSCP](http://nsclient.org/) - NSClient++
+* [NSCP-github](https://github.com/mickem/nscp)
+* [NCPA-github](https://github.com/NagiosEnterprises/ncpa) - Nagios Cross Platform Agent
+
+#### Event broker
+
+* [NDOUtils-github](https://github.com/NagiosEnterprises/ndoutils) - Nagios Data Output Utils, for Nagios
+* [IDOUtils-github](https://github.com/Icinga) - Icinga Data Output Utils, for Icinga
+* [naemon-livestatus-github](https://github.com/naemon/naemon-livestatus) - for Naemon
+* [mod-livestaus-github](https://github.com/shinken-monitoring/mod-livestatus) - for Shinken
+* [MK Livestatus](http://mathias-kettner.com/checkmk_livestatus.html) - for Nagios/check_mk
+* [MK Livestatus-repo](http://git.mathias-kettner.de/git/?p=check_mk.git;a=tree;f=livestatus;hb=HEAD)
 
 #### Distributions
 
-* [DNX-Official](http://dnx.sourceforge.net/)
-* [DNX-Github](https://github.com/DNX-Project/DNX)
-
-
-#### Graphing
+* [MK OMD](http://omdistro.org/) - The Open Monitoring Distribution, for Nagios/Naemon/Icinga/Shinken/check_mk
+* [MK OMD-repo](http://git.mathias-kettner.de/git/?p=omd.git;a=tree)
+* [NSCA](https://github.com/NagiosEnterprises/nsca) - Nagios Service Check Acceptor, for nagios/naemon/icinga
+* [NSCA-ng](http://www.nsca-ng.org/) - Next Generation of NSCA
+* [NSCA-ng-github](https://github.com/weiss/nsca-ng)
+* [NRDP](https://github.com/NagiosEnterprises/nrdp) - Nagios Remote Data Processor, as a replacement for NSCA
+* [DNX-official](http://dnx.sourceforge.net/) - Distributed Nagios eXecutor, for Nagios/Naemon
+* [DNX-github](https://github.com/DNX-Project/DNX)
+* [consol mod-gearman](http://www.mod-gearman.org/) - for Nagios/Naemon
+* [consol mod-gearman-github](https://github.com/sni/mod_gearman)
+* [op5 merlin](https://kb.op5.com/display/MERLIN/Distributed+%28Merlin%29+Home) - for Nagios/Naemon
+* [op5 merlin-github](https://github.com/op5/merlin)
 
 #### Visualization
 
+* [op5 Ninja](https://kb.op5.com/display/GUI/GUI+%28Ninja%29+Home) - for Nagios/Naemon
+* [op5 Ninja-github](https://github.com/op5/ninja)
+* [mod-webui-github](https://github.com/shinken-monitoring/mod-webui) - for Shinken
+* [icingaweb2-github](https://github.com/Icinga/icingaweb2) - for Icinga
+* [consol thruk](http://www.thruk.org/) - webinterface for Nagios/Naemon/Icinga/Shinken
+* [consol thruk-github](https://github.com/sni/Thruk)
+* [nagdash-github](https://github.com/lozzd/Nagdash) - Dashboard interface for nagios
+* [nagstamon](https://nagstamon.ifw-dresden.de/) - nagios status viewer on windows
+* [nagstamon-github](https://github.com/HenriWahl/Nagstamon)
+* [coffeesaint](https://www.vanheusden.com/java/CoffeeSaint/) - java based nagios status viewer
+* [coffeesaint-github](https://github.com/flok99/CoffeeSaint)
+* [nagmap-github](https://github.com/hecko/nagmap/) - Integration of nagios/icinga into google maps
+* [nagvis](http://www.nagvis.org/) - Draw map from event brokers.
+* [nagvis-github](https://github.com/NagVis/nagvis)
+* [realopinsight](http://realopinsight.com/)
+* [realopinsight-github](https://github.com/RealOpInsightLabs/realopinsight-workstation)
+
+#### Graphing
+
+* [rrdtool](http://oss.oetiker.ch/rrdtool/) - Round Robin Database Tool, store perfomance data.
+* [rrdtool-github](https://github.com/oetiker/rrdtool-1.x)
+* [nagiosgraph-official](http://nagiosgraph.sourceforge.net/) - Create graphs and store data in rrdtool.
+* [nagiosgraph-SF](https://sourceforge.net/projects/nagiosgraph/)
+* [pnp4nagios](http://docs.pnp4nagios.org/) - Create graphs and store rrdtool.
+* [pnp4nagios-github](https://github.com/lingej/pnp4nagios)
+
 #### Congiruration
 
-* [nagios.vim](https://github.com/crazy-canux/nagios.vim)
-* [icinga2.vim](https://github.com/crazy-canux/icinga2.vim)
+* [nagios.vim](https://github.com/crazy-canux/nagios.vim) - Vim plugin for Nagios
+* [icinga2.vim](https://github.com/crazy-canux/icinga2.vim) - Vim plugin for Icinga
+* [nconf-official](http://www.nconf.org/dokuwiki/doku.php) - Enterprise Nagios configurator
+* [nconf-github](https://github.com/nconf/nconf)
+* [adagios](http://adagios.org/) - web based nagios configuration
+* [adagios-github](https://github.com/opinkerfi/adagios)
 
+#### Procedure
 
-### Nagiosgraph
+* [dokuwiki](https://www.dokuwiki.org/dokuwiki/)
+* [dokuwiki-github](https://github.com/splitbrain/dokuwiki)
 
-<http://nagiosgraph.sourceforge.net/>
-<https://sourceforge.net/projects/nagiosgraph/>
+#### Business Process Intelligence
 
-### NCONF
+* [nagiosBPI-github](https://github.com/NagiosEnterprises/nagiosbpi)
+* [BP](http://bp-addon.monitoringexchange.org/)
+* [BP-github](https://github.com/booboo-at-gluga-de/bp-addon)
 
-<http://www.nconf.org/dokuwiki/doku.php>
-<https://github.com/nconf/nconf>
+#### SNMP
 
-### NSClient++(NSCP)
+* [NSTI-github](https://github.com/NagiosEnterprises/nsti)
 
-<https://www.nsclient.org/>
-<https://github.com/mickem/nscp>
+#### API
 
-### BP
+* [nagiosvshell-github](https://github.com/NagiosEnterprises/nagiosvshell) - nagios v-shell PHP interface
+* [pynag](http://pynag.org/) - API for managin nagios configuration and write plugins
+* [pynag-github](https://github.com/pynag/pynag)
+* [nagios-api-github](https://github.com/zorkian/nagios-api) - A REST-like, JSON interface to nagios
+* [nagiosharder-github](https://github.com/railsmachine/nagiosharder) - ruby API for scraping nagios
+* [nagrestconf](http://nagrestconf.smorg.co.uk/) - a REST interface and configuration GUI for nagios
+* [nagrestconf-github](https://github.com/mclarkson/nagrestconf)
 
-<http://bp-addon.monitoringexchange.org/>
-<https://github.com/booboo-at-gluga-de/bp-addon>
+#### Misc
 
-### Nagvis
-
-<http://www.nagvis.org/>
-<https://github.com/NagVis/nagvis>
-
-### dokuwiki
-
-<https://www.dokuwiki.org/dokuwiki/>
-<https://github.com/splitbrain/dokuwiki>
-
-### rrdtool
-
-<http://oss.oetiker.ch/rrdtool/>
-<https://github.com/oetiker/rrdtool-1.x>
-
-### Mod gearman
-
-<http://www.mod-gearman.org/>
-<https://github.com/sni/mod_gearman>
-
-### OMD
-
-<http://omdistro.org/>
-<https://github.com/ConSol/omd>
-
-### pnp4nagios
-
-<http://docs.pnp4nagios.org/>
-<https://github.com/lingej/pnp4nagios>
-
-### Thruk
-
-<http://www.thruk.org/>
-<https://github.com/sni/Thruk>
-
-### nagios cookbook
-
-<https://github.com/schubergphilis/nagios>
-
-### Nagstamon
-
-<https://nagstamon.ifw-dresden.de/>
-
-<https://github.com/HenriWahl/Nagstamon>
-
-### cucumber-nagios
-
-<http://cucumber-nagios.org/>
-
-<https://github.com/auxesis/cucumber-nagios>
-
-### nagios-herald
-
-<https://codeascraft.com/2014/06/06/introducing-nagios-herald/>
-
-<https://github.com/etsy/nagios-herald>
-
-### adagios
-
-<http://adagios.org/>
-
-<https://github.com/opinkerfi/adagios>
-
-### nagios-api
-
-<https://github.com/zorkian/nagios-api>
-
-### nagiosharder
-
-<https://github.com/railsmachine/nagiosharder>
-
-### pynag
-
-<http://pynag.org/>
-
-<https://github.com/pynag/pynag>
-
-### nagdash
-
-<https://github.com/lozzd/Nagdash>
+* [chef-nagios-cookbook-github](https://github.com/schubergphilis/nagios)
+* [cucumber](http://cucumber-nagios.org/)
+* [cucumber-github](https://github.com/auxesis/cucumber-nagios)
+* [nagios-herald](https://codeascraft.com/2014/06/06/introducing-nagios-herald/) - Customizing nagios alerts
+* [nagios-herald-github](https://github.com/etsy/nagios-herald)
 
 ***
 
 ## check_mk
 
-* [Check_mk-Official](http://mathias-kettner.de/check_mk.html)
-* [check_mk-exchange](http://mathias-kettner.com/check_mk_exchange.php?HTML=yes)
-* [Check_mk-Blog](http://crazy-canux.github.io/2016/05/12/Monitoring%E4%B9%8Bcheck_MK/)
+* [Check_mk-Blog](http://crazy-canux.github.io/2016/05/12/Monitoring%E4%B9%8Bcheck_MK/) - Monitoring tools written in python
+* [Check_mk-official](http://mathias-kettner.de/check_mk.html)
+* [check_mk-repo](http://git.mathias-kettner.de/git/?p=check_mk.git;a=tree)
+* [check_mk-exchange](http://mathias-kettner.com/check_mk_exchange.php?HTML=yes) - check_mk plugins
 
 ***
 
@@ -257,47 +248,54 @@ monitoring applications.
 
 > Sensu is an infrastructure and application monitoring and telemetry solution.
 
-* [Sensu-Official](https://sensuapp.org/)
-* [Sensu-Github](https://github.com/sensu)
-* [sensu-plugins-Official](http://sensu-plugins.io/)
-* [sensu-plugins-Github](https://github.com/sensu-plugins)
+* [Sensu-official](https://sensuapp.org/) - Monitoring tools written in ruby
+* [Sensu-github](https://github.com/sensu)
+* [sensu-plugins-official](http://sensu-plugins.io/) - centreon plugin wirtten in ruby
+* [sensu-plugins-github](https://github.com/sensu-plugins)
 
 ***
 
 ## Centreon
 
-* [Centreon-Official](https://www.centreon.com)
-* [Centreon-Github](https://github.com/centreon)
+* [Centreon-official](https://www.centreon.com) - Monitoring tools written in C++
+* [Centreon-github](https://github.com/centreon)
+* [Centreon-plugins-github](https://github.com/centreon/centreon-plugins) - centreon plugin writen in perl
 
 ***
 
 ## Zabbix
 
-* [Zabbix-Official](http://www.zabbix.com/)
+* [Zabbix-official](http://www.zabbix.com/)
 * [Zabbix-Opensource](https://www.zabbix.org/wiki/Main_Page)
-* [Zabbix-Github](https://github.com/zabbix)
+* [Zabbix-github](https://github.com/zabbix)
 
 ***
 
 ## Ganglia
 
-* [Ganglia-Official](http://ganglia.info/)
-* [Ganglia-Github](https://github.com/ganglia)
+* [Ganglia-official](http://ganglia.info/)
+* [Ganglia-github](https://github.com/ganglia)
 
 ***
 
 ## Zenoss
 
-* [Zenoss-Official](https://www.zenoss.com/)
+* [Zenoss-official](https://www.zenoss.com/)
 * [Zenoss-Opensource](https://www.zenoss.org/)
-* [Zenoss-Github](https://github.com/zenoss)
+* [Zenoss-github](https://github.com/zenoss)
 
 ***
 
 ## Opserver
 
-* [Opserver-Official](http://opserver.org/)
-* [Opserver-Github](https://github.com/opserver)
+* [Opserver-official](http://opserver.org/)
+* [Opserver-github](https://github.com/opserver)
+
+***
+
+## Opsview
+
+* [Opsview-official](https://www.opsview.com/)
 
 ***
 
