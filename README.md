@@ -86,6 +86,8 @@ monitoring applications.
 
 #### Develop Plugins
 
+> How to develop plugins for your own service.
+
 * [monitoring plugin development guidelines](https://www.monitoring-plugins.org/doc/guidelines.html)
 * [nagios plugin development guidelines](https://nagios-plugins.org/doc/guidelines.html) - Replaced by monitoring plugin development guidelines
 
@@ -97,27 +99,56 @@ monitoring applications.
 
 * [OSX-Monitoring-Tools](https://github.com/jedda/OSX-Monitoring-Tools)
 
+#### Monitoring Linux/Unix
+
+* [check_fujitsu_health.pl](https://github.com/lausser/check_fujitsu_health)
+* [check_hpasm.pl](https://github.com/lausser/check_hpasm)
+
+#### Monitoring Network
+
+* [check_nwc_health.pl](https://github.com/lausser/check_nwc_health)
+
+#### Monitoring Storage
+
+* [check_tl_health.pl](https://github.com/lausser/check_tl_health)
+* [check_raid.pl](https://github.com/glensc/nagios-plugin-check_raid)
+* [check_sstcam.pl](https://github.com/lausser/check_sstcam)
+
 #### Monitoring Vitual Machine
 
 * [check_wmware_api.pl](https://github.com/op5/check_vmware_api)
 * [check_vmware_esx.pl](https://github.com/BaldMansMojo/check_vmware_esx)
-* [check_docker](https://github.com/newrelic/check_docker)
+* [check_docker.go](https://github.com/newrelic/check_docker)
 
 #### Monitoring Database
 
-* [nagios-plugin-mongodb](https://github.com/mzupan/nagios-plugin-mongodb)
-* [check_postgres](https://github.com/bucardo/check_postgres)
+* [check_mysql_health.pl](https://github.com/lausser/check_mysql_health)
+* [check_oracle_health.pl](https://github.com/lausser/check_oracle_health)
+* [check_db2_health.pl](https://github.com/lausser/check_db2_health)
+* [check_mssql_health.pl](https://github.com/lausser/check_mssql_health)
+* [check_mongodb.py](https://github.com/mzupan/nagios-plugin-mongodb)
+* [check_postgres.pl](https://github.com/bucardo/check_postgres)
+
+#### Monitoring Log
+
+* [check_logfiles.pl](https://github.com/lausser/check_logfiles)
+* [check_events.pl](https://github.com/pewo/nagios-plugins/tree/master/check_events)
 
 #### Monitoring Application
 
-* [nagios-plugin-elasticsearch](https://github.com/anchor/nagios-plugin-elasticsearch)
-* [nagios-plugins-rabbitmq](https://github.com/nagios-plugins-rabbitmq/nagios-plugins-rabbitmq)
-* [nagios_tools](https://github.com/etsy/nagios_tools)
+* [check_sap_health.pl](https://github.com/lausser/check_sap_health)
+* [check_mailbox_health.pl](https://github.com/lausser/check_mailbox_health)
+* [check_elasticsearch.py](https://github.com/anchor/nagios-plugin-elasticsearch)
+* [check_graphite_data.py](https://github.com/etsy/nagios_tools)
 
 #### Misc
 
 * [xPlugin_Monitoring](https://github.com/crazy-canux/xPlugin_Monitoring)
 * [nagios-plugins](https://github.com/HariSekhon/nagios-plugins)
+* [nagios-plugins](https://github.com/pewo/nagios-plugins)
+* [nagios-plugins-rabbitmq](https://github.com/nagios-plugins-rabbitmq/nagios-plugins-rabbitmq)
+* [nagios-snmp-plugins](http://nagios.manubulon.com/)
+* [nagios-snmp-plugins-SF](https://sourceforge.net/projects/nagios-snmp/)
 
 ***
 
@@ -235,9 +266,11 @@ monitoring applications.
 #### SNMP
 
 * [NSTI-github](https://github.com/NagiosEnterprises/nsti)
+* [nagios-mib-github](https://github.com/nagios-plugins/nagios-mib) - This is the initial set of MIBs for Nagios to allow traps sent from Nagios to be recognized by other NMSes.
 
 #### API
 
+* [nagios-plugin-perl-github](https://github.com/nagios-plugins/nagios-plugin-perl) - Perl module Nagios::Monitoring::Plugin
 * [nagiosvshell-github](https://github.com/NagiosEnterprises/nagiosvshell) - nagios v-shell PHP interface
 * [pynag](http://pynag.org/) - API for managin nagios configuration and write plugins
 * [pynag-github](https://github.com/pynag/pynag)
