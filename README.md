@@ -304,7 +304,7 @@ monitoring applications.
 
 * [Sensu-official](https://sensuapp.org/) - Monitoring tools written in ruby
 * [Sensu-github](https://github.com/sensu)
-* [sensu-plugins-official](http://sensu-plugins.io/) - centreon plugin wirtten in ruby
+* [sensu-plugins-official](http://sensu-plugins.io/) - sensu plugin wirtten in ruby
 * [sensu-plugins-github](https://github.com/sensu-plugins)
 
 ***
