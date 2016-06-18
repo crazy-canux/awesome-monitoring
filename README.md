@@ -355,7 +355,7 @@ monitoring applications.
 
 ## Bosun
 
-* [Bosun](http://bosun.org/)
+* [Bosun-official](http://bosun.org/)
 * [Bosun-github](https://github.com/bosun-monitor)
 
 ***
