@@ -360,11 +360,15 @@ monitoring applications.
 
 ***
 
+## Authors
+
+[Authors](AUTHORS.md)
+
+***
+
 ## Contributing
 
-> Everyone is welcomed to push your code to this repository.
-
-[Contribution guide](contributing.md)
+[Contribution guide](CONTRIBUTING.md)
 
 ***
 
