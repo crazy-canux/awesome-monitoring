@@ -144,7 +144,7 @@ monitoring applications.
 
 #### Misc
 
-* [xPlugin_Monitoring](https://github.com/crazy-canux/xPlugin_Monitoring)
+* [xplugin](https://github.com/crazy-canux/xplugin)
 * [nagios-plugins](https://github.com/HariSekhon/nagios-plugins)
 * [nagios-plugins](https://github.com/pewo/nagios-plugins)
 * [nagios-plugins-rabbitmq](https://github.com/nagios-plugins-rabbitmq/nagios-plugins-rabbitmq)
