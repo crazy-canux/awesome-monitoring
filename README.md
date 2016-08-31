@@ -16,7 +16,7 @@
     * [Naemon](#naemon)
     * [Icinga](#icinga)
     * [Shinken](#shinken)
-    * [Plugins](#pluings)
+    * [Plugins](#plugins)
     * [Addons](#addons)
 * [Check_mk](#check_mk)
 * [Sensu](#sensu)
@@ -26,6 +26,7 @@
 * [Zenoss](#zenoss)
 * [Opserver](#opserver)
 * [Opsview](#opsview)
+* [Bosun](#bosun)
 * [Contributing](#contributing)
 * [License](#license)
 
@@ -360,15 +361,15 @@ monitoring applications.
 
 ***
 
-## Authors
-
-[Authors](AUTHORS.md)
-
-***
-
 ## Contributing
 
 [Contribution guide](CONTRIBUTING.md)
+
+***
+
+## Authors
+
+[Authors](AUTHORS.md)
 
 ***
 
@@ -376,4 +377,4 @@ monitoring applications.
 
 [![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)
 
-See [License](LICENSE)
+[License](LICENSE)
