@@ -16,17 +16,18 @@
     * [Naemon](#naemon)
     * [Icinga](#icinga)
     * [Shinken](#shinken)
+    * [Centreon](#centreon)
+    * [Opsview](#opsview)
     * [Plugins](#plugins)
     * [Addons](#addons)
 * [Check_mk](#check_mk)
 * [Sensu](#sensu)
-* [Centreon](#centreon)
 * [Zabbix](#zabbix)
 * [Ganglia](#ganglia)
 * [Zenoss](#zenoss)
-* [Opserver](#opserver)
-* [Opsview](#opsview)
 * [Bosun](#bosun)
+* [Opserver](#opserver)
+* [netdata](#netdata)
 * [Contributing](#contributing)
 * [License](#license)
 
@@ -52,19 +53,29 @@
 ### Naemon
 
 * [Naemon-official](http://www.naemon.org/)
-* [Naemoncore-github](https://github.com/naemon/naemon-core) - Next generation of nagioscore
+* [Naemoncore-github](https://github.com/naemon/naemon-core) - Next generation of nagioscore.
 
 ### Icinga
 
 * [Icinga-official](https://www.icinga.org/)
-* [Icinga2-github](https://github.com/Icinga/icinga2) - Icinga2 core
+* [Icinga2-github](https://github.com/Icinga/icinga2) - Icinga2 core, written in C++.
 * [Icinga-cn](https://sourceforge.net/projects/icinga-cn/files/)
 * [Icinga-exchange](https://exchange.icinga.org/)
 
 ### Shinken
 
 * [Shinken-official](http://www.shinken-monitoring.org/)
-* [Shinken-github](https://github.com/naparuba/shinken) - Shinken core
+* [Shinken-github](https://github.com/naparuba/shinken) - Shinken core, written in python.
+
+### Centreon
+
+* [Centreon-official](https://www.centreon.com)
+* [Centreon-github](https://github.com/centreon/centreon-engine) - centreon core written in C++.
+* [Centreon-plugins-github](https://github.com/centreon/centreon-plugins)
+
+### Opsview
+
+* [Opsview-official](https://www.opsview.com/) - opsview core,  written in  perl.
 
 ***
 
@@ -76,9 +87,7 @@
 
 #### Monitoring Plugins
 
-> The Monitoring Plugins Development Team, maintain a bundle of more than
-fifty standard plugins for Icinga, Naemon, Nagios, Shinken, Sensu, and other
-monitoring applications.
+> The Monitoring Plugins Development Team, maintain a bundle of more than fifty standard plugins for Icinga, Naemon, Nagios, Shinken, Sensu, opsview and other monitoring applications.
 
 * [monitoring-plugins-official](https://www.monitoring-plugins.org/)
 * [monitoring-plugins-github](https://github.com/monitoring-plugins)
@@ -144,7 +153,7 @@ monitoring applications.
 
 #### Misc
 
-* [xplugin](https://github.com/crazy-canux/xplugin)
+* [xplugin](https://github.com/crazy-canux/xplugin) - A new API for build monitoring plugins.
 * [nagios-plugins](https://github.com/HariSekhon/nagios-plugins)
 * [nagios-plugins](https://github.com/pewo/nagios-plugins)
 * [nagios-plugins-rabbitmq](https://github.com/nagios-plugins-rabbitmq/nagios-plugins-rabbitmq)
@@ -292,29 +301,23 @@ monitoring applications.
 
 ## check_mk
 
-* [Check_mk-Blog](http://crazy-canux.github.io/2016/05/12/Monitoring%E4%B9%8Bcheck_MK/) - Monitoring tools written in python
+> Check_MK is comprehensive IT monitoring solution in the tradition of Nagios.
+
+* [Check_mk-Blog](http://crazy-canux.github.io/2016/05/12/Monitoring%E4%B9%8Bcheck_MK/)
 * [Check_mk-official](http://mathias-kettner.de/check_mk.html)
-* [check_mk-repo](http://git.mathias-kettner.de/git/?p=check_mk.git;a=tree)
-* [check_mk-exchange](http://mathias-kettner.com/check_mk_exchange.php?HTML=yes) - check_mk plugins
+* [check_mk-repo](http://git.mathias-kettner.de/git/?p=check_mk.git;a=tree) - Monitoring tools written in Python.
+* [check_mk-exchange](http://mathias-kettner.com/check_mk_exchange.php?HTML=yes) - check_mk plugins.
 
 ***
 
 ### Sensu
 
-> Sensu is an infrastructure and application monitoring and telemetry solution.
+> Sensu is an infrastructure and application monitoring and telemetry solution. Sensu allows you to reuse monitoring checks and plugins from legacy monitoring tools like Nagios, Icinga, Zabbix, and many more.
 
-* [Sensu-official](https://sensuapp.org/) - Monitoring tools written in ruby
+* [Sensu-official](https://sensuapp.org/) - Monitoring tools written in ruby.
 * [Sensu-github](https://github.com/sensu)
-* [sensu-plugins-official](http://sensu-plugins.io/) - sensu plugin wirtten in ruby
+* [sensu-plugins-official](http://sensu-plugins.io/) - sensu plugin wirtten in ruby.
 * [sensu-plugins-github](https://github.com/sensu-plugins)
-
-***
-
-## Centreon
-
-* [Centreon-official](https://www.centreon.com) - Monitoring tools written in C++
-* [Centreon-github](https://github.com/centreon)
-* [Centreon-plugins-github](https://github.com/centreon/centreon-plugins) - centreon plugin writen in perl
 
 ***
 
@@ -338,28 +341,34 @@ monitoring applications.
 * [Zenoss-official](https://www.zenoss.com/)
 * [Zenoss-Opensource](https://www.zenoss.org/)
 * [Zenoss-github](https://github.com/zenoss)
+* [Zenoss-core-sf](https://sourceforge.net/projects/zenoss/)
 
 ***
 
 ## Opserver
+
+> Stack Exchange's Monitoring System, written in C#.
 
 * [Opserver-official](http://opserver.org/)
 * [Opserver-github](https://github.com/opserver)
 
 ***
 
-## Opsview
-
-* [Opsview-official](https://www.opsview.com/)
-
-***
-
 ## Bosun
+
+> Bosun is a time series alerting framework developed by Stack Exchange, written in Go.
 
 * [Bosun-official](http://bosun.org/)
 * [Bosun-github](https://github.com/bosun-monitor)
 
 ***
+
+## netdata
+
+> Real-time performance monitoring.
+
+* [netdata-official](http://my-netdata.io/)
+* [netdata-github](https://github.com/firehol/netdata)
 
 ## Contributing
 
