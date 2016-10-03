@@ -102,6 +102,11 @@
 * [monitoring plugin development guidelines](https://www.monitoring-plugins.org/doc/guidelines.html)
 * [nagios plugin development guidelines](https://nagios-plugins.org/doc/guidelines.html) - Replaced by monitoring plugin development guidelines
 
+#### Plugins API
+
+* [pyMonitoringPlugins](https://github.com/crazy-canux/pyMonitoringPlugins) - A set of Python API for write your monitoring plugins.
+* [monitoring-plugin-perl](https://github.com/monitoring-plugins/monitoring-plugin-perl) - Perl module for plugins.
+
 #### Monitoring Windows server
 
 * [check_wmi_plus.pl](http://www.edcint.co.nz/checkwmiplus/)
@@ -153,7 +158,7 @@
 
 #### Misc
 
-* [xplugin](https://github.com/crazy-canux/xplugin) - A new API for build monitoring plugins.
+* [xplugin](https://github.com/crazy-canux/xplugin) - Tons of plugins monitoring your business.
 * [nagios-plugins](https://github.com/HariSekhon/nagios-plugins)
 * [nagios-plugins](https://github.com/pewo/nagios-plugins)
 * [nagios-plugins-rabbitmq](https://github.com/nagios-plugins-rabbitmq/nagios-plugins-rabbitmq)
