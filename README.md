@@ -104,7 +104,7 @@
 
 #### Plugins API
 
-* [pyMonitoringPlugins](https://github.com/crazy-canux/pyMonitoringPlugins) - A set of Python API for write your monitoring plugins.
+* [pyMonitoringPlugins](https://github.com/crazy-canux/pymonitoringplugins) - A set of Python API for write your monitoring plugins.
 * [monitoring-plugin-perl](https://github.com/monitoring-plugins/monitoring-plugin-perl) - Perl module for plugins.
 
 #### Monitoring Windows server
@@ -158,7 +158,7 @@
 
 #### Misc
 
-* [xplugin](https://github.com/crazy-canux/xplugin) - Tons of plugins monitoring your business.
+* [zplugin](https://github.com/crazy-canux/zplugin) - Tons of plugins monitoring your business.
 * [nagios-plugins](https://github.com/HariSekhon/nagios-plugins)
 * [nagios-plugins](https://github.com/pewo/nagios-plugins)
 * [nagios-plugins-rabbitmq](https://github.com/nagios-plugins-rabbitmq/nagios-plugins-rabbitmq)
@@ -261,7 +261,7 @@
 #### Congiruration
 
 * [nagios.vim](https://github.com/crazy-canux/nagios.vim) - Vim plugin for Nagios
-* [icinga2.vim](https://github.com/crazy-canux/icinga2.vim) - Vim plugin for Icinga
+* [icinga2.vim](https://github.com/crazy-canux/icinga2.vim) - Vim plugin for Icinga2
 * [nconf-official](http://www.nconf.org/dokuwiki/doku.php) - Enterprise Nagios configurator
 * [nconf-github](https://github.com/nconf/nconf)
 * [adagios](http://adagios.org/) - web based nagios configuration
