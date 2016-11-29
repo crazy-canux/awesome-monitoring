@@ -104,7 +104,8 @@
 
 #### Plugins API
 
-* [pyMonitoringPlugins](https://github.com/crazy-canux/pymonitoringplugins) - A set of Python API for write your monitoring plugins.
+* [pymonitoringplugins](https://github.com/crazy-canux/pymonitoringplugins) - A set of Python API for write your monitoring plugins.
+* [pymonitoringplugins-docs](http://pymonitoringplugins.readthedocs.io/en/latest/)
 * [monitoring-plugin-perl](https://github.com/monitoring-plugins/monitoring-plugin-perl) - Perl module for plugins.
 
 #### Monitoring Windows server
@@ -159,6 +160,7 @@
 #### Misc
 
 * [zplugin](https://github.com/crazy-canux/zplugin) - Tons of plugins monitoring your business.
+
 * [nagios-plugins](https://github.com/HariSekhon/nagios-plugins)
 * [nagios-plugins](https://github.com/pewo/nagios-plugins)
 * [nagios-plugins-rabbitmq](https://github.com/nagios-plugins-rabbitmq/nagios-plugins-rabbitmq)
@@ -283,9 +285,8 @@
 * [NSTI-github](https://github.com/NagiosEnterprises/nsti)
 * [nagios-mib-github](https://github.com/nagios-plugins/nagios-mib) - This is the initial set of MIBs for Nagios to allow traps sent from Nagios to be recognized by other NMSes.
 
-#### API
+#### Addons API
 
-* [nagios-plugin-perl-github](https://github.com/nagios-plugins/nagios-plugin-perl) - Perl module Nagios::Monitoring::Plugin
 * [nagiosvshell-github](https://github.com/NagiosEnterprises/nagiosvshell) - nagios v-shell PHP interface
 * [pynag](http://pynag.org/) - API for managin nagios configuration and write plugins
 * [pynag-github](https://github.com/pynag/pynag)
