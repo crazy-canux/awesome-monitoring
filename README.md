@@ -34,7 +34,7 @@
 
 ## Monitoring
 
-* [Monitoring Blog](http://crazy-canux.github.io/2016/05/18/Monitoring/) - Blog.
+* [Monitoring](http://crazy-canux.github.io/2016/05/18/Monitoring/) - Blog.
 
 ### Nagios
 
@@ -43,7 +43,7 @@
 * [Nagios exchange](https://exchange.nagios.org/) - Nagios official exchange website.
 * [Nagios core github](https://github.com/NagiosEnterprises/nagioscore) - Nagios core written in C.
 * [Nagios chinese](https://sourceforge.net/projects/nagios-cn/files/?source=navbar) - Nagios chinese document.
-* [Nagios blog](http://crazy-canux.github.io/2016/03/24/Monitoring%E4%B9%8BNagios/) - Nagios blog.
+* [Nagios](http://crazy-canux.github.io/2016/03/24/Monitoring%E4%B9%8BNagios/) - Blog.
 
 ### Naemon
 
