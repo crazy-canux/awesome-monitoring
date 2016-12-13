@@ -2,8 +2,8 @@
 
 > A curated list of awesome resources for monitoring tools.
 
-* [The mother repository awesome](https://github.com/sindresorhus/awesome)
-* [The mother repository awesome-awesomeness](https://github.com/bayandin/awesome-awesomeness)
+* [awesome](https://github.com/sindresorhus/awesome)
+* [awesome-awesomeness](https://github.com/bayandin/awesome-awesomeness)
 
 ***
 
