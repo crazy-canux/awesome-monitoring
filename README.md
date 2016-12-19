@@ -149,6 +149,7 @@
 * [check_elasticsearch.py](https://github.com/anchor/nagios-plugin-elasticsearch) - For ES.
 * [check_graphite_data.py](https://github.com/etsy/nagios_tools) - For graphite.
 * [nagios-plugins-rabbitmq](https://github.com/nagios-plugins-rabbitmq/nagios-plugins-rabbitmq) - For rabbitmq.
+* [Celery-Nagios-Plugin](https://github.com/wilhelm-murdoch/Celery-Nagios-Plugin) - For celery.
 
 #### Misc
 
@@ -200,8 +201,10 @@
 * [NRDP github](https://github.com/NagiosEnterprises/nrdp) - Nagios Remote Data Processor, as a replacement for NSCA.
 * [DNX](http://dnx.sourceforge.net/) - Distributed Nagios eXecutor, for Nagios/Naemon.
 * [DNX github](https://github.com/DNX-Project/DNX) - DNX source code.
-* [consol mod-gearman](http://www.mod-gearman.org/) - For Nagios/Naemon.
-* [consol mod-gearman github](https://github.com/sni/mod_gearman) - Mod-gearman source code.
+* [gearman](http://gearman.org/) - Gearman official website.
+* [gearman github](https://github.com/gearman/gearmand) - Gearmand source code. A gearman job server written in C++.
+* [consol mod-gearman](http://www.mod-gearman.org/) - Gearman worker for Nagios/Naemon.
+* [consol mod-gearman github](https://github.com/sni/mod_gearman) - Mod-gearman source code. A gearman wroker written in C.
 * [op5 merlin](https://kb.op5.com/display/MERLIN/Distributed+%28Merlin%29+Home) - For Nagios/Naemon.
 * [op5 merlin github](https://github.com/op5/merlin) - Merlin source code.
 
@@ -255,7 +258,7 @@
 * [grafana](http://grafana.org/) - Grafana.
 * [grafana github](https://github.com/grafana/grafana) - Grafana source code.
 
-#### Congiruration
+#### Configuration
 
 * [nagios.vim](https://github.com/crazy-canux/nagios.vim) - Vim plugin for Nagios.
 * [icinga2.vim](https://github.com/crazy-canux/icinga2.vim) - Vim plugin for Icinga2.
