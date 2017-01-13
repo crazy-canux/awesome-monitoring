@@ -11,15 +11,15 @@
 
 * [Monitoring](#monitoring)
     * [Nagios](#nagios)
-    * [Naemon](#naemon)
     * [Icinga](#icinga)
+    * [Naemon](#naemon)
     * [Shinken](#shinken)
     * [Centreon](#centreon)
     * [Opsview](#opsview)
 * [Yet Another Nagios](#yet-another-nagios)
     * [Check_mk](#check_mk)
     * [Sensu](#sensu)
-    * [cabot](#cabot)
+    * [Cabot](#cabot)
     * [Server Density](#server-density)
     * [PagerDuty](#pagerduty)
 * [Monitroing Plugins](#monitoring-plugins)
@@ -50,40 +50,48 @@
 
 ### Nagios
 
-* [Nagios](https://www.nagios.org/) - Nagios official website.
-* [Nagios enterprise](https://www.nagios.com/) - Nagios enterprise website.
+* [Nagios](https://www.nagios.org/) - Nagios Is The Industry Standard In IT Infrastructure Monitoring.
+* [Nagios enterprise](https://www.nagios.com/) - IT Infrastructure Monitoring World Class Network, Server and Log Monitoring Software.
 * [Nagios exchange](https://exchange.nagios.org/) - Nagios official exchange website.
 * [Nagios core github](https://github.com/NagiosEnterprises/nagioscore) - Nagios core written in C.
 * [Nagios chinese](https://sourceforge.net/projects/nagios-cn/files/?source=navbar) - Nagios chinese document.
 * [Nagios](http://crazy-canux.github.io/2016/03/24/Monitoring%E4%B9%8BNagios/) - Blog.
 
-### Naemon
-
-* [Naemon](http://www.naemon.org/) - Naemon official website.
-* [Naemon core github](https://github.com/naemon/naemon-core) - Next generation of nagios core written in C.
-
 ### Icinga
 
-* [Icinga](https://www.icinga.org/) - Icinga official website.
+* [Icinga](https://www.icinga.org/) - Monitoring core with features and REST API.
 * [Icinga exchange](https://exchange.icinga.org/) - Icinga2 official exchange website.
 * [Icinga2 core github](https://github.com/Icinga/icinga2) - Icinga2 core written in C++.
 * [Icinga chinese](https://sourceforge.net/projects/icinga-cn/files/) - Icinga2 chinese document.
 
+### Naemon
+
+> Naemon is the new monitoring suite that aims to be fast, stable and innovative while giving you a clear view of the state of your network and applications.
+
+* [Naemon](http://www.naemon.org/) - Networks, Applications and Event Monitor.
+* [Naemon core github](https://github.com/naemon/naemon-core) - Next generation of nagios core written in C.
+
 ### Shinken
 
-* [Shinken](http://www.shinken-monitoring.org/) - Shinken official website.
+> Shinken is a monitoring framework. It's a Python Nagios® Core total rewrite enhancing flexibility and large environment management.
+
+* [Shinken](http://www.shinken-monitoring.org/) - Flexible and scalable monitoring framework.
 * [Shinken core github](https://github.com/naparuba/shinken) - Shinken core written in Python.
 * [Shinken exchange github](https://github.com/shinken-monitoring) - Shinken exchange.
 
 ### Centreon
 
-* [Centreon](https://www.centreon.com) - Shinken offcial website.
+> Centreon is a network, system, applicative supervision and monitoring tool.
+
+* [Centreon](https://www.centreon.com) - An industry reference for open source monitoring.
 * [Centreon core github](https://github.com/centreon/centreon-engine) - Centreon core written in C++.
 * [Centreon plugins github](https://github.com/centreon/centreon-plugins) - Centreon plugins.
 
 ### Opsview
 
-* [Opsview](https://www.opsview.com/) - Opsview official website.
+> Powerful monitoring for IT networks large and small, visualize all aspects of your IT at a glance.
+
+* [Opsview](https://www.opsview.com/) - Comprehensive coverage, rapid resolution, elegant visualization.
 * [Opsview core](https://www.openhub.net/p/opsview) - Opsview core written in Perl.
 
 ***
@@ -94,7 +102,9 @@ Lots of monitoring tools are based on nagios.
 
 ### check_mk
 
-* [Check_mk](http://mathias-kettner.de/check_mk.html) - Check_mk official website.
+> Check_MK is comprehensive IT monitoring solution in the tradition of Nagios.
+
+* [Check_mk](http://mathias-kettner.de/check_mk.html) - Check_mk is open source and pure python code.
 * [check_mk exchange](http://mathias-kettner.com/check_mk_exchange.php?HTML=yes) - Check_mk plugins.
 * [check_mk core git](http://git.mathias-kettner.de/git/?p=check_mk.git;a=tree) - Check_mk core written in Python.
 * [Check_mk](http://crazy-canux.github.io/2016/05/11/Monitoring%E4%B9%8Bcheck_MK/) - Blog.
@@ -108,7 +118,6 @@ Lots of monitoring tools are based on nagios.
 
 ### Cabot
 
-* [arachnys](https://www.arachnys.com/)
 * [cabot github](https://github.com/arachnys/cabot) - Self-hosted, easily-deployable monitoring and alerts service.
 
 ### Server Density
