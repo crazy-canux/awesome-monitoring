@@ -1,0 +1,261 @@
+<HTML>
+<HEAD>
+<TITLE>Nagios plugins</TITLE>
+<META NAME="Keywords" CONTENT="nagios,plugins,perl,snmp,proy">
+<STYLE type="text/css">
+<!--
+        .Default { font-family: verdana,arial,serif; font-size: 10pt; }
+        .ProgramTitle { font-family: verdana,arial,serif; font-size: 18pt; font-weight: bold;}
+        .Copyright { font-family: verdana,arial,serif; font-size: 10pt;}
+        .Email { font-family: verdana,arial,serif; font-size: 10pt;}
+        .NewsItem { font-family: verdana,arial,serif; font-size: 8pt; }
+        .NewsItemOdd { font-family: verdana,arial,serif; font-size: 8pt; background-color: #DBDBDB;}
+        .NewsItemEven { font-family: verdana,arial,serif; font-size: 8pt; background-color: #C4C2C2;}
+        .NewsItemUrgent { font-family: verdana,arial,serif; font-size: 8pt; background-color: #ccff99;}
+        .NewsItemDate { font-family: verdana,arial,serif; font-size: 8pt; font-weight: bold; }
+        .SectionTitle { font-family: verdana,arial,serif; font-size: 9pt; font-weight: bold; text-decoration: underline;}
+        .SectionBody { font-family: verdana,arial,serif; font-size: 8pt; }
+        .ModificationDate { font-family: verdana,arial,serif; font-size: 7pt; }
+        .Disclaimer { font-family: verdana,arial,serif; font-size: 8pt; }
+		A.SideNavBarItem { font-family: verdana,arial,serif; background-color : black; color: #e7e7e7; font-size: 9pt; font-weight: bold; text-decoration: none; }
+		A.SideNavBarItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+		A.SideNavBarHotItem { font-family: verdana,arial,serif; background-color : black; color: #ffcc66; font-size: 9pt; font-weight: bold; text-decoration: none; }
+		A.SideNavBarHotItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+-->      
+</STYLE>
+</HEAD>
+<body  background="img/sideback.jpg" bgcolor="#FFFFFF" text="black" class="Default">
+<table border="0">
+  <tr> 
+    <td valign=top> 
+      <!-- Begin Side Bar -->
+      <table border="0" width="125" valign=top>
+        <tr> 
+          <td><a href="http://nagios.manubulon.com/" class="SideNavBarItem" >Home</a></td>
+        </tr>
+        <tr> 
+          <td></td>
+        </tr>
+        <tr> 
+          <td><BR>
+          </td>
+        </tr>
+        <tr> 
+          <td> </td>
+        </tr>
+      </table>
+      <!-- End Side Bar -->
+    </td>
+    <td valign=top> 
+      <table border="0" valign=top>
+        <tr> 
+          <td class="ProgramTitle"> Snmp windows check</td>
+        </tr>
+        <tr> 
+          <td> 
+            <p class="NewsItemDate">Script : check_snmp_win.pl</p>
+            <p class="SectionTitle"> Last update : Jan 11 2007</p>
+          </td>
+        </tr>
+        <tr> 
+          <td valign="top"> 
+            <p class="SectionTitle">Description : </p>
+            <p class="SectionBody">Checks by snmp v1 or v3 windows specific health 
+              monitoring (service state for now).<br>
+              <br>
+              Works on Windows server (2000, 2003) maybe XP and NT.</p>
+            <p class="SectionBody"> Vérifie par snmp v1 ou v3 si un(des) service 
+              Windows tournent.<br>
+              <br>
+              <span class="SectionTitle"> Service checks <br>
+              </span></p>
+            <p class="SectionBody">The plugin checks if there if the Windows service(s) 
+              he gets as input are running. <br>
+              You can provide multiple services, comma separated : <br>
+              <b>-n &lt;service1&gt;,&lt;service2&gt;</b> </p>
+            <p class="SectionBody">The script will return : <br>
+              OK : if &lt;service1&gt; is found (and active) and &lt;service2&gt; 
+              is found (and active). <br>
+              WARNING : if &lt;service1&gt; and &lt;service2&gt; match <b>more</b> 
+              than 2 active services.<br>
+              CRITICAL : if &lt;service1&gt; OR &lt;service2&gt; don't match any 
+              active service. </p>
+            <p class="SectionBody"><b>-N &lt;number&gt; </b>: will return OK if 
+              &lt;number&gt; of active services matches the filter</p>
+            <p class="SectionBody"><b>-s </b>: will show all active services instead 
+              of the non active ones only</p>
+            <p class="SectionTitle">Requirements :</p>
+            <p class="SectionBody"> - Perl in /usr/bin/perl - or just run 'perl 
+              script' <br>
+              - Net::SNMP<br>
+              - file 'utils.pm' in plugin diretory<br>
+            </p>
+            <p class="SectionBody"><a href="check_snmp_win.pl" class="SectionTitle">Dowload 
+              latest version : 0.6</a> </p>
+            <p class="SectionBody"><a href="index_commands.html" class="SectionTitle">Configurations 
+              examples</a></p>
+            <p class="SectionTitle">Examples :</p>
+            <p class="SectionBody"><br>
+              All examples below are considering the script is local directory. 
+              Host to be checked is 127.0.0.1 with snmp community &quot;public&quot;.</p>
+            <p class="SectionBody">If multiple interfaces are selected, all must 
+              be up to get an OK result</p>
+            <table border="1" cellspacing="5" width="819">
+              <tr> 
+                <td class="NewsItemDate" valign = top width="262"> 
+                  <p>Get help 
+                </td>
+                <td class="SectionBody" width="532"> 
+                  <p>./check_snmp_win.pl <b>-h</b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="262">snmpv3 login</td>
+                <td class="SectionBody" width="532">./check_snmp_win.pl -H 127.0.0.1 
+                  -l login -x passwd<b></b></td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="262"> 
+                  <p>Check if at least one process matching dns is running 
+                </td>
+                <td class="SectionBody" width="532"> 
+                  <p>./check_snmp_win.pl -H 127.0.0.1 -C public <b>-n dns</b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="262"> 
+                  <p align="right">Result example : 
+                </td>
+                <td class="SectionBody" width="532"> 
+                  <p>1 services active (matching &quot;dns&quot;) : OK</p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="262"> 
+                  <p>Check if at least 3 process matching dns are running 
+                </td>
+                <td class="SectionBody" width="532"> 
+                  <p>./check_snmp_win.pl -H 127.0.0.1 -C public -n http<b> -N 
+                    2 </b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="262"> 
+                  <div align="right">Result example : <br>
+                    (&lt;=2 will return warning, 0 critical)</div>
+                </td>
+                <td class="SectionBody" width="532">1 services active (matching 
+                  &quot;dns&quot;) : CRITICAL</td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="262">Check if dns 
+                  and ssh services are running</td>
+                <td class="SectionBody" width="532">./check_snmp_win.pl -H 127.0.0.1 
+                  -C public -n dns,ssh</td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="262"> 
+                  <p align="right">Result example : </p>
+                </td>
+                <td class="SectionBody" width="532">&quot;dns&quot; active, &quot;ssh&quot; 
+                  active : OK</td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="262">Check if dns 
+                  and toto services are running</td>
+                <td class="SectionBody" width="532">./check_snmp_win.pl -H 127.0.0.1 
+                  -C public <b>-n dns,toto</b></td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="262"> 
+                  <div align="right">Result example : </div>
+                </td>
+                <td class="SectionBody" width="532">&quot;toto&quot; not active 
+                  : CRITICAL</td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+            <p class="NewsItemDate"><span class="SectionTitle">Changelog</span> 
+              : On CVS repository on sourceforge : <a href="http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/">http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/</a>.<br>
+            </p>
+            <p class="NewsItemDate">Output of check_snmp_win.pl -h</p>
+            <table border="1" cellspacing="5">
+              <tr> 
+                <td class="SectionBody" valign = top> 
+                  <p>SNMP Windows Monitor for Nagios version 0.6<br>
+                    GPL licence, (c)2004-2005 Patrick Proy</p>
+                  <p>Usage: check_snmp_win [-v] -H &lt;host&gt; -C &lt;snmp_community&gt; 
+                    [-2] | (-l login -x passwd) [-p &lt;port&gt;] -n &lt;name&gt;[,&lt;name2] 
+                    [-T=service] [-r] [-s] [-N=&lt;n&gt;] [-t &lt;timeout&gt;] 
+                    [-V]<br>
+                    -v, --verbose<br>
+                    print extra debugging information (and lists all services)<br>
+                    -h, --help<br>
+                    print this help message<br>
+                    -H, --hostname=HOST<br>
+                    name or IP address of host to check<br>
+                    -C, --community=COMMUNITY NAME<br>
+                    community name for the host's SNMP agent (implies SNMP v1 
+                    or v2c with option)<br>
+                    -2, --v2c<br>
+                    Use snmp v2c<br>
+                    -l, --login=LOGIN<br>
+                    Login for snmpv3 authentication (implies v3 protocol with 
+                    MD5)<br>
+                    -x, --passwd=PASSWD<br>
+                    Password for snmpv3 authentication<br>
+                    -p, --port=PORT<br>
+                    SNMP port (Default 161)<br>
+                    -T, --type=service<br>
+                    Check type : <br>
+                    - service (default) checks service<br>
+                    -n, --name=NAME[,NAME2...]<br>
+                    Comma separated names of services (perl regular expressions 
+                    can be used for every one).<br>
+                    By default, it is not case sensitive.<br>
+                    -N, --number=&lt;n&gt;<br>
+                    Compare matching services with &lt;n&gt; instead of the number 
+                    of names provided.<br>
+                    -s, --showall<br>
+                    Show all services in the output, instead of only the non-active 
+                    ones.<br>
+                    -r, --noregexp<br>
+                    Do not use regexp to match NAME in service description.<br>
+                    -t, --timeout=INTEGER<br>
+                    timeout for SNMP in seconds (Default: 5)<br>
+                    -V, --version<br>
+                    prints version number<br>
+                    Note : <br>
+                    The script will return <br>
+                    OK if ALL services are in active state,<br>
+                    WARNING if there is more than specified (ex 2 service specified, 
+                    3 active services matching), <br>
+                    CRITICAL if at least one of them is non active.<br>
+                    The -n option will allows regexp in perl format <br>
+                    -n &quot;service&quot; will match 'service WINS' 'sevice DNS' 
+                    etc...<br>
+                    It is not case sensitive by default : WINS = wins</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <p class="SectionBody">This project is hosted on : <br>
+              <A href="http://sourceforge.net/projects/nagios-snmp"> <IMG src="http://sourceforge.net/sflogo.php?group_id=134917&type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A> 
+            </p>
+            <p class="SectionBody"> Nagios and the Nagios logo are registered 
+              trademarks of Ethan Galstad.</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</BODY>
+</HTML>
+
+
+

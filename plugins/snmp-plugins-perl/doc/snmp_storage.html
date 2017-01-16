@@ -1,0 +1,1343 @@
+<HTML>
+
+
+
+<HEAD>
+
+
+
+<TITLE>Nagios plugins</TITLE>
+
+
+
+<META NAME="Keywords" CONTENT="nagios,plugins,perl,snmp,proy">
+
+
+
+<STYLE type="text/css">
+
+
+
+<!--
+
+
+
+        .Default { font-family: verdana,arial,serif; font-size: 10pt; }
+
+
+
+        .ProgramTitle { font-family: verdana,arial,serif; font-size: 18pt; font-weight: bold;}
+
+
+
+        .Copyright { font-family: verdana,arial,serif; font-size: 10pt;}
+
+
+
+        .Email { font-family: verdana,arial,serif; font-size: 10pt;}
+
+
+
+        .NewsItem { font-family: verdana,arial,serif; font-size: 8pt; }
+
+
+
+        .NewsItemOdd { font-family: verdana,arial,serif; font-size: 8pt; background-color: #DBDBDB;}
+
+
+
+        .NewsItemEven { font-family: verdana,arial,serif; font-size: 8pt; background-color: #C4C2C2;}
+
+
+
+        .NewsItemUrgent { font-family: verdana,arial,serif; font-size: 8pt; background-color: #ccff99;}
+
+
+
+        .NewsItemDate { font-family: verdana,arial,serif; font-size: 8pt; font-weight: bold; }
+
+
+
+        .SectionTitle { font-family: verdana,arial,serif; font-size: 9pt; font-weight: bold; text-decoration: underline;}
+
+
+
+        .SectionBody { font-family: verdana,arial,serif; font-size: 8pt; }
+
+
+
+        .ModificationDate { font-family: verdana,arial,serif; font-size: 7pt; }
+
+
+
+        .Disclaimer { font-family: verdana,arial,serif; font-size: 8pt; }
+
+
+
+		A.SideNavBarItem { font-family: verdana,arial,serif; background-color : black; color: #e7e7e7; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+
+
+		A.SideNavBarItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+
+
+		A.SideNavBarHotItem { font-family: verdana,arial,serif; background-color : black; color: #ffcc66; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+
+
+		A.SideNavBarHotItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+
+
+-->      
+
+
+
+</STYLE>
+
+
+
+</HEAD>
+
+
+
+<body  background="img/sideback.jpg" bgcolor="#FFFFFF" text="black" class="Default">
+
+
+
+<!--   background="img/sideback.jpg" -->
+
+
+
+<table border="0">
+
+
+
+  <tr> 
+
+
+
+    <td valign=top> 
+
+
+
+      <!-- Begin Side Bar -->
+
+
+
+      <table border="0" width="125" valign=top>
+
+
+
+        <tr> 
+
+
+
+          <td><a href="http://nagios.manubulon.com/" class="SideNavBarItem" >Home</a></td>
+
+
+
+        </tr>
+
+
+
+        <tr> 
+
+
+
+          <td></td>
+
+
+
+        </tr>
+
+
+
+        <tr> 
+
+
+
+          <td><BR>
+
+
+
+          </td>
+
+
+
+        </tr>
+
+
+
+        <tr> 
+
+
+
+          <td> </td>
+
+
+
+        </tr>
+
+
+
+      </table>
+
+
+
+      <!-- End Side Bar -->
+
+
+
+    </td>
+
+
+
+    <td valign=top> 
+
+
+
+      <table border="0" valign=top>
+
+
+
+        <tr> 
+
+
+
+          <td class="ProgramTitle"> Snmp storage check</td>
+
+
+
+        </tr>
+
+
+
+        <tr> 
+
+
+
+          <td> 
+
+
+
+            <p class="NewsItemDate">Script : check_snmp_storage.pl</p>
+
+
+
+            <p class="SectionTitle"> Last update : March 12 2007</p>
+
+
+
+          </td>
+
+
+
+        </tr>
+
+
+
+        <tr> 
+
+
+
+          <td valign="top"> 
+
+
+
+            <p class="SectionTitle">Description : </p>
+
+
+
+            <p class="SectionBody">This scripts checks by snmp (V1 and v3) disks, 
+
+              memory, swap, everthing in hrStorage table. <br>
+
+              Storages selection can be done : <br>
+
+              - by perl regexp on description or index (<i>-m</i>)<br>
+
+              - and (optional) by storage type (<i>-q</i>) : Other, Ram, VirtualMemory, 
+
+              FixedDisk, RemovableDisk, FloppyDisk, CompactDisk, RamDisk, FlashMemory, 
+
+              NetworkDisk<br>
+
+              <br>
+
+              One or multiple storages can be selected.<br>
+
+              It is also possible to sum all selected storages (<i>-s</i>)<br>
+
+              <br>
+
+              Warning and critical levels can be checked based on : <br>
+
+              - Percent of disk used<br>
+
+              - Percent of disk left<br>
+
+              - MB left<br>
+
+              - MB used</p>
+
+            <p class="SectionBody"><b> Output options</b> (<i>-S</i>): </p>
+
+            <p class="SectionBody">-S can have 3 options : &lt;type&gt;[,&lt;where&gt;,&lt;cut&gt;]<br>
+
+              <i>&lt;type&gt;</i> : Make the output shorter :<br>
+
+              0 : only print the global result except the disk in warning or critical<br>
+
+              1 : Don't print all info for every disk <br>
+
+              <i>&lt;where&gt;</i> : (optional) if = 1, put the OK/WARN/CRIT at 
+
+              the beginning<br>
+
+              <i>&lt;cut&gt;</i> : take the &lt;n&gt; first caracters or &lt;n&gt; 
+
+              last if n&lt;0</p>
+
+            <p class="SectionBody">With the following disks : /home : 51% used 
+
+              and / : 90% used</p>
+
+            <table width="83%" border="1">
+
+              <tr> 
+
+                <td class="SectionBody" width="13%"><b>Option used</b></td>
+
+                <td class="SectionBody" width="11%"><b>Warning</b></td>
+
+                <td class="SectionBody" width="76%"><b>Output</b></td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="SectionBody" width="13%">&nbsp;</td>
+
+                <td class="SectionBody" width="11%">99%</td>
+
+                <td class="SectionBody" width="76%">/home: 51%used(1012MB/1969MB) 
+
+                  /: 90%used(5781MB/6390MB) (&lt;99%) : OK</td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="SectionBody" width="13%">&nbsp;</td>
+
+                <td class="SectionBody" width="11%">90%</td>
+
+                <td class="SectionBody" width="76%">/home: 51%used(1012MB/1969MB) 
+
+                  /: 90%used(5781MB/6390MB) (&gt;90%) : WARNING</td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="SectionBody" width="13%">-S0</td>
+
+                <td class="SectionBody" width="11%">90%</td>
+
+                <td class="SectionBody" width="76%">All selected storages (&lt;99%) 
+
+                  : OK</td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="SectionBody" width="13%">-S0</td>
+
+                <td class="SectionBody" width="11%">99%</td>
+
+                <td class="SectionBody" width="76%">/: 90%used(5781MB/6390MB) 
+
+                  (&gt;90%) : WARNING</td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="SectionBody" width="13%">-S1</td>
+
+                <td class="SectionBody" width="11%">90%</td>
+
+                <td class="SectionBody" width="76%">/home: 51% /: 90% (&lt;99%) 
+
+                  : OK</td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="SectionBody" width="13%">-S1</td>
+
+                <td class="SectionBody" width="11%">99%</td>
+
+                <td class="SectionBody" width="76%">/home: 51% /: 90%<b>used(5781MB/6390MB)</b> 
+
+                  (&gt;90%) : WARNING</td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="SectionBody" width="13%">-S0,1</td>
+
+                <td class="SectionBody" width="11%">90%</td>
+
+                <td class="SectionBody" width="76%"><b>OK</b> : (&lt;99%) All 
+
+                  selected storages </td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="SectionBody" width="13%">-S0,1</td>
+
+                <td class="SectionBody" width="11%">90%</td>
+
+                <td class="SectionBody" width="76%"><b>WARNING</b> : (&gt;90%) 
+
+                  /: 90%used(5781MB/6390MB)</td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="SectionBody" width="13%">-S1,,<b>2</b></td>
+
+                <td class="SectionBody" width="11%">99%</td>
+
+                <td class="SectionBody" width="76%"><b>/h</b>: 51% /: 90% (&lt;99%) 
+
+                  : OK</td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="SectionBody" width="13%">-S1,,<b>-2</b></td>
+
+                <td class="SectionBody" width="11%">99%</td>
+
+                <td class="SectionBody" width="76%"><b>me</b>: 51% /: 90% (&lt;99%) 
+
+                  : OK</td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="SectionBody" width="13%">-S0,1,-2</td>
+
+                <td class="SectionBody" width="11%">30%</td>
+
+                <td class="SectionBody" width="76%">WARNING : (&gt;30%) me: 51%used(1012MB/1969MB) 
+
+                  /: 90%used(5781MB/6390MB)</td>
+
+              </tr>
+
+            </table>
+
+            <p class="SectionBody"><b>Performance output </b>(<i>-f</i><b><i> 
+              </i></b>option)</p>
+            <p class="SectionBody">The performance will remove any weird caracters 
+              ( <b>`~!$%^&amp;*'&quot;&lt;&gt;|?,(= )</b> ) from the drive name.</p>
+            <p class="SectionBody"><b>Msg size option </b>(<i>-o</i><b><i> </i></b>option)</p>
+            <p class="SectionBody">In case you get a &quot;ERROR: running table 
+              : Message size exceeded maxMsgSize&quot; error, you may need to 
+              adjust the maxMsgSize, i.e. the maximum size of snmp message with 
+              the -o option. Try a value with the -o AND the -v option : the script 
+              will output the actual value so you can add some octets to it with 
+              the -o option.</p>
+            <p class="SectionBody"><span class="SectionTitle">SNMP Login</span><br>
+            </p>
+            <p class="SectionBody">See <a href="index_info.html">snmp info page</a></p>
+
+            <p class="SectionBody">--- <br>
+              Vérifie par snmp v1 ou v3 l'occupation des disques, mais aussi de 
+              la swap, de la mémoire, etc.. tout ce qui est disponible en snmp 
+              par la table hrStorage.<br>
+
+              Les disques sont s&eacute;lectionnables par expression r&eacute;guli&egrave;re 
+
+              compatible Perl<br>
+
+            </p>
+
+            <p class="SectionTitle">Requirements :</p>
+
+
+
+            <p class="SectionBody"> - Perl in /usr/bin/perl - or just run 'perl 
+
+
+
+              script' <br>
+
+
+
+              - Net::SNMP<br>
+
+
+
+              - file 'utils.pm' in plugin diretory (/usr/local/nagios/libexec)<br>
+
+
+
+            </p>
+
+
+
+            <p class="SectionBody"><a href="check_snmp_storage.pl" class="SectionTitle">Dowload 
+              lastest version : 1.3.2</a></p>
+
+
+
+            <p class="SectionBody"><a href="index_commands.html" class="SectionTitle">Configurations 
+
+
+
+              examples</a></p>
+
+
+
+            <p class="NewsItemDate"><span class="SectionTitle">Changelog</span> 
+              : On CVS repository on sourceforge : <a href="http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/">http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/</a>.<br>
+            </p>
+
+
+
+            <p class="SectionTitle">Examples :</p>
+
+
+
+            <p class="SectionBody"><br>
+
+
+
+              All examples below are considering the script is local directory. 
+
+
+
+              Host to be checked is 127.0.0.1 with snmp community &quot;public&quot;.</p>
+
+
+
+            <table border="1" cellspacing="5">
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172"> 
+
+
+
+                  <p>Get help 
+
+
+
+                </td>
+
+
+
+                <td class="SectionBody" width="522"> 
+
+
+
+                  <p>./check_snmp_storage.pl <b>-h</b></p>
+
+
+
+                </td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172">List all storage</td>
+
+
+
+                <td class="SectionBody" width="522">./check_snmp_storage.pl -H 
+
+
+
+                  127.0.0.1 -C public -m zzzz -w 80 -c 81 <b>-v</b></td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172">snmpv3 login</td>
+
+
+
+                <td class="SectionBody" width="522">./check_snmp_storage.pl -H 
+
+
+
+                  127.0.0.1 -l login -x passwd<b></b></td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172"> 
+
+
+
+                  <p>&nbsp; 
+
+
+
+                </td>
+
+
+
+                <td class="SectionBody" width="522"> 
+
+
+
+                  <p class="NewsItemDate">Unix/Linux</p>
+
+
+
+                </td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172"> 
+
+
+
+                  <p>%used of /home is less than 80% and 90% 
+
+
+
+                </td>
+
+
+
+                <td class="SectionBody" width="522"> 
+
+
+
+                  <p>./check_snmp_storage.pl -H 127.0.0.1 -C public <b>-m /home 
+
+
+
+                    -w 80% -c 90%</b></p>
+
+
+
+                </td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172"> 
+
+
+
+                  <p>%free of /home is above 10% and 5% 
+
+
+
+                </td>
+
+
+
+                <td class="SectionBody" width="522"> 
+
+
+
+                  <p>./check_snmp_storage.pl -H 127.0.0.1 -C public -m /home <b>-w 
+
+
+
+                    10% -c 5%</b> <b>-T pl</b></p>
+
+
+
+                </td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172"> 
+
+
+
+                  <p>Mb used of /home is less than 800 Mb and 900 Mb 
+
+
+
+                </td>
+
+
+
+                <td class="SectionBody" width="522"> 
+
+
+
+                  <p>./check_snmp_storage.pl -H 127.0.0.1 -C public -m /home<b> 
+
+
+
+                    -w 800 -c 900 -T bu</b></p>
+
+
+
+                </td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172"> 
+
+
+
+                  <p>Mb free of /home is above 100Mb and 30Mb 
+
+
+
+                </td>
+
+
+
+                <td class="SectionBody" width="522"> 
+
+
+
+                  <p>./check_snmp_storage.pl -H 127.0.0.1 -C public -m /home<b> 
+
+
+
+                    -w 100 -c 30 -T bl</b></p>
+
+
+
+                </td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172"> 
+
+
+
+                  <p>All mountpoints have %used less than 80% and 90% 
+
+
+
+                </td>
+
+
+
+                <td class="SectionBody" width="522"> 
+
+
+
+                  <p>./check_snmp_storage.pl -H 127.0.0.1 -C public -m <b>/ </b>-w 
+
+
+
+                    80% -c 90%</p>
+
+
+
+                </td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172"> %used of / 
+
+
+
+                  mountpoint only is less than 80% and 90%</td>
+
+
+
+                <td class="SectionBody" width="522"> 
+
+
+
+                  <p>./check_snmp_storage.pl -H 127.0.0.1 -C public -m <b>/ -r 
+
+
+
+                    </b>-w 80% -c 90%</p>
+
+
+
+                </td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172"> %used of mountpoint 
+
+
+
+                  index 1 only is less than 80% and 90%</td>
+
+
+
+                <td class="SectionBody" width="522"> 
+
+
+
+                  <p>./check_snmp_storage.pl -H 127.0.0.1 -C public <b>-m 1 -p 
+
+
+
+                    </b>-w 80% -c 90%</p>
+
+
+
+                </td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172"> Swap %used 
+
+
+
+                  is less than 80% and 90%</td>
+
+
+
+                <td class="SectionBody" width="522"> 
+
+
+
+                  <p>./check_snmp_storage.pl -H 127.0.0.1 -C public <b>-m Swap 
+
+
+
+                    </b>-w 80% -c 90%</p>
+
+
+
+                </td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172"> Memory %used 
+
+
+
+                  is less than 80% and 90%</td>
+
+
+
+                <td class="SectionBody" width="522"> 
+
+
+
+                  <p>./check_snmp_storage.pl -H 127.0.0.1 -C public <b>-m &quot;Real 
+
+
+
+                    Memory&quot; </b>-w 80% -c 90%</p>
+
+
+
+                </td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172">&nbsp; </td>
+
+
+
+                <td class="SectionBody" width="522"> 
+
+
+
+                  <p class="NewsItemDate">Windows</p>
+
+
+
+                </td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172"> %used of C 
+
+
+
+                  is less than 80% and 90%</td>
+
+
+
+                <td class="SectionBody" width="522"> 
+
+
+
+                  <p>./check_snmp_storage.pl -H 127.0.0.1 -C public -m <b>^C: 
+
+
+
+                    </b>-w 80% -c 90%</p>
+
+
+
+                </td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172"> %used of C, 
+
+
+
+                  D and E is less than 80% and 90%</td>
+
+
+
+                <td class="SectionBody" width="522"> 
+
+
+
+                  <p>./check_snmp_storage.pl -H 127.0.0.1 -C public -m <b>^[CDE]: 
+
+
+
+                    </b>-w 80% -c 90%</p>
+
+
+
+                </td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172"> %used of C+D+E 
+
+
+
+                  is less than 80% and 90%</td>
+
+
+
+                <td class="SectionBody" width="522"> 
+
+
+
+                  <p>./check_snmp_storage.pl -H 127.0.0.1 -C public -m <b>^[CDE]: 
+
+
+
+                    -s </b>-w 80% -c 90%</p>
+
+
+
+                </td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172">&nbsp; </td>
+
+
+
+                <td class="SectionBody" width="522"> 
+
+
+
+                  <p class="NewsItemDate">AS/400 specific</p>
+
+
+
+                </td>
+
+
+
+              </tr>
+
+
+
+              <tr> 
+
+
+
+                <td class="NewsItemDate" valign = top width="172"> Sum of all 
+
+
+
+                  memory storages is less than 90% and 95%</td>
+
+
+
+                <td class="SectionBody" width="522"> 
+
+
+
+                  <p>./check_snmp_storage.pl -H 127.0.0.1 -C public -m <b>RAM 
+
+
+
+                    -s </b>-w 80% -c 90%</p>
+
+
+
+                </td>
+
+
+
+              </tr>
+
+
+
+            </table>
+
+
+
+            <p class="NewsItemDate">Output of check_snmp_storage.pl -h</p>
+
+
+
+            <table border="1" cellspacing="5">
+
+
+
+              <tr> 
+
+                <td class="SectionBody" valign = top> 
+                  <p class="SectionBody">SNMP Disk Monitor for Nagios version 
+                    1.3.2<br>
+                    (c)2004-2006 Patrick Proy
+                  <p>Usage: check_snmp_storage [-v] -H &lt;host&gt; -C &lt;snmp_community&gt; 
+                    [-2] | (-l login -x passwd [-X pass -L &lt;authp&gt;,&lt;privp&gt;]) 
+                    [-p &lt;port&gt;] -m &lt;name in desc_oid&gt; [-q storagetype] 
+                    -w &lt;warn_level&gt; -c &lt;crit_level&gt; [-t &lt;timeout&gt;] 
+                    [-T pl|pu|bl|bu ] [-r] [-s] [-i] [-e] [-S 0|1[,1,&lt;car&gt;]] 
+                    [-o &lt;octet_length&gt;]<br>
+                    By default, plugin will monitor %used on drives :<br>
+                    warn if %used &gt; warn and critical if %used &gt; crit<br>
+                    -v, --verbose<br>
+                    print extra debugging information (and lists all storages)<br>
+                    -h, --help<br>
+                    print this help message<br>
+                    -H, --hostname=HOST<br>
+                    name or IP address of host to check<br>
+                    -C, --community=COMMUNITY NAME<br>
+                    community name for the host's SNMP agent (implies SNMP v1)<br>
+                    2, --v2c<br>
+                    Use snmp v2c<br>
+                    -l, --login=LOGIN ; -x, --passwd=PASSWD<br>
+                    Login and auth password for snmpv3 authentication <br>
+                    If no priv password exists, implies AuthNoPriv <br>
+                    -X, --privpass=PASSWD<br>
+                    Priv password for snmpv3 (AuthPriv protocol)<br>
+                    -L, --protocols=&lt;authproto&gt;,&lt;privproto&gt;<br>
+                    &lt;authproto&gt; : Authentication protocol (md5|sha : default 
+                    md5)<br>
+                    &lt;privproto&gt; : Priv protocole (des|aes : default des) 
+                    <br>
+                    -x, --passwd=PASSWD<br>
+                    Password for snmpv3 authentication<br>
+                    -p, --port=PORT<br>
+                    SNMP port (Default 161)<br>
+                    -m, --name=NAME<br>
+                    Name in description OID (can be mounpoints '/home' or 'Swap 
+                    Space'...)<br>
+                    This is treated as a regexp : -m /var will match /var , /var/log, 
+                    /opt/var ...<br>
+                    Test it before, because there are known bugs (ex : trailling 
+                    /)<br>
+                    No trailing slash for mountpoints !<br>
+                    -q, --storagetype=[Other|Ram|VirtualMemory|FixedDisk|RemovableDisk|FloppyDisk<br>
+                    CompactDisk|RamDisk|FlashMemory|NetworkDisk]<br>
+                    Also check the storage type in addition of the name<br>
+                    It is possible to use regular expressions ( &quot;FixedDisk|FloppyDisk&quot; 
+                    )<br>
+                    -r, --noregexp<br>
+                    Do not use regexp to match NAME in description OID<br>
+                    -s, --sum<br>
+                    Add all storages that match NAME (used space and total space)<br>
+                    THEN make the tests.<br>
+                    -i, --index<br>
+                    Parse index table instead of description table to select storage<br>
+                    -e, --exclude<br>
+                    Select all storages except the one(s) selected by -m<br>
+                    No action on storage type selection<br>
+                    -T, --type=TYPE<br>
+                    pl : calculate percent left<br>
+                    pu : calculate percent used (Default)<br>
+                    bl : calculate MegaBytes left<br>
+                    bu : calculate MegaBytes used<br>
+                    -w, --warn=INTEGER<br>
+                    percent / MB of disk used to generate WARNING state<br>
+                    you can add the % sign <br>
+                    -c, --critical=INTEGER<br>
+                    percent / MB of disk used to generate CRITICAL state<br>
+                    you can add the % sign <br>
+                    -f, --perfparse<br>
+                    Perfparse compatible output<br>
+                    -S, --short=&lt;type&gt;[,&lt;where&gt;,&lt;cut&gt;]<br>
+                    &lt;type&gt;: Make the output shorter :<br>
+                    0 : only print the global result except the disk in warning 
+                    or critical<br>
+                    ex: &quot;&lt; 80% : OK&quot;<br>
+                    1 : Don't print all info for every disk <br>
+                    ex : &quot;/ : 66 %used (&lt; 80) : OK&quot;<br>
+                    &lt;where&gt;: (optional) if = 1, put the OK/WARN/CRIT at 
+                    the beginning<br>
+                    &lt;cut&gt;: take the &lt;n&gt; first caracters or &lt;n&gt; 
+                    last if n&lt;0<br>
+                    -o, --octetlength=INTEGER<br>
+                    max-size of the SNMP message, usefull in case of Too Long 
+                    responses.<br>
+                    Be carefull with network filters. Range 484 - 65535, default 
+                    are<br>
+                    usually 1472,1452,1460 or 1440. <br>
+                    -t, --timeout=INTEGER<br>
+                    timeout for SNMP in seconds (Default: 5)<br>
+                    -V, --version<br>
+                    prints version number<br>
+                    Note : <br>
+                    with T=pu or T=bu : OK &lt; warn &lt; crit<br>
+                    with T=pl ot T=bl : crit &lt; warn &lt; OK<br>
+                    <br>
+                    If multiple storage are selected, the worse condition will 
+                    be returned<br>
+                    i.e if one disk is critical, the return is critical<br>
+                    <br>
+                    example : <br>
+                    Browse storage list : &lt;script&gt; -C &lt;community&gt; 
+                    -H &lt;host&gt; -m &lt;anything&gt; -w 1 -c 2 -v <br>
+                    the -m option allows regexp in perl format : <br>
+                    Test drive C,F,G,H,I on Windows : -m ^[CFGHI]: <br>
+                    Test all mounts containing /var : -m /var<br>
+                    Test all mounts under /var : -m ^/var<br>
+                    Test only /var : -m /var -r<br>
+                    Test all swap spaces : -m ^Swap<br>
+                    Test all but swap spaces : -m ^Swap -e<br>
+                  </p>
+                  </td>
+
+
+
+              </tr>
+
+
+
+            </table>
+
+
+
+          </td>
+
+
+
+        </tr>
+
+
+
+        <tr> 
+
+
+
+          <td> 
+
+
+
+            <p class="SectionBody">This project is hosted on : <br>
+
+
+
+              <A href="http://sourceforge.net/projects/nagios-snmp"> <IMG src="http://sourceforge.net/sflogo.php?group_id=134917&type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A> 
+
+
+
+            </p>
+
+
+
+            <p class="SectionBody"> Nagios and the Nagios logo are registered 
+
+
+
+              trademarks of Ethan Galstad.</p>
+
+
+
+          </td>
+
+
+
+        </tr>
+
+
+
+      </table>
+
+
+
+    </td>
+
+
+
+  </tr>
+
+
+
+</table>
+
+
+
+<p>&nbsp;</p>
+
+
+
+</BODY>
+
+
+
+</HTML>
+
+
+
+
+
+
+

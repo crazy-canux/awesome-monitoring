@@ -1,0 +1,485 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>Nagios plugins</TITLE>
+
+<META NAME="Keywords" CONTENT="nagios,plugins,perl,snmp,proy">
+
+<STYLE type="text/css">
+
+<!--
+
+        .Default { font-family: verdana,arial,serif; font-size: 10pt; }
+
+        .ProgramTitle { font-family: verdana,arial,serif; font-size: 18pt; font-weight: bold;}
+
+        .Copyright { font-family: verdana,arial,serif; font-size: 10pt;}
+
+        .Email { font-family: verdana,arial,serif; font-size: 10pt;}
+
+        .NewsItem { font-family: verdana,arial,serif; font-size: 8pt; }
+
+        .NewsItemOdd { font-family: verdana,arial,serif; font-size: 8pt; background-color: #DBDBDB;}
+
+        .NewsItemEven { font-family: verdana,arial,serif; font-size: 8pt; background-color: #C4C2C2;}
+
+        .NewsItemUrgent { font-family: verdana,arial,serif; font-size: 8pt; background-color: #ccff99;}
+
+        .NewsItemDate { font-family: verdana,arial,serif; font-size: 8pt; font-weight: bold; }
+
+        .SectionTitle { font-family: verdana,arial,serif; font-size: 9pt; font-weight: bold; text-decoration: underline;}
+
+        .SectionBody { font-family: verdana,arial,serif; font-size: 8pt; }
+
+        .ModificationDate { font-family: verdana,arial,serif; font-size: 7pt; }
+
+        .Disclaimer { font-family: verdana,arial,serif; font-size: 8pt; }
+
+		A.SideNavBarItem { font-family: verdana,arial,serif; background-color : black; color: #e7e7e7; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarHotItem { font-family: verdana,arial,serif; background-color : black; color: #ffcc66; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarHotItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+-->  
+
+</STYLE>
+
+</HEAD>
+
+<body  background="img/sideback.jpg" bgcolor="#FFFFFF" text="black" class="Default">
+
+<!--   background="img/sideback.jpg" -->
+
+<table border="0">
+
+  <tr> 
+
+    <td valign=top> 
+
+      <!-- Begin Side Bar -->
+
+      <table border="0" width="125" valign=top>
+
+        <tr> 
+
+          <td><a href="http://nagios.manubulon.com/" class="SideNavBarItem" >Home</a></td>
+
+        </tr>
+
+        <tr> 
+
+          <td></td>
+
+        </tr>
+
+        <tr> 
+
+          <td><BR>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td> </td>
+
+        </tr>
+
+      </table>
+
+      <!-- End Side Bar -->
+
+    </td>
+
+    <td valign=top> 
+
+      <table border="0" valign=top>
+
+        <tr> 
+
+          <td class="ProgramTitle"> Snmp memory check</td>
+
+        </tr>
+
+        <tr> 
+
+          <td> 
+
+            <p class="NewsItemDate">Script : check_snmp_mem.pl</p>
+
+            <p class="SectionTitle"> Last update : Sept 4 2006</p>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td valign="top"> 
+
+            <p class="SectionTitle">Description : </p>
+
+            <p class="SectionBody">Checks by snmp v1, v2c or v3 :</p>
+
+            <p class="SectionBody">- Memory and swap usage on Linux given by Net-snmp. 
+
+              <br>
+
+              It checks memory and swap usage independantly : one warning and 
+
+              critical level for each of them.<br>
+
+            </p>
+
+            <p class="SectionBody">- Memory usage on cisco routers or Pix : the 
+
+              plugin will add all of the memory pool and then checks the warning 
+
+              and critical levels.<br>
+
+              On cisco routeurs, it will add 'IO' and 'Processor' memory<br>
+
+              On Pix, it will check the memory used (one memory pool only on Pix).<br>
+
+            </p>
+
+            <p class="SectionBody">- Memory usage on HP Procurve switch.<br>
+
+              Memory segments will be added then the free memory will be checked.<br>
+
+            </p>
+
+            <p class="SectionBody">V&eacute;rification de :<br>
+
+              - l'utilisation m&eacute;moire et swap sur Linux/Net-snmp<br>
+
+              - l'utilisation m&eacute;moire sur Cisco (routeurs et Pix).<br>
+
+              Pour d'autres SE (Windows, AS400), lire la suite.</p>
+
+            <p class="SectionTitle">Checking memory for other os :</p>
+
+            <p class="SectionBody"><b>AS/400 : </b>use the check_snmp_storage 
+
+              command to check the RAM</p>
+
+            <p class="SectionBody">./check_snmp_storage.pl -H <b>&lt;IP&gt;</b> 
+
+              -C <b>&lt;community&gt;</b> -m RAM -s -w <b>&lt;warn%&gt;</b> -c 
+
+              <b>&lt;crit%&gt;</b></p>
+
+            <p class="SectionBody"><b>Windows : </b>use the check_snmp_storage 
+
+              command to check the virtual memory (RAM+Swap)</p>
+
+            <p class="SectionBody">./check_snmp_storage.pl -H <b>&lt;IP&gt;</b> 
+
+              -C <b>&lt;community&gt;</b> -m &quot;^Virtual Memory$&quot; -w <b>&lt;warn%&gt;</b> 
+
+              -c <b>&lt;crit%&gt;</b></p>
+
+            <p class="SectionBody"><span class="SectionTitle">SNMP Login</span><br>
+
+            </p>
+
+            <p class="SectionBody">See <a href="index_info.html">snmp info page</a></p>
+
+            <p class="SectionTitle">Requirements :</p>
+
+            <p class="SectionBody"> - Perl in /usr/bin/perl - or just run 'perl 
+
+              script' <br>
+
+              - Net::SNMP<br>
+
+              - file 'utils.pm' in plugin diretory (/usr/local/nagios/libexec)<br>
+
+            </p>
+
+            <p class="SectionBody"><a href="check_snmp_mem.pl" class="SectionTitle">Dowload 
+
+              lastest version : 1.1</a> </p>
+
+            <p class="SectionBody"><a href="index_commands.html" class="SectionTitle">Configurations 
+
+              examples</a></p>
+
+            <p class="NewsItemDate"><span class="SectionTitle">Changelog</span> 
+              : On CVS repository on sourceforge : <a href="http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/">http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/</a>.</p>
+
+            <p class="SectionTitle">Examples :</p>
+
+            <p class="SectionBody"><br>
+
+              All examples below are considering the script is local directory. 
+
+              Host to be checked is 127.0.0.1 with snmp community &quot;public&quot;.</p>
+
+            <table border="1" cellspacing="5">
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="154"> 
+
+                  <p>Get help 
+
+                </td>
+
+                <td class="SectionBody" width="420"> 
+
+                  <p>./check_snmp_mem.pl <b>-h</b></p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="154">Verbose output</td>
+
+                <td class="SectionBody" width="420">./check_snmp_mem.pl -H &lt;IP&gt; 
+
+                  -C &lt;com&gt; -w 80 -c 81 <b>-v</b></td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="154">snmpv3 login</td>
+
+                <td class="SectionBody" width="420">./check_snmp_mem.pl -H 127.0.0.1 
+
+                  -l login -x passwd<b></b></td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="154"> 
+
+                  <p>&nbsp; 
+
+                </td>
+
+                <td class="SectionBody" width="420"> 
+
+                  <p class="NewsItemDate">Unix/Linux</p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="154"> 
+
+                  <p>%used of <br>
+
+                    - RAM &lt; 99% and 100%<br>
+
+                    - Swap : &lt; 20% and 30% 
+
+                </td>
+
+                <td class="SectionBody" width="420"> 
+
+                  <p>./check_snmp_mem.pl -H &lt;IP&gt; -C &lt;com&gt; <b> -w 99,20 
+
+                    -c 100,30</b></p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="154"> 
+
+                  <p>Same with no warning levels for memory 
+
+                </td>
+
+                <td class="SectionBody" width="420"> 
+
+                  <p>./check_snmp_mem.pl -H &lt;IP&gt; -C &lt;com&gt; -w <b>0</b>,20 
+
+                    -c 100,30</p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="154"> 
+
+                  <p>Check memory on Cisco 
+
+                </td>
+
+                <td class="SectionBody" width="420"> 
+
+                  <p>./check_snmp_mem.pl -H &lt;IP&gt; -C &lt;com&gt; <b>-I -w 
+
+                    90% -c 98%</b></p>
+
+                </td>
+
+              </tr>
+
+            </table>
+
+            <p class="NewsItemDate">Output of check_snmp_mem.pl -h  &lt;</p>
+
+            <table border="1" cellspacing="5">
+
+              <tr> 
+
+                <td class="SectionBody" valign = top> 
+
+                  <p class="SectionBody"> 
+
+                  <pre>
+
+SNMP Memory Monitor for Nagios version 1.1
+
+(c)2004-2006 - Patrick Proy
+
+
+
+Usage: ./check_snmp_mem.pl [-v] -H &lt;host&gt; -C &lt;snmp_community&gt; [-2] | (-l login -x passwd [-X pass -L &lt;authp&gt;,&lt;privp&gt;])  [-p &lt;port&gt;] -w &lt;warn level&gt; -c &lt;crit level&gt; [-I|-N|-E] [-f] [-m] [-t &lt;timeout&gt;] [-V]
+
+-v, --verbose
+
+   print extra debugging information (including interface list on the system)
+
+-h, --help
+
+   print this help message
+
+-H, --hostname=HOST
+
+   name or IP address of host to check
+
+-C, --community=COMMUNITY NAME
+
+   community name for the host's SNMP agent (implies SNMP v1 or v2c with option)
+
+-2, --v2c
+
+   Use snmp v2c
+
+-l, --login=LOGIN ; -x, --passwd=PASSWD
+
+   Login and auth password for snmpv3 authentication 
+
+   If no priv password exists, implies AuthNoPriv 
+
+-X, --privpass=PASSWD
+
+   Priv password for snmpv3 (AuthPriv protocol)
+
+-L, --protocols=&lt;authproto&gt;,&lt;privproto&gt;
+
+   &lt;authproto&gt; : Authentication protocol (md5|sha : default md5)
+
+   &lt;privproto&gt; : Priv protocole (des|aes : default des) 
+
+-P, --port=PORT
+
+   SNMP port (Default 161)
+
+-w, --warn=INTEGER | INT,INT
+
+   warning level for memory in percent (0 for no checks) 
+
+     Default (-N switch) : comma separated level for Real Memory and Swap 
+
+     -I switch : warning level
+
+-c, --crit=INTEGER | INT,INT
+
+   critical level for memory in percent (0 for no checks)
+
+     Default (-N switch) : comma separated level for Real Memory and Swap 
+
+     -I switch : critical level
+
+-N, --netsnmp (default)
+
+   check linux memory & swap provided by Net SNMP 
+
+-m, --memcache
+
+   include cached memory in used memory (only with Net-SNMP)
+
+-I, --cisco
+
+   check cisco memory (sum of all memory pools)
+
+-E, --hp
+
+   check HP proccurve memory
+
+-f, --perfdata
+
+   Performance data output
+
+-t, --timeout=INTEGER
+
+   timeout for SNMP in seconds (Default: 5)
+
+-V, --version
+
+   prints version number
+
+</pre>
+
+                  </td>
+
+              </tr>
+
+            </table>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td> 
+
+            <p class="SectionBody">This project is hosted on : <br>
+
+              <A href="http://sourceforge.net/projects/nagios-snmp"> <IMG src="http://sourceforge.net/sflogo.php?group_id=134917&type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A> 
+
+            </p>
+
+            <p class="SectionBody"> Nagios and the Nagios logo are registered 
+
+              trademarks of Ethan Galstad.</p>
+
+          </td>
+
+        </tr>
+
+      </table>
+
+    </td>
+
+  </tr>
+
+</table>
+
+</BODY>
+
+</HTML>
+
+
+

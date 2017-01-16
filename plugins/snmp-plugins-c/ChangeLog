@@ -1,0 +1,14 @@
+2007-05-24 Patrick <nagios AT proy d0t org>
+
+	* Version 0.5.3
+	* Add caching directory and options in scripts
+
+2007-05-19  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.am (EXTRA_DIST): Add config.rpath, mkinstalldirs, m4/ChangeLog.
+	* configure.in (AC_CONFIG_FILES): Add po/Makefile.in.
+
+2007-05-18 Patrick <nagios AT proy d0t org>
+
+	* Version 0.5
+	* First version of the C plugins. Only check_snmp_int.

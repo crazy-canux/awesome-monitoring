@@ -1,0 +1,370 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>Nagios plugins</TITLE>
+
+<META NAME="Keywords" CONTENT="nagios,plugins,perl,snmp,proy">
+
+<STYLE type="text/css">
+
+<!--
+
+        .Default { font-family: verdana,arial,serif; font-size: 10pt; }
+
+        .ProgramTitle { font-family: verdana,arial,serif; font-size: 18pt; font-weight: bold;}
+
+        .Copyright { font-family: verdana,arial,serif; font-size: 10pt;}
+
+        .Email { font-family: verdana,arial,serif; font-size: 10pt;}
+
+        .NewsItem { font-family: verdana,arial,serif; font-size: 8pt; }
+
+        .NewsItemOdd { font-family: verdana,arial,serif; font-size: 8pt; background-color: #DBDBDB;}
+
+        .NewsItemEven { font-family: verdana,arial,serif; font-size: 8pt; background-color: #C4C2C2;}
+
+        .NewsItemUrgent { font-family: verdana,arial,serif; font-size: 8pt; background-color: #ccff99;}
+
+        .NewsItemDate { font-family: verdana,arial,serif; font-size: 8pt; font-weight: bold; }
+
+        .SectionTitle { font-family: verdana,arial,serif; font-size: 9pt; font-weight: bold; text-decoration: underline;}
+
+        .SectionBody { font-family: verdana,arial,serif; font-size: 8pt; }
+
+        .ModificationDate { font-family: verdana,arial,serif; font-size: 7pt; }
+
+        .Disclaimer { font-family: verdana,arial,serif; font-size: 8pt; }
+
+		A.SideNavBarItem { font-family: verdana,arial,serif; background-color : black; color: #e7e7e7; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarHotItem { font-family: verdana,arial,serif; background-color : black; color: #ffcc66; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarHotItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+-->  
+
+</STYLE>
+
+</HEAD>
+
+<body  background="img/sideback.jpg" bgcolor="#FFFFFF" text="black" class="Default">
+
+<!--   background="img/sideback.jpg" -->
+
+<table border="0">
+
+  <tr> 
+
+    <td valign=top> 
+
+      <!-- Begin Side Bar -->
+
+      <table border="0" width="125" valign=top>
+
+        <tr> 
+
+          <td><a href="http://nagios.manubulon.com/" class="SideNavBarItem" >Home</a></td>
+
+        </tr>
+
+        <tr> 
+
+          <td></td>
+
+        </tr>
+
+        <tr> 
+
+          <td><BR>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td> </td>
+
+        </tr>
+
+      </table>
+
+      <!-- End Side Bar -->
+
+    </td>
+
+    <td valign=top> 
+
+      <table border="0" valign=top>
+
+        <tr> 
+
+          <td class="ProgramTitle"> Snmp env check</td>
+
+        </tr>
+
+        <tr> 
+
+          <td> 
+
+            <p class="NewsItemDate">Script : check_snmp_env.pl</p>
+
+            <p class="SectionTitle"> Last update : April 19 2007</p>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td valign="top"> 
+
+            <p class="SectionTitle">Description : </p>
+
+            <p class="SectionBody">Checks by snmp v1, v2c or v3 environemental 
+              parameters such as fan, power supply, temperature</p>
+            <p class="SectionBody"><span class="SectionTitle">SNMP Login</span><br>
+
+            </p>
+
+            <p class="SectionBody">See <a href="index_info.html">snmp info page</a></p>
+
+            <p class="SectionTitle">Requirements :</p>
+
+            <p class="SectionBody"> - Perl in /usr/bin/perl - or just run 'perl 
+              script' <br>
+              - Net::SNMP<br>
+              - file 'utils.pm' in plugin diretory (/usr/local/nagios/libexec)<br>
+            </p>
+            <p class="SectionTitle">Checks </p>
+            <p class="SectionBody">The script will make the following checks depending 
+              on host type.<br>
+              Either the threshold is directly set by the hardware manufacturer, 
+              or you must set them with an option.</p>
+            <p class="SectionBody">This table shows what the script CAN check, 
+              depending on hardware version the sensors might not be there.<br>
+              The script will return &quot;UNKNOWN&quot; if no sensors can be 
+              found. </p>
+            <p class="SectionBody">If no option is specified in this table, it 
+              means the script uses the threshold of the snmp table.</p>
+            <table width="100%" border="1">
+              <tr> 
+                <td class="SectionTitle">Host type</td>
+                <td class="SectionTitle">Option</td>
+                <td class="SectionTitle">Power supply</td>
+                <td class="SectionTitle">Fan</td>
+                <td class="SectionTitle">Voltage</td>
+                <td class="SectionTitle">Temperature</td>
+                <td class="SectionTitle">Disks</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody">Cisco</td>
+                <td class="SectionBody">cisco</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">No (working on it)</td>
+                <td class="SectionBody">No (working on it)</td>
+                <td class="SectionBody">No</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody">Nokia Ipso</td>
+                <td class="SectionBody">nokia</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">No.</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">No</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody">Bluecoat</td>
+                <td class="SectionBody">bc</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody">IronPort</td>
+                <td class="SectionBody">iron</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes, option '-F' in RPM</td>
+                <td class="SectionBody">No</td>
+                <td class="SectionBody">Yes, option '-c' in Celcius</td>
+                <td class="SectionBody">No</td>
+              </tr>
+              <tr>
+                <td class="SectionBody">Foundry</td>
+                <td class="SectionBody">Foundry</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">No (bug in snmp agent)</td>
+                <td class="SectionBody">No</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">No</td>
+              </tr>
+            </table>
+            <p class="SectionBody">Note : Bluecoat provides an &quot;other&quot; 
+              sensor which is tested also. But I never saw a Bluecoat reporting 
+              it.</p>
+            <p class="SectionBody">&nbsp;</p>
+
+            <p class="SectionBody"><a href="check_snmp_env.pl" class="SectionTitle">Dowload 
+              lastest version : 1.2</a></p>
+
+            <p class="SectionBody"><a href="index_commands.html" class="SectionTitle">Configurations 
+
+              examples</a></p>
+
+            <p class="NewsItemDate"><span class="SectionTitle">Changelog</span> 
+              : On CVS repository on sourceforge : <a href="http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/">http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/</a>.</p>
+
+            <p class="SectionTitle">Examples :</p>
+
+            <p class="SectionBody"><br>
+
+              All examples below are considering the script is local directory. 
+
+              Host to be checked is 127.0.0.1 with snmp community &quot;public&quot;.</p>
+
+            <table border="1" cellspacing="5">
+              <tr> 
+                <td class="NewsItemDate" valign = top width="154"> 
+                  <p>Get help 
+                </td>
+                <td class="SectionBody" width="420"> 
+                  <p>./check_snmp_env.pl <b>-h</b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="154">Verbose output</td>
+                <td class="SectionBody" width="420">./check_snmp_env.pl -H &lt;IP&gt; 
+                  -C &lt;com&gt; <b>-v</b></td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="154">snmpv3 login</td>
+                <td class="SectionBody" width="420">./check_snmp_env.pl -H 127.0.0.1 
+                  -l login -x passwd<b></b></td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="154"> 
+                  <p>Check Cisco for all sensors
+                </td>
+                <td class="SectionBody" width="420"> 
+                  <p class="SectionBody">./check_snmp_env.pl -H 127.0.0.1 -C public 
+                    <b>-T cisco</b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="154">Check Nokia 
+                  for all sensors</td>
+                <td class="SectionBody" width="420">./check_snmp_env.pl -H 127.0.0.1 
+                  -C public <b>-T nokia</b></td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="154">checks ironport 
+                  fans RPM &gt; 1500 and temp &lt; 70 deg celcius</td>
+                <td class="SectionBody" width="420">./check_snmp_env.pl -H 127.0.0.1 
+                  -C public <b>-T iron -F 1500 -c 70</b></td>
+              </tr>
+            </table>
+
+            <p class="NewsItemDate">Output of check_snmp_env.pl -h </p>
+
+            <table border="1" cellspacing="5">
+
+              <tr> 
+
+                <td class="SectionBody" valign = top> 
+                  <p class="SectionBody"> <br>
+                    SNMP environmental Monitor for Nagios version 1.2<br>
+                    GPL Licence, (c)2006-2007 Patrick Proy
+                  <p>Usage: ./check_snmp_env.pl [-v] -H &lt;host&gt; -C &lt;snmp_community&gt; 
+                    [-2] | (-l login -x passwd [-X pass -L &lt;authp&gt;,&lt;privp&gt;]) 
+                    [-p &lt;port&gt;] -T (cisco|nokia|bc|iron|foundry) [-F &lt;rpm&gt;] 
+                    [-c &lt;celcius&gt;] [-f] [-t &lt;timeout&gt;] [-V]<br>
+                    -v, --verbose<br>
+                    print extra debugging information <br>
+                    -h, --help<br>
+                    print this help message<br>
+                    -H, --hostname=HOST<br>
+                    name or IP address of host to check<br>
+                    -C, --community=COMMUNITY NAME<br>
+                    community name for the host's SNMP agent (implies v1 protocol)<br>
+                    -2, --v2c<br>
+                    Use snmp v2c<br>
+                    -l, --login=LOGIN ; -x, --passwd=PASSWD<br>
+                    Login and auth password for snmpv3 authentication <br>
+                    If no priv password exists, implies AuthNoPriv <br>
+                    -X, --privpass=PASSWD<br>
+                    Priv password for snmpv3 (AuthPriv protocol)<br>
+                    -L, --protocols=&lt;authproto&gt;,&lt;privproto&gt;<br>
+                    &lt;authproto&gt; : Authentication protocol (md5|sha : default 
+                    md5)<br>
+                    &lt;privproto&gt; : Priv protocole (des|aes : default des) 
+                    <br>
+                    -P, --port=PORT<br>
+                    SNMP port (Default 161)<br>
+                    -T, --type=cisco|nokia|bc|iron|foundry<br>
+                    Environemental check : <br>
+                    cisco : voltage,temp,fan,power supply status<br>
+                    will try to check everything present<br>
+                    nokia : fan and power supply<br>
+                    bc : fans, power supply, voltage, disks<br>
+                    iron : fans, power supply, temp<br>
+                    foundry : power supply, temp<br>
+                    -F, --fan=&lt;rpm&gt;<br>
+                    Minimum fan rpm value<br>
+                    -c, --celcius=&lt;celcius&gt;<br>
+                    Maximum temp in degree celcius<br>
+                    -f, --perfparse<br>
+                    Perfparse compatible output<br>
+                    -t, --timeout=INTEGER<br>
+                    timeout for SNMP in seconds (Default: 5)<br>
+                    -V, --version<br>
+                    prints version number<br>
+                  </p>
+                </td>
+
+              </tr>
+
+            </table>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td> 
+
+            <p class="SectionBody">This project is hosted on : <br>
+
+              <A href="http://sourceforge.net/projects/nagios-snmp"> <IMG src="http://sourceforge.net/sflogo.php?group_id=134917&type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A> 
+
+            </p>
+
+            <p class="SectionBody"> Nagios and the Nagios logo are registered 
+
+              trademarks of Ethan Galstad.</p>
+
+          </td>
+
+        </tr>
+
+      </table>
+
+    </td>
+
+  </tr>
+
+</table>
+
+</BODY>
+
+</HTML>
+
+
+

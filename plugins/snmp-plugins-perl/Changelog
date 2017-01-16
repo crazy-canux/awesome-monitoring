@@ -1,0 +1,75 @@
+################################
+Release 1.1.1 / April 2007 : 
+
+Added documentation in doc/ directory : (html format).
+
+Scripts, actual CVS version and changelog :
+check_snmp_mem.pl : 1.3
+check_snmp_vrrp.pl : 1.3
+check_snmp_linkproof_nhr.pl : 1.1
+check_snmp_process.pl : 1.5
+  	Makina Corpus contribs : snmpv3 enhancements, msg size parameter (-o)
+check_snmp_boostedge.pl : 1.2 (No major changes)
+check_snmp_nsbox.pl : 1.2 (No major changes)
+check_snmp_css_main.pl : 1.1
+check_snmp_cpfw.pl : 1.7
+	Added active/backup detection with SecureXL
+	Added SIG{ALRM} sub and small bug
+check_snmp_int.pl : 1.18
+	Added bigint module to take care of 64 bits counters
+	check usage of snmp v2c or v3 when you use 64 bit counters (-g)
+	Added SIG{ALRM} sub
+	Added warning and critical levels in performance output
+	Added labels before in, out speed and errors (M. Berger contrib)
+	Added highperf counters option (-g)
+	Added SNMP packet length option (-o)
+	Added warning/critical levels in Mbps, MBps, Gbps, GBps options (-M, -G)
+	Added warning/critical levels in % of interface speed (-u)
+	Added performance output interface speed option (-S)
+	Added performance output in Bps or bps (-Y)
+	Added performance output in % of interface speed (-y)
+	Added port for snmpv3 (R. Leroy contrib)
+check_snmp_storage.pl : 1.6
+	Makina Corpus contribs : snmpv3 port parameter, msg size parameter (-o)
+check_snmp_win.pl : 0.6
+check_snmp_css.pl : 1.3
+check_snmp_env.pl : 1.7
+	Added SIG{ALRM} sub
+	Added voltage & temp checks on Cisco
+	Added Foundry checks
+check_snmp_load.pl : 1.9
+	Added SIG{ALRM} sub and % sign in output
+	Bug in performance output
+
+################################
+Release 1.1 :
+
+Added scripts : 
+- check_snmp_css_main : to get all services name and OID one time,  then check only one OID with check_snmp_css. Reduces css cpu.
+
+Corrected bugs : 
+- install.sh (Net::snmp detection)
+- corrected bugs in check_snmp_css 
+- Added ironport checks in check_snmp_env
+- Added hpux in check_snmp_load
+- Bugs in check_snmp_int (specially for Windows).
+
+Scripts and versions : 
+check_snmp_mem.pl : 1.3
+check_snmp_vrrp.pl : 1.3
+check_snmp_linkproof_nhr.pl : 1.1
+check_snmp_process.pl : 1.4
+check_snmp_boostedge.pl : 1.1
+check_snmp_nsbox.pl : 1.1
+check_snmp_css_main.pl : 1.1
+check_snmp_cpfw.pl : 1.4
+check_snmp_int.pl : 1.10
+check_snmp_storage.pl : 1.5
+check_snmp_win.pl : 0.6
+check_snmp_css.pl : 1.3
+check_snmp_env.pl : 1.4
+check_snmp_load.pl : 1.9
+
+################################
+Release 1.0 :
+Initial file release.

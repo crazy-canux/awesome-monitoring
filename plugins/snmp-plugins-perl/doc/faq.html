@@ -1,0 +1,245 @@
+<HTML>
+<HEAD>
+<TITLE>Nagios plugins</TITLE>
+<META NAME="Keywords" CONTENT="nagios,plugins,perl,snmp,proy">
+<STYLE type="text/css">
+<!--
+        .Default { font-family: verdana,arial,serif; font-size: 10pt; }
+        .ProgramTitle { font-family: verdana,arial,serif; font-size: 18pt; font-weight: bold;}
+        .Copyright { font-family: verdana,arial,serif; font-size: 10pt;}
+        .Email { font-family: verdana,arial,serif; font-size: 10pt;}
+        .NewsItem { font-family: verdana,arial,serif; font-size: 8pt; }
+        .NewsItemOdd { font-family: verdana,arial,serif; font-size: 8pt; background-color: #DBDBDB;}
+        .NewsItemEven { font-family: verdana,arial,serif; font-size: 8pt; background-color: #C4C2C2;}
+        .NewsItemUrgent { font-family: verdana,arial,serif; font-size: 8pt; background-color: #ccff99;}
+        .NewsItemDate { font-family: verdana,arial,serif; font-size: 8pt; font-weight: bold; }
+        .SectionTitle { font-family: verdana,arial,serif; font-size: 9pt; font-weight: bold; text-decoration: underline;}
+        .SectionBody { font-family: verdana,arial,serif; font-size: 8pt; }
+        .ModificationDate { font-family: verdana,arial,serif; font-size: 7pt; }
+        .Disclaimer { font-family: verdana,arial,serif; font-size: 8pt; }
+		A.SideNavBarItem { font-family: verdana,arial,serif; background-color : black; color: #e7e7e7; font-size: 9pt; font-weight: bold; text-decoration: none; }
+		A.SideNavBarItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+		A.SideNavBarHotItem { font-family: verdana,arial,serif; background-color : black; color: #ffcc66; font-size: 9pt; font-weight: bold; text-decoration: none; }
+		A.SideNavBarHotItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+-->      
+</STYLE>
+</HEAD>
+
+<body  background="img/sideback.jpg" bgcolor="#FFFFFF" text="black" class="Default">
+
+<!--   background="img/sideback.jpg" -->
+
+<table border="0" height="1477">
+
+  <tr>
+
+    <td valign=top> 
+
+      <!-- Begin Side Bar -->
+
+      <table border="0" width="125" valign=top>
+        <tr> 
+          <td><a href="http://nagios.manubulon.com/" class="SideNavBarItem" >Home</a></td>
+        </tr>
+        <tr> 
+          <td></td>
+        </tr>
+        <tr> 
+          <td><BR>
+          </td>
+        </tr>
+        <tr> 
+          <td> </td>
+        </tr>
+      </table>
+
+<!-- End Side Bar -->
+
+    </td>
+
+    <td valign=top>
+
+      <table border="0" valign=top height="1452">
+
+        <tr> 
+
+          <td class="ProgramTitle"> FAQ</td>
+
+        </tr>
+
+        <tr> 
+
+          <td> 
+
+            <p class="NewsItemDate">&nbsp;</p>
+
+            <p class="SectionTitle"> Last update : Jan 11 2007</p>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td valign="top"> 
+
+            <p class="SectionTitle">&nbsp;</p>
+            <p class="SectionTitle"><b>FIRST, </b>look at the web page associated 
+              with every script.</p>
+            <p class="SectionBody"><b>Running the scripts :</b></p>
+            <p class="SectionBody">- <a href="#FAQ1">The scripts outputs &quot;Can't 
+              locate Net/SNMP.pm in @INC.....&quot;</a></p>
+            <p class="SectionBody">-<a href="#FAQ2"> How do I install Net::SNMP 
+              perl module</a></p>
+            <p class="SectionBody">- <a href="#FAQ3">What are the supported platforms 
+              to run the scripts on ?</a></p>
+            <p class="SectionBody">- <a href="#FAQ4">How do I get help on the 
+              options ?</a></p>
+            <p class="SectionBody">- <a href="#FAQ5">Return code of X is out of 
+              bounds</a></p>
+            <p class="SectionBody">- <a href="#FAQ6">Are these plugins compatible 
+              with Nagios 2.0 ?</a></p>
+            <p class="SectionBody">- <a href="#FAQ7"> ERROR: XXXXXX : Expected 
+              OBJECT IDENTIFIER in dotted notation. </a></p>
+            <p class="SectionBody">- <a href="#FAQ8">&quot;No Output&quot; using 
+              Nagios 2</a></p>
+            <p class="SectionBody">- <a href="#FAQ9">Getting : &quot;ERROR: Size 
+              table :Message size exceeded buffer maxMsgSize&quot;</a></p>
+            <p class="SectionBody"><b>Misc<br>
+              </b></p>
+            <p class="SectionBody">- <a href="#FAQM3">Are these scripts secure 
+              ?</a></p>
+            <p class="SectionBody">- <a href="#FAQM1">How can I get help ? Is 
+              there a mailling list ? a forum ?</a></p>
+            <p class="SectionBody">- <a href="#FAQM2">Can I donate to help this 
+              project ?</a></p>
+            <hr>
+            <p class="SectionTitle"><a name="FAQ1"></a>The scripts outputs &quot;Can't 
+              locate Net/SNMP.pm in @INC.....&quot;</p>
+            <p class="SectionBody">You don't have Net::SNMP installed, see below</p>
+            <p class="SectionTitle"><a name="FAQ2"></a>How do I install Net::SNMP 
+              perl module ?</p>
+            <p class="SectionBody">There are 2 ways of doing this </p>
+            <p class="SectionBody"><b>1) By CPAN (best)</b></p>
+            <p class="SectionBody">on command line, as root : <br>
+              <br>
+              [your_host]# <b>perl -MCPAN -e shell</b><br>
+              cpan shell -- CPAN exploration and modules installation (v1.76)<br>
+              ReadLine support enabled<br>
+              cpan&gt; <b>install Net::SNMP</b><br>
+            </p>
+            <p class="SectionBody">If it's the first time you run CPAN, it will 
+              probably ask you some (simple) questions.</p>
+            <p class="SectionBody">CPAN will also ask you to satisfy some dependencies 
+              (Crypt::DES, Digest::MD5, etc..).</p>
+            <p class="SectionBody"><b>2) &quot;By hand&quot;</b><br>
+            </p>
+            <p class="SectionBody">Get the folowings modules (tar.gz format) on 
+              <a href="http://www.cpan.org">www.cpan.org</a></p>
+            <p class="SectionBody">- Crypt::DES<br>
+              - Digest::MD5<br>
+              - Digest::SHA1<br>
+              - Digest::HMAC<br>
+              - Net::SNMP<br>
+              <br>
+              for each one (you must install Net::SNMP at the end) : <br>
+              <b>tar zxf &lt;module&gt;.tar.gz<br>
+              cd &lt;module&gt;<br>
+              perl Makefile.pl<br>
+              make test<br>
+              make install</b></p>
+            <p class="SectionTitle"><a name="FAQ3"></a>What are the supported 
+              platforms to run the scripts on ?</p>
+            <p class="SectionBody">Most Linux, maybe some unixes and maybe Cygwin.<br>
+              Actually anything you can run perl on.<br>
+              If you can install the latest Net::SNMP module, then the perl version 
+              should be OK.</p>
+            <p class="SectionTitle"><a name="FAQ4"></a>How do I get help on the 
+              options ?</p>
+            <p class="SectionBody">Just run <b>&lt;script&gt; -h </b>on the command 
+              line.<br>
+              <br>
+            </p>
+            <p class="SectionTitle"><a name="FAQ5"></a>Return code of X is out 
+              of bounds</p>
+            <p class="SectionBody">Have a look at : <a href="http://www.nagios.org/faqs/viewfaq.php?faq_id=17">http://www.nagios.org/faqs/viewfaq.php?faq_id=17</a></p>
+            <p class="SectionBody">In case of return code 127, try putting perl 
+              in the command line definition : </p>
+            <p class="SectionBody"> define command{<br>
+              command_name check_disk<br>
+              command_line <b>/usr/bin/perl</b> $USER1$/check_snmp_storage.pl 
+              -C $ARG1$ [........]<br>
+              }<br>
+            </p>
+            <p class="SectionTitle"><a name="FAQ6"></a>Are these plugins compatible 
+              with Nagios 2.0 ?</p>
+            <p class="SectionBody">Yes.</p>
+            <p class="SectionTitle"><a name="FAQ7"></a>ERROR: XXXXXX : Expected OBJECT IDENTIFIER in dotted notation.
+              </p>
+            <p class="SectionBody">Upgrade your Net::SNMP module version (5 is good, 4 maybe OK, 3 gives this error) <br>
+              This happens with Debian Woody (Net::SNMP version 3.6).<br>
+              I have special patches if you can't upgrade : contact me.</p>
+            <p class="SectionTitle"><a name="FAQ8"></a>&quot;No Output&quot; using 
+              Nagios 2</p>
+            <p class="SectionBody">It's a &quot;bug&quot; of embeded perl. It 
+              has been corrected in latest Nagios releases.</p>
+            <p class="SectionBody">You can :<br>
+            </p>
+            <p class="SectionBody">- Add a patch if your nagios release is old. 
+              Here is a patch made by Gavin Carr for the p1.pl file to correct 
+              this (it should be in nagios CVS shortly). <a href="http://nagios.manubulon.com/p1-print.pl.patch">http://nagios.manubulon.com/p1-print.pl.patch</a> 
+            </p>
+            <p class="SectionBody">- Upgrade Nagios.<br>
+              <br>
+              - add &quot;/usr/bin/perl&quot; before the script command so Nagios 
+              won't use embeded perl. </p>
+            <p class="SectionTitle"><a name="FAQ9"></a>Getting : &quot;ERROR: 
+              Size table :Message size exceeded buffer maxMsgSize&quot;</p>
+            <p class="SectionBody">Your snmp table is too big.</p>
+            <p class="SectionBody">Some of my scripts (check_snmp_storage and 
+              check_snmp_process) now have an option (-o) to set this directly 
+              on command line (thx to Makina Corpus for the patch).</p>
+            <p class="SectionBody">In other scripts, try adding :</p>
+            <p class="SectionBody"> $session-&gt;max_msg_size(5000);<br>
+            </p>
+            <p class="SectionBody">After the session has been initialized. </p>
+            <p class="SectionTitle"><br>
+              <a name="FAQM3"></a>Are these scripts secure ?</p>
+            <p class="SectionBody">Not at all ! You must secure the Nagios server.<br>
+              Nobody else than the nagios user should be allowed to even think 
+              about running these scripts.<br>
+            </p>
+            <p class="SectionTitle"><a name="FAQM1"></a>How can I get help ? Is 
+              there a mailling list ? a forum ?</p>
+            <p class="SectionBody">Go to the sourceforge project page for all this : <a href=http://sourceforge.net/projects/nagios-snmp/>Nagios-snmp</a>
+            <p class="SectionBody"><a name="FAQM2"></a><span class="SectionTitle">Can 
+              I donate to help this project ?</span></p>
+            <p class="SectionBody">Of course you can, I just haven't got any idea 
+              of how, so just send a postcard to my son (Jolan) with a nice drawing (or buy a cookie to your son/daughter/nephew/grand-ma...).<br> 
+              You can get my postal address on my resume (<a href="http://www.manubulon.com/cvpproy.htm">www.manubulon.com/cvpproy.htm</a>).<br>
+              He will answer you when he knows how to write (in several years).</p>
+            </td>
+
+        </tr> 
+        <tr>
+	  <td>
+             <p class="SectionBody">This project is also hosted by : <br>
+
+             <A href="http://sourceforge.net/projects/nagios-snmp/"> <IMG src="http://sourceforge.net/sflogo.php?group_id=134917&type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A>
+	  </p></td>
+	</tr>
+
+      </table>
+
+    </td>
+
+  </tr>
+
+</table>
+
+<p>&nbsp;</p>
+
+</BODY>
+
+</HTML>
+

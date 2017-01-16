@@ -1,0 +1,358 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>Nagios plugins</TITLE>
+
+<META NAME="Keywords" CONTENT="nagios,plugins,perl,snmp,proy">
+
+<STYLE type="text/css">
+
+<!--
+
+        .Default { font-family: verdana,arial,serif; font-size: 10pt; }
+
+        .ProgramTitle { font-family: verdana,arial,serif; font-size: 18pt; font-weight: bold;}
+
+        .Copyright { font-family: verdana,arial,serif; font-size: 10pt;}
+
+        .Email { font-family: verdana,arial,serif; font-size: 10pt;}
+
+        .NewsItem { font-family: verdana,arial,serif; font-size: 8pt; }
+
+        .NewsItemOdd { font-family: verdana,arial,serif; font-size: 8pt; background-color: #DBDBDB;}
+
+        .NewsItemEven { font-family: verdana,arial,serif; font-size: 8pt; background-color: #C4C2C2;}
+
+        .NewsItemUrgent { font-family: verdana,arial,serif; font-size: 8pt; background-color: #ccff99;}
+
+        .NewsItemDate { font-family: verdana,arial,serif; font-size: 8pt; font-weight: bold; }
+
+        .SectionTitle { font-family: verdana,arial,serif; font-size: 9pt; font-weight: bold; text-decoration: underline;}
+
+        .SectionBody { font-family: verdana,arial,serif; font-size: 8pt; }
+
+        .ModificationDate { font-family: verdana,arial,serif; font-size: 7pt; }
+
+        .Disclaimer { font-family: verdana,arial,serif; font-size: 8pt; }
+
+		A.SideNavBarItem { font-family: verdana,arial,serif; background-color : black; color: #e7e7e7; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarHotItem { font-family: verdana,arial,serif; background-color : black; color: #ffcc66; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarHotItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+-->      
+
+</STYLE>
+
+</HEAD>
+
+<body  background="img/sideback.jpg" bgcolor="#FFFFFF" text="black" class="Default">
+
+<table border="0">
+
+  <tr> 
+
+    <td valign=top> 
+
+      <!-- Begin Side Bar -->
+
+      <table border="0" width="125" valign=top>
+
+        <tr> 
+
+          <td><a href="http://nagios.manubulon.com/" class="SideNavBarItem" >Home</a></td>
+
+        </tr>
+
+        <tr> 
+
+          <td></td>
+
+        </tr>
+
+        <tr> 
+
+          <td><BR>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td> </td>
+
+        </tr>
+
+      </table>
+
+      <!-- End Side Bar -->
+
+    </td>
+
+    <td valign=top> 
+
+      <table border="0" valign=top>
+
+        <tr> 
+
+          <td class="ProgramTitle"> Snmp vrrp check</td>
+
+        </tr>
+
+        <tr> 
+
+          <td> 
+
+            <p class="NewsItemDate">Script : check_snmp_vrrp.pl</p>
+
+            <p class="SectionTitle"> Last update : Sept 4 2006</p>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td valign="top"> 
+
+            <p class="SectionTitle">Description : </p>
+
+            <p class="SectionBody">Checks by snmp v1, v2c or v3 the vrrp status 
+              of all vrrp enabled interfaces. <br>
+              Works on<br>
+              - Nokia IP with ipso 3.X , 4.X in VRRP mode.<br>
+              - Nokia IP with ipso 3.X , 4.X in clustering mode.<br>
+              - Radware Linkproof<br>
+              - Alteon AD4 Loadbalancers</p>
+            <p class="SectionBody">Depending on the state you put as option (&quot;master&quot; 
+              or &quot;backup&quot;) the script will get all the vrrp enables 
+              interface and check they are in this state. <br>
+              If not, it will retrun a critical status<br>
+              By default, it will check Nokia IP platforms using vrrp, you can 
+              test other platforms with the '-T' option :<br>
+              <br>
+              - Alteon<br>
+              - Linkproof (VRRP)<br>
+              - Nokia clustering.</p>
+            <p class="SectionTitle">Nokia clustering check</p>
+            <p class="SectionBody">Nokia clustering check does not have a master 
+              &amp; backup state. Instead, the plugin will check : </p>
+            <p class="SectionBody">- The number of cluster member<br>
+              - The % load on each cluster.</p>
+            <p class="SectionBody">For example <b>-s 2,90</b> will issue <br>
+              - A critical level if there is not 2 members.<br>
+              - A warning level if more than 90% is assigned to one cluster member.</p>
+            <p class="SectionBody">To have a long output, put the '-g' option.</p>
+
+            <p class="SectionBody"><span class="SectionTitle">SNMP Login</span><br>
+            </p>
+            <p class="SectionBody">See <a href="index_info.html">snmp info page</a></p>
+            <p class="SectionBody"><span class="SectionTitle">French </span>: 
+              Vérifie par snmp v1 ou v3 l'&eacute;tat des interfaces vrrp : Nokia, 
+              Linkproof, Alt&eacute;on ou l'&eacute;tat d'un cluster Nokia.</p>
+
+            <p class="SectionTitle">Requirements :</p>
+
+            <p class="SectionBody"> - Perl in /usr/bin/perl - or just run 'perl 
+
+              script' <br>
+
+              - Net::SNMP<br>
+
+              - file 'utils.pm' in plugin diretory<br>
+
+            </p>
+
+            <p class="SectionBody"><a href="check_snmp_vrrp.pl" class="SectionTitle">Dowload 
+              lastest version : 1.3</a> </p>
+
+            <p class="SectionBody"><a href="index_commands.html" class="SectionTitle">Configurations 
+
+              examples</a></p>
+
+            <p class="SectionTitle">Examples :</p>
+
+            <p class="SectionBody"><br>
+
+              All examples below are considering the script is local directory. 
+
+              Host to be checked is 127.0.0.1 with snmp community &quot;public&quot;.</p>
+
+            <p class="SectionBody">If multiple interfaces are selected, all must 
+
+              be up to get an OK result</p>
+
+            <table border="1" cellspacing="5">
+              <tr> 
+                <td class="NewsItemDate" valign = top width="282"> 
+                  <p>Get help 
+                </td>
+                <td class="SectionBody" width="387"> 
+                  <p>./check_snmp_vrrp.pl <b>-h</b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="282">snmpv3 login</td>
+                <td class="SectionBody" width="387">./check_snmp_vrrp.pl -H 127.0.0.1 
+                  -l login -x passwd<b></b></td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="282"> 
+                  <p>Check vrrp state of a node to be master. 
+                </td>
+                <td class="SectionBody" width="387"> 
+                  <p>./check_snmp_vrrp.pl -H 127.0.0.1 -C public <b>-s master</b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="282"> 
+                  <div align="right"> 
+                    <p>Output example :<br>
+                      The ouput is : &lt;vrid&gt;(&lt;state&gt;,&lt;status&gt;,&lt;priority&gt;) 
+                    </p>
+                  </div>
+                </td>
+                <td class="SectionBody" width="387">Vrid : 10(master/up/100), 
+                  1(master/up/100), 3(master/up/100), 2(master/up/100), : All 
+                  master :OK</td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="282">Check vrrp state 
+                  of a node to be backup. </td>
+                <td class="SectionBody" width="387">./check_snmp_vrrp.pl -H 127.0.0.1 
+                  -C public <b>-s backup</b></td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="282"> 
+                  <p align="right">Output example : 
+                </td>
+                <td class="SectionBody" width="387"> 
+                  <p>Vrid : 1(backup/up/95), 3(backup/up/95), 10(backup/up/95), 
+                    2(backup/up/95), : All backup :OK</p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="282">Test a Linkproof</td>
+                <td class="SectionBody" width="387">./check_snmp_vrrp.pl -H 127.0.0.1 
+                  -C public -s master <b>-T lp</b></td>
+              </tr>
+              <tr>
+                <td class="NewsItemDate" valign = top width="282">Test a Nokia 
+                  cluster : 2 cluster members and max 90% load assigned to one 
+                  cluster. </td>
+                <td class="SectionBody" width="387">./check_snmp_vrrp.pl -H 127.0.0.1 
+                  -C public <b>-s 2,90%-T ipso</b></td>
+              </tr>
+            </table>
+
+            <p class="NewsItemDate"><span class="SectionTitle">Changelog</span> 
+              : On CVS repository on sourceforge : <a href="http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/">http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/</a>.</p>
+
+            <p class="NewsItemDate">Output of check_snmp_vrrp.pl -h</p>
+
+            <table border="1" cellspacing="5">
+
+              <tr> 
+
+                <td class="SectionBody" valign = top> 
+                  <p class="SectionBody">SNMP VRRP Monitor for Nagios version 
+                    1.3<br>
+                    (c)2004-2006 to my cat Ratoune - Author : Patrick Proy
+                  <p>Usage: ./check_snmp_vrrp.pl [-v] -H &lt;host&gt; -C &lt;snmp_community&gt; 
+                    [-2] | (-l login -x passwd [-X pass -L &lt;authp&gt;,&lt;privp&gt;]) 
+                    -s &lt;master|backup|num,%&gt; [-T &lt;nokia|alteon|lp|nsc|ipsocluster&gt;] 
+                    [-p &lt;port&gt;] [-t &lt;timeout&gt;] [-V]<br>
+                    -v, --verbose<br>
+                    print extra debugging information (including interface list 
+                    on the system)<br>
+                    -h, --help<br>
+                    print this help message<br>
+                    -H, --hostname=HOST<br>
+                    name or IP address of host to check<br>
+                    -C, --community=COMMUNITY NAME<br>
+                    community name for the host's SNMP agent (implies v1 protocol)<br>
+                    -2, --v2c<br>
+                    Use snmp v2c<br>
+                    -l, --login=LOGIN ; -x, --passwd=PASSWD<br>
+                    Login and auth password for snmpv3 authentication <br>
+                    If no priv password exists, implies AuthNoPriv <br>
+                    -X, --privpass=PASSWD<br>
+                    Priv password for snmpv3 (AuthPriv protocol)<br>
+                    -L, --protocols=&lt;authproto&gt;,&lt;privproto&gt;<br>
+                    &lt;authproto&gt; : Authentication protocol (md5|sha : default 
+                    md5)<br>
+                    &lt;privproto&gt; : Priv protocole (des|aes : default des) 
+                    <br>
+                    -P, --port=PORT<br>
+                    SNMP port (Default 161)<br>
+                    -T, --type=&lt;nokia|alteon|lp|nsc|ipso&gt;<br>
+                    Type of vrrp router to check<br>
+                    nokia (default) : Nokai vrrp. Should be working for most vrrp 
+                    routers<br>
+                    alteon : for Alteon AD4 Loadbalancers<br>
+                    lp : Radware Linkproof<br>
+                    nsc : Nescreen (ScreenOS 5.x NSRP)<br>
+                    ipso : Nokia IPSO clustering<br>
+                    -s, --state=master|backup|num,%<br>
+                    Nokia ipso clustering : number of members, max % assigned 
+                    to nodes.<br>
+                    Other : check vrrp interface to be master or backup<br>
+                    -g, --long<br>
+                    Make output long even is all is OK <br>
+                    -t, --timeout=INTEGER<br>
+                    timeout for SNMP in seconds (Default: 5)<br>
+                    -V, --version<br>
+                    prints version number</p>
+                </td>
+
+              </tr>
+
+            </table>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td> 
+
+            <p class="SectionBody">This project is hosted on : <br>
+
+              <A href="http://sourceforge.net/projects/nagios-snmp"> <IMG src="http://sourceforge.net/sflogo.php?group_id=134917&type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A> 
+
+            </p>
+
+            <p class="SectionBody"> Nagios and the Nagios logo are registered 
+
+              trademarks of Ethan Galstad.</p>
+
+          </td>
+
+        </tr>
+
+      </table>
+
+    </td>
+
+  </tr>
+
+</table>
+
+<p>&nbsp;</p>
+
+</BODY>
+
+</HTML>
+
+
+
+
+
+
+

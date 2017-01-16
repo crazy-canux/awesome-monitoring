@@ -1,0 +1,354 @@
+<HTML>
+<HEAD>
+<TITLE>Nagios plugins</TITLE>
+<META NAME="Keywords" CONTENT="nagios,plugins,perl,snmp,proy">
+<STYLE type="text/css">
+<!--
+        .Default { font-family: verdana,arial,serif; font-size: 10pt; }
+        .ProgramTitle { font-family: verdana,arial,serif; font-size: 18pt; font-weight: bold;}
+        .Copyright { font-family: verdana,arial,serif; font-size: 10pt;}
+        .Email { font-family: verdana,arial,serif; font-size: 10pt;}
+        .NewsItem { font-family: verdana,arial,serif; font-size: 8pt; }
+        .NewsItemOdd { font-family: verdana,arial,serif; font-size: 8pt; background-color: #DBDBDB;}
+        .NewsItemEven { font-family: verdana,arial,serif; font-size: 8pt; background-color: #C4C2C2;}
+        .NewsItemUrgent { font-family: verdana,arial,serif; font-size: 8pt; background-color: #ccff99;}
+        .NewsItemDate { font-family: verdana,arial,serif; font-size: 8pt; font-weight: bold; }
+        .SectionTitle { font-family: verdana,arial,serif; font-size: 9pt; font-weight: bold; text-decoration: underline;}
+        .SectionBody { font-family: verdana,arial,serif; font-size: 8pt; }
+        .ModificationDate { font-family: verdana,arial,serif; font-size: 7pt; }
+        .Disclaimer { font-family: verdana,arial,serif; font-size: 8pt; }
+		A.SideNavBarItem { font-family: verdana,arial,serif; background-color : black; color: #e7e7e7; font-size: 9pt; font-weight: bold; text-decoration: none; }
+		A.SideNavBarItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+		A.SideNavBarHotItem { font-family: verdana,arial,serif; background-color : black; color: #ffcc66; font-size: 9pt; font-weight: bold; text-decoration: none; }
+		A.SideNavBarHotItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+-->      
+</STYLE>
+</HEAD>
+<body  background="img/sideback.jpg" bgcolor="#FFFFFF" text="black" class="Default">
+<table border="0">
+  <tr> 
+    <td valign=top> 
+      <!-- Begin Side Bar -->
+      <table border="0" width="125" valign=top>
+        <tr> 
+          <td><a href="http://nagios.manubulon.com/" class="SideNavBarItem" >Home</a></td>
+        </tr>
+        <tr> 
+          <td></td>
+        </tr>
+        <tr> 
+          <td><BR>
+          </td>
+        </tr>
+        <tr> 
+          <td> </td>
+        </tr>
+      </table>
+      <!-- End Side Bar -->
+    </td>
+    <td valign=top> 
+      <table border="0" valign=top>
+        <tr> 
+          <td class="ProgramTitle"> Snmp process check</td>
+        </tr>
+        <tr> 
+          <td> 
+            <p class="NewsItemDate">Script : check_snmp_process.pl</p>
+            <p class="SectionTitle"> Last update : March 12 2007</p>
+          </td>
+        </tr>
+        <tr> 
+          <td valign="top"> 
+            <p class="SectionTitle">Description : </p>
+            <p class="SectionBody">Checks by snmp v1 or v3 if a process is running 
+              and how many instances are running (minimum &amp; maximum). <br>
+              It is also possible to check memory and cpu used by one or a group 
+              of process<br>
+              <br>
+              Works on Windows, Linux/Unix, AS400.</p>
+            <p class="SectionBody"> Vérifie par snmp v1 ou v3 si un process tourne 
+              et combien d'instances de ce process tournent (minimum et maximum).<br>
+              Il est &eacute;galement possible de v&eacute;rifier la m&eacute;moire 
+              et le cpu utilis&eacute;.<br>
+              <br>
+              <span class="SectionTitle"> Standard checks<br>
+              </span></p>
+            <p class="SectionBody">The plugin checks if there is at least one 
+              process matching the filter (<b>-n </b>option) when no warning or 
+              critical levels are set. <br>
+              The filter is treated as a regular expression by default, but you 
+              can deactivate this (<b>-r</b>)</p>
+            <p class="SectionBody">You can use -w and -c options to set the warning 
+              and critical levels : <br>
+              <b>-w &lt;minW&gt;,&lt;maxW&gt; </b>: with minW and maxW the minimum 
+              and maximum number of processes.<br>
+              <br>
+              <b>-c &lt;minC&gt;,&lt;maxC&gt;</b> : same thing<br>
+              Of course : <b>minC &lt;= minW &lt; maxW &lt;=maxC</b><br>
+              <i><br>
+              You can omit &lt;maxW&gt; and &lt;maxC&gt;</i><br>
+              <br>
+              Saying N is the current number of processes<br>
+              - N &lt; minC : critical<br>
+              - minC &lt; N &lt;=minW : warning<br>
+              - minW&lt; N &lt;= maxW : OK<br>
+              - maxW&lt; N &lt;= maxC : warning<br>
+              - maxC &lt; N : critical<br>
+            </p>
+            <p class="SectionTitle">Memory checks </p>
+            <p class="SectionBody">The <b>-m </b>option can check the memory used 
+              by the selected processes.<br>
+              By default, this will select the process wich use the maximum memory. 
+              The <b>-a</b> switch will make an average<br>
+              <br>
+              Ex : <b>-m 7,20 </b>will send a warning if a process uses more than 
+              7 Mb, and critical for more than 20Mb.</p>
+            <p class="SectionTitle">CPU checks</p>
+            <p class="SectionBody">When you use the <b>-u </b>option, a temporary 
+              file will be created in &quot;/tmp&quot; by default : this can be 
+              changed at the beginning of the script. <br>
+              The file name will be : tmp_Nagios_proc.&lt;host IP&gt;.&lt;process 
+              filter&gt;.</p>
+            <p class="SectionBody">The -u option will add all the cpu used by 
+              all selected process and the make the check<br>
+            </p>
+            <p class="SectionBody"><b>-u 91,95</b> : will send a warning if more 
+              than 91% of cpu is used, and critical if more than 95% is used.</p>
+            <p class="SectionBody">On multiprocessor hosts, the % of cpu use can 
+              be &gt; 100% : on a 4 CPU host, cpu usage can go up to 400% (the 
+              script doesn't check if a host is multiprocessor or not).</p>
+            <p class="SectionBody">The script curently wants a minimum of 5 minutes 
+              between values taken from host (can be changed at the beginning 
+              of the scripts). You can check more than once every 5 minutes but 
+              don't put check-interval to more than 15 minutes.<br>
+              When the script doesn't have enough data to compute the CPU use 
+              (for example, the first time it is run), then it will return a UNKNOWN 
+              status. </p>
+            <p class="SectionBody"><b>Msg size option </b>(<i>-o</i><b><i> </i></b>option)</p>
+            <p class="SectionBody">In case you get a &quot;ERROR: running table 
+              : Message size exceeded maxMsgSize&quot; error, you may need to 
+              adjust the maxMsgSize, i.e. the maximum size of snmp message with 
+              the -o option. Try a value with the -o AND the -v option : the script 
+              will output the actual value so you can add some octets to it with 
+              the -o option.</p>
+            <p class="SectionBody"><span class="SectionTitle">SNMP Login</span><br>
+            </p>
+            <p class="SectionBody">See <a href="index_info.html">snmp info page</a></p>
+            <p class="SectionTitle">Requirements :</p>
+            <p class="SectionBody"> - Perl in /usr/bin/perl - or just run 'perl 
+              script' <br>
+              - Net::SNMP<br>
+              - file 'utils.pm' in plugin diretory<br>
+            </p>
+            <p class="SectionBody"><a href="check_snmp_process.pl" class="SectionTitle">Dowload 
+              latest version : 1.4</a> </p>
+            <p class="SectionBody"><a href="index_commands.html" class="SectionTitle">Configurations 
+              examples</a></p>
+            <p class="SectionBody"><span class="SectionTitle">Changelog</span> 
+              : On CVS repository on sourceforge : <a href="http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/">http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/</a>.</p>
+            <p class="SectionTitle">Examples :</p>
+            <p class="SectionBody"><br>
+              All examples below are considering the script is local directory. 
+              Host to be checked is 127.0.0.1 with snmp community &quot;public&quot;.</p>
+            <p class="SectionBody">If multiple interfaces are selected, all must 
+              be up to get an OK result</p>
+            <table border="1" cellspacing="5" width="819">
+              <tr> 
+                <td class="NewsItemDate" valign = top width="261"> 
+                  <p>Get help 
+                </td>
+                <td class="SectionBody" width="533"> 
+                  <p>./check_snmp_process.pl <b>-h</b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="261">snmpv3 login</td>
+                <td class="SectionBody" width="533">./check_snmp_process.pl -H 
+                  127.0.0.1 -l login -x passwd<b></b></td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="261"> 
+                  <p>Check if at least one process matching http is running 
+                </td>
+                <td class="SectionBody" width="533"> 
+                  <p>./check_snmp_process.pl -H 127.0.0.1 -C public <b>-n http</b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="261"> 
+                  <p align="right">Result example : 
+                </td>
+                <td class="SectionBody" width="533"> 
+                  <p>3 process matching http : &gt; 0 : OK</p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="261"> 
+                  <p>Check if at least 3 process matching http are running 
+                </td>
+                <td class="SectionBody" width="533"> 
+                  <p>./check_snmp_process.pl -H 127.0.0.1 -C public -n http<b> 
+                    -w 2 -c 0</b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="261"> 
+                  <div align="right">Result example : <br>
+                    (&lt;=2 will return warning, 0 critical)</div>
+                </td>
+                <td class="SectionBody" width="533">3 process matching httpd : 
+                  &gt; 2 : OK</td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="261">Check if at 
+                  least one process named &quot;httpd&quot; exists (no regexp)</td>
+                <td class="SectionBody" width="533">./check_snmp_process.pl -H 
+                  127.0.0.1 -C public -n http <b>-r</b></td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="261"> 
+                  <p align="right">Result example : </p>
+                </td>
+                <td class="SectionBody" width="533">3 process <b>named</b> httpd 
+                  : &gt; 0 : OK</td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="261">Check process 
+                  by their full path : check process of /opt/soft/bin/ (at least 
+                  one) </td>
+                <td class="SectionBody" width="533">./check_snmp_process.pl -H 
+                  127.0.0.1 -C public <b>-n /opt/soft/bin/ -f</b></td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="261">Check that at 
+                  least 3 process but not more than 8 are running</td>
+                <td class="SectionBody" width="533">./check_snmp_process.pl -H 
+                  127.0.0.1 -C public -n http <b>-w 3,8 -c 0,15</b></td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="261">Same checks 
+                  + checks maximum memory used by process (in Mb) : warning and 
+                  critical levels</td>
+                <td class="SectionBody" width="533">./check_snmp_process.pl -H 
+                  127.0.0.1 -C public -n http -w 3,8 -c 0,15 <b>-m 9,25</b></td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="261">Same check but 
+                  sum all CPU used by all selected process</td>
+                <td class="SectionBody" width="533">./check_snmp_process.pl -H 
+                  127.0.0.1 -C public -n http -w 3,8 -c 0,15 -m 9,25 <b>-u 70,99</b></td>
+              </tr>
+            </table>
+            <p class="NewsItemDate">Output of check_snmp_process.pl -h</p>
+            <table border="1" cellspacing="5">
+              <tr> 
+                <td class="SectionBody" valign = top> 
+                  <p>SNMP Process Monitor for Nagios version 1.4<br>
+                    GPL licence, (c)2004-2006 Patrick Proy</p>
+                  <p>Usage: ./check_snmp_process.pl [-v] -H &lt;host&gt; -C &lt;snmp_community&gt; 
+                    [-2] | (-l login -x passwd) [-p &lt;port&gt;] -n &lt;name&gt; 
+                    [-w &lt;min_proc&gt;[,&lt;max_proc&gt;] -c &lt;min_proc&gt;[,max_proc] 
+                    ] [-m&lt;warn Mb&gt;,&lt;crit Mb&gt; -a -u&lt;warn %&gt;,&lt;crit%&gt; 
+                    ] [-t &lt;timeout&gt;] [-o &lt;octet_length&gt;] [-f ] [-r] 
+                    [-V] [-g]<br>
+                    -v, --verbose<br>
+                    print extra debugging information (and lists all storages)<br>
+                    -h, --help<br>
+                    print this help message<br>
+                    -H, --hostname=HOST<br>
+                    name or IP address of host to check<br>
+                    -C, --community=COMMUNITY NAME<br>
+                    community name for the host's SNMP agent (implies SNMP v1 
+                    or v2c with option)<br>
+                    -l, --login=LOGIN ; -x, --passwd=PASSWD, -2, --v2c<br>
+                    Login and auth password for snmpv3 authentication <br>
+                    If no priv password exists, implies AuthNoPriv <br>
+                    -2 : use snmp v2c<br>
+                    -X, --privpass=PASSWD<br>
+                    Priv password for snmpv3 (AuthPriv protocol)<br>
+                    -L, --protocols=&lt;authproto&gt;,&lt;privproto&gt;<br>
+                    &lt;authproto&gt; : Authentication protocol (md5|sha : default 
+                    md5)<br>
+                    &lt;privproto&gt; : Priv protocole (des|aes : default des) 
+                    <br>
+                    -p, --port=PORT<br>
+                    SNMP port (Default 161)<br>
+                    -n, --name=NAME<br>
+                    Name of the process (regexp)<br>
+                    No trailing slash !<br>
+                    -r, --noregexp<br>
+                    Do not use regexp to match NAME in description OID<br>
+                    -f, --fullpath<br>
+                    Use full path name instead of process name <br>
+                    (Windows doesn't provide full path name)<br>
+                    -w, --warn=MIN[,MAX]<br>
+                    Number of process that will cause a warning <br>
+                    -1 for no warning, MAX must be &gt;0. Ex : -w-1,50<br>
+                    -c, --critical=MIN[,MAX]<br>
+                    number of process that will cause an error (<br>
+                    -1 for no critical, MAX must be &gt;0. Ex : -c-1,50<br>
+                    Notes on warning and critical : <br>
+                    with the following options : -w m1,x1 -c m2,x2<br>
+                    you must have : m2 &lt;= m1 &lt; x1 &lt;= x2<br>
+                    you can omit x1 or x2 or both<br>
+                    -m, --memory=WARN,CRIT<br>
+                    checks memory usage (default max of all process)<br>
+                    values are warning and critical values in Mb<br>
+                    -a, --average<br>
+                    makes an average of memory used by process instead of max<br>
+                    -u, --cpu=WARN,CRIT<br>
+                    checks cpu usage of all process<br>
+                    values are warning and critical values in % of CPU usage<br>
+                    if more than one CPU, value can be &gt; 100% : 100%=1 CPU<br>
+                    -g, --getall<br>
+                    In some cases, it is necessary to get all data at once because<br>
+                    process die very frequently.<br>
+                    This option eats bandwidth an cpu (for remote host) at breakfast.<br>
+                    -o, --octetlength=INTEGER<br>
+                    max-size of the SNMP message, usefull in case of Too Long 
+                    responses.<br>
+                    Be carefull with network filters. Range 484 - 65535, default 
+                    are<br>
+                    usually 1472,1452,1460 or 1440. <br>
+                    -t, --timeout=INTEGER<br>
+                    timeout for SNMP in seconds (Default: 5)<br>
+                    -V, --version<br>
+                    prints version number<br>
+                    Note : <br>
+                    CPU usage is in % of one cpu, so maximum can be 100% * number 
+                    of CPU <br>
+                    example : <br>
+                    Browse process list : &lt;script&gt; -C &lt;community&gt; 
+                    -H &lt;host&gt; -n &lt;anything&gt; -v <br>
+                    the -n option allows regexp in perl format : <br>
+                    All process of /opt/soft/bin : -n /opt/soft/bin/ -f<br>
+                    All 'named' process : -n named<br>
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <p class="SectionBody">This project is hosted on : <br>
+              <A href="http://sourceforge.net/projects/nagios-snmp"> <IMG src="http://sourceforge.net/sflogo.php?group_id=134917&type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A> 
+            </p>
+            <p class="SectionBody"> Nagios and the Nagios logo are registered 
+              trademarks of Ethan Galstad.</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</BODY>
+</HTML>
+
+
+
+
+
+
+

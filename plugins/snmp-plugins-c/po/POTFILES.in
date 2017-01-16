@@ -1,0 +1,6 @@
+# files with "_()" to check
+src/nagios_common_snmp.h
+src/nagios_common_snmp.c
+src/check_snmp_int.c
+src/check_snmp_process.c
+src/check_snmp_storage.c

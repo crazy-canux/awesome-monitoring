@@ -1,0 +1,80 @@
+AC_PREREQ(2.59)
+
+AC_INIT(nagios-plugins-snmp, 0.5)
+AM_INIT_AUTOMAKE(nagios-plugins-snmp, 1.0)
+
+AC_CONFIG_SRCDIR([src/check_snmp_int.c])
+AC_CONFIG_HEADER([config.h])
+
+###### Configure parameters
+# Default values for configure
+AC_PREFIX_DEFAULT(/usr/local/nagios)
+
+AC_ARG_WITH(basetmpdir,
+        [AS_HELP_STRING([--with-basetmpdir=DIR],
+              [Set temp DIR for plugins @<:@default=/tmp@:>@])],
+        with_basetmpdir=$withval,
+        with_basetmpdir=/tmp)
+BASE_DIR="$with_basetmpdir"
+AC_SUBST(with_basetmpdir)
+AC_DEFINE_UNQUOTED(BASE_DIR,"$BASE_DIR",[Temp dir for plugins])
+
+AC_ARG_WITH(cachedir,
+        [AS_HELP_STRING([--with-cachedir=DIR],
+              [Set cache DIR for plugins @<:@default=[basetmpdir]/cache@:>@])],
+        with_cachedir=$withval,
+        with_cachedir=$BASE_DIR/cache)
+BASE_CACHE="$with_cachedir"
+AC_SUBST(with_cachedir)
+AC_DEFINE_UNQUOTED(BASE_CACHE,"$BASE_CACHE",[Cache dir for plugins])
+
+###### Configure checks
+# Checks for programs.
+AC_PROG_CC
+AC_PROG_INSTALL
+
+# Checks for libraries.
+LIBS=""
+INCLUDE=""
+CFLAGS=""
+
+# Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS([libintl.h locale.h stdlib.h string.h unistd.h])
+
+# Checks for gettext
+AM_GNU_GETTEXT([external], [need-ngettext])
+AM_GNU_GETTEXT_VERSION(0.14.6)
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+AC_TYPE_SIZE_T
+
+# Checks for library functions.
+AC_FUNC_MALLOC
+AC_CHECK_FUNCS([regcomp setlocale strdup strpbrk strtol])
+
+# Check for SNMP librairies & get config
+SNMP_CONFIG=""
+AC_PATH_PROG(SNMP_CONFIG,net-snmp-config,,[/usr/local/bin:$PATH])
+if test -x "$SNMP_CONFIG"; then
+  SNMP_BUILDLIBS=`$SNMP_CONFIG --libs`
+  SNMP_CFLAGS=`$SNMP_CONFIG --cflags`
+  SNMP_PREFIX=`$SNMP_CONFIG --prefix`
+
+  if test -n "${SNMP_BUILDLIBS}" && test -n "${SNMP_PREFIX}" && test -n "${SNMP_CFLAGS}"; then
+    INCLUDE="${INCLUDE} ${SNMP_PREFIX}/include"
+    LIBS="${LIBS} ${SNMP_BUILDLIBS}"
+    CFLAGS="${CFLAGS} ${SNMP_CFLAGS}"
+    AC_DEFINE(HAVE_NET_SNMP,1,[ ])
+  else
+    AC_MSG_ERROR([Could not find the required paths. Please check your net-snmp installation.])
+  fi
+else 
+  AC_MSG_ERROR([Could not find net-snmp-config. Please check your net-snmp installation.])
+fi
+
+# Set config files and output
+AC_CONFIG_FILES([Makefile src/Makefile po/Makefile.in])
+AC_OUTPUT
+

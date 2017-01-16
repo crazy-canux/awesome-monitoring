@@ -1,0 +1,33 @@
+[submodule "plugins/monitoring-plugins"]
+	path = plugins/monitoring-plugins
+	url = https://github.com/monitoring-plugins/monitoring-plugins.git
+[submodule "plugins/zplugins"]
+	path = plugins/zplugins
+	url = https://github.com/crazy-canux/zplugin.git
+[submodule "plugins/nagios-plugins-pewo"]
+	path = plugins/nagios-plugins-pewo
+	url = https://github.com/pewo/nagios-plugins.git
+[submodule "plugins/nagios-plugins-harisekhon"]
+	path = plugins/nagios-plugins-harisekhon
+	url = https://github.com/HariSekhon/nagios-plugins.git
+[submodule "plugins/naglio-plugins-willixix"]
+	path = plugins/naglio-plugins-willixix
+	url = https://github.com/willixix/naglio-plugins.git
+[submodule "plugins/monitoringplug-MonitoringPlug"]
+	path = plugins/monitoringplug-MonitoringPlug
+	url = https://github.com/MonitoringPlug/monitoringplug.git
+[submodule "plugins/nagios-plugins-jonschipp"]
+	path = plugins/nagios-plugins-jonschipp
+	url = https://github.com/jonschipp/nagios-plugins.git
+[submodule "plugins/nagios-plugins-kumina"]
+	path = plugins/nagios-plugins-kumina
+	url = https://github.com/kumina/nagios-plugins-kumina.git
+[submodule "plugins/nagios-plugins-opinkerfi"]
+	path = plugins/nagios-plugins-opinkerfi
+	url = https://github.com/opinkerfi/nagios-plugins.git
+[submodule "plugins/nagios-plugins"]
+	path = plugins/nagios-plugins
+	url = https://github.com/nagios-plugins/nagios-plugins.git
+[submodule "addons/nscp"]
+	path = addons/nscp
+	url = https://github.com/mickem/nscp.git

@@ -1,0 +1,471 @@
+
+
+<HTML>
+
+<HEAD>
+
+<TITLE>Nagios plugins</TITLE>
+
+<META NAME="Keywords" CONTENT="nagios,plugins,perl,snmp,proy">
+
+<STYLE type="text/css">
+
+<!--
+
+        .Default { font-family: verdana,arial,serif; font-size: 10pt; }
+
+        .ProgramTitle { font-family: verdana,arial,serif; font-size: 18pt; font-weight: bold;}
+
+        .Copyright { font-family: verdana,arial,serif; font-size: 10pt;}
+
+        .Email { font-family: verdana,arial,serif; font-size: 10pt;}
+
+        .NewsItem { font-family: verdana,arial,serif; font-size: 8pt; }
+
+        .NewsItemOdd { font-family: verdana,arial,serif; font-size: 8pt; background-color: #DBDBDB;}
+
+        .NewsItemEven { font-family: verdana,arial,serif; font-size: 8pt; background-color: #C4C2C2;}
+
+        .NewsItemUrgent { font-family: verdana,arial,serif; font-size: 8pt; background-color: #ccff99;}
+
+        .NewsItemDate { font-family: verdana,arial,serif; font-size: 8pt; font-weight: bold; }
+
+        .SectionTitle { font-family: verdana,arial,serif; font-size: 9pt; font-weight: bold; text-decoration: underline;}
+
+        .SectionBody { font-family: verdana,arial,serif; font-size: 8pt; }
+
+        .ModificationDate { font-family: verdana,arial,serif; font-size: 7pt; }
+
+        .Disclaimer { font-family: verdana,arial,serif; font-size: 8pt; }
+
+		A.SideNavBarItem { font-family: verdana,arial,serif; background-color : black; color: #e7e7e7; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarHotItem { font-family: verdana,arial,serif; background-color : black; color: #ffcc66; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarHotItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+-->  
+
+</STYLE>
+
+</HEAD>
+
+<body  background="img/sideback.jpg" bgcolor="#FFFFFF" text="black" class="Default">
+
+<!--   background="img/sideback.jpg" -->
+
+<table border="0">
+
+  <tr> 
+
+    <td valign=top> 
+
+      <!-- Begin Side Bar -->
+
+      <table border="0" width="125" valign=top>
+
+        <tr> 
+
+          <td><a href="http://nagios.manubulon.com/" class="SideNavBarItem" >Home</a></td>
+
+        </tr>
+
+        <tr> 
+
+          <td></td>
+
+        </tr>
+
+        <tr> 
+
+          <td><BR>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td> </td>
+
+        </tr>
+
+      </table>
+
+      <!-- End Side Bar -->
+
+    </td>
+
+    <td valign=top> 
+
+      <table border="0" valign=top>
+
+        <tr> 
+
+          <td class="ProgramTitle"> Snmp Checkpoint FW-1 check</td>
+
+        </tr>
+
+        <tr> 
+
+          <td> 
+
+            <p class="NewsItemDate">Script : check_snmp_cpfw.pl</p>
+
+            <p class="SectionTitle"> Last update : April 19 2007</p>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td valign="top"> 
+
+            <p class="SectionTitle">Description : </p>
+
+            <p class="SectionBody">Checks by snmp v1, v2c or v3 some modules of 
+              Checkpoint FW-1 filtering or management module :</p>
+
+            <p class="SectionBody">You can choose to check 1, 2, 3 or all 4 modules. 
+
+              Each module will be checked independently and critical state will 
+
+              be returned if one of them is not OK.</p>
+
+            <p class="SectionBody">- Firewall (on filtering firewall) : </p>
+
+            <p class="SectionBody">Checks policy state : must be installed<br>
+
+              Can check installed policy name : you mut provide the exact name 
+
+              of the policy (-p = &lt;policy name&gt;)<br>
+
+              Can check connections : warning and maximum levels must be provided 
+
+              ( -c=&lt;warn&gt;,&lt;crit&gt;)</p>
+
+            <p class="SectionBody">- SVN</p>
+
+            <p class="SectionBody">Checks the svan status code (must be &quot;OK&quot;) 
+
+              of SVN</p>
+
+            <p class="SectionBody">- Management</p>
+
+            <p class="SectionBody">Checks the management state (&quot;active&quot;) 
+
+              and if management is alive.</p>
+
+            <p class="SectionBody">- High availability</p>
+
+            <p class="SectionBody">Checks the HA state : <br>
+              - &quot;active&quot; on IPSO &amp; master on SPLAT (default)<br>
+              - &quot;standby&quot; on SPLAT<br>
+              Use check_snmp_vrrp.pl for checks on active/standby or IPSO clusters 
+              on IPSO<br>
+              Check the blocking state (&quot;OK&quot;)<br>
+              Checks the state of all HA softs, usually : Synchronization,Filter, 
+              cphad and fwd.</p>
+            <p class="SectionBody"><span class="SectionTitle">SNMP Login</span><br>
+            </p>
+            <p class="SectionBody">See <a href="index_info.html">snmp info page</a></p>
+
+            <p class="SectionTitle">Requirements :</p>
+
+            <p class="SectionBody">- On the Checkpoint Firewall : SNMP extentions 
+
+              must be active</p>
+
+            <p class="SectionBody">- Perl in /usr/bin/perl - or just run 'perl 
+
+              script' <br>
+
+              - Net::SNMP<br>
+
+              - file 'utils.pm' in plugin diretory (/usr/local/nagios/libexec)</p>
+
+            <p class="SectionBody"><a href="index_commands.html" class="SectionTitle">Configurations 
+
+              examples</a><br>
+
+            </p>
+
+            <p class="SectionBody"><a href="check_snmp_cpfw.pl" class="SectionTitle">Dowload 
+              lastest version : 1.2.1</a></p>
+
+            <p class="NewsItemDate"><span class="SectionTitle">Changelog</span> 
+              : On CVS repository on sourceforge : <a href="http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/">http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/</a>.</p>
+
+            <p class="SectionTitle">Examples :</p>
+
+            <p class="SectionBody"><br>
+
+              All examples below are considering the script is local directory. 
+
+              Host to be checked is 127.0.0.1 with snmp community &quot;public&quot;.</p>
+
+            <table border="1" cellspacing="5">
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="282"> 
+
+                  <p>Get help 
+
+                </td>
+
+                <td class="SectionBody" width="387"> 
+
+                  <p>./check_snmp_cpfw.pl <b>-h</b></p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="282">snmpv3 login</td>
+
+                <td class="SectionBody" width="387">./check_snmp_cpfw.pl -H 127.0.0.1 
+
+                  <b>-l login -x passwd .....</b></td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="282"> 
+
+                  <p>Check firewall / HA / SVN - for a HA filtering module - 
+
+                </td>
+
+                <td class="SectionBody" width="387"> 
+
+                  <p>./check_snmp_cpfw.pl -H 127.0.0.1 -C public <b>-swa</b></p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="282"> 
+
+                  <p align="right">Result example : 
+
+                </td>
+
+                <td class="SectionBody" width="387"> 
+
+                  <p>FW : OK / SVN : OK / HA : OK / CPFW Status : OK</p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="282"> 
+
+                  <p>Check SVN/Mgmt - for a management - 
+
+                </td>
+
+                <td class="SectionBody" width="387"> 
+
+                  <p>./check_snmp_cpfw.pl -H 127.0.0.1 -C public <b>-sm</b></p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="282"> 
+
+                  <div align="right">Result example : </div>
+
+                </td>
+
+                <td class="SectionBody" width="387">SVN : OK / MGMT : OK / CPFW 
+
+                  Status : OK</td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="282">Check policy 
+
+                  name </td>
+
+                <td class="SectionBody" width="387">./check_snmp_cpfw.pl -H 127.0.0.1 
+
+                  -C public <b>-w -p prod</b></td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="282"> 
+
+                  <p align="right">Result example : </p>
+
+                </td>
+
+                <td class="SectionBody" width="387">FW : OK / CPFW Status : OK</td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="282"> 
+
+                  <div align="right">Same with another policy installed : </div>
+
+                </td>
+
+                <td class="SectionBody" width="387">FW : Policy installed : Standard 
+
+                  / CPFW Status : CRITICAL</td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="282">Check number 
+
+                  of active connection with performance data output</td>
+
+                <td class="SectionBody" width="387">./check_snmp_cpfw.pl -H 127.0.0.1 
+
+                  -C public <b>-w -c 1000,5000 -f</b></td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="282"> 
+
+                  <div align="right">Result example : </div>
+
+                </td>
+
+                <td class="SectionBody" width="387">FW : OK / CPFW Status : OK 
+
+                  | fw_connexions=340</td>
+
+              </tr>
+
+            </table>
+
+            <p class="SectionBody">&nbsp;</p>
+
+            <p class="NewsItemDate">Output of check_snmp_cpfw.pl -h</p>
+
+            <table border="1" cellspacing="5">
+
+              <tr> 
+
+                <td class="SectionBody" valign = top> 
+                  <p class="SectionBody">SNMP Checkpoint FW-1 Monitor for Nagios 
+                    version 1.2.1<br>
+                    GPL Licence, (c)2004-2007 - Patrick Proy
+                  <p>Usage: ./check_snmp_cpfw.pl [-v] -H &lt;host&gt; -C &lt;snmp_community&gt; 
+                    [-2] | (-l login -x passwd [-X pass -L &lt;authp&gt;,&lt;privp&gt;]) 
+                    [-s] [-w [-p=pol_name] [-c=warn,crit]] [-m] [-a [standby] 
+                    ] [-f] [-p &lt;port&gt;] [-t &lt;timeout&gt;] [-V]<br>
+                    -v, --verbose<br>
+                    print extra debugging information (including interface list 
+                    on the system)<br>
+                    -h, --help<br>
+                    print this help message<br>
+                    -H, --hostname=HOST<br>
+                    name or IP address of host to check<br>
+                    -C, --community=COMMUNITY NAME<br>
+                    community name for the host's SNMP agent (implies v1 protocol)<br>
+                    2, --v2c<br>
+                    Use snmp v2c<br>
+                    -l, --login=LOGIN ; -x, --passwd=PASSWD<br>
+                    Login and auth password for snmpv3 authentication <br>
+                    If no priv password exists, implies AuthNoPriv <br>
+                    -X, --privpass=PASSWD<br>
+                    Priv password for snmpv3 (AuthPriv protocol)<br>
+                    -L, --protocols=&lt;authproto&gt;,&lt;privproto&gt;<br>
+                    &lt;authproto&gt; : Authentication protocol (md5|sha : default 
+                    md5)<br>
+                    &lt;privproto&gt; : Priv protocole (des|aes : default des) 
+                    <br>
+                    -s, --svn<br>
+                    check for svn status<br>
+                    -w, --fw<br>
+                    check for fw status<br>
+                    -a, --ha[=standby]<br>
+                    check for ha status and node in &quot;active&quot; state<br>
+                    If using SecurePlatform and monitoring a standby unit, put 
+                    &quot;standby&quot; too<br>
+                    -m, --mgmt<br>
+                    check for management status<br>
+                    -p, --policy=POLICY_NAME<br>
+                    check if installed policy is POLICY_NAME (must have -w)<br>
+                    -c, --connexions=WARN,CRIT<br>
+                    check warn and critical number of connexions (must have -w)<br>
+                    -f, --perfparse<br>
+                    perfparse output (only works with -c)<br>
+                    -P, --port=PORT<br>
+                    SNMP port (Default 161)<br>
+                    -t, --timeout=INTEGER<br>
+                    timeout for SNMP (Default: Nagios default) <br>
+                    -V, --version<br>
+                    prints version number<br>
+                  </p>
+                </td>
+
+              </tr>
+
+            </table>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td> 
+
+            <p class="SectionBody">This project is hosted on : <br>
+
+              <A href="http://sourceforge.net/projects/nagios-snmp"> <IMG src="http://sourceforge.net/sflogo.php?group_id=134917&type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A> 
+
+            </p>
+
+            <p class="SectionBody"> Nagios and the Nagios logo are registered 
+
+              trademarks of Ethan Galstad.</p>
+
+          </td>
+
+        </tr>
+
+      </table>
+
+    </td>
+
+  </tr>
+
+</table>
+
+</BODY>
+
+</HTML>
+
+
+
+
+
+
+

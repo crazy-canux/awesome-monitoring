@@ -1,0 +1,381 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>Nagios plugins</TITLE>
+
+<META NAME="Keywords" CONTENT="nagios,plugins,perl,snmp,proy">
+
+<STYLE type="text/css">
+
+<!--
+
+        .Default { font-family: verdana,arial,serif; font-size: 10pt; }
+
+        .ProgramTitle { font-family: verdana,arial,serif; font-size: 18pt; font-weight: bold;}
+
+        .Copyright { font-family: verdana,arial,serif; font-size: 10pt;}
+
+        .Email { font-family: verdana,arial,serif; font-size: 10pt;}
+
+        .NewsItem { font-family: verdana,arial,serif; font-size: 8pt; }
+
+        .NewsItemOdd { font-family: verdana,arial,serif; font-size: 8pt; background-color: #DBDBDB;}
+
+        .NewsItemEven { font-family: verdana,arial,serif; font-size: 8pt; background-color: #C4C2C2;}
+
+        .NewsItemUrgent { font-family: verdana,arial,serif; font-size: 8pt; background-color: #ccff99;}
+
+        .NewsItemDate { font-family: verdana,arial,serif; font-size: 8pt; font-weight: bold; }
+
+        .SectionTitle { font-family: verdana,arial,serif; font-size: 9pt; font-weight: bold; text-decoration: underline;}
+
+        .SectionBody { font-family: verdana,arial,serif; font-size: 8pt; }
+
+        .ModificationDate { font-family: verdana,arial,serif; font-size: 7pt; }
+
+        .Disclaimer { font-family: verdana,arial,serif; font-size: 8pt; }
+
+		A.SideNavBarItem { font-family: verdana,arial,serif; background-color : black; color: #e7e7e7; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarHotItem { font-family: verdana,arial,serif; background-color : black; color: #ffcc66; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarHotItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+-->  
+
+</STYLE>
+
+</HEAD>
+
+<body  background="img/sideback.jpg" bgcolor="#FFFFFF" text="black" class="Default">
+
+<!--   background="img/sideback.jpg" -->
+
+<table border="0">
+
+  <tr> 
+
+    <td valign=top> 
+
+      <!-- Begin Side Bar -->
+
+      <table border="0" width="125" valign=top>
+
+        <tr> 
+
+          <td><a href="http://nagios.manubulon.com/" class="SideNavBarItem" >Home</a></td>
+
+        </tr>
+
+        <tr> 
+
+          <td></td>
+
+        </tr>
+
+        <tr> 
+
+          <td><BR>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td> </td>
+
+        </tr>
+
+      </table>
+
+      <!-- End Side Bar -->
+
+    </td>
+
+    <td valign=top> 
+
+      <table border="0" valign=top>
+
+        <tr> 
+
+          <td class="ProgramTitle"> Snmp CSS check</td>
+
+        </tr>
+
+        <tr> 
+
+          <td> 
+
+            <p class="NewsItemDate">Script : check_snmp_css.pl / check_snmp_css_main.pl</p>
+
+            <p class="SectionTitle"> Last update : Jan 22 2007</p>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td valign="top"> 
+
+            <p class="SectionTitle">Description : </p>
+
+            <p class="SectionBody">Checks by snmp v1, v2c or v3 CSS services state</p>
+            <p class="SectionBody"><span class="SectionTitle">SNMP Login</span><br>
+
+            </p>
+
+            <p class="SectionBody">See <a href="index_info.html">snmp info page</a></p>
+
+            <p class="SectionTitle">Requirements :</p>
+
+            <p class="SectionBody"> - Perl in /usr/bin/perl - or just run 'perl 
+              script' <br>
+              - Net::SNMP<br>
+              - file 'utils.pm' in plugin diretory (/usr/local/nagios/libexec)<br>
+            </p>
+            <p class="SectionTitle">Checks </p>
+            <p class="SectionBody">This scripts checks status of the CSS services.</p>
+            <p class="SectionBody"><b class="SectionTitle">Select service(s)</b><br>
+              You select services you wan't to check with -n using regular expressions</p>
+            <p class="SectionBody"><b class="SectionTitle">Put thresholds</b><br>
+              You select the warning and critical levels for : &lt;num&gt;,&lt;resp&gt;,&lt;conn&gt; 
+              <br>
+              num : minimum number of active &amp; alive service <br>
+              resp : average response time in ms<br>
+              conn : number of connexions </p>
+            <p class="SectionBody">You can choose not to put 1, 2 or 3 numbers. 
+              <br>
+              If you set &quot;-w 3&quot; only the number of active services will 
+              be checked.<br>
+              If you set &quot;-w 3,200&quot; only the number of active services 
+              and response time will be checked.<br>
+              <br>
+              For no warnings, put -1 (ex : -w5,-1,3). <br>
+              When using negative numbers, dont put space after &quot;-w&quot; 
+              : &quot;-w -1,100,6&quot; will not work, &quot;-w-1,100,6&quot; 
+              will work.</p>
+            <p class="SectionBody"><b class="SectionTitle">-d option and check_snmp_css_main.pl</b></p>
+            <p class="SectionBody">This option is set to make the script read 
+              the index from a file instead of on the CSS.</p>
+            <p class="SectionBody">The reason of this option is :<br>
+              - when you have a lot (&gt; 50) services on the CSS <br>
+              - you want to check 10 service group consisting of 5 services every 
+              2 minutes.</p>
+            <p class="SectionBody">If you use check_snmp_css, then it will read 
+              the index (50 oids) + checks 5 oids = 55 OID every 12 seconds in 
+              average. This will heavily load the CSS.<br>
+              This is why I wrote check_snmp_css_main.pl. This script will get 
+              the index of the CSS every 10 minutes for example (could be more) 
+              as the index won't change often.<br>
+              Then the check_snmp_css will only have to check for the 5 oids every 
+              12 seconds, which will reduce by about 10 the amount of snmp queries 
+              !</p>
+            <p class="SectionBody">How to use it :</p>
+            <p class="SectionBody">Create a service with long inter-delay check 
+              executing : </p>
+            <p class="SectionBody">check_snmp_css_main.pl -H &lt;host&gt; &lt;snmp 
+              logins&gt; -2 -d /var/tmp<br>
+              <b>-2 </b>if for using snmpv2c (better to get a lot of data)<br>
+              <b>-d /var/tmp </b>is to put the temp file to a special directory 
+              (default is /tmp).</p>
+            <p class="SectionBody">A file named : <b>Nagios_CSS_&lt;IP Address&gt;</b> 
+              will be created</p>
+            <p class="SectionBody">Then you can use your check_snmp_css.pl script 
+              just as before but adding the '<b>-d</b>' option with the temp directory 
+              if not /tmp.</p>
+            <p class="SectionBody">If the Nagios_CSS_&lt;IP&gt; file is not created 
+              when the check_snmp_css script runs, it will then return unknown 
+              status.<br>
+              If the check_snmp_css_main.pl cannot read index, a warning will 
+              be returned but the old index file will remain.</p>
+            <p class="SectionBody">A lockfile is created bye check_snmp_css_main.pl 
+              when it writes it's file. The check_snmp_css script will wait until 
+              the lock file is removed to read the index file. <br>
+              The lock file is named : <b>Nagios_CSS_&lt;IP Address&gt;.lock<br>
+              </b>The lock file format is simple: every line is in format <b> 
+              <br>
+              &lt;OID&gt;:&lt;Service name&gt;</b> </p>
+            <p class="SectionBody">&nbsp;</p>
+            <p class="SectionBody"><a href="check_snmp_css.pl" class="SectionTitle">Dowload 
+              lastest version of check_snmp_css.pl : 1.0</a></p>
+            <p class="SectionBody"><a href="check_snmp_css_main.pl" class="SectionTitle">Dowload 
+              lastest version of check_snmp_css_main.pl : 1.0</a></p>
+
+            <p class="SectionBody"><a href="index_commands.html" class="SectionTitle">Configurations 
+
+              examples</a></p>
+
+            <p class="NewsItemDate"><span class="SectionTitle">Changelog</span> 
+              : On CVS repository on sourceforge : <a href="http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/">http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/</a>.</p>
+
+            <p class="SectionTitle">Examples :</p>
+
+            <p class="SectionBody"><br>
+
+              All examples below are considering the script is local directory. 
+
+              Host to be checked is 127.0.0.1 with snmp community &quot;public&quot;.</p>
+
+            <table border="1" cellspacing="5">
+              <tr> 
+                <td class="NewsItemDate" valign = top width="154"> 
+                  <p>Get help 
+                </td>
+                <td class="SectionBody" width="420"> 
+                  <p>./check_snmp_css.pl <b>-h</b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="154">Verbose output</td>
+                <td class="SectionBody" width="420">./check_snmp_css.pl -H &lt;IP&gt; 
+                  -C &lt;com&gt; <b>-v</b></td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="154">snmpv3 login</td>
+                <td class="SectionBody" width="420">./check_snmp_css.pl -H 127.0.0.1 
+                  -l login -x passwd<b></b></td>
+              </tr>
+            </table>
+
+            <p class="NewsItemDate">Output of check_snmp_css.pl -h </p>
+
+            <table border="1" cellspacing="5" width="100">
+              <tr> 
+
+                <td> 
+                  <pre>
+ SNMP Cisco CSS monitor for Nagios version 1.0
+(c)2004-2006 Patrick Proy
+
+Usage: ./check_snmp_css.pl [-v] -H &lt;host&gt; -C &lt;snmp_community&gt; [-2] | (-l login -x passwd [-X pass -L &lt;authp&gt;,&lt;privp&gt;]) 
+       -n &lt;name&gt; [-d directory] [-w &lt;num&gt;,&lt;resp&gt;,&lt;conn&gt; -c &lt;num&gt;,&lt;resp&gt;,&lt;conn&gt;]  [-p &lt;port&gt;] [-f] [-t &lt;timeout&gt;] [-V]
+-v, --verbose
+   print extra debugging information 
+-h, --help
+   print this help message
+-H, --hostname=HOST
+   name or IP address of host to check
+-n, --name=&lt;name&gt; 
+   regexp to select service
+-w, --warning=&lt;num&gt;,&lt;resp&gt;,&lt;conn&gt; 
+   Optional. Warning level for
+   - minimum number of active &amp; alive service 
+   - average response time
+   - number of connexions
+   For no warnings, put -1 (ex : -w5,-1,3).
+   When using negative numbers, dont put space after &quot;-w&quot;
+-d, --dir=&lt;directory to put file&gt; 
+   Directory where the temp file with index, created by check_snmp_css_main.pl, can be found
+   If no directory is set, /tmp will be used
+-c, --critical=&lt;num&gt;,resp&gt;,&lt;conn&gt;
+   Optional. Critical levels (-1 for no critical levels)
+   See warning levels.
+-C, --community=COMMUNITY NAME
+   community name for the host's SNMP agent (implies v1 protocol)
+-2, --v2c
+   Use snmp v2c
+-l, --login=LOGIN ; -x, --passwd=PASSWD
+   Login and auth password for snmpv3 authentication 
+   If no priv password exists, implies AuthNoPriv 
+-X, --privpass=PASSWD
+   Priv password for snmpv3 (AuthPriv protocol)
+-L, --protocols=&lt;authproto&gt;,&lt;privproto&gt;
+   &lt;authproto&gt; : Authentication protocol (md5|sha : default md5)
+   &lt;privproto&gt; : Priv protocole (des|aes : default des) 
+-P, --port=PORT
+   SNMP port (Default 161)
+-f, --perfparse
+   Perfparse compatible output
+-t, --timeout=INTEGER
+   timeout for SNMP in seconds (Default: 5)
+-V, --version
+   prints version number
+</pre>
+                </td>
+
+              </tr>
+
+            </table>
+
+<br>
+            <p class="NewsItemDate">Output of check_snmp_css_main.pl -h </p>
+            <table border="1" cellspacing="5" width="100">
+              <tr> 
+                <td> 
+                  <pre>
+ SNMP Cisco CSS monitor MAIN script for Nagios version 1.0
+GPL Licence, (c)2004-2006 Patrick Proy
+
+Usage: ./check_snmp_css_main.pl [-v] -H &lt;host&gt; -C &lt;snmp_community&gt; [-2] | (-l login -x passwd [-X pass -L &lt;authp&gt;,&lt;privp&gt;]) 
+       [-d directory] [-p &lt;port&gt;] [-t &lt;timeout&gt;] [-V]
+-v, --verbose
+   print extra debugging information 
+-h, --help
+   print this help message
+-H, --hostname=HOST
+   name or IP address of host to check
+-d, --dir=&lt;directory to put file&gt; 
+   Directory where temp file with index is written
+-C, --community=COMMUNITY NAME
+   community name for the host's SNMP agent (implies v1 protocol)
+-2, --v2c
+   Use snmp v2c
+-l, --login=LOGIN ; -x, --passwd=PASSWD
+   Login and auth password for snmpv3 authentication 
+   If no priv password exists, implies AuthNoPriv 
+-X, --privpass=PASSWD
+   Priv password for snmpv3 (AuthPriv protocol)
+-L, --protocols=&lt;authproto&gt;,&lt;privproto&gt;
+   &lt;authproto&gt; : Authentication protocol (md5|sha : default md5)
+   &lt;privproto&gt; : Priv protocole (des|aes : default des) 
+-P, --port=PORT
+   SNMP port (Default 161)
+-t, --timeout=INTEGER
+   timeout for SNMP in seconds (Default: 5)
+-V, --version
+   prints version number
+</pre>
+                </td>
+              </tr>
+            </table>
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td> 
+
+            <p class="SectionBody">This project is hosted on : <br>
+
+              <A href="http://sourceforge.net/projects/nagios-snmp"> <IMG src="http://sourceforge.net/sflogo.php?group_id=134917&type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A> 
+
+            </p>
+
+            <p class="SectionBody"> Nagios and the Nagios logo are registered 
+
+              trademarks of Ethan Galstad.</p>
+
+          </td>
+
+        </tr>
+
+      </table>
+
+    </td>
+
+  </tr>
+
+</table>
+
+</BODY>
+
+</HTML>
+
+
+

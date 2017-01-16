@@ -196,6 +196,8 @@ Lots of monitoring tools are based on nagios.
 
 * [check_logfiles.pl](https://github.com/lausser/check_logfiles) - For logfile.
 * [check_events.pl](https://github.com/pewo/nagios-plugins/tree/master/check_events) - For events.
+* [check_generic](https://github.com/flackem/check_generic)
+* [check_multi](https://github.com/flackem/check_multi)
 
 ### Monitoring Application
 
@@ -205,6 +207,13 @@ Lots of monitoring tools are based on nagios.
 * [check_graphite_data.py](https://github.com/etsy/nagios_tools) - For graphite.
 * [nagios-plugins-rabbitmq](https://github.com/nagios-plugins-rabbitmq/nagios-plugins-rabbitmq) - For rabbitmq.
 * [Celery-Nagios-Plugin](https://github.com/wilhelm-murdoch/Celery-Nagios-Plugin) - For celery.
+* [nagios-jenkins-plugin](https://github.com/jonlives/nagios-jenkins-plugin) - For jenkins.
+* [ceph-nagios-plugins](https://github.com/valerytschopp/ceph-nagios-plugins) - For ceph.
+* [check_ssl_cert](https://github.com/matteocorti/check_ssl_cert) - For CA.
+
+### Monitoring Languages
+
+* [nagios_erlang](https://github.com/lethain/nagios_erlang) - Monitoring erlang
 
 ### Misc
 
@@ -212,7 +221,11 @@ Lots of monitoring tools are based on nagios.
 * [nagios snmp plugins](http://nagios.manubulon.com/) - For snmp.
 * [nagios snmp plugins SF](https://sourceforge.net/projects/nagios-snmp/) - For snmp.
 * [nagios plugins](https://github.com/HariSekhon/nagios-plugins) - Misc.
+* [nagios plugins](https://github.com/willixix/naglio-plugins) - Misc
+* [nagios plugins](https://github.com/jonschipp/nagios-plugins) - Misc.
 * [nagios plugins](https://github.com/pewo/nagios-plugins) - Misc.
+* [nagios plugins](https://github.com/kumina/nagios-plugins-kumina) - Misc.
+* [nagios plugins](https://github.com/opinkerfi/nagios-plugins) - Misc.
 
 ***
 

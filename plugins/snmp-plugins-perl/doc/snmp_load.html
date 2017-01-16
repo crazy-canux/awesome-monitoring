@@ -1,0 +1,409 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>Nagios plugins</TITLE>
+
+<META NAME="Keywords" CONTENT="nagios,plugins,perl,snmp,proy">
+
+<STYLE type="text/css">
+
+<!--
+
+        .Default { font-family: verdana,arial,serif; font-size: 10pt; }
+
+        .ProgramTitle { font-family: verdana,arial,serif; font-size: 18pt; font-weight: bold;}
+
+        .Copyright { font-family: verdana,arial,serif; font-size: 10pt;}
+
+        .Email { font-family: verdana,arial,serif; font-size: 10pt;}
+
+        .NewsItem { font-family: verdana,arial,serif; font-size: 8pt; }
+
+        .NewsItemOdd { font-family: verdana,arial,serif; font-size: 8pt; background-color: #DBDBDB;}
+
+        .NewsItemEven { font-family: verdana,arial,serif; font-size: 8pt; background-color: #C4C2C2;}
+
+        .NewsItemUrgent { font-family: verdana,arial,serif; font-size: 8pt; background-color: #ccff99;}
+
+        .NewsItemDate { font-family: verdana,arial,serif; font-size: 8pt; font-weight: bold; }
+
+        .SectionTitle { font-family: verdana,arial,serif; font-size: 9pt; font-weight: bold; text-decoration: underline;}
+
+        .SectionBody { font-family: verdana,arial,serif; font-size: 8pt; }
+
+        .ModificationDate { font-family: verdana,arial,serif; font-size: 7pt; }
+
+        .Disclaimer { font-family: verdana,arial,serif; font-size: 8pt; }
+
+		A.SideNavBarItem { font-family: verdana,arial,serif; background-color : black; color: #e7e7e7; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarHotItem { font-family: verdana,arial,serif; background-color : black; color: #ffcc66; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarHotItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+-->      
+
+</STYLE>
+
+</HEAD>
+
+<body  background="img/sideback.jpg" bgcolor="#FFFFFF" text="black" class="Default">
+
+<table border="0">
+
+  <tr> 
+
+    <td valign=top> 
+
+      <!-- Begin Side Bar -->
+
+      <table border="0" width="125" valign=top>
+
+        <tr> 
+
+          <td><a href="http://nagios.manubulon.com/" class="SideNavBarItem" >Home</a></td>
+
+        </tr>
+
+        <tr> 
+
+          <td></td>
+
+        </tr>
+
+        <tr> 
+
+          <td><BR>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td> </td>
+
+        </tr>
+
+      </table>
+
+      <!-- End Side Bar -->
+
+    </td>
+
+    <td valign=top> 
+
+      <table border="0" valign=top>
+
+        <tr> 
+
+          <td class="ProgramTitle"> Snmp load check</td>
+
+        </tr>
+
+        <tr> 
+
+          <td> 
+
+            <p class="NewsItemDate">Script : check_snmp_load.pl</p>
+
+            <p class="SectionTitle"> Last update : Sept 5 2006</p>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td valign="top"> 
+
+            <p class="SectionTitle">Description : </p>
+
+            <p class="SectionBody">Checks by snmp v1, v2c or v3 cpu or average 
+
+              load. <br>
+
+              Works on Windows, Linux/Unix, AS400, Cisco, Cisco catalyst,  HP Procurve, LinkProof, 
+
+              Blucoat, Nokia, Fortinet, Netscreen.</p>
+
+            <p class="SectionBody">Check types are selected by the -T option : 
+
+            </p>
+
+            <table border="1">
+              <tr> 
+                <td class="SectionTitle"> 
+                  <div align="center">-T value</div>
+                </td>
+                <td class="SectionTitle"> 
+                  <div align="center">System </div>
+                </td>
+                <td class="SectionTitle"> 
+                  <div align="center">-w &amp; -c values</div>
+                </td>
+              </tr>
+              <tr> 
+                <td class="SectionBody"><b>netsl</b></td>
+                <td class="SectionBody">Linux : load provided by Net SNMP</td>
+                <td class="SectionBody">3 values : load average on 1 min, 5 min, 
+                  15 min (absolute)</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody"><b>netsc</b></td>
+                <td class="SectionBody">Linux : CPU usage given by net-snmp</td>
+                <td class="SectionBody">1 value in %</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody"><b>as400</b></td>
+                <td class="SectionBody">as400 CPU usage</td>
+                <td class="SectionBody">1 value in %</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody"><b>cisco</b></td>
+                <td class="SectionBody">cisco CPU usage</td>
+                <td class="SectionBody">3 values : CPU average on 5sec, 1 min 
+                  &amp; 5 min (%)</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody"><b>cata</b></td>
+                <td class="SectionBody">cisco catalyst CPU usage</td>
+                <td class="SectionBody">3 values : CPU average on 5sec, 1 min 
+                  &amp; 5 min (%)</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody"><b>nsc</b></td>
+                <td class="SectionBody">Netscreen CPU usage</td>
+                <td class="SectionBody">3 values : CPU average on 5sec, 1 min 
+                  &amp; 5 min (%)</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody"><b>fg</b></td>
+                <td class="SectionBody">Fortigate CPU usage</td>
+                <td class="SectionBody">1 value in %</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody"><b>bc</b></td>
+                <td class="SectionBody">bluecoat CPU usage</td>
+                <td class="SectionBody">1 value in %</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody"><b>nokia</b></td>
+                <td class="SectionBody">nokia CPU usage</td>
+                <td class="SectionBody">1 value in %</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody"><b>hp</b></td>
+                <td class="SectionBody">HP procurve switch CPU usage</td>
+                <td class="SectionBody">1 value in %</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody"><b>lp</b></td>
+                <td class="SectionBody">Linkproof CPU usage</td>
+                <td class="SectionBody">1 value in %</td>
+              </tr>
+              <tr>
+                <td class="SectionBody"><b>hpux</b></td>
+                <td class="SectionBody">HP-UX load</td>
+                <td class="SectionBody">3 values : load average on 1 min, 5 min, 
+                  15 min</td>
+              </tr>
+            </table>
+
+            <p class="SectionBody"> V&eacute;rifie par snmp v1,v2c ou v3 la charge 
+
+              ou l'ocupation CPU.</p>
+
+            <p class="SectionBody"><span class="SectionTitle">SNMP Login</span><br>
+
+            </p>
+
+            <p class="SectionBody">See <a href="index_info.html">snmp info page</a></p>
+
+            <p class="SectionTitle">Requirements :</p>
+
+            <p class="SectionBody"> - Perl in /usr/bin/perl - or just run 'perl 
+
+              script' <br>
+
+              - Net::SNMP<br>
+
+              - file 'utils.pm' in plugin diretory<br>
+
+            </p>
+
+            <p class="SectionBody"><a href="check_snmp_load.pl" class="SectionTitle">Dowload 
+              lastest version : 1.3.1</a> </p>
+
+            <p class="SectionBody"><a href="index_commands.html" class="SectionTitle">Configurations 
+
+              examples</a></p>
+
+            <p class="SectionTitle"><span class="SectionTitle">Changelog</span> 
+              : On CVS repository on sourceforge : <a href="http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/">http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/</a>.</p>
+            <p class="SectionTitle">Examples :</p>
+
+            <p class="SectionBody"><br>
+
+              All examples below are considering the script is local directory. 
+
+              Host to be checked is 127.0.0.1 with snmp community &quot;public&quot;.</p>
+
+            <p class="SectionBody">If multiple interfaces are selected, all must 
+
+              be up to get an OK result</p>
+
+            <table border="1" cellspacing="5">
+              <tr> 
+                <td class="NewsItemDate" valign = top width="282"> 
+                  <p>Get help 
+                </td>
+                <td class="SectionBody"> 
+                  <p>./check_snmp_load.pl <b>-h</b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="282"> 
+                  <p>Check loads on linux with Net-SNMP : checks the 1, 5 and 
+                    15 minutes load average. 
+                </td>
+                <td class="SectionBody"> 
+                  <p>./check_snmp_load.pl -H 127.0.0.1 -C public <b>-w 3,3,2 -c 
+                    4,4,3 -T netsl</b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="282"> 
+                  <p>Check cpu load (generic) : checks the %used CPU for the last 
+                    minute 
+                </td>
+                <td class="SectionBody"> 
+                  <p>./check_snmp_load.pl -H 127.0.0.1 -C public <b>-w 98% -c 
+                    99%</b></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top width="282"> 
+                  <p>Check cpu load on AS/400 
+                </td>
+                <td class="SectionBody"> 
+                  <p>./check_snmp_load.pl -H 127.0.0.1 -C public <b>-w 98% -c 
+                    99% -T as400</b></p>
+                </td>
+              </tr>
+            </table>
+
+            <p class="NewsItemDate">Output of check_snmp_load.pl -h</p>
+
+            <table border="1" cellspacing="5">
+
+              <tr> 
+
+                <td class="SectionBody" valign = top> 
+SNMP Load &amp; CPU Monitor for Nagios version 1.3<br>
+                  (c)2004-2006 Patrick Proy 
+                  <p>Usage: ./check_snmp_load.pl [-v] -H &lt;host&gt; -C &lt;snmp_community&gt; 
+                    [-2] | (-l login -x passwd [-X pass -L &lt;authp&gt;,&lt;privp&gt;]) 
+                    [-p &lt;port&gt;] -w &lt;warn level&gt; -c &lt;crit level&gt; 
+                    -T=[stand|netsl|netsc|as400|cisco|cata|nsc|fg|bc|nokia|hp|lp] 
+                    [-f] [-t &lt;timeout&gt;] [-V]<br>
+                    -v, --verbose<br>
+                    print extra debugging information <br>
+                    -h, --help<br>
+                    print this help message<br>
+                    -H, --hostname=HOST<br>
+                    name or IP address of host to check<br>
+                    -C, --community=COMMUNITY NAME<br>
+                    community name for the host's SNMP agent (implies v1 protocol)<br>
+                    -2, --v2c<br>
+                    Use snmp v2c<br>
+                    -l, --login=LOGIN ; -x, --passwd=PASSWD<br>
+                    Login and auth password for snmpv3 authentication <br>
+                    If no priv password exists, implies AuthNoPriv <br>
+                    -X, --privpass=PASSWD<br>
+                    Priv password for snmpv3 (AuthPriv protocol)<br>
+                    -L, --protocols=&lt;authproto&gt;,&lt;privproto&gt;<br>
+                    &lt;authproto&gt; : Authentication protocol (md5|sha : default 
+                    md5)<br>
+                    &lt;privproto&gt; : Priv protocole (des|aes : default des) 
+                    <br>
+                    -P, --port=PORT<br>
+                    SNMP port (Default 161)<br>
+                    -w, --warn=INTEGER | INT,INT,INT<br>
+                    1 value check : warning level for cpu in percent (on one minute)<br>
+                    3 value check : comma separated level for load or cpu for 
+                    1min, 5min, 15min <br>
+                    -c, --crit=INTEGER | INT,INT,INT<br>
+                    critical level for cpu in percent (on one minute)<br>
+                    1 value check : critical level for cpu in percent (on one 
+                    minute)<br>
+                    3 value check : comma separated level for load or cpu for 
+                    1min, 5min, 15min <br>
+                    -T, --type=stand|netsl|netsc|as400|cisco|bc|nokia|hp|lp<br>
+                    CPU check : <br>
+                    stand : standard MIBII (works with Windows), <br>
+                    can handle multiple CPU.<br>
+                    netsl : linux load provided by Net SNMP<br>
+                    netsc : cpu usage given by net-snmp (100-idle)<br>
+                    as400 : as400 CPU usage<br>
+                    cisco : Cisco CPU usage<br>
+                    cata : Cisco catalyst CPU usage<br>
+                    nsc : NetScreen CPU usage<br>
+                    fg : Fortigate CPU usage<br>
+                    bc : Bluecoat CPU usage<br>
+                    nokia : Nokia CPU usage<br>
+                    hp : HP procurve switch CPU usage<br>
+                    lp : Linkproof CPU usage<br>
+                    -f, --perfparse<br>
+                    Perfparse compatible output<br>
+                    -t, --timeout=INTEGER<br>
+                    timeout for SNMP in seconds (Default: 5)<br>
+                    -V, --version<br>
+                    prints version number</p>
+                </td>
+
+              </tr>
+
+            </table>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td> 
+
+            <p class="SectionBody">This project is hosted on : <br>
+
+              <A href="http://sourceforge.net/projects/nagios-snmp"> <IMG src="http://sourceforge.net/sflogo.php?group_id=134917&type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A> 
+
+            </p>
+
+            <p class="SectionBody"> Nagios and the Nagios logo are registered 
+
+              trademarks of Ethan Galstad.</p>
+
+          </td>
+
+        </tr>
+
+      </table>
+
+    </td>
+
+  </tr>
+
+</table>
+
+<p>&nbsp;</p>
+
+</BODY>
+
+</HTML>
+
+
+

@@ -1,0 +1,1307 @@
+# French translations for nagios-plugins-snmp package
+# Traduction anglaise du package nagios-plugins-snmp.
+# Copyright (C) 2007 THE nagios-plugins-snmp'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the nagios-plugins-snmp package.
+# Patrick Proy <nagios@proy.org>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: nagios-plugins-snmp 0.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-06-07 23:13+0200\n"
+"PO-Revision-Date: 2007-06-07 22:51+0100\n"
+"Last-Translator: Patrick Proy <nagios@proy.org>\n"
+"Language-Team: French <traduc@traduc.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: src/nagios_common_snmp.h:236
+#, c-format
+msgid ""
+"   print extra debugging information (including list of elements found on "
+"the system)\n"
+msgstr ""
+"   Affiche des informations de debug (ainsi que la liste d'éléments trouvée "
+"sur le système)\n"
+
+#: src/nagios_common_snmp.h:238
+#, c-format
+msgid "   print this help message\n"
+msgstr "  Affiche ce message d'aide\n"
+
+#: src/nagios_common_snmp.h:240
+#, c-format
+msgid "   name or IP address of host to check\n"
+msgstr "    Nom ou adresse IP de l'hôte à vérifier\n"
+
+#: src/nagios_common_snmp.h:242
+#, c-format
+msgid "   community name for the host's SNMP agent (implies v1 protocol)\n"
+msgstr "    Nom de communauté SNMP pour l'hôte (implique protocole v1)\n"
+
+#: src/nagios_common_snmp.h:244
+#, c-format
+msgid "   Login and auth password for snmpv3 authentication \n"
+msgstr "  Login et mot de passe pour l'authentification snmp v3\n"
+
+#: src/nagios_common_snmp.h:245
+#, c-format
+msgid "   If no priv password exists, implies AuthNoPriv \n"
+msgstr "   SI aucune clé de chiffrement n'est présente, alors AuthNoPriv\n"
+
+#: src/nagios_common_snmp.h:246
+#, c-format
+msgid "   -2 : use snmp v2c\n"
+msgstr "   -2 : utilise snmp v2c\n"
+
+#: src/nagios_common_snmp.h:248
+#, c-format
+msgid "   Priv password for snmpv3 (AuthPriv protocol)\n"
+msgstr "   Clé de chiffrement pour snmpv3 (Protocole AuthPriv)\n"
+
+#: src/nagios_common_snmp.h:250
+#, c-format
+msgid "   <authproto> : Authentication protocol (md5|sha : default md5)\n"
+msgstr "   <authproto> : Protocole d'authentification (md5|sha : défaut md5)\n"
+
+#: src/nagios_common_snmp.h:251
+#, c-format
+msgid "   <privproto> : Priv protocole (des|aes : default des) \n"
+msgstr "   <privproto> : Protocole de chiffrement (des|aes : défaut des) \n"
+
+#: src/nagios_common_snmp.h:253
+#, c-format
+msgid "   SNMP port (Default 161)\n"
+msgstr "   Port SNMP (161 par défaut)\n"
+
+#: src/nagios_common_snmp.h:255
+#, c-format
+msgid "   timeout for SNMP in seconds (Default: 5)   \n"
+msgstr "   Temps maximum d'exécution SNMP en secondes (par défaut: 5)\n"
+
+#: src/nagios_common_snmp.h:257
+#, c-format
+msgid "   prints version number\n"
+msgstr "   Affiche le numéro de version du script\n"
+
+#: src/nagios_common_snmp.c:38
+#, c-format
+msgid "Set hostname or IP !\n"
+msgstr "Renseignez le nom d'hôte ou son IP !\n"
+
+#: src/nagios_common_snmp.c:41
+#, c-format
+msgid "Put snmp login info!\n"
+msgstr "Mettez des informations d'authentification SNMP !\n"
+
+#: src/nagios_common_snmp.c:44
+#, c-format
+msgid "Can't mix snmp v1,2c,3 protocols!\n"
+msgstr "Il n'est pas possible de mélanger les protocoles v1, 2c et 3!\n"
+
+#: src/nagios_common_snmp.c:48
+#, c-format
+msgid "Put snmp V3 login info with protocols!\n"
+msgstr "Renseignez le login pour SNMP v3!\n"
+
+#: src/nagios_common_snmp.c:51
+#, c-format
+msgid "Put snmp V3 priv login info with priv protocols!\n"
+msgstr "Renseignez le mot de passe privé avec SNMPv3 AuthPriv!\n"
+
+#: src/nagios_common_snmp.c:147
+msgid "Unknown snmp protocol\n"
+msgstr "Protocole SNMP inconnu\n"
+
+#: src/nagios_common_snmp.c:262
+msgid "AES protocol not supported on this system."
+msgstr "Le protocole de chiffrement AES n'est pas supporté par ce système"
+
+#: src/nagios_common_snmp.c:266
+msgid "Unknown snmpv3 auth protocol."
+msgstr "Protocole SNMP d'authentification inconnu"
+
+#: src/nagios_common_snmp.c:277
+msgid "Error generating a key (Ku) from the privacy pass phrase."
+msgstr "Erreur de génération de la clé (Ku) de chiffrement."
+
+#: src/nagios_common_snmp.c:291
+msgid "Error generating key (Ku) from authentication pass phrase."
+msgstr "Erreur de génération de la clé (Ku) de d'authentification."
+
+#: src/nagios_common_snmp.c:357
+#, c-format
+msgid " : type not supported : %i\n"
+msgstr " : type non supporté : %i\n"
+
+#: src/nagios_common_snmp.c:622
+#, c-format
+msgid "Unkown option or missing argument (code 0%o)\n"
+msgstr "Option inconnue ou paramètre manquant (code 0%o)\n"
+
+#: src/nagios_common_snmp.c:680
+#, c-format
+msgid "Too much arguments (only options are needed) : \n"
+msgstr "Trop d'arguments (seules les options sont nécessaires) : \n"
+
+#: src/check_snmp_int.c:46
+#, c-format
+msgid ""
+"\n"
+"SNMP Network Interface Monitor for Nagios version %.2f\n"
+msgstr ""
+"\n"
+"Surveillance d'interface par SNMP pour Nagios version %.2f\n"
+
+#: src/check_snmp_int.c:47 src/check_snmp_process.c:38
+#: src/check_snmp_storage.c:58
+#, c-format
+msgid ""
+"Nagios SNMP plugins version %.2f, GPL licence, (c)2004-2007 Patrick Proy\n"
+"\n"
+msgstr ""
+"Plugins Nagios pour SNMP version %.2f, Licence GPL, (c)2005-2007 Patrick "
+"Proy\n"
+"\n"
+
+#: src/check_snmp_int.c:52
+#, c-format
+msgid "   Name in description OID (eth0, ppp0 ...).\n"
+msgstr "   Nom de l'interface dans l'OID description (eth0, PPP0 ...)\n"
+
+#: src/check_snmp_int.c:53
+#, c-format
+msgid "   This is treated as a regexp : -n eth will match eth0,eth1,...\n"
+msgstr ""
+"   La chaîne est traitée comme une expression régulière : eth sélectionnera "
+"eth0, eth1,...\n"
+
+#: src/check_snmp_int.c:54 src/check_snmp_storage.c:66
+#, c-format
+msgid "   Test it before, because there are known bugs (ex : trailling /)\n"
+msgstr ""
+"   A tester avant la mise en production car il y a des bugs connus (ex : "
+"finir par /)\n"
+
+#: src/check_snmp_int.c:56 src/check_snmp_process.c:47
+#: src/check_snmp_storage.c:73
+#, c-format
+msgid "   Do not use regexp to match NAME in description OID\n"
+msgstr "   Ne pas utiliser les expressions régulières avec NAME\n"
+
+#: src/check_snmp_int.c:58
+#, c-format
+msgid "   Make critical when up\n"
+msgstr "   Renvoi CRITICAL lorsque l'interface est active (UP)\n"
+
+#: src/check_snmp_int.c:60
+#, c-format
+msgid "   Use administrative status instead of operational\n"
+msgstr "   Utilise le statut \"administratif\" plutôt que \"opérationnel\"\n"
+
+#: src/check_snmp_int.c:62
+#, c-format
+msgid "   Consider \"dormant\" state is an OK state\n"
+msgstr "   Considère l'état \"dormant\" comme OK également\n"
+
+#: src/check_snmp_int.c:64 src/check_snmp_storage.c:95
+#, c-format
+msgid "   Use cache file to store index\n"
+msgstr "   Utilise un fichier cache pour les index SNMP\n"
+
+#: src/check_snmp_int.c:65 src/check_snmp_storage.c:96
+#, c-format
+msgid "   Optionnal validity time of index in minutes (default %i)\n"
+msgstr "   Temps de validité en minutes de l'index (optionnel) (défaut : %i)\n"
+
+#: src/check_snmp_int.c:66
+#, c-format
+msgid "   No space between K and the value as it is optionnal.\n"
+msgstr "   Pas d'espace entre K et la valeur car paramètre optionnel.\n"
+
+#: src/check_snmp_int.c:68
+#, c-format
+msgid "   Performance output (no output when interface is down).\n"
+msgstr ""
+"   Sortie des données de performance (uniquement lorsque l'interface est "
+"active).\n"
+
+#: src/check_snmp_int.c:70
+#, c-format
+msgid "   Add error & discard to performance output\n"
+msgstr "   Ajoute les erreurs et suppressions dans la sortie de performance\n"
+
+#: src/check_snmp_int.c:72
+#, c-format
+msgid "   Include speed in performance output in bits/s\n"
+msgstr ""
+"   Ajoute la vitesse de l'interface dans la sortie de performance en bits/s\n"
+
+#: src/check_snmp_int.c:74
+#, c-format
+msgid "   -y : output performance data in %% of max speed \n"
+msgstr ""
+"   -y : sortie des données de performance en %% de la vitesse de "
+"l'interface\n"
+
+#: src/check_snmp_int.c:75
+#, c-format
+msgid ""
+"   -Y : output performance data in bits/s or Bytes/s (depending on -B)   \n"
+msgstr ""
+"   -Y : sortie des données de performance en bits/s ou octets/s (en fonction "
+"de -B)\n"
+
+#: src/check_snmp_int.c:77
+#, c-format
+msgid "   -k check the input/ouput bandwidth of the interface\n"
+msgstr "   -k : vérifie le débit en entrée/sortie de l'interface\n"
+
+#: src/check_snmp_int.c:78
+#, c-format
+msgid "   -q also check the error and discard input/output\n"
+msgstr ""
+"   -q vérifie également les erreurs et les suppressions en entrée/sortie\n"
+
+#: src/check_snmp_int.c:80
+#, c-format
+msgid "   Add label before speed in output : in=, out=, errors-out=, etc...\n"
+msgstr ""
+"   Ajoute des indications sur les données d'entrée/sortie : in=,out=...\n"
+
+#: src/check_snmp_int.c:82
+#, c-format
+msgid ""
+"   Use 64 bits counters instead of the standard counters when checking \n"
+msgstr ""
+"   Utilise les compteurs 64bits au lieu des compteurs standards pour "
+"vérifier\n"
+
+#: src/check_snmp_int.c:83
+#, c-format
+msgid "   bandwidth & performance data for interface >= 1Gbps.\n"
+msgstr "   le débit des interfaces de débit > 1Gbps.\n"
+
+#: src/check_snmp_int.c:84
+#, c-format
+msgid "   You must use snmp v2c or v3 to get 64 bits counters.\n"
+msgstr ""
+"   Vous devez utilisez snmp v2c ou v3 pour avoir accès aux compteurs 64 "
+"bits.\n"
+
+#: src/check_snmp_int.c:86
+#, c-format
+msgid "   make an average of <delta> seconds (default 300=5min)\n"
+msgstr "   Effectue une moyenne sur <delta> secondes (par défaut : 300=5min)\n"
+
+#: src/check_snmp_int.c:88
+#, c-format
+msgid ""
+"   Make the warning and critical levels in K|M|G Bits/s instead of K|M|G "
+"Bytes/s\n"
+msgstr ""
+"   Permet de rensigner les seuils de warning et critical en K|M|G Bits/s au "
+"lieu de  K|M|G Octets/s\n"
+
+#: src/check_snmp_int.c:90
+#, c-format
+msgid ""
+"   -G : Make the warning and critical levels in Gbps (with -B) or GBps\n"
+msgstr "   -G : Permet de spécifier les seuils en Gbps (avec -B) ou GBps\n"
+
+#: src/check_snmp_int.c:91
+#, c-format
+msgid ""
+"   -M : Make the warning and critical levels in Mbps (with -B) or MBps\n"
+msgstr "   -M : Permet de spécifier les seuils en Mbps (avec -B) ou MBps\n"
+
+#: src/check_snmp_int.c:92
+#, c-format
+msgid ""
+"   -u : Make the warning and critical levels in %% of reported interface "
+"speed.\n"
+msgstr ""
+"   -u : Permet de spécifier les seuils en %% de la vitesse de l'interface\n"
+
+#: src/check_snmp_int.c:94
+#, c-format
+msgid "   warning level for input / output bandwidth (0 for no warning)\n"
+msgstr ""
+"   Seuil de warning pour le débit de l'interface en entrée et sortie (0 pour "
+"désactiver).\n"
+
+#: src/check_snmp_int.c:95 src/check_snmp_int.c:99
+#, c-format
+msgid "     unit depends on B,M,G,u options\n"
+msgstr "   Les unités dépendent des options B,M,G et u\n"
+
+#: src/check_snmp_int.c:96
+#, c-format
+msgid "   warning for error & discard input / output in error/min (need -q)\n"
+msgstr ""
+"   warning pour erreur et suppression en entrée et sortie en erreur/min (-q "
+"requis)\n"
+
+#: src/check_snmp_int.c:98
+#, c-format
+msgid "   critical level for input / output bandwidth (0 for no critical)\n"
+msgstr ""
+"   Seuil critical pour le débit de l'interface en entrée et sortie (0 pour "
+"désactiver).\n"
+
+#: src/check_snmp_int.c:100
+#, c-format
+msgid "   critical for error & discard input / output in error/min (need -q)\n"
+msgstr ""
+"   critical pour erreur et suppression en entrée et sortie en erreur/min (-q "
+"requis)\n"
+
+#: src/check_snmp_int.c:102
+#, c-format
+msgid ""
+"   Make the output shorter : only the first <n> chars of the interface(s)\n"
+msgstr ""
+"   Rend la sortie plus courte : seulement les premiers <n> caractères de(s) "
+"interface(s)\n"
+
+#: src/check_snmp_int.c:103
+#, c-format
+msgid "   If the number is negative, then get the <n> LAST caracters.\n"
+msgstr "   Si le nombre est négatif, seulement les <n> derniers caractères.\n"
+
+#: src/check_snmp_int.c:104
+#, c-format
+msgid "Note : when multiple interface are selected with regexp, \n"
+msgstr "Note: Lorsque plusieurs interfaces sont sélectionnées (regexp), \n"
+
+#: src/check_snmp_int.c:105
+#, c-format
+msgid "       all be must be up (or down with -i) to get an OK result.\n"
+msgstr ""
+"     toutes doivent être active (ou inactives avec -i) pour retourner OK.\n"
+
+#: src/check_snmp_int.c:255
+#, c-format
+msgid "Put interface name\n"
+msgstr "Entrer le nom de l'interface\n"
+
+#: src/check_snmp_int.c:259
+#, c-format
+msgid "Can't get 64 bit counters with snmp version 1\n"
+msgstr "Les compteurs 64 bits ne sont pas accessibles avec SNMP v1\n"
+
+#: src/check_snmp_int.c:263
+#, c-format
+msgid "Cannot output error without -f option!\n"
+msgstr "Impossible de sortir les erreurs sans l'option -f !\n"
+
+#: src/check_snmp_int.c:265
+#, c-format
+msgid "-Y and -y options are exclusives\n"
+msgstr "Les options -y et -Y ne sont pas compatibles entre elles..\n"
+
+#: src/check_snmp_int.c:267
+#, c-format
+msgid "Cannot put -Y or -y options without perf check option (-k) \n"
+msgstr "Les options -Y et -y ont besoin de l'option -k\n"
+
+#: src/check_snmp_int.c:272
+#, c-format
+msgid "-S option need -k\n"
+msgstr "L'option -S nécessite l'option -k\n"
+
+#: src/check_snmp_int.c:276
+#, c-format
+msgid "6 warning / critical levels for extended checks \n"
+msgstr "6 niveau warning et critical pour les vérifications étendues\n"
+
+#: src/check_snmp_int.c:279
+#, c-format
+msgid "2 warning /critical levels for bandwidth checks \n"
+msgstr "2 niveaux warning et critical pour les vérifications de débit\n"
+
+#: src/check_snmp_int.c:283
+#, c-format
+msgid "Warning must be < Critical level \n"
+msgstr "Les seuils Warning doivent être < aux seuils Critical.\n"
+
+#: src/check_snmp_int.c:289
+#, c-format
+msgid "-M -G and -u options are exclusives\n"
+msgstr "Les options -M -G et -u ne sont pas compatibles entre elles.\n"
+
+#: src/check_snmp_int.c:295 src/check_snmp_storage.c:287
+#, c-format
+msgid "Validity of cache must be >= 2 minutes\n"
+msgstr "La durée de validité du cache doit être >= 2 minutes\n"
+
+#: src/check_snmp_int.c:300 src/check_snmp_process.c:224
+#: src/check_snmp_storage.c:299
+#, c-format
+msgid "Error opening SNMP session : %s\n"
+msgstr "Erreur à l'ouverture de la session SNMP : %s\n"
+
+#: src/check_snmp_int.c:308 src/check_snmp_int.c:312
+#: src/check_snmp_storage.c:311 src/check_snmp_storage.c:315
+#, c-format
+msgid "Memory allocation failure in cache file"
+msgstr "ERREUR : allocation mémoire impossible (fichier cache)"
+
+#: src/check_snmp_int.c:322 src/check_snmp_int.c:409
+#: src/check_snmp_process.c:236 src/check_snmp_process.c:304
+#: src/check_snmp_storage.c:325 src/check_snmp_storage.c:333
+#: src/check_snmp_storage.c:469
+#, c-format
+msgid "Error reading table : %s\n"
+msgstr "Erreur à la lecture de la table : %s\n"
+
+#: src/check_snmp_int.c:332 src/check_snmp_process.c:245
+#: src/check_snmp_storage.c:345 src/check_snmp_storage.c:350
+#, c-format
+msgid "Error compiling regexp (invalid regexp or memory prb)\n"
+msgstr ""
+"Erreur lors de la compilation de l'expression régulière (regexp invalide ou "
+"problème mémoire)\n"
+
+#: src/check_snmp_int.c:356
+#, c-format
+msgid "Query OID %i :"
+msgstr "OID demandée %i :"
+
+#: src/check_snmp_int.c:399 src/check_snmp_process.c:282
+#: src/check_snmp_storage.c:458
+#, c-format
+msgid "Found : %i match : %i OID queries\n"
+msgstr "Trouvé : %i correspondances : %i requêtes\n"
+
+#: src/check_snmp_int.c:400 src/check_snmp_process.c:283
+#: src/check_snmp_storage.c:459
+#, c-format
+msgid "ERROR : Maximum number of OID queries reached : %i\n"
+msgstr "ERREUR: Nombre maximum d'OID atteint : %i\n"
+
+#: src/check_snmp_int.c:402
+#, c-format
+msgid "ERROR : Unknown interface %s\n"
+msgstr "ERREUR : interface inconnue %s\n"
+
+#: src/check_snmp_int.c:425 src/check_snmp_process.c:314
+#: src/check_snmp_storage.c:488
+#, c-format
+msgid "ERROR : memory allocation failure\n"
+msgstr "ERREUR : allocation mémoire impossible\n"
+
+#: src/check_snmp_int.c:439
+#, c-format
+msgid "Cannot get operationnal status of interface %s\n"
+msgstr "Impossible de récupérer le statut de l'interface %s\n"
+
+#: src/check_snmp_int.c:443
+#, c-format
+msgid "Cannot get admin status of interface %s\n"
+msgstr "Impossible de récupérer le statut de l'interface %s\n"
+
+#: src/check_snmp_int.c:450
+#, c-format
+msgid "Cannot get input octet of interface %s\n"
+msgstr ""
+
+#: src/check_snmp_int.c:454
+#, c-format
+msgid "Cannot get input octet (64 bits) of interface %s\n"
+msgstr ""
+
+#: src/check_snmp_int.c:460
+#, c-format
+msgid "Cannot get output octet of interface %s\n"
+msgstr ""
+
+#: src/check_snmp_int.c:464
+#, c-format
+msgid "Cannot get output octet (64 bits) of interface %s\n"
+msgstr ""
+
+#: src/check_snmp_int.c:480
+#, c-format
+msgid "Cannot get input discard of interface %s\n"
+msgstr ""
+
+#: src/check_snmp_int.c:485
+#, c-format
+msgid "Cannot get output discard of interface %s\n"
+msgstr ""
+
+#: src/check_snmp_int.c:490
+#, c-format
+msgid "Cannot get input error of interface %s\n"
+msgstr ""
+
+#: src/check_snmp_int.c:495
+#, c-format
+msgid "Cannot get output error of interface %s\n"
+msgstr ""
+
+#: src/check_snmp_int.c:521
+#, c-format
+msgid "Interface %s : state %i\n"
+msgstr "Interface %s : état %i\n"
+
+#: src/check_snmp_int.c:561 src/check_snmp_process.c:424
+#, c-format
+msgid "File read returns : %i with %i rows\n"
+msgstr ""
+
+#: src/check_snmp_int.c:566
+#, c-format
+msgid ""
+"Cannot get interface speed with standard MIB, use highperf mib (-g) : "
+"UNKNOWN\n"
+msgstr ""
+
+#: src/check_snmp_int.c:572
+#, c-format
+msgid "Cannot get interface speed using highperf mib : UNKNOWN\n"
+msgstr ""
+"Ne peut trouver la vitesse de l'interface en utilisant la mib highperf : "
+"UNKNOWN\n"
+
+#: src/check_snmp_int.c:578
+#, c-format
+msgid "Interface speed : %llu\n"
+msgstr "Vitesse d'interface : %llu\n"
+
+#: src/check_snmp_int.c:668 src/check_snmp_process.c:444
+#, c-format
+msgid "Write file returned : %i\n"
+msgstr "L'écriture du fichier retourne : %i\n"
+
+#: src/check_snmp_int.c:672
+msgid " !!Unable to write file "
+msgstr "!! Impossible d'écrire le fichier temporaire"
+
+#: src/check_snmp_int.c:682
+#, c-format
+msgid "Interface %i, check %i : %f\n"
+msgstr ""
+
+#: src/check_snmp_int.c:703
+msgid " No usable data on file ("
+msgstr " Pas de données utilisables dans le fichier ("
+
+#: src/check_snmp_int.c:706
+msgid "rows) "
+msgstr "lignes) "
+
+#: src/check_snmp_int.c:792
+#, c-format
+msgid ": %i %s"
+msgstr ": %i %s"
+
+#: src/check_snmp_int.c:796
+msgid "(Write problems in cache file)"
+msgstr "(problèmes d'écriture du fichier cache)"
+
+#: src/check_snmp_int.c:797
+msgid "(Cache lock file remaining)"
+msgstr "(Lock du fichier cache persistant)"
+
+#: src/check_snmp_int.c:798
+msgid "(Cache lock file cannot be erased)"
+msgstr "(Impossible de supprime le fichier lock du cache)"
+
+#: src/check_snmp_int.c:815
+#, c-format
+msgid ": %i int not %s"
+msgstr ": %i int ne sont pas %s "
+
+#: src/check_snmp_process.c:37
+#, c-format
+msgid ""
+"\n"
+"SNMP Process Monitor for Nagios version %.2f\n"
+msgstr ""
+"\n"
+"Surveillance de processus par SNMP pour Nagios version %.2f\n"
+
+#: src/check_snmp_process.c:44
+#, c-format
+msgid "   Name of the process (regexp)\n"
+msgstr "   Nom du processus (expression régulière)\n"
+
+#: src/check_snmp_process.c:45
+#, c-format
+msgid "   No trailing slash !\n"
+msgstr "   pas de '/' terminal \n"
+
+#: src/check_snmp_process.c:49
+#, c-format
+msgid "   Use full path name instead of process name \n"
+msgstr "   Utilise le chemin complet en plus du nom du processus \n"
+
+#: src/check_snmp_process.c:50
+#, c-format
+msgid "   (Windows doesn't provide full path name)\n"
+msgstr "   (Windows ne fourni pas de chemin complet)\n"
+
+#: src/check_snmp_process.c:52
+#, c-format
+msgid "   Number of process that will cause a warning\n"
+msgstr "   nombre de processus qui générant un état warning\n"
+
+#: src/check_snmp_process.c:53
+#, c-format
+msgid "   -1 for no warning, MAX must be >0. Ex : -w-1,50\n"
+msgstr "   -1 : pas de warning, MAX doit être >0. Ex : -w-1,50\n"
+
+#: src/check_snmp_process.c:55
+#, c-format
+msgid "   number of process that will cause an error\n"
+msgstr "   nombre de processus qui générant un état critical\n"
+
+#: src/check_snmp_process.c:56
+#, c-format
+msgid "   -1 for no critical, MAX must be >0. Ex : -c-1,50\n"
+msgstr "   -1 : pas de critical, MAX doit être >0. Ex : -c-1,50\n"
+
+#: src/check_snmp_process.c:57
+#, c-format
+msgid "Notes on warning and critical : \n"
+msgstr "Note sur les état  warning et critical : \n"
+
+#: src/check_snmp_process.c:58
+#, c-format
+msgid "   with the following options : -w m1,x1 -c m2,x2\n"
+msgstr "   avec les options suivantes : -w m1,x1 -c m2,x2\n"
+
+#: src/check_snmp_process.c:59
+#, c-format
+msgid "   you must have : m2 <= m1 < x1 <= x2\n"
+msgstr "   Il faut que  : m2 <= m1 < x1 <= x2\n"
+
+#: src/check_snmp_process.c:60
+#, c-format
+msgid "   you can omit x1 or x2 or both\n"
+msgstr "   Il est possible d'enlever x1, x2 ou les deux\n"
+
+#: src/check_snmp_process.c:62
+#, c-format
+msgid "   checks memory usage (default max of all process)\n"
+msgstr ""
+"   Vérifie l'utilisation mémoire (par défaut max des processus "
+"sélectionnés)\n"
+
+#: src/check_snmp_process.c:63
+#, c-format
+msgid "   values are warning and critical values in Mb\n"
+msgstr "   Seuils  warning et critical en MOctets\n"
+
+#: src/check_snmp_process.c:65
+#, c-format
+msgid "   makes an average of memory used by process instead of max\n"
+msgstr "   Fait un moyenne de la mémoire utilisée au lieu du maximum\n"
+
+#: src/check_snmp_process.c:67
+#, c-format
+msgid "   checks cpu usage of all process\n"
+msgstr "   Vérifie l'utilisation CPU de tous les processus sélectionnés\n"
+
+#: src/check_snmp_process.c:68
+#, c-format
+msgid "   values are warning and critical values in %% of CPU usage\n"
+msgstr "   Seuils  warning et critical en %% d'utilisation du CPU\n"
+
+#: src/check_snmp_process.c:69
+#, c-format
+msgid "   if more than one CPU, value can be > 100%% : 100%%=1 CPU\n"
+msgstr ""
+"   Si il y a plus d'un CPU, la valeur peut être > 100%% (100%%=1 CPU)\n"
+
+#: src/check_snmp_process.c:71
+#, c-format
+msgid "   Performance output : number of processes\n"
+msgstr "   Sortie des données de performance : nombre de processus\n"
+
+#: src/check_snmp_process.c:72
+#, c-format
+msgid "   mem & cpu with -a and -u options)\n"
+msgstr "   mémoire & cpu avec les options -a et -u)\n"
+
+#: src/check_snmp_process.c:74
+#, c-format
+msgid "   make an average of <delta> seconds for cpu (default 300)\n"
+msgstr "   Effectue une moyenne sur <delta> secondes (par défaut 300)\n"
+
+#: src/check_snmp_process.c:76
+#, c-format
+msgid "Note :   \n"
+msgstr "Note :   \n"
+
+#: src/check_snmp_process.c:77
+#, c-format
+msgid ""
+"  CPU usage is in %% of one cpu, so maximum can be 100%% * number of CPU \n"
+msgstr ""
+"  L'utilisation CPU est en %% d'un cpu, le maximum peut donc être 100%% * nb "
+"de CPU\n"
+
+#: src/check_snmp_process.c:78 src/check_snmp_storage.c:118
+#, c-format
+msgid "  example : \n"
+msgstr "  exemple : \n"
+
+#: src/check_snmp_process.c:79
+#, c-format
+msgid ""
+"  Browse process list : <script> -C <community> -H <host> -n <anything> -v \n"
+msgstr "  Liste le processus  : <script> -C <community> -H <host> -n zzz -v \n"
+
+#: src/check_snmp_process.c:80
+#, c-format
+msgid "  the -n option allows regexp in perl format : \n"
+msgstr ""
+"  L'option -n utilise les expressions rationnelles pour la sélection : \n"
+
+#: src/check_snmp_process.c:81
+#, c-format
+msgid "  All process of /opt/soft/bin  \t: -n /opt/soft/bin/ -f\n"
+msgstr "  Tous les processus de  /opt/soft/bin  \t: -n /opt/soft/bin/ -f\n"
+
+#: src/check_snmp_process.c:82
+#, c-format
+msgid "  All 'named' process\t\t\t: -n named\n"
+msgstr "  Tous les process 'named'\t\t\t: -n named\n"
+
+#: src/check_snmp_process.c:184
+#, c-format
+msgid "Put process name\n"
+msgstr "Entrer le nom du processus\n"
+
+#: src/check_snmp_process.c:188 src/check_snmp_process.c:190
+#, c-format
+msgid ""
+"Maximum process warninig and critical must be > 0 \n"
+"\n"
+msgstr ""
+"Le seuil maximum warning et critical de processus doit être > 0 \n"
+"\n"
+
+#: src/check_snmp_process.c:194
+#, c-format
+msgid "Warning minimum must be >= critical minimum\n"
+msgstr ""
+"Les seuils Warning minimum doivent être >= aux seuils Critical minimum\n"
+
+#: src/check_snmp_process.c:196
+#, c-format
+msgid "critical minimum must be < critical maximum\n"
+msgstr ""
+
+#: src/check_snmp_process.c:200
+#, c-format
+msgid "warn minimum must be < warn maximum\n"
+msgstr ""
+
+#: src/check_snmp_process.c:202
+#, c-format
+msgid "warn minimum must be < crit maximum when no crit warning defined\n"
+msgstr ""
+
+#: src/check_snmp_process.c:205
+#, c-format
+msgid "warn max must be <= crit maximum\n"
+msgstr ""
+
+#: src/check_snmp_process.c:209
+#, c-format
+msgid "2 values (warning,critical) for memory\n"
+msgstr "2 valeurs (warning,critical) pour la mémoire\n"
+
+#: src/check_snmp_process.c:211
+#, c-format
+msgid "Warning must be <= Critical for memory!\n"
+msgstr ""
+"Les seuils Warning doivent être < aux seuils Critical pour la mémoire\n"
+
+#: src/check_snmp_process.c:216
+#, c-format
+msgid "2 values (warning,critical) for cpu\n"
+msgstr "2 valeurs (warning,critical) pour le cpu\n"
+
+#: src/check_snmp_process.c:218
+#, c-format
+msgid "Warning must be <= Critical for cpu!\n"
+msgstr "Le seuil Warning doit être < au seuil Critical pour le cpu.\n"
+
+#: src/check_snmp_process.c:287
+#, c-format
+msgid "No process %s %s found :"
+msgstr "Pas de processus %s %s trouvé :"
+
+#: src/check_snmp_process.c:287
+msgid "named"
+msgstr "nommé(s)"
+
+#: src/check_snmp_process.c:287
+msgid "matching"
+msgstr "correspondant(s) à "
+
+#: src/check_snmp_process.c:289
+#, c-format
+msgid "CRITICAL\n"
+msgstr "CRITICAL\n"
+
+#: src/check_snmp_process.c:292
+#, c-format
+msgid "WARNING\n"
+msgstr "WARNING\n"
+
+#: src/check_snmp_process.c:295
+#, c-format
+msgid "YOU told me it was : OK\n"
+msgstr "VOUS m'avez dit que c'était : OK\n"
+
+#: src/check_snmp_process.c:326
+#, c-format
+msgid "Process %i died between SNMP queries\n"
+msgstr "Le processus %i est mort entre deux requêtes SNMP\n"
+
+#: src/check_snmp_process.c:335
+#, c-format
+msgid "Cannot read mem usage for process %i\n"
+msgstr ""
+
+#: src/check_snmp_process.c:343
+#, c-format
+msgid "Cannot read proc counter for process %i\n"
+msgstr ""
+
+#: src/check_snmp_process.c:347
+#, c-format
+msgid "Process %i in state %i using %i mem and %i cpu\n"
+msgstr ""
+
+#: src/check_snmp_process.c:360
+#, c-format
+msgid "Memory average : %0.f\n"
+msgstr "Mémoire moyenne : %0.f\n"
+
+#: src/check_snmp_process.c:366
+#, c-format
+msgid "Memory max : %0.f\n"
+msgstr "Mémoire max : %0.f\n"
+
+#: src/check_snmp_process.c:370
+#, c-format
+msgid ", Mem UNKNOWN"
+msgstr ", Mem UNKNOWN"
+
+#: src/check_snmp_process.c:379
+#, c-format
+msgid ", Mem : %.1fMB > %i CRITICAL"
+msgstr ", Mem : %.1fMB > %i CRITICAL"
+
+#: src/check_snmp_process.c:382
+#, c-format
+msgid ", Mem %.1fMB > %i WARNING"
+msgstr ", Mem %.1fMB > %i WARNING"
+
+#: src/check_snmp_process.c:384
+#, c-format
+msgid ", Mem %.1fMB OK"
+msgstr ""
+
+#: src/check_snmp_process.c:405
+#, c-format
+msgid "Time: %lu , cpu (centiseconds) : %i\n"
+msgstr ""
+
+#: src/check_snmp_process.c:409
+#, c-format
+msgid ", CPU UNKNOWN"
+msgstr ""
+
+#: src/check_snmp_process.c:448
+#, c-format
+msgid ",CPU !!Unable to write file %s"
+msgstr ",CPU !! Impossible d'écrire le fichier temporaire %s"
+
+#: src/check_snmp_process.c:459
+#, c-format
+msgid ", Cpu %.0f%% > %i CRITICAL"
+msgstr ""
+
+#: src/check_snmp_process.c:462
+#, c-format
+msgid ", Cpu %.0f%% > %i WARNING"
+msgstr ""
+
+#: src/check_snmp_process.c:464
+#, c-format
+msgid ", Cpu %.0f%% OK"
+msgstr ""
+
+#: src/check_snmp_process.c:469
+#, c-format
+msgid ", No data for CPU (%i) rows : UNKNOWN"
+msgstr ", pas de données pour le  CPU (%i lignes) : UNKNOWN"
+
+#: src/check_snmp_storage.c:57
+#, c-format
+msgid ""
+"\n"
+"SNMP storage Monitor for Nagios version %.2f\n"
+msgstr ""
+"\n"
+"Surveillance de systèmes de stockage par SNMP pour Nagios version %.2f\n"
+
+#: src/check_snmp_storage.c:64
+#, c-format
+msgid ""
+"   Name in description OID (can be mounpoints '/home' or 'Swap Space'...)\n"
+msgstr ""
+"   Nom de l'interface dans l'OID description (Points de montage '/home' ou "
+"'Swap Space')\n"
+
+#: src/check_snmp_storage.c:65
+#, c-format
+msgid ""
+"   This is treated as a regexp : -m /var will match /var , /var/log, /opt/"
+"var ...\n"
+msgstr ""
+"   La chaîne est traitée comme une expression régulière : /var "
+"sélectionnera /var , /var/log, /opt/var ...\n"
+
+#: src/check_snmp_storage.c:67
+#, c-format
+msgid "   No trailing slash for mountpoints !\n"
+msgstr "   pas de '/' terminal \n"
+
+#: src/check_snmp_storage.c:70
+#, c-format
+msgid "   Also check the storage type in addition of the name\n"
+msgstr "   Vérifie également le type de storage en plus du nom\n"
+
+#: src/check_snmp_storage.c:71
+#, c-format
+msgid ""
+"   It is possible to use regular expressions ( \"FixedDisk|FloppyDisk\" )\n"
+msgstr ""
+"   Il est possible d'utiliser des expressions rationnelles ( \"FixedDisk|"
+"FloppyDisk\" )\n"
+
+#: src/check_snmp_storage.c:75
+#, c-format
+msgid "   Add all storages that match NAME (used space and total space)\n"
+msgstr ""
+
+#: src/check_snmp_storage.c:76
+#, c-format
+msgid "   THEN make the tests.\n"
+msgstr "   PUIS faire les tests.\n"
+
+#: src/check_snmp_storage.c:78
+#, c-format
+msgid "   Get storage from index instead of description table\n"
+msgstr "   Récupère le storage grâce à son index au lieu de son nom\n"
+
+#: src/check_snmp_storage.c:79
+#, c-format
+msgid "   No cache, storage type and NAME must be an integer\n"
+msgstr "   Pas de cache, type de storage et NAME doit être un entier\n"
+
+#: src/check_snmp_storage.c:81
+#, c-format
+msgid "   Select all storages except the one(s) selected by -m\n"
+msgstr ""
+"   Selectionne tous les storage excepté celui ou ceux sélectionnés par -m\n"
+
+#: src/check_snmp_storage.c:82
+#, c-format
+msgid "   No action on storage type selection\n"
+msgstr "   Sans effet sur la sélection par type de storage\n"
+
+#: src/check_snmp_storage.c:84
+#, c-format
+msgid "   pl : calculate percent left\n"
+msgstr "   pl : Calcule le %% restant\n"
+
+#: src/check_snmp_storage.c:85
+#, c-format
+msgid "   pu : calculate percent used (Default)\n"
+msgstr "   pu : Calcule le %% utilisé (défaut)\n"
+
+#: src/check_snmp_storage.c:86
+#, c-format
+msgid "   bl : calculate MegaBytes left\n"
+msgstr "   bl : Calcule les MegaOctets restants\n"
+
+#: src/check_snmp_storage.c:87
+#, c-format
+msgid "   bu : calculate MegaBytes used\n"
+msgstr "   bu : Calcule les MegaOctets utilisés\n"
+
+#: src/check_snmp_storage.c:89
+#, c-format
+msgid "   percent / MB of disk used to generate WARNING state\n"
+msgstr "   Pourcentage ou MB/GB du disque pour générer un état WARNING\n"
+
+#: src/check_snmp_storage.c:90 src/check_snmp_storage.c:93
+#, c-format
+msgid "   you can add the %% sign \n"
+msgstr "   Il est possible d'ajouter le signe %%\n"
+
+#: src/check_snmp_storage.c:92
+#, c-format
+msgid "   percent / MB of disk used to generate CRITICAL state\n"
+msgstr "   Pourcentage ou MB/GB du disque pour générer un état CRITICAL\n"
+
+#: src/check_snmp_storage.c:98
+#, c-format
+msgid "   Perfparse compatible output (default)\n"
+msgstr "   Sorite de performance (par défaut)\n"
+
+#: src/check_snmp_storage.c:100
+#, c-format
+msgid "   %% reserved blocks for superuser\n"
+msgstr ""
+
+#: src/check_snmp_storage.c:101
+#, c-format
+msgid "   For ext2/3 filesystems, it is 5%% by default\n"
+msgstr ""
+
+#: src/check_snmp_storage.c:103
+#, c-format
+msgid "   output, warning & critical levels in gigabytes\n"
+msgstr "   Sortie et seuils en GigOctets\n"
+
+#: src/check_snmp_storage.c:105
+#, c-format
+msgid "   <type>: Make the output shorter :\n"
+msgstr "   <type>: Produit une sortie plus courte :\n"
+
+#: src/check_snmp_storage.c:106
+#, c-format
+msgid ""
+"     0 : only print the global result except the disk in warning or "
+"critical\n"
+msgstr ""
+"     0 : affiche uniquement le résultat globale sauf pour les disques en "
+"état non OK\n"
+
+#: src/check_snmp_storage.c:107
+#, c-format
+msgid "         ex: \"OK : < 80%%\"\n"
+msgstr "         ex: \"OK : < 80%%\"\n"
+
+#: src/check_snmp_storage.c:108
+#, c-format
+msgid "     1 : Don't print all info for every disk \n"
+msgstr "     1 : Ne pas afficher toutes les informations pour chaque disque \n"
+
+#: src/check_snmp_storage.c:109
+#, c-format
+msgid "         ex : \"OK : / : 66 %%used  (<  80)\"\n"
+msgstr "         ex : \"OK : / : 66 %%utilisé  (<  80)\"\n"
+
+#: src/check_snmp_storage.c:110
+#, c-format
+msgid "   <cut>: take the <n> first caracters or <n> last if n<0\n"
+msgstr ""
+"   <cut>: enlève les <n> premiers caractères ou les <n> derniers si n<0\n"
+
+#: src/check_snmp_storage.c:111
+#, c-format
+msgid "Note : \n"
+msgstr "Note :   \n"
+
+#: src/check_snmp_storage.c:112
+#, c-format
+msgid "  By default, plugin will monitor %%used on drives :\n"
+msgstr "  Par défaut, le plugin va vérifier le %% utilisé sur les disques :\n"
+
+#: src/check_snmp_storage.c:113
+#, c-format
+msgid "  warn if %%used > warn and critical if %%used > crit\n"
+msgstr "  warn si %%used > warn et critical si %%used > crit\n"
+
+#: src/check_snmp_storage.c:114
+#, c-format
+msgid "  with T=pu or T=bu : OK < warn < crit\n"
+msgstr "  avec T=pu or T=bu : OK < warn < crit\n"
+
+#: src/check_snmp_storage.c:115
+#, c-format
+msgid ""
+"  with T=pl ot T=bl : crit < warn < OK\n"
+"\n"
+msgstr ""
+"  avec T=pl ot T=bl : crit < warn < OK\n"
+"\n"
+
+#: src/check_snmp_storage.c:116
+#, c-format
+msgid ""
+"  If multiple storage are selected, the worse condition will be returned\n"
+msgstr ""
+"  Si de multiples storages sont sélectionnés, la pire condition sera "
+"retournée\n"
+
+#: src/check_snmp_storage.c:117
+#, c-format
+msgid ""
+"  i.e if one disk is critical, the return is critical\n"
+"\n"
+msgstr ""
+"  i.e si un storage est critical, le retour sera critical\n"
+"\n"
+
+#: src/check_snmp_storage.c:119
+#, c-format
+msgid ""
+"  Browse storage list : <script> -C <community> -H <host> -m <anything> -w 1 "
+"-c 2 -v \n"
+msgstr ""
+"  Parcourir la liste de storage : <script> -C <community> -H <host> -m "
+"<anything> -w 1 -c 2 -v \n"
+
+#: src/check_snmp_storage.c:120
+#, c-format
+msgid "  the -m option allows regexp in perl format : \n"
+msgstr "  l'option -m autorise les expressions rationnelles : \n"
+
+#: src/check_snmp_storage.c:121
+#, c-format
+msgid "  Test drive C,F,G,H,I on Windows \t: -m ^[CFGHI]:    \n"
+msgstr "  Test lecteurs C,F,G,H,I sur Windows \t: -m ^[CFGHI]:    \n"
+
+#: src/check_snmp_storage.c:122
+#, c-format
+msgid "  Test all mounts containing /var      \t: -m /var\n"
+msgstr "  Test tous les montages contenants /var      \t: -m /var\n"
+
+#: src/check_snmp_storage.c:123
+#, c-format
+msgid "  Test all mounts under /var      \t: -m ^/var\n"
+msgstr "  Test tous les montages sous /var      \t: -m ^/var\n"
+
+#: src/check_snmp_storage.c:124
+#, c-format
+msgid "  Test only /var                 \t: -m /var -r\n"
+msgstr "  Test seulement /var                 \t: -m /var -r\n"
+
+#: src/check_snmp_storage.c:125
+#, c-format
+msgid "  Test all swap spaces\t\t\t: -m ^Swap\n"
+msgstr "  Test tous les swap\t\t\t: -m ^Swap\n"
+
+#: src/check_snmp_storage.c:126
+#, c-format
+msgid "  Test all but swap spaces\t\t: -m ^Swap -e\n"
+msgstr "  Test tout sauf le swap\t\t: -m ^Swap -e\n"
+
+#: src/check_snmp_storage.c:244
+#, c-format
+msgid "Put storage name\n"
+msgstr "Entrer le nom de l'élément de stockage\n"
+
+#: src/check_snmp_storage.c:252
+#, c-format
+msgid "Invalid check type : %s\n"
+msgstr "Type de vérification invalide : %s\n"
+
+#: src/check_snmp_storage.c:254
+#, c-format
+msgid "Put warning level\n"
+msgstr "Entrer une valeur de warning\n"
+
+#: src/check_snmp_storage.c:255
+#, c-format
+msgid "Put critical level\n"
+msgstr "Entrer le seuil critical\n"
+
+#: src/check_snmp_storage.c:257
+#, c-format
+msgid "Warning and critical must be > 0 \n"
+msgstr "Les valeurs de warning et critical doivent être > 0 \n"
+
+#: src/check_snmp_storage.c:260
+#, c-format
+msgid "warn must be < crit if type=%s\n"
+msgstr ""
+"Le seuil Warning doit être < au seuil Critical pour une vérification de type "
+"%s.\n"
+
+#: src/check_snmp_storage.c:263
+#, c-format
+msgid "warn must be > crit if type=%s\n"
+msgstr ""
+"Le seuil Warning doit être > au seuil Critical pour une vérification de type "
+"%s.\n"
+
+#: src/check_snmp_storage.c:266
+#, c-format
+msgid "percent values must be < 100\n"
+msgstr "Les pourcentages doivent être < 100\n"
+
+#: src/check_snmp_storage.c:271
+#, c-format
+msgid "-S first option must be 0 or 1\n"
+msgstr "La première option de -S doit être 0 ou 1\n"
+
+#: src/check_snmp_storage.c:278
+#, c-format
+msgid "Put integer as storage name with index selection\n"
+msgstr "Mettez un entier comme nom de storage pour la sélection par index\n"
+
+#: src/check_snmp_storage.c:282
+#, c-format
+msgid "No cache or storage type with index selection\n"
+msgstr "Pas de cache ou de type de storage avec une sélection par index\n"
+
+#: src/check_snmp_storage.c:292
+#, fuzzy, c-format
+msgid "Reserved blocks must be < 100 and >= 0\n"
+msgstr "Les pourcentages doivent être < 100\n"
+
+#: src/check_snmp_storage.c:363 src/check_snmp_storage.c:424
+#, c-format
+msgid "UNKNOWN : Unknown storage type corresponding to oid : "
+msgstr "UNKNOWN : Disque inconnu correspondant à l'OID : "
+
+#: src/check_snmp_storage.c:415
+#, c-format
+msgid "Can't find storage type OID for storage %s : UNKNOWN"
+msgstr "Impossible de trouver l'OID de type pour le storage %s : UNKNOWN"
+
+#: src/check_snmp_storage.c:430 src/check_snmp_storage.c:433
+#, c-format
+msgid "Storage type : %s (match = %c)\n"
+msgstr ""
+
+#: src/check_snmp_storage.c:462
+#, c-format
+msgid "ERROR : Unknown storage %s\n"
+msgstr "ERREUR : montage inconnu %s\n"
+
+#: src/check_snmp_storage.c:484
+#, c-format
+msgid "Write cache returned : %i\n"
+msgstr ""
+
+#: src/check_snmp_storage.c:501
+#, c-format
+msgid "Cannot get used value for %s\n"
+msgstr ""
+
+#: src/check_snmp_storage.c:504
+#, c-format
+msgid "Cannot get size value for %s\n"
+msgstr ""
+
+#: src/check_snmp_storage.c:507
+#, c-format
+msgid "Cannot get alloc unit value for %s\n"
+msgstr ""

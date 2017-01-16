@@ -1,0 +1,338 @@
+<HTML>
+<HEAD>
+<TITLE>Nagios plugins</TITLE>
+<META NAME="Keywords" CONTENT="nagios,plugins,perl,snmp,proy">
+<STYLE type="text/css">
+<!--
+        .Default { font-family: verdana,arial,serif; font-size: 10pt; }
+        .ProgramTitle { font-family: verdana,arial,serif; font-size: 18pt; font-weight: bold;}
+        .Copyright { font-family: verdana,arial,serif; font-size: 10pt;}
+        .Email { font-family: verdana,arial,serif; font-size: 10pt;}
+        .NewsItem { font-family: verdana,arial,serif; font-size: 8pt; }
+        .NewsItemOdd { font-family: verdana,arial,serif; font-size: 8pt; background-color: #DBDBDB;}
+        .NewsItemEven { font-family: verdana,arial,serif; font-size: 8pt; background-color: #C4C2C2;}
+        .NewsItemUrgent { font-family: verdana,arial,serif; font-size: 8pt; background-color: #ccff99;}
+        .NewsItemDate { font-family: verdana,arial,serif; font-size: 8pt; font-weight: bold; }
+        .SectionTitle { font-family: verdana,arial,serif; font-size: 9pt; font-weight: bold; text-decoration: underline;}
+        .SectionBody { font-family: verdana,arial,serif; font-size: 8pt; }
+        .ModificationDate { font-family: verdana,arial,serif; font-size: 7pt; }
+        .Disclaimer { font-family: verdana,arial,serif; font-size: 8pt; }
+		A.SideNavBarItem { font-family: verdana,arial,serif; background-color : black; color: #e7e7e7; font-size: 9pt; font-weight: bold; text-decoration: none; }
+		A.SideNavBarItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+		A.SideNavBarHotItem { font-family: verdana,arial,serif; background-color : black; color: #ffcc66; font-size: 9pt; font-weight: bold; text-decoration: none; }
+		A.SideNavBarHotItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+-->      
+</STYLE>
+</HEAD>
+<body  background="img/sideback.jpg" bgcolor="#FFFFFF" text="black" class="Default">
+<table width="100%" border="0">
+  <tr> 
+    <td valign=top> 
+      <table width="100%" border="0" valign=top>
+        <tr> 
+          <td class="ProgramTitle"> SNMP plugins for Nagios</td>
+        </tr>
+        <tr> 
+          <td> 
+            <p class="SectionTitle" align="right">Last update : April 19 2007</p>
+            <p class="SectionTitle" align="left">About </p>
+            <p class="SectionBody">The general idea of these scripts is to check 
+              as many things as possible with snmp (how do you install NRPE on 
+              Cisco or AS/400 ?) : disks, memory, load, interface, running procsses, 
+              etc...<br>
+            </p>
+            <p class="SectionBody">The other idea is to select disks, interfaces, 
+              process using regular expressions <br>
+              <br>
+              - it is possible to test more than one disk/int/process in one Nagios 
+              check (ex : eth* instead of eth0,eth1,eth2,...)<br>
+              <br>
+              - you only have to provide a unique part of the name to select a 
+              disk/int/process (ex : &quot;C:&quot; instead of &quot;C:\ Label: 
+              Serial Number xxxxxxx&quot; makes it easy to use on multiple Windows 
+              hosts). </p>
+            <p class="SectionBody">Most of these scripts can make performance 
+              outputs. </p>
+            <p class="SectionBody">Enjoy and give me feedback !<br>
+              <br>
+              All code here is under GPL licence. <br>
+            </p>
+            <p class="SectionTitle"> If you want to be informed when I release 
+              new versions, <br>
+              or if you have some advices, feedback, questions, go to the project's 
+              sourceforge page : <a href="http://sourceforge.net/projects/nagios-snmp">nagios-snmp</a></p>
+            <p class="SectionBody">Please send me your feedback : <br>
+              - Test with embeded Perl<br>
+              - Test on various systems<br>
+              - Bugs, advices, comments, RFE, etc...<br>
+              Thank you !</p>
+            <p class="SectionBody">Run the scripts with '-h' to get help.</p>
+          </td>
+        </tr>
+        <tr> 
+          <td valign="top"> 
+            <p class="SectionTitle">&nbsp;</p>
+            <p class="SectionTitle">Requirements</p>
+            <p class="SectionBody"> - Perl in /usr/bin/perl - if not run 'perl 
+              script' or change the path in the scripts first line <br>
+              - Net::SNMP<br>
+              - file 'utils.pm' in diretory /usr/local/nagios/libexec or change 
+              the line "use libs /usr/local/nagios/libexec/" in the scripts<br>
+            </p>
+            <p class="SectionBody"><a href="index_commands.html" class="SectionTitle">Configurations 
+              examples</a></p>
+            <p class="SectionTitle">Plugins<br>
+            </p>
+            <table border="1" cellspacing="5">
+              <tr> 
+                <td class="NewsItemDate" valign = top> 
+                  <p><a href="snmp_storage.html">check_snmp_storage</a><br>
+                    <br>
+                  <p>&nbsp; </p>
+                </td>
+                <td class="SectionBody"> 
+                  <p>This scripts checks by snmp (1,2c,3) disks, memory, swap, 
+                    everthing in hrStorage table. <br>
+                    Disk selection can be done by perl regexp on description, 
+                    index or type to select one or multiple storages.<br>
+                    <br>
+                    V&eacute;rifie par snmp v1 ou v3 (merci &agrave; V. Carpentier) 
+                    l'occupation des disques, mais aussi de la swap, de la m&eacute;moire, 
+                    etc.. tout ce qui est disponible en snmp par la table hrStorage.<br>
+                    Les disques sont s&eacute;lectionnables par expression r&eacute;guli&egrave;re 
+                    compatible Perl</p>
+                  <p><a href="snmp_storage.html">Details</a></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top> 
+                  <p><a href="snmp_int.html">check_snmp_int</a><br>
+                    <br>
+                  </p>
+                </td>
+                <td class="SectionBody"> 
+                  <p>Checks by snmp (1,2c,3) interface state and usage. Interfaces 
+                    can be selected by regexp.<br>
+                    It is possible to check the input/output bandwidth and error 
+                    rate of the interface.<br>
+                    <br>
+                    V&eacute;rifie par snmp v1 ou v3 l'&eacute;tat des interfaces 
+                    d'un h&ocirc;te.<br>
+                    Ce script permet d'utiliser des expressions r&eacute;guli&egrave;res 
+                    pour s&eacute;lectionner les interfaces : ex 'eth' va v&eacute;rifier 
+                    eth0, eth1, ...<br>
+                    Il permet &eacute;galement de lister toutes les interfaces 
+                    disponibles sur la machine cible (option -v). </p>
+                  <p><a href="snmp_int.html">Details</a></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top> 
+                  <p><a href="snmp_process.html">check_snmp_process</a></p>
+                  <p><a href="check_snmp_process.pl"><br>
+                    </a></p>
+                  <p>&nbsp;</p>
+                </td>
+                <td class="SectionBody"> 
+                  <p>Checks by snmp (1,2c,3) the number (can be 1) of processes 
+                    matching a perl regexp.<br>
+                    The script can also check memory and cpu usage of processes.</p>
+                  <p>V&eacute;rifie par snmp v1 ou v3 (idem) le nombre de process 
+                    sur un h&ocirc;te.<br>
+                    Ce script permet d'utiliser des expressions r&eacute;guli&egrave;res 
+                    pour s&eacute;lectionner les process.<br>
+                    Il est &eacute;galement possible de v&eacute;rifier l'utilisation 
+                    m&eacute;moire et CPU de la machine.<br>
+                    Il permet &eacute;galement de lister touts les process disponibles 
+                    sur la machine cible (option -v). </p>
+                  <p><a href="snmp_load.html">Details</a></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top> 
+                  <p><a href="snmp_load.html">check_snmp_load</a></p>
+                  <p>&nbsp; </p>
+                </td>
+                <td class="SectionBody"> 
+                  <p>Checks by snmp (1,2c,3) cpu or average load. <br>
+                    Works on Linux, Windows, Cisco, AS400, HP Procurve, LinkProof, 
+                    Blucoat, Nokia, Fortinet, Netscreen,HP-UX.</p>
+                  <p> V&eacute;rifie par snmp (1,2c,3) la charge ou l'ocupation 
+                    CPU.<br>
+                  </p>
+                  <p><a href="snmp_load.html">Details.</a></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top> 
+                  <p><a href="snmp_mem.html">check_snmp_mem</a></p>
+                  <p>&nbsp;</p>
+                </td>
+                <td class="SectionBody"> 
+                  <p>Checks by snmp (1,2c,3) : <br>
+                    - Memory and swap usage on Linux/Net-snmp<br>
+                    - Memory usage on cisco routers or Pix<br>
+                    - Memory usage on HP Procurve switchs<br>
+                    For memory check on other OS (Windows, AS400) see the description 
+                    page </p>
+                  <p>V&eacute;rifcation de <br>
+                    - l'utilisation m&eacute;moire et swap sur Linux/Net-snmp<br>
+                    - l'utilisation m&eacute;moire sur Cisco (routeurs et Pix).<br>
+                    - l'utilisation m&eacute;moire sur Switch Hp Procurve.<br>
+                    Pour d'autres SE (Windows, AS400), aller &agrave; la page 
+                    de description.</p>
+                  <p><a href="snmp_mem.html">D&eacute;tail</a></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top> 
+                  <p><a href="snmp_vrrp.html">check_snmp_vrrp</a></p>
+                  <p>&nbsp;</p>
+                </td>
+                <td class="SectionBody"> 
+                  <p>Checks the vrrp state of all the interface of a host. You 
+                    can specify if they must be master or backup.<br>
+                    Supported platforms : Nokia IP (vrrp &amp; clustering), Linkproof, 
+                    Alteon.</p>
+                  <p>Verifie l'&eacute;tat vrrp des interfaces d'un host.</p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top> 
+                  <p><a href="snmp_cpfw.html">check_snmp_cpfw</a></p>
+                  <p>&nbsp;</p>
+                </td>
+                <td class="SectionBody"> 
+                  <p>Checks the state of Checkpoint Firewall-1 modules (SVN, HA, 
+                    FW, MGMT) and active connexions (tested on NG).<br>
+                    Snmp extensions must be activated</p>
+                  <p>V&eacute;rifie l'&eacute;tat des modules Checkpoint Fw-1 
+                    (HA, SVN, MGMT, FW) et les connexions actives. Test&eacute; 
+                    sur NG-AI R55.<br>
+                    L'extension SNMP doit &ecirc;tre activ&eacute;e sur les modules.</p>
+                  <p><a href="snmp_cpfw.html">D&eacute;tail</a></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="NewsItemDate" valign = top> 
+                  <p><a href="snmp_windows.html">check_snmp_win</a></p>
+                  <p>&nbsp;</p>
+                </td>
+                <td class="SectionBody"> 
+                  <p>Checks windows services state with snmp.</p>
+                  <p>V&eacute;ifie l'&eacute;tat de services Windows par snmp.</p>
+                  <p><a href="snmp_windows.html">D&eacute;tail</a></p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="SectionBody"> 
+                  <p><a href="snmp_css.html" class="NewsItemDate">check_snmp_css</a></p>
+                  <p>&nbsp;</p>
+                </td>
+                <td class="SectionBody">Checks css services state</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody"> 
+                  <p><a href="snmp_env.html" class="NewsItemDate">check_snmp_env</a></p>
+                  <p>&nbsp;</p>
+                </td>
+                <td class="SectionBody">Checks environemental status (fan, temp, 
+                  power supply) on Cisco, Nokia, Bluecoat, IronPort, Foundry.</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <p class="SectionTitle">Compatibility matrix : </p>
+            <table width="100%" border="2" class="SectionBody" cellspacing="3">
+              <tr> 
+                <td class="SectionTitle">System</td>
+                <td class="SectionTitle">check_snmp_storage</td>
+                <td class="SectionTitle">check_snmp_int</td>
+                <td class="SectionTitle">check_snmp_process</td>
+                <td class="SectionTitle">check_snmp_mem</td>
+                <td class="SectionTitle">check_snmp_load</td>
+              </tr>
+              <tr> 
+                <td>Linux</td>
+                <td> 
+                  <p>OK : <br>
+                    - '/home', '/var'<br>
+                    - 'Swap', 'Real Memory'<br>
+                  </p>
+                </td>
+                <td>OK : <br>
+                  - 'eth' <br>
+                  - 'ppp'</td>
+                <td>OK</td>
+                <td>OK (mem &amp; swap)</td>
+                <td> 
+                  <p>OK</p>
+                </td>
+              </tr>
+              <tr> 
+                <td>Windows</td>
+                <td> 
+                  <p>OK :<br>
+                    - '^[CDE]:'</p>
+                </td>
+                <td>OK</td>
+                <td>OK</td>
+                <td> 
+                  <p>NO<br>
+                    See check_snmp_storage for virtual mem</p>
+                </td>
+                <td>OK</td>
+              </tr>
+              <tr> 
+                <td>Cisco/HP switch</td>
+                <td>N/A</td>
+                <td>OK :<br>
+                  - 'Giga' : all gigabits<br>
+                  - 'Fast.*0.1[1234]' : checks FastEternet0/11 to 0/14.</td>
+                <td>N/A</td>
+                <td>OK</td>
+                <td>OK</td>
+              </tr>
+              <tr> 
+                <td>AS400</td>
+                <td>OK :<br>
+                  - '-m RAM -s' to get all RAM<br>
+                  - 'System ASP' : Disk<br>
+                </td>
+                <td>OK </td>
+                <td>OK</td>
+                <td> 
+                  <p>NO<br>
+                    See check_snmp_storage</p>
+                </td>
+                <td>OK</td>
+              </tr>
+              <tr> 
+                <td>LinkProof</td>
+                <td>N/A</td>
+                <td>OK</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>OK</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <hr>
+            <p class="SectionBody">This project is hosted on : <br>
+              <A href="http://sourceforge.net/projects/nagios-snmp"> <IMG src="http://sourceforge.net/sflogo.php?group_id=134917&type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A> 
+            </p>
+            <p class="SectionBody"> Nagios and the Nagios logo are registered 
+              trademarks of Ethan Galstad.</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

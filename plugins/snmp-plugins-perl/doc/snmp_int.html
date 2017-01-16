@@ -1,0 +1,690 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>Nagios plugins</TITLE>
+
+<META NAME="Keywords" CONTENT="nagios,plugins,perl,snmp,proy">
+
+<STYLE type="text/css">
+
+<!--
+
+        .Default { font-family: verdana,arial,serif; font-size: 10pt; }
+
+        .ProgramTitle { font-family: verdana,arial,serif; font-size: 18pt; font-weight: bold;}
+
+        .Copyright { font-family: verdana,arial,serif; font-size: 10pt;}
+
+        .Email { font-family: verdana,arial,serif; font-size: 10pt;}
+
+        .NewsItem { font-family: verdana,arial,serif; font-size: 8pt; }
+
+        .NewsItemOdd { font-family: verdana,arial,serif; font-size: 8pt; background-color: #DBDBDB;}
+
+        .NewsItemEven { font-family: verdana,arial,serif; font-size: 8pt; background-color: #C4C2C2;}
+
+        .NewsItemUrgent { font-family: verdana,arial,serif; font-size: 8pt; background-color: #ccff99;}
+
+        .NewsItemDate { font-family: verdana,arial,serif; font-size: 8pt; font-weight: bold; }
+
+        .SectionTitle { font-family: verdana,arial,serif; font-size: 9pt; font-weight: bold; text-decoration: underline;}
+
+        .SectionBody { font-family: verdana,arial,serif; font-size: 8pt; }
+
+        .ModificationDate { font-family: verdana,arial,serif; font-size: 7pt; }
+
+        .Disclaimer { font-family: verdana,arial,serif; font-size: 8pt; }
+
+		A.SideNavBarItem { font-family: verdana,arial,serif; background-color : black; color: #e7e7e7; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarHotItem { font-family: verdana,arial,serif; background-color : black; color: #ffcc66; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+		A.SideNavBarHotItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+
+-->      
+
+</STYLE>
+
+</HEAD>
+
+<body  background="img/sideback.jpg" bgcolor="#FFFFFF" text="black" class="Default">
+
+<!--   background="img/sideback.jpg" -->
+
+<table border="0" height="1477">
+
+  <tr> 
+
+    <td valign=top> 
+
+      <!-- Begin Side Bar -->
+
+      <table border="0" width="125" valign=top>
+
+        <tr> 
+
+          <td><a href="http://nagios.manubulon.com/" class="SideNavBarItem" >Home</a></td>
+
+        </tr>
+
+        <tr> 
+
+          <td></td>
+
+        </tr>
+
+        <tr> 
+
+          <td><BR>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td> </td>
+
+        </tr>
+
+      </table>
+
+      <!-- End Side Bar -->
+
+    </td>
+
+    <td valign=top> 
+
+      <table border="0" valign=top height="1452">
+
+        <tr> 
+
+          <td class="ProgramTitle"> Snmp interface check</td>
+
+        </tr>
+
+        <tr> 
+
+          <td> 
+
+            <p class="NewsItemDate">Script : check_snmp_int.pl</p>
+
+            <p class="SectionTitle"> Last update : March 17 2007</p>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td valign="top"> 
+
+            <p class="SectionTitle">Description :</p>
+
+            <p class="SectionBody">Checks by snmp (v1, v2c or v3) host interface 
+
+              state and usage. <br>
+
+              <br>
+
+              Interfaces can be selected by regexp ( 'eth' will check eth0, eth1, 
+
+              eth2, ...).<br>
+
+              If multiple interfaces are selected, all must be up to get an OK 
+
+              result<br>
+
+              <b><br>
+
+              </b>Vérifie par snmp v1, v2c ou v3 l'&eacute;tat des interfaces 
+
+              d'un h&ocirc;te, leur utilisation (bande passante, erreurs, pertes) 
+
+              et sortir des informations de performances.<br>
+
+              Ce script permet d'utiliser des expressions r&eacute;guli&egrave;res 
+
+              pour s&eacute;lectionner les interfaces : ex 'eth' va v&eacute;rifier 
+
+              eth0, eth1, ...<br>
+
+              Il permet également de lister toutes les interfaces disponibles 
+
+              sur la machine cible (option -v) pour voir leur nom en SNMP.<br>
+
+              <i>Pour les francophones, je ferais un manuel en Fran&ccedil;ais 
+
+              quand j'aurais le temps... (et toute aide est bienvenue).</i><b><br>
+
+              </b><br>
+
+              <span class="SectionTitle">Standard checks</span><br>
+
+            </p>
+
+            <p class="SectionBody">The script will check interface operationnal 
+
+              status using the MIB-II table. The interface is (are) selected by 
+
+              the <b>-n </b>option.<br>
+
+              This option will be treated as a regular expression (eth will match 
+
+              eth0, eth1, eth2...). You can disable this with the <b>-r </b>option 
+
+              : the interface will be selected if it's description exactly matches 
+
+              the name given by -n</p>
+
+            <p class="SectionBody">The interfaces are selected by their description 
+
+              in the MIB-II table.<br>
+              <b>To see how interface looks like by snmp, you can list all of 
+              them with the '-v' switch.</b><br>
+
+            </p>
+
+            <p class="SectionBody">The script will return OK if ALL interfaces 
+
+              selected are UP, or CRITICAL if at least one interface is down.<br>
+
+              <br>
+
+              You can make the script return a OK value when all interfaces are 
+
+              down (and CRITICAL when at least one is up) with the <b>-i </b>option.</p>
+
+            <p class="SectionBody">You can make the same tests on administrative 
+
+              status instead with the <b>-a </b>option.</p>
+
+            <p class="SectionBody">To make output shorter, specially when you 
+
+              have multiple interface, you can put the <b>-s</b> option. <br>
+
+              It will get only the first &lt;n&gt; caracters of the interface 
+
+              descrition. If the number is negative then get the last &lt;n&gt; 
+
+              caracters.</p>
+
+            <p class="SectionBody">Ex : EL20005 3Com Gigabit NIC (3C2000 Family)<br>
+
+              <b> -s 4 </b> will output : &quot;EL20&quot;.<br>
+
+              <b>-s -4</b> will output : &quot;ily)&quot;.</p>
+
+            <p class="SectionTitle">Performance output </p>
+
+            <p class="SectionBody"><b>-f </b>option : activate performance output 
+              (default the In/out octet as a counter).<br>
+              <b>-e </b>option : in/out errors and discarded packets. -f must 
+              also be set.<br>
+              -<b>S</b> option : Include speed in performance output in bits/s 
+              as '&lt;interface_name&gt;_speed_bps'<br>
+              <b>-y </b>option : output performance data in % of interface speed<b><br>
+              -Y</b> option : output performance data in bits/s or Bytes/s (depending 
+              on -B)</p>
+            <p class="SectionBody"><b>Note</b> : -y and -Y options need the usage 
+              check to ba active (-k)</p>
+            <p class="SectionBody"><b>Warning</b> : the counters needed by -e 
+
+              are not always available on all machines (ex Nokia IP)<br>
+
+            </p>
+
+            <p class="SectionBody"><span class="SectionTitle">Usage check (-k) 
+              </span><br>
+              <br>
+              <br>
+              A temporary file will be created in &quot;/tmp&quot; by default 
+              : this can be changed at the beginning of the script. <br>
+              The file name will be : tmp_Nagios_int.&lt;host IP&gt;.&lt;Interface 
+              name&gt;. One file will be created by interface.<br>
+              <br>
+              The status UNKNOWN is returned when the script doesn't have enough 
+              information (see -d option).<br>
+              <br>
+              You will have to tell the warning and critical levels, separated 
+              with &quot;,&quot; and you can use decimal (ex : 10.3).<br>
+              For standard checks (no &quot;-q&quot; option) : <br>
+              -w <i>&lt;In warn&gt;</i>,<i>&lt;Out warn&gt;</i> -c <i>&lt;In warn&gt;</i>,<i>&lt;Out 
+              warn&gt;<br>
+              </i>In warn : warning level for incomming traffic<br>
+              Out warn : warning level for outgoing traffic<br>
+              In crit : critical level for incomming traffic<br>
+              Out crit : critical level for outgoing traffic<br>
+            </p>
+            <p class="SectionBody">The unit for the check depends on the -B, -M 
+              and -G option :</p>
+            <table border="0" cellpadding="2" cellspacing="3" width="276">
+              <tr> 
+                <td class="SectionBody" width="111">&nbsp;</td>
+                <td class="SectionBody" width="66"><b> -B set</b></td>
+                <td class="SectionBody" width="75"><b>-B not set</b></td>
+              </tr>
+              <tr> 
+                <td class="SectionBody" width="111"><b>-M &amp; -G not set</b></td>
+                <td class="SectionBody" width="66"> 
+                  <div align="center">Kbps</div>
+                </td>
+                <td class="SectionBody" width="75"> 
+                  <div align="center">KBps</div>
+                </td>
+              </tr>
+              <tr> 
+                <td class="SectionBody" width="111"><b>-M set</b></td>
+                <td class="SectionBody" width="66"> 
+                  <div align="center">Mbps</div>
+                </td>
+                <td class="SectionBody" width="75"> 
+                  <div align="center">MBps</div>
+                </td>
+              </tr>
+              <tr> 
+                <td class="SectionBody" width="111"><b>-G set</b></td>
+                <td class="SectionBody" width="66"> 
+                  <div align="center">Gbps</div>
+                </td>
+                <td class="SectionBody" width="75"> 
+                  <div align="center">GBps</div>
+                </td>
+              </tr>
+            </table>
+            <p class="SectionBody">It is possible to put warning and critical 
+
+              levels with -b option.<br>
+
+              <b>0 means no warning or critical level checks</b></p>
+
+            <p class="SectionBody">When the extended checks are activated (-q 
+              option), the warning levels are <br>
+              -w <i>&lt;In bytes&gt;</i>,<i>&lt;Out bytes&gt;</i>,<i>&lt;In error&gt;</i>,<i>&lt;Out 
+              error&gt;,<i>&lt;In disc&gt;</i>,<i>&lt;Out disc&gt;</i></i> -c 
+              <i>&lt;In warn&gt;</i>,<i>&lt;Out warn&gt;</i>, .....<br>
+              In error : warn/crit level in inboud <b>error/minute<br>
+              </b>Out error : warn/crit level in outbound error/minute<b> </b><br>
+              In disc : warn/crit level in inboud <b>discarded packets/minute<br>
+              </b>Out disc : warn/crit level in outbound discarded packets/minute<b> 
+              </b><br>
+            </p>
+            <p class="SectionBody"><b>-k</b> : activates the standard usage feature<br>
+              <b>-q</b> : activates the extended usage<br>
+              <b>-d</b> : delta in seconds (default is 300s)<br>
+              <b>-w</b> : warning levels<br>
+              <b>-c</b> : critical levels<br>
+            </p>
+            <p class="SectionBody"><b>-d</b>: delta time<br>
+
+              You can put the delta time as an option : the &quot;delta&quot; 
+
+              is the prefered time between two values that the script will use 
+
+              to calculate the average Kbytes/s or error/min. The delta time should 
+
+              (not must) be bigger than the check interval.<br>
+
+              Here is an example : Check interval of 2 minutes and delta of 4min</p>
+
+            <p class="SectionBody">T0 : value 1 : can't calculate usage<br>
+
+              T0+2 : value 2 : can't calculate usage<br>
+
+              T0+4 : value 3 : usage=(value3-value1)/((T0+4)-T0) <br>
+
+              T0+6 : value 4 : usage=(value4-value2)/((T0+6)-T0+2)<br>
+
+              (Yes I know TO+4-T0=4, it's just to explain..)<br>
+
+              .........</p>
+
+            <p class="SectionBody">The script will allow 10% less of the delta 
+
+              and 300% more than delta as a correct interval. <br>
+
+              For example, with a delta of 5 minutes, the acceptable interval 
+
+              will be between 4'30&quot; and 15 minutes.</p>
+
+            <p class="SectionBody"> <b>Msg size option </b>(<i>-o</i><b><i> </i></b>option)</p>
+            <p class="SectionBody">In case you get a &quot;ERROR: running table 
+              : Message size exceeded maxMsgSize&quot; error, you may need to 
+              adjust the maxMsgSize, i.e. the maximum size of snmp message with 
+              the -o option. Try a value with the -o AND the -v option : the script 
+              will output the actual value so you can add some octets to it with 
+              the -o option.</p>
+            <p class="SectionBody"><b>--label option</b></p>
+            <p class="SectionBody">This option just put label before the speed 
+              output :<br>
+              Without : eth1:UP (10.3Kbps/4.4Kbps), eth0:UP (10.9Kbps/16.4Kbps):2 
+              UP: OK<br>
+              With : eth1:UP (in=14.4Kbps/out=6.2Kbps), eth0:UP (in=15.3Kbps/out=22.9Kbps):2 
+              UP: OK<br>
+            </p>
+            <p class="SectionBody"><span class="SectionTitle">SNMP Login</span><br>
+
+            </p>
+
+            <p class="SectionBody">See <a href="index_info.html">snmp info page</a></p>
+
+            <p class="SectionTitle">Requirements :</p>
+
+            <p class="SectionBody"> - Perl in /usr/bin/perl - or just run 'perl 
+
+              script' <br>
+
+              - Net::SNMP<br>
+
+              - file 'utils.pm' in plugin diretory (/usr/local/nagios/libexec)<br>
+
+            </p>
+
+            <p class="SectionBody"><a href="check_snmp_int.pl" class="SectionTitle">Dowload 
+              latest version : 1.4.5</a></p>
+
+            <p class="SectionBody"><a href="index_commands.html" class="SectionTitle">Configuration 
+
+              examples</a></p>
+
+            <p class="SectionTitle">Examples :</p>
+
+            <p class="SectionBody"><br>
+
+              All examples below are considering the script is local directory. 
+
+              Host to be checked is 127.0.0.1 with snmp community &quot;public&quot;.</p>
+
+            <p class="SectionBody">If multiple interfaces are selected, all must 
+
+              be up to get an OK result</p>
+
+            <table border="1" cellspacing="5">
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="198"> 
+
+                  <p>Get help 
+
+                </td>
+
+                <td class="SectionBody" width="496"> 
+
+                  <p>./check_snmp_int.pl <b>-h</b></p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="198">List all interfaces</td>
+
+                <td class="SectionBody" width="496">./check_snmp_int.pl -H 127.0.0.1 
+
+                  -C public -n zzzz <b>-v</b></td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="198">snmpv3 login</td>
+
+                <td class="SectionBody" width="496">./check_snmp_int.pl -H 127.0.0.1 
+
+                  -l login -w passwd<b></b></td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="198"> 
+
+                  <p>Check eth0 interface is up 
+
+                </td>
+
+                <td class="SectionBody" width="496"> 
+
+                  <p>./check_snmp_int.pl -H 127.0.0.1 -C public <b>-n eth0 -r</b></p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="198"> 
+
+                  <p>Check that all eth interface are up 
+
+                </td>
+
+                <td class="SectionBody" width="496"> 
+
+                  <p>./check_snmp_int.pl -H 127.0.0.1 -C public <b>-n eth </b></p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="198"> 
+
+                  <p>Check that all ppp interface are down 
+
+                </td>
+
+                <td class="SectionBody" width="496"> 
+
+                  <p>./check_snmp_int.pl -H 127.0.0.1 -C public <b>-n ppp -i</b></p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="198"> 
+
+                  <p>Check that all eth interface are administratively up 
+
+                </td>
+
+                <td class="SectionBody" width="496"> 
+
+                  <p>./check_snmp_int.pl -H 127.0.0.1 -C public <b>-n eth -a</b></p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="198"> 
+
+                  <p>Check that FastEternet0/11 to 0/14 are up (Cisco) 
+
+                </td>
+
+                <td class="SectionBody" width="496"> 
+
+                  <p>./check_snmp_int.pl -H 127.0.0.1 -C public <b>-n &quot;Fast.*0.1[1234]&quot;</b></p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="NewsItemDate" valign = top width="198">Check the eth0 
+
+                  usage <br>
+
+                  Note : no critical inbound (0)</td>
+
+                <td class="SectionBody" width="496">./check_snmp_int.pl -H 127.0.0.1 
+
+                  -C public -n eth0 <b>-k -w 200,400 -c 0,600</b></td>
+
+              </tr>
+
+            </table>
+
+            <p class="NewsItemDate"><span class="SectionTitle">Changelog</span> 
+              : On CVS repository on sourceforge : <a href="http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/">http://nagios-snmp.cvs.sourceforge.net/nagios-snmp/plugins/</a>.</p>
+
+            <p class="NewsItemDate">Output of check_snmp_int.pl -h</p>
+
+            <table border="1" cellspacing="5">
+
+              <tr> 
+
+                <td class="SectionBody" valign = top> 
+                  <p class="SectionBody">SNMP Network Interface Monitor for Nagios 
+                    version 1.4.5<br>
+                    GPL licence, (c)2004-2007 Patrick Proy
+                  <p>Usage: ./check_snmp_int.pl [-v] -H &lt;host&gt; -C &lt;snmp_community&gt; 
+                    [-2] | (-l login -x passwd [-X pass -L &lt;authp&gt;,&lt;privp&gt;) 
+                    [-p &lt;port&gt;] -n &lt;name in desc_oid&gt; [-i] [-a] [-r] 
+                    [-f[eSyY]] [-k[qBMGu] -g -w&lt;warn levels&gt; -c&lt;crit 
+                    levels&gt; -d&lt;delta&gt;] [-o &lt;octet_length&gt;] [-t 
+                    &lt;timeout&gt;] [-s] [-V]<br>
+                    -v, --verbose<br>
+                    print extra debugging information (including interface list 
+                    on the system)<br>
+                    -h, --help<br>
+                    print this help message<br>
+                    -H, --hostname=HOST<br>
+                    name or IP address of host to check<br>
+                    -C, --community=COMMUNITY NAME<br>
+                    community name for the host's SNMP agent (implies v1 protocol)<br>
+                    -l, --login=LOGIN ; -x, --passwd=PASSWD, -2, --v2c<br>
+                    Login and auth password for snmpv3 authentication <br>
+                    If no priv password exists, implies AuthNoPriv <br>
+                    -2 : use snmp v2c<br>
+                    -X, --privpass=PASSWD<br>
+                    Priv password for snmpv3 (AuthPriv protocol)<br>
+                    -L, --protocols=&lt;authproto&gt;,&lt;privproto&gt;<br>
+                    &lt;authproto&gt; : Authentication protocol (md5|sha : default 
+                    md5)<br>
+                    &lt;privproto&gt; : Priv protocole (des|aes : default des) 
+                    <br>
+                    -P, --port=PORT<br>
+                    SNMP port (Default 161)<br>
+                    -n, --name=NAME<br>
+                    Name in description OID (eth0, ppp0 ...).<br>
+                    This is treated as a regexp : -n eth will match eth0,eth1,...<br>
+                    Test it before, because there are known bugs (ex : trailling 
+                    /)<br>
+                    -r, --noregexp<br>
+                    Do not use regexp to match NAME in description OID<br>
+                    -i, --inverse<br>
+                    Make critical when up<br>
+                    -a, --admin<br>
+                    Use administrative status instead of operational<br>
+                    -o, --octetlength=INTEGER<br>
+                    max-size of the SNMP message, usefull in case of Too Long 
+                    responses.<br>
+                    Be carefull with network filters. Range 484 - 65535, default 
+                    are<br>
+                    usually 1472,1452,1460 or 1440. <br>
+                    -f, --perfparse<br>
+                    Perfparse compatible output (no output when interface is down).<br>
+                    -e, --error<br>
+                    Add error &amp; discard to Perfparse output<br>
+                    -S, --intspeed<br>
+                    Include speed in performance output in bits/s<br>
+                    -y, --perfprct ; -Y, --perfspeed<br>
+                    -y : output performance data in % of max speed<br>
+                    -Y : output performance data in bits/s or Bytes/s (depending 
+                    on -B) <br>
+                    -k, --perfcheck ; -q, --extperfcheck <br>
+                    -k check the input/ouput bandwidth of the interface<br>
+                    -q also check the error and discard input/output<br>
+                    -g, --64bits<br>
+                    Use 64 bits counters instead of the standard counters <br>
+                    when checking bandwidth &amp; performance data.<br>
+                    -d, --delta=seconds<br>
+                    make an average of &lt;delta&gt; seconds (default 300=5min)<br>
+                    -B, --kbits<br>
+                    Make the warning and critical levels in K|M|G Bits/s instead 
+                    of K|M|G Bytes/s<br>
+                    -G, --giga ; -M, --mega ; -u, --prct<br>
+                    -G : Make the warning and critical levels in Gbps (with -B) 
+                    or GBps<br>
+                    -M : Make the warning and critical levels in Mbps (with -B) 
+                    or MBps<br>
+                    -u : Make the warning and critical levels in % of reported 
+                    interface speed.<br>
+                    -w, --warning=input,output[,error in,error out,discard in,discard 
+                    out]<br>
+                    warning level for input / output bandwidth (0 for no warning)<br>
+                    unit depends on B,M,G,u options<br>
+                    warning for error &amp; discard input / output in error/min 
+                    (need -q)<br>
+                    -c, --critical=input,output[,error in,error out,discard in,discard 
+                    out]<br>
+                    critical level for input / output bandwidth (0 for no critical)<br>
+                    unit depends on B,M,G,u options<br>
+                    critical for error &amp; discard input / output in error/min 
+                    (need -q)<br>
+                    -s, --short=int<br>
+                    Make the output shorter : only the first &lt;n&gt; chars of 
+                    the interface(s)<br>
+                    If the number is negative, then get the &lt;n&gt; LAST caracters.<br>
+                    -t, --timeout=INTEGER<br>
+                    timeout for SNMP in seconds (Default: 5) <br>
+                    -V, --version<br>
+                    prints version number<br>
+                    Note : when multiple interface are selected with regexp, <br>
+                    all be must be up (or down with -i) to get an OK result.</p>
+                </td>
+
+              </tr>
+
+            </table>
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td> 
+
+            <p class="SectionBody">This project is hosted on : <br>
+
+              <A href="http://sourceforge.net/projects/nagios-snmp"> <IMG src="http://sourceforge.net/sflogo.php?group_id=134917&type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A> 
+
+            </p>
+
+            <p class="SectionBody"> Nagios and the Nagios logo are registered 
+
+              trademarks of Ethan Galstad.</p>
+
+          </td>
+
+        </tr>
+
+      </table>
+
+    </td>
+
+  </tr>
+
+</table>
+
+<p>&nbsp;</p>
+
+</BODY>
+
+</HTML>
+
+
+

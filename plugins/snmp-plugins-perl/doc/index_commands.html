@@ -1,0 +1,2038 @@
+<HTML>
+<HEAD>
+<TITLE>Nagios plugins</TITLE>
+<META NAME="Keywords" CONTENT="nagios,plugins,perl,snmp,proy">
+<STYLE type="text/css">
+<!--
+        .Default { font-family: verdana,arial,serif; font-size: 10pt; }
+        .ProgramTitle { font-family: verdana,arial,serif; font-size: 18pt; font-weight: bold;}
+        .Copyright { font-family: verdana,arial,serif; font-size: 10pt;}
+        .Email { font-family: verdana,arial,serif; font-size: 10pt;}
+        .NewsItem { font-family: verdana,arial,serif; font-size: 8pt; }
+        .NewsItemOdd { font-family: verdana,arial,serif; font-size: 8pt; background-color: #DBDBDB;}
+        .NewsItemEven { font-family: verdana,arial,serif; font-size: 8pt; background-color: #C4C2C2;}
+        .NewsItemUrgent { font-family: verdana,arial,serif; font-size: 8pt; background-color: #ccff99;}
+        .NewsItemDate { font-family: verdana,arial,serif; font-size: 8pt; font-weight: bold; }
+        .SectionTitle { font-family: verdana,arial,serif; font-size: 9pt; font-weight: bold; text-decoration: underline;}
+        .SectionBody { font-family: verdana,arial,serif; font-size: 8pt; }
+        .ModificationDate { font-family: verdana,arial,serif; font-size: 7pt; }
+        .Disclaimer { font-family: verdana,arial,serif; font-size: 8pt; }
+		A.SideNavBarItem { font-family: verdana,arial,serif; background-color : black; color: #e7e7e7; font-size: 9pt; font-weight: bold; text-decoration: none; }
+		A.SideNavBarItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+		A.SideNavBarHotItem { font-family: verdana,arial,serif; background-color : black; color: #ffcc66; font-size: 9pt; font-weight: bold; text-decoration: none; }
+		A.SideNavBarHotItem:Hover { font-family: verdana,arial,serif; background-color : black; color: #ccff33; font-size: 9pt; font-weight: bold; text-decoration: none; }
+-->      
+</STYLE>
+</HEAD>
+<body  background="img/sideback.jpg" bgcolor="#FFFFFF" text="black" class="Default">
+<!--   background="img/sideback.jpg" -->
+<table width="100%" border="0">
+  <tr> 
+    <td width="127" valign=top height="1448"> 
+      <!-- Begin Side Bar -->
+      <table border="0" width="125" valign=top>
+        <tr> 
+          <td><a class="SideNavBarHotItem" >This site :</a></td>
+        </tr>
+        <tr> 
+          <td><a href="http://nagios.manubulon.com/" class="SideNavBarItem" >Home</a></td>
+        </tr>
+        <tr> 
+          <td><a href="index_snmp.html" class="SideNavBarItem" >Nagios plugins</a></td>
+        </tr>
+        <tr> 
+          <td><a href="index_info.html" class="SideNavBarItem" >Info on snmp</a></td>
+        </tr>
+        <tr> 
+          <td><a href="index_commands.html" class="SideNavBarItem" > Nagios config</a></td>
+        </tr>
+        <tr> 
+          <td><a href="faq.html" class="SideNavBarItem" > FAQ</a></td>
+        </tr>
+        <tr> 
+          <td> <a href="http://sourceforge.net/projects/nagios-snmp/" class="SideNavBarItem" > 
+            Project page on SourceForge</a> </td>
+        </tr>
+        <tr> 
+          <td><font color="#FFFFFF">-----------</font></td>
+        </tr>
+        <tr> 
+          <td><a class="SideNavBarHotItem" >Links :</a></td>
+        </tr>
+        <tr> 
+
+          <td><a href="http://www.nagios.org/" class="SideNavBarItem" >Nagios 
+
+            Home</a></td>
+
+        </tr>
+
+        <tr> 
+
+          <td><a href="http://sourceforge.net/projects/nagiosplugins" class="SideNavBarItem" >Nagios 
+
+            Plugins</a></td>
+
+        </tr>
+
+        <tr> 
+
+          <td><a href="http://www.oreon.org" class="SideNavBarItem" >Oreon project</a></td>
+
+        </tr>
+
+        <tr> 
+
+          <td><a href="http://www.nagiosexchange.org" class="SideNavBarItem" >NagiosExchange</a></td>
+
+        </tr>
+
+        <tr> 
+
+          <td><a href="http://forums.opsyx.com/viewforum.php?f=1" class="SideNavBarItem" >Opsyx 
+
+            forum</a></td>
+
+        </tr>
+
+        <tr> 
+
+          <td><a href="http://forum.2037.org/" class="SideNavBarItem" >Forum 2037</a></td>
+
+        </tr>
+
+        <tr> 
+
+          <td><font color="#FFFFFF">-----------</font></td>
+
+        </tr>
+
+        <tr> 
+
+          <td> <A href="http://sourceforge.net/projects/nagios-snmp"> <IMG src="http://sourceforge.net/sflogo.php?group_id=134917&amp;type=3" width="110" height="37" border="0" alt="SourceForge.net Logo" /></A> 
+
+          </td>
+
+        </tr>
+
+      </table>
+
+      <!-- End Side Bar -->
+
+    </td>
+
+    <td valign=top> 
+
+      <table width="100%" border="0" valign=top>
+
+        <tr> 
+
+          <td class="ProgramTitle"> My plugins for <img src="img/smalllogo7.jpg" border="0" alt="Nagios"> 
+
+          </td>
+
+        </tr>
+
+        <tr> 
+
+          <td> 
+
+            <p class="SectionTitle" align="right">Last update : Jan 15 2006</p>
+
+            <p class="SectionTitle">Commands</p>
+
+            <p class="SectionBody">Here are commands example to use my scripts 
+
+              with nagios. <br>
+
+              It's only the basic things you can do, <b>check the help of every 
+
+              script if you need more advanced features especially if you need 
+
+              performance outputs.</b><br>
+
+              The command definitions are complete, but not the service definitions 
+
+              : you must add host name, contact groups, etc....</p>
+
+            <p class="SectionBody">All these commands use $USER&lt;n&gt;$ macros 
+
+              to put snmp login. The reason for this is that the ressources.cfg 
+
+              file cannot be read by the CGI, preventing your &quot;passwords&quot; 
+
+              to be seen with the config.<br>
+
+              You must set the $USER7$ or $USER8$ to make these examples work. 
+
+              <br>
+
+              The $USER&lt;n&gt;$ macro are defined in the resources.cfg file</p>
+
+            <p class="SectionTitle"><a href="#snmplogin">SNMP login with $USER&lt;n&gt;$</a><a href="#regexp"><br>
+
+              About regular expressions</a></p>
+
+            <p class="SectionBody"><span class="SectionTitle">Configuration examples 
+
+              of</span><br>
+
+              <br>
+
+              <a href="#boostedge"><span class="SectionTitle">check_snmp_boostedge.pl<br>
+
+              </span></a><a href="#cpfw"><span class="SectionTitle">check_snmp_cpfw.pl<br>
+
+              </span></a><span class="SectionTitle"><a href="#css">check_snmp_css.pl 
+
+              &amp; check_snmp_css_main.pl<br>
+
+              </a></span><span class="SectionTitle"><a href="#env">check_snmp_env.pl<br>
+
+              </a></span><span class="SectionTitle"><a href="#lpnhr">check_snmp_linkproof_nhr.pl</a><br>
+
+              <a href="#load">check_snmp_load.pl </a><br>
+
+              <a href="#interface">check_snmp_interface.pl</a><br>
+
+              <a href="#mem">check_snmp_mem.pl<br>
+
+              </a></span><span class="SectionTitle"><a href="#nsbox">check_snmp_nsbox.pl 
+
+              </a><br>
+
+              <a href="#process">check_snmp_process.pl</a><br>
+
+              <a href="#storage">check_snmp_storage.pl</a><br>
+
+              <a href="#vrrp">check_snmp_vrrp.pl<br>
+
+              </a></span><a href="#windows" class="SectionTitle">check_snmp_win.pl</a></p>
+
+            <p class="SectionTitle"><a href="#checktype">Checks you can make by 
+              host type</a></p>
+
+            <p class="SectionBody"><span class="SectionTitle"><a name="snmplogin"></a>SNMP 
+
+              login<br>
+
+              </span><a href="http://nagios.manubulon.com/index_info.html#snmplogin"><br>
+
+              </a>For more information, you can have a look at <a href="http://nagios.manubulon.com/index_info.html#snmplogin">information 
+
+              on snmp login</a></p>
+
+            <p class="SectionBody">If you are using snmp v1 :<b><br>
+
+              $USER7$=-C &lt;community&gt;</b></p>
+
+            <p class="SectionBody">If you are using snmp v2c :<b><br>
+
+              $USER7$=-C &lt;community&gt; -2</b></p>
+
+            <p class="SectionBody">or you can use $USER9$ if you need both v1 and v2c.  </p>
+
+            <p class="SectionBody">Examples of snmp v3 login : <br>
+
+              AuthNoPriv (md5) : <br>
+
+              <b>$USER8$=-l &lt;login&gt; -x &lt;pass&gt;</b></p>
+
+            <p class="SectionBody">AuthPriv (md5,aes) :<b><br>
+
+              </b> <b>$USER8$=-l &lt;login&gt; -x &lt;pass&gt; -X &lt;pass&gt; 
+
+              -L md5,aes</b><span class="SectionTitle"><br>
+
+              </span><br>
+
+            </p>
+
+            <p class="SectionTitle"><span class="SectionTitle"><a name="regexp"></a></span>About 
+
+              regular expressions</p>
+
+            <p class="SectionBody">With all these scripts, when you select an 
+
+              interface, a service or process name etc... you use by default regular 
+
+              expresions : <br>
+
+              Note : you can disable this by using &quot;-r&quot; </p>
+
+            <p class="SectionBody">Examples : Don't forget it is perl regular 
+
+              expressions. </p>
+
+            <table border="1" width="60%">
+              <tr> 
+
+                <td class="SectionTitle">Regexp</td>
+
+                <td class="SectionTitle">Will match</td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="SectionBody">eth</td>
+
+                <td class="SectionBody">eth0, eth1, eth2 but also Fast<b>eth</b>ernet0/0 
+
+                  .... </td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="SectionBody">eth[1-9]</td>
+
+                <td class="SectionBody">eth1, eth2, ... eth9 but also eth10, eth11</td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="SectionBody">eth[1-2]$</td>
+
+                <td class="SectionBody">eth1, eth2 only (not eth11 for ex).</td>
+
+              </tr>
+
+              <tr> 
+
+                <td class="SectionBody">dhcp</td>
+
+                <td class="SectionBody"><b>dhcp</b>c, <b>dhpc</b>d</td>
+
+              </tr>
+
+            </table>
+
+            <p class="SectionBody">&nbsp;</p>
+
+            <p class="SectionBody"><span class="SectionTitle"><a name="boostedge"></a>check_snmp_boostedge.pl 
+
+              </span></p>
+
+            <table width="100%" border="1" class="SectionBody">
+
+              <tr> 
+
+                <td><b>Command</b></td>
+
+                <td><b>check_snmp_boostedge</b></td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios cmd</td>
+
+                <td>define command{<br>
+
+                  command_name check_snmp_boostedge_v1<br>
+
+                  command_line $USER1$/check_snmp_boostedge.pl -H $HOSTADDRESS$ 
+
+                  $USER7$ -s $ARG1$ -n $ARG2$ $ARG3$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Arguments</b></td>
+
+                <td>ARG1 : Service name (regexp)<br>
+
+                  ARG2 : Number of services selected by regexp which must be in 
+
+                  running &amp; enabled state<br>
+
+                  ARG3 : additional arguments if needed.</td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service </b></td>
+
+                <td> 
+
+                  <p><b>boostedge_services</b> : checks is there is <b>3</b> active 
+
+                    &amp; enabled service matching &quot;<b>test</b>&quot; with 
+
+                    snmp v2c </p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios service</td>
+
+                <td>define service {<br>
+
+                  &nbsp;&nbsp;&nbsp;name boostedge_services<br>
+
+                  &nbsp;&nbsp;&nbsp;check_command check_snmp_boostedge_v1!<b>test</b>!<b>3</b>!<b>-2</b><br>
+
+                  }</td>
+
+              </tr>
+
+            </table>
+
+            <p class="SectionBody"><span class="SectionTitle"><a name="cpfw"></a>check_snmp_cpfw.pl</span></p>
+
+            <table width="100%" border="1" class="SectionBody">
+
+              <tr> 
+
+                <td><b>Command</b></td>
+
+                <td><b>check_cpfw1_v3</b></td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios cmd</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp;command_name check_cpfw1_v3<br>
+
+                  &nbsp;&nbsp;command_line $USER1$/check_snmp_cpfw.pl -H $HOSTADDRESS$ 
+
+                  $USER8$ $ARG1$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Arguments</b></td>
+
+                <td>ARG1 : all arguments.</td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service </b></td>
+
+                <td> 
+
+                  <p><b>checkpoint_verification</b> : checks high availability 
+
+                    cluster, with policy &quot;CP_Policy&quot; installed, and 
+
+                    warning at 100000 connexions, critical at 200000<br>
+
+                    <b>CP_Management</b> : checks management station</p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios service</td>
+
+                <td>define service {<br>
+
+                  &nbsp;&nbsp;&nbsp;name checkpoint_verification<br>
+
+                  &nbsp;&nbsp;&nbsp;check_command check_cpfw1_v3!<b>-swa -p CP_Policy 
+
+                  -c 100000,200000 -f</b><br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios service</td>
+
+                <td> 
+
+                  <p>define service {<br>
+
+                    &nbsp;&nbsp; name CP_Management<br>
+
+                    &nbsp;&nbsp;&nbsp;service_description CPFW1 management<br>
+
+                    &nbsp;&nbsp;&nbsp;check_command check_cpfw1_v3!<b>-sm</b><br>
+
+                    } </p>
+
+                </td>
+
+              </tr>
+
+            </table>
+
+            <p class="SectionBody"><span class="SectionTitle"><a name="css"></a>check_snmp_css.pl 
+
+              &amp; check_snmp_css_main.pl</span></p>
+
+            <table width="100%" border="1" class="SectionBody">
+
+              <tr> 
+
+                <td><b>Command</b></td>
+
+                <td> 
+
+                  <p><b>check_snmp_css_main </b>: get index from the host, services 
+
+                    are then checked using check_snmp_css_indexed (snmpv2)<br>
+
+                    <b>check_snmp_css_indexed</b> : check services indexed by 
+
+                    check_snmp_css_main (snmpv2)<br>
+
+                    <b>check_snmp_css</b> : directly read index &amp; data from 
+
+                    the host (snmpv2)</p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios cmd</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp;command_name check_snmp_css_main<br>
+
+                  &nbsp;&nbsp;command_line $USER1$/check_snmp_css_main.pl -H $HOSTADDRESS$ 
+
+                  $USER7$ -2<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios cmd</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp;command_name check_snmp_css_indexed<br>
+
+                  &nbsp;&nbsp;command_line $USER1$/check_snmp_css.pl -H $HOSTADDRESS$ 
+
+                  $USER7$ -2 -d -n $ARG1$ -w $ARG2$ -c $ARG3$ $ARG4$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios cmd</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp;command_name check_snmp_css<br>
+
+                  &nbsp;&nbsp;command_line $USER1$/check_snmp_css.pl -H $HOSTADDRESS$ 
+
+                  $USER7$ -2 -n $ARG1$ -w $ARG2$ -c $ARG3$ $ARG4$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Arguments</b></td>
+
+                <td> 
+
+                  <p>ARG1 : regexp of service(s) to check<br>
+
+                    ARG2 : warning level for : minimum number of active &amp; 
+
+                    alive service , average response time, number of connexions<br>
+
+                    ARG3 : critical level for : minimum number of active &amp; 
+
+                    alive service , average response time, number of connexions 
+
+                    <br>
+
+                    ARG4 : additional arguments if needed.</p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service </b></td>
+
+                <td> 
+
+                  <p><b>css_index_file_create</b> : This is a &quot;fake&quot; 
+
+                    service, which only creates index file in /tmp. It normally 
+
+                    returns the number of services it indexes, or an error if 
+
+                    he can't.<br>
+
+                    <b>css_verif_TEST</b> : checks at least <b>2 </b>services 
+
+                    mathnig TEST are up. Warning if 1, critical if 0. This service 
+
+                    uses the index file created by css_index_file_create, and 
+
+                    returns UNKNOWN if it can't find it.<br>
+
+                    <b>css_verif_TEST2</b> : checks at least <b>2 </b>services 
+
+                    mathnig TEST2 are up. Warning if 1, critical if 0. This service 
+
+                    doesn't use an index file.</p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios service</td>
+
+                <td>define service {<br>
+
+                  &nbsp;&nbsp; name css_index_file_create<br>
+
+                  &nbsp;&nbsp; check_command check_snmp_css_main<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios service</td>
+
+                <td> 
+
+                  <p>define service {<br>
+
+                    &nbsp;&nbsp; name css_verif_TEST<br>
+
+                    &nbsp;&nbsp; check_command check_snmp_css_indexed!<b>&quot;TEST&quot;</b>!<b>1</b>!<b>0</b> 
+
+                    <br>
+
+                    } </p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios service</td>
+
+                <td> 
+
+                  <p>define service {<br>
+
+                    &nbsp;&nbsp; name css_verif_TEST2<br>
+
+                    &nbsp;&nbsp; check_command check_snmp_css!<b>&quot;TEST2&quot;</b>!<b>1</b>!<b>0 
+
+                    </b><br>
+
+                    } </p>
+
+                </td>
+
+              </tr>
+
+            </table>
+
+            <p>&nbsp;</p>
+
+            <p class="SectionBody"><span class="SectionTitle"><a name="env"></a>check_snmp_env.pl</span></p>
+
+            <table width="100%" border="1" class="SectionBody">
+
+              <tr> 
+
+                <td><b>Command</b></td>
+
+                <td><b>check_snmp_env (snmpv1)<br>
+
+                  check_snmp_env_v3 (snmpv3)</b></td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios cmd</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp;command_name check_snmp_env<br>
+
+                  &nbsp;&nbsp;command_line $USER1$/check_snmp_env.pl -H $HOSTADDRESS$ 
+
+                  $USER7$ -T $ARG1$ $ARG2$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios cmd</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp;command_name check_snmp_env_v3<br>
+
+                  &nbsp;&nbsp;command_line $USER1$/check_snmp_env.pl -H $HOSTADDRESS$ 
+
+                  $USER8$ -T $ARG1$ $ARG2$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Arguments</b></td>
+
+                <td>ARG1 : type (cisco|nokia|bc|iron)<br>
+
+                  ARG2 : additional arguments if needed.</td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service </b></td>
+
+                <td> 
+
+                  <p><b>ironport_env</b> : checks ironport fans RPM &gt; 1500 
+
+                    and temp &lt; 70 deg celcius<br>
+
+                    <b>nokia_env</b> : checks nokia IP fans and power supply status<br>
+
+                    <b>cisco_env</b> : checks cisco fans and power supply status 
+
+                  </p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios service</td>
+
+                <td>define service {<br>
+
+                  &nbsp;&nbsp; name ironport_env<br>
+
+                  &nbsp;&nbsp; check_command check_snmp_env!<b>iron</b>!<b>-F 
+
+                  1500 -c 70</b><br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios service</td>
+
+                <td> 
+
+                  <p>define service {<br>
+
+                    &nbsp; name nokia_env<br>
+
+                    &nbsp;&nbsp;check_command check_snmp_env_v3!<b>nokia</b><br>
+
+                    } </p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios service</td>
+
+                <td> 
+
+                  <p>define service {<br>
+
+                    &nbsp; name cisco_env<br>
+
+                    &nbsp;&nbsp;check_command check_snmp_env_v3!<b>cisco</b><br>
+
+                    } </p>
+
+                </td>
+
+              </tr>
+
+            </table>
+
+            <p class="SectionBody"><span class="SectionTitle"><a name="lpnhr"></a>check_snmp_linkproof_nhr.pl</span></p>
+
+            <table width="100%" border="1" class="SectionBody">
+
+              <tr> 
+
+                <td><b>Command</b></td>
+
+                <td><b>check_snmp_lp_nhr_v3 </b>(snmpv3 and performance output)</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios cmd</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp;command_name check_snmp_lp_nhr_v3<br>
+
+                  &nbsp;&nbsp;command_line $USER1$/check_snmp_linkproof_nhr.pl 
+
+                  -H $HOSTADDRESS$ $USER8$ -f<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Arguments</b></td>
+
+                <td>None</td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service </b></td>
+
+                <td> 
+
+                  <p><b>linkproof_nhr</b> : returns <br>
+
+                    WARNING if one nhr at least is in &quot;no new session&quot; 
+
+                    or &quot;inactive&quot; mode.<br>
+
+                    CRITICAL if all nhr are inactive. </p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios service</td>
+
+                <td>define service {<br>
+
+                  &nbsp;&nbsp; name linkproof_nhr<br>
+
+                  &nbsp;&nbsp; check_command check_snmp_lp_nhr_v3<br>
+
+                  }</td>
+
+              </tr>
+
+            </table>
+
+            <p class="SectionBody"><span class="SectionTitle"><a name="load"></a>check_snmp_load.pl</span></p>
+
+            <table width="100%" border="1" class="SectionBody">
+
+              <tr> 
+
+                <td><b>Command</b></td>
+
+                <td><b>check_snmp_load_v1 </b> : using snmpv1 (or v2 depending 
+
+                  on $USER7$ value)<br>
+
+                  <b>check_snmp_load_v3</b> : using snmpv3</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Command</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp; command_name check_snmp_load_v1<br>
+
+                  &nbsp;&nbsp; command_line $USER1$/check_snmp_load.pl -H $HOSTADDRESS$ 
+
+                  $USER7$ -T $ARG1$ -w $ARG2$ -c $ARG3$ $ARG4$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Command</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp; command_name check_snmp_load_v3<br>
+
+                  &nbsp;&nbsp; command_line $USER1$/check_snmp_load.pl -H $HOSTADDRESS$ 
+
+                  $USER8$ -T $ARG1$ -w $ARG2$ -c $ARG3$ $ARG4$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Arguments</b></td>
+
+                <td> 
+
+                  <p>ARG1 : host type (stand,netsc,netsl,as400,cisco,cata,nsc,fg,bc,nokia,hp,lp,hpux)<br>
+
+                    ARG2 : warning level <br>
+
+                    ARG3 : critical level<br>
+
+                    ARG4 : additional arguments if needed.</p>
+
+                  </td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service</b></td>
+
+                <td><b>bluecoat_load</b> : Bluecoat cpu usage<br>
+
+                  <b>Linux_load</b> : Linux load (1min, 5 min, 15 min)<br>
+
+                  <b>Cisco_load</b> : Cisco cpu usage<br>
+
+                  <b>lp_load</b> : Radware Linkproff cpu usage</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Service</td>
+
+                <td>define service {<br>
+
+                  &nbsp;&nbsp; name bluecoat_load<br>
+
+                  &nbsp;&nbsp; check_command check_snmp_load_v1!<b>bc</b>!<b>95</b>!<b>99</b><br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Service</td>
+
+                <td> 
+
+                  <p>define service {<br>
+
+                    &nbsp;&nbsp; name Linux_load<br>
+
+                    &nbsp;&nbsp; check_command check_snmp_load_v1!<b>netsl</b>!<b>4,3,3</b>!<b>8,5,5</b><br>
+
+                    } </p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Service</td>
+
+                <td> 
+
+                  <p>define service {<br>
+
+                    &nbsp;&nbsp; name Cisco_load<br>
+
+                    &nbsp;&nbsp; check_command check_snmp_load_v1!<b>cisco</b>!<b>90,80,60</b>!<b>100,100,100</b><br>
+
+                    } </p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Service</td>
+
+                <td>define service {<br>
+
+                  &nbsp;&nbsp; name lp_load<br>
+
+                  &nbsp;&nbsp; check_command check_snmp_load_v1!<b>lp</b>!<b>90</b>!<b>99</b><br>
+
+                  } </td>
+
+              </tr>
+
+            </table>
+
+            <p class="SectionBody"><span class="SectionTitle"><a name="interface"></a>check_snmp_interface.pl</span></p>
+
+            <table width="100%" border="1" class="SectionBody">
+
+              <tr> 
+
+                <td><b>Command</b></td>
+
+                <td> 
+                  <p><b>check_snmp_int_v1 </b>: using snmpv1<br>
+                    <b>check_snmp_int_v3 </b>: using snmpv3</p>
+                  </td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Command</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp;command_name check_snmp_int_v1<br>
+
+                  &nbsp;&nbsp;command_line $USER1$/check_snmp_int.pl -H $HOSTADDRESS$ 
+
+                  $USER7$ -n $ARG1$ $ARG2$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Command</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp;command_name check_snmp_int_v3<br>
+
+                  &nbsp;&nbsp;command_line $USER1$/check_snmp_int.pl -H $HOSTADDRESS$ 
+
+                  $USER8$ -n $ARG1$ $ARG2$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Arguments</b></td>
+
+                <td> 
+
+                  <p>ARG1 : regexp of interface<br>
+
+                    ARG2 : additional arguments if needed.</p>
+
+                  </td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service</b></td>
+
+                <td><b>check_int_1_6</b>: Checks FastEthernet 1 to 6 are up (snmpv1)<br>
+
+                  <b>check_int_eth0_bdw</b> : Checks input bandwith on eth1 is 
+
+                  &lt; 100 KBytes/s and output is &lt; 50 Kbytes/s (critical at 
+
+                  0,0 means no critical levels). (snmpv3)</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Service</td>
+
+                <td> 
+
+                  <p>define service {<br>
+
+                    &nbsp;&nbsp;name check_int_1_6<br>
+
+                    &nbsp;&nbsp;check_command check_snmp_int_v1!<b>&quot;FastEthernet-[1-6]&quot;</b><br>
+
+                    } </p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Service</td>
+
+                <td>define service {<br>
+
+                  &nbsp;&nbsp;name check_int_eth0_bdw<br>
+
+                  &nbsp;&nbsp;check_command check_snmp_int_v3!<b>eth0</b>!<b>-k 
+
+                  -w 100,50 -c 0,0</b><br>
+
+                  } </td>
+
+              </tr>
+
+            </table>
+
+            <p class="SectionBody"><span class="SectionTitle"><a name="mem"></a>check_snmp_mem.pl</span></p>
+
+            <table width="100%" border="1" class="SectionBody">
+
+              <tr> 
+
+                <td><b>Command</b></td>
+
+                <td><b>check_snmp_mem</b></td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Command</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp;command_name check_snmp_mem_v1<br>
+
+                  &nbsp;&nbsp;command_line $USER1$/check_snmp_mem.pl -H $HOSTADDRESS$ 
+
+                  $USER7$ $ARG1$ -w $ARG2$ -c $ARG3$ $ARG4$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Command</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp;command_name check_snmp_mem_v3<br>
+
+                  &nbsp;&nbsp;command_line $USER1$/check_snmp_mem.pl -H $HOSTADDRESS$ 
+
+                  $USER8$ $ARG1$ -w $ARG2$ -c $ARG3$ $ARG4$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Arguments</td>
+
+                <td> 
+
+                  <p>ARG1 : Host type (-N, -I, -E)<br>
+
+                    ARG2 : warning level(s)<br>
+
+                    ARG3 : critical level(s) <br>
+
+                    ARG4 : additional arguments if needed.</p>
+
+                  </td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service</b></td>
+
+                <td><b>Linux_memory</b> : warning at 95% memory used and 60% swap 
+
+                  used, critical at 99% mem and 90% swap<br>
+
+                  <b>Cisco_mem</b> : warning at 80% used, critical at 99% used.</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Service</td>
+
+                <td>define service {<br>
+
+                  &nbsp;&nbsp;name Linux_memory<br>
+
+                  &nbsp;&nbsp;check_command check_snmp_mem_v1!<b>-N</b>!<b>95,60</b>!<b>99,90</b><br>
+
+                  } </td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Service</td>
+
+                <td> 
+
+                  <p>define service {<br>
+
+                    &nbsp;&nbsp;name Cisco_mem<br>
+
+                    &nbsp;&nbsp;check_command check_snmp_mem_v1!<b>-I</b>!<b>80</b>!<b>99</b> 
+
+                    <br>
+
+                    } </p>
+
+                </td>
+
+              </tr>
+
+            </table>
+
+            <p class="SectionBody"><span class="SectionTitle"><a name="nsbox"></a>check_snmp_nsbox.pl 
+
+              </span></p>
+
+            <table width="100%" border="1" class="SectionBody">
+
+              <tr> 
+
+                <td><b>Command</b></td>
+
+                <td><b>check_snmp_nsbox </b>(snmpv1 or v2c)</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios cmd</td>
+
+                <td>define command{<br>
+
+                  command_name check_snmp_nsbox<br>
+
+                  command_line $USER1$/check_snmp_nsbox.pl -H $HOSTADDRESS$ $USER7$ 
+
+                  -d $ARG1$ -s $ARG2$ -n $ARG3$ $ARG4$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Arguments</td>
+
+                <td> 
+
+                  <p>ARG1 : Diode name (regexp)<br>
+
+                    ARG2 : Vhost name (regexp) <br>
+
+                    ARG3 : Number of diodes and vhost that must be up<br>
+
+                    ARG4 : additional arguments if needed.</p>
+
+                  </td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service </b></td>
+
+                <td> 
+
+                  <p><b>check_service_nsbox </b>: checks using snmpv2<br>
+
+                    - 6 diodes matching &quot;diode_name&quot; are up<br>
+
+                    - 3 vhosts matching &quot;vhost_name&quot; are up</p>
+
+                  </td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios service</td>
+
+                <td>define service {<br>
+
+                  &nbsp;&nbsp;&nbsp; name check_service_nsbox<br>
+
+                  &nbsp;&nbsp;&nbsp; check_command check_snmp_nsbox_v1!<b>diode_name</b>!<b>vhost_name</b>!<b>6,3</b>!<b>-2</b><br>
+
+                  }</td>
+
+              </tr>
+
+            </table>
+
+            <p class="SectionBody"><span class="SectionTitle"><a name="process"></a>check_snmp_process.pl</span></p>
+
+            <table width="100%" border="1" class="SectionBody">
+
+              <tr> 
+
+                <td><b>Command</b></td>
+
+                <td><b>check_snmp_process</b></td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Command</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp;command_name check_snmp_process_v1<br>
+
+                  &nbsp;&nbsp;command_line $USER1$/check_snmp_process.pl -H $HOSTADDRESS$ 
+
+                  $USER7$ -n $ARG1$ -w $ARG2$ -c $ARG3$ $ARG4$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Arguments</td>
+
+                <td> 
+
+                  <p>ARG1 : regexp of process name<br>
+
+                    ARG2 : warning level(s)<br>
+
+                    ARG3 : critical level(s) <br>
+
+                    ARG4 : additional arguments if needed.</p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Services</b></td>
+
+                <td><b>proxy_checks : </b>checks with snmpv2 (-2 option) that 
+
+                  there is more than 21 process matching &quot;proxy&quot;, but 
+
+                  no more than 1999 (critical at 20 &amp; 2000)<br>
+
+                  <b>Check_httpd_all</b> <b>: </b>Checks that process matching 
+
+                  &quot;httpd&quot; <br>
+
+                  - Process number is &gt; 5 and &lt; 100 (or returns warning)<br>
+
+                  - Process number is &gt; 0 (or returns critical)<br>
+
+                  - Memory used (by httpd process using the max memory) is &lt; 
+
+                  20 Mbytes or &lt; 30 Mbytes<br>
+
+                  - Cpu used (by all process together) is &lt; 90% or 99%.<br>
+
+                  <b>check_crontab</b> : checks crontab is running (critical if 
+
+                  not, no warnings).</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Service</td>
+
+                <td>define command {<br>
+
+                  &nbsp;&nbsp;name proxy_checks<br>
+
+                  &nbsp;&nbsp;check_command check_snmp_process_v1!<b>proxy</b>!<b>21,1999</b>!<b>20,2000</b>!<b>-2</b> 
+
+                  <br>
+
+                  } </td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Service</td>
+
+                <td>define command {<br>
+
+                  &nbsp;&nbsp;name Check_httpd_all<br>
+
+                  &nbsp;&nbsp;check_command check_snmp_process_v1!<b>httpd</b>!<b>5,100</b>!<b>0</b>!<b>-2 
+
+                  -m 20,30 -u 90,99</b><br>
+
+                  } </td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Service</td>
+
+                <td> 
+
+                  <p>define service {<br>
+
+                    &nbsp;&nbsp;name check_crontab<br>
+
+                    &nbsp;&nbsp;check_command check_snmp_process!<b>crond</b>!<b>0</b>!<b>0</b><br>
+
+                    } </p>
+
+                </td>
+
+              </tr>
+
+            </table>
+
+            <p class="SectionBody"><span class="SectionTitle"><a name="storage"></a>check_snmp_storage.pl</span></p>
+
+            <table width="100%" border="1" class="SectionBody">
+
+              <tr> 
+
+                <td><b>Command</b></td>
+
+                <td><b>check_snmp_storage</b></td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Command</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp;command_name check_snmp_storage_v1<br>
+
+                  &nbsp;&nbsp;command_line $USER1$/check_snmp_storage.pl -H $HOSTADDRESS$ 
+
+                  $USER7$ -m $ARG1$ -w $ARG2$ -c $ARG3$ $ARG4$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Command</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp;command_name check_snmp_storage_v3<br>
+
+                  &nbsp;&nbsp;command_line $USER1$/check_snmp_storage.pl -H $HOSTADDRESS$ 
+
+                  $USER8$ -m $ARG1$ -w $ARG2$ -c $ARG3$ $ARG4$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Arguments</td>
+
+                <td> 
+
+                  <p>ARG1 : regexp of storage name<br>
+
+                    ARG2 : warning level<br>
+
+                    ARG3 : critical level<br>
+
+                    ARG4 : additional arguments if needed.</p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service</b></td>
+
+                <td><b>Check_LinDisk_home :</b> Checks &quot;/home&quot; mountpoint 
+
+                  (and only this one because of -r) usage &lt; 90 and 97 %</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>&nbsp;</td>
+
+                <td> 
+
+                  <p>define service {<br>
+
+                    &nbsp;&nbsp;name Check_LinDisk_home<br>
+
+                    &nbsp;&nbsp;service_description Verification /home<br>
+
+                    &nbsp;&nbsp;check_command check_snmp_storage_v3!/<b>home</b>!<b>90</b>!<b>97</b>!<b>-r</b> 
+
+                    <br>
+
+                    } </p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service</b></td>
+
+                <td><b>Win_check_swap : </b>Checks virtual (ram+swap) mem on windows 
+
+                  &lt; 60% or 90%</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>&nbsp;</td>
+
+                <td> 
+
+                  <p> define command {<br>
+
+                    &nbsp;&nbsp;name Win_check_swap<br>
+
+                    &nbsp;&nbsp;service_description Verification swap Windows<br>
+
+                    &nbsp;&nbsp;check_command check_snmp_storage_v3!<b>Virtual</b>!<b>60</b>!<b>90</b><br>
+
+                    } </p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service</b></td>
+
+                <td><b>check_linux_swap </b>: checks Linux swap &lt; 60 and 90%</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>&nbsp;</td>
+
+                <td> define command {<br>
+
+                  &nbsp;&nbsp;name check_linux_swap<br>
+
+                  &nbsp;&nbsp;service_description Verfication swap linux<br>
+
+                  &nbsp;&nbsp;check_command check_snmp_storage_v1!<b>Swap</b>!<b>60</b>!<b>90</b>!<br>
+
+                  } </td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service</b></td>
+
+                <td><b>check_disk_all </b>: Checks that &quot;/&quot;, &quot;/opt&quot; 
+
+                  , &quot;/var&quot;, &quot;/config&quot; mountpoints usage is 
+
+                  &lt; 80 and 90%</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>&nbsp;</td>
+
+                <td> define command {<br>
+
+                  &nbsp;&nbsp;name check_disk_all<br>
+
+                  &nbsp;&nbsp;service_description Verification / /opt /var /config<br>
+
+                  &nbsp;&nbsp;check_command check_snmp_storage_v1!<b>&quot;^/$|opt|config|var&quot;</b>!<b>80</b>!<b>90</b>!<br>
+
+                  }</td>
+
+              </tr>
+
+            </table>
+
+            <p class="SectionBody"><span class="SectionTitle"><a name="vrrp"></a>check_snmp_vrrp.pl</span></p>
+
+            <table width="100%" border="1" class="SectionBody">
+
+              <tr> 
+
+                <td><b>Command</b></td>
+
+                <td><b>check_snmp_vrrp</b></td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Command</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp;command_name check_snmp_vrrp_v1<br>
+
+                  &nbsp;&nbsp;command_line $USER1$/check_snmp_vrrp.pl -H $HOSTADDRESS$ 
+
+                  $USER7$ -T $ARG1$ -s $ARG2$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Command</td>
+
+                <td>define command{<br>
+
+                  &nbsp;&nbsp;command_name check_snmp_vrrp_v3<br>
+
+                  &nbsp;&nbsp;command_line $USER1$/check_snmp_vrrp.pl -H $HOSTADDRESS$ 
+
+                  $USER8$ -T $ARG1$ -s $ARG2$<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Arguments</td>
+
+                <td> 
+
+                  <p>ARG1 : Host type (nokia, alteon, lp, nsc, ipso)<br>
+
+                    ARG2 : state (master or backup) or number of members, max 
+
+                    % assigned to nodes (for ipso).</p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service</b></td>
+
+                <td><b>Linkproof_check_vrrp_master </b>: Checks that all interface 
+
+                  are in master state</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Service</td>
+
+                <td> 
+
+                  <p>define service {<br>
+
+                    &nbsp;&nbsp;name Linkproof_check_vrrp_master<br>
+
+                    &nbsp;&nbsp;check_command check_snmp_vrrp_v3!<b>lp</b>!<b>master</b><br>
+
+                    } </p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service</b></td>
+
+                <td><b>Nokia_check_vrrp_backup </b>: Checks that all interface 
+
+                  are in backup state</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Service</td>
+
+                <td>define service {<br>
+
+                  &nbsp;&nbsp;name Linkproof_check_vrrp_backup<br>
+
+                  &nbsp;&nbsp;check_command check_snmp_vrrp_v3!<b>lp</b>!<b>backup</b><br>
+
+                  } </td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service</b></td>
+
+                <td><b>Nokia_clustering</b> : checks that nokia cluster has 2 
+
+                  members and that the load assigned to each member &lt; 98%</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Service</td>
+
+                <td>define service {<br>
+
+                  &nbsp;&nbsp;name Nokia_clustering<br>
+
+                  &nbsp;&nbsp;check_command check_snmp_vrrp_v3!<b>ipso</b>!<b>2,98%</b><br>
+
+                  } </td>
+
+              </tr>
+
+            </table>
+
+            <p class="SectionBody"><span class="SectionTitle"><a name="windows"></a>check_snmp_win.pl</span></p>
+
+            <table width="100%" border="1" class="SectionBody">
+
+              <tr> 
+
+                <td><b>Command</b></td>
+
+                <td><b>check_snmp_win</b></td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios</td>
+
+                <td>define command {<br>
+
+                  &nbsp;&nbsp;command_name check_win<br>
+
+                  &nbsp;&nbsp;command_line $USER1$/check_snmp_win.pl -H $HOSTADDRESS$ 
+
+                  $USER7$ -n $ARG2$<br>
+
+                  &nbsp;&nbsp;# comment community service(s) name<br>
+
+                  }</td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service</b></td>
+
+                <td><b>check_win_dhcp </b>: Checks dhcp service is running</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios</td>
+
+                <td> 
+
+                  <p>define service {<br>
+
+                    &nbsp;&nbsp;name check_win_dhcp<br>
+
+                    &nbsp;&nbsp;service_description Checks dhcp service is running<br>
+
+                    &nbsp;&nbsp;check_command check_win!<b>dhcp</b><br>
+
+                    } </p>
+
+                </td>
+
+              </tr>
+
+              <tr> 
+
+                <td><b>Service</b></td>
+
+                <td><b>check_win_reg_spool</b>: Checks registery access &amp; 
+
+                  print spool is active (French windows !!)</td>
+
+              </tr>
+
+              <tr> 
+
+                <td>Nagios</td>
+
+                <td> 
+
+                  <p>define service {<br>
+
+                    &nbsp;&nbsp;name check_win_reg_spool<br>
+
+                    &nbsp;&nbsp;service_description Checks registery access &amp; 
+
+                    print spool is active <br>
+
+                    &nbsp;&nbsp;check_command check_win!<b>&quot;au registre&quot;,spouleur</b><br>
+
+                    } </p>
+
+                </td>
+
+              </tr>
+
+            </table>
+
+            <p><span class="SectionTitle"><a name="checktype"></a>Checks you can 
+              make by host type</span></p>
+            <p class="SectionBody"><b>N/A</b> : nothing of this type to check<br>
+              <b>SNMP</b> : yes with simple snmp query<br>
+              <b>??</b> : not tested because useless most of the time.</p>
+            <p class="SectionBody"><b>Specific</b> : name of the script to look 
+              at for platform specific checks.</p>
+            <table width="100%" border="1">
+              <tr> 
+                <td class="SectionBody"><b>Host type</b></td>
+                <td class="SectionBody"><b>Interface</b></td>
+                <td class="SectionBody"><b>storage</b></td>
+                <td class="SectionBody"><b>load/cpu</b></td>
+                <td class="SectionBody"><b>mem</b></td>
+                <td class="SectionBody"><b>process</b></td>
+                <td class="SectionBody"><b>env</b></td>
+                <td class="SectionBody"><b>specific</b></td>
+              </tr>
+              <tr> 
+                <td class="SectionBody">Linux</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">No</td>
+                <td class="SectionBody">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody">Windows</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">No</td>
+                <td class="SectionBody">check_snmp_win.pl</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody">Cisco router/switch</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">N/A</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">N/A</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody">HP router/switch</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">N/A</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">N/A</td>
+                <td class="SectionBody">No</td>
+                <td class="SectionBody">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody">Bluecoat proxy</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">snmp</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">snmp</td>
+                <td class="SectionBody">No</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody">CheckPoint on SPLAT</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">No</td>
+                <td class="SectionBody">check_snmp_cpfw.pl</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody">CheckPoint on Nokia IP</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">No</td>
+                <td class="SectionBody">??</td>
+                <td class="SectionBody">No</td>
+                <td class="SectionBody">check_snmp_vrrp.pl</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody">Boostedge</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">??</td>
+                <td class="SectionBody">No</td>
+                <td class="SectionBody">check_snmp_boostedge.pl</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody">AS400</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">No</td>
+                <td class="SectionBody">No</td>
+                <td class="SectionBody">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody">NetsecureOne Netbox</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">??</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">No</td>
+                <td class="SectionBody">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody">Radware Linkproof</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">N/A</td>
+                <td class="SectionBody">snmp</td>
+                <td class="SectionBody">snmp</td>
+                <td class="SectionBody">No</td>
+                <td class="SectionBody">No</td>
+                <td class="SectionBody"> 
+                  <p>check_snmp_linkproof_nhr<br>
+                    check_snmp_vrrp.pl</p>
+                </td>
+              </tr>
+              <tr> 
+                <td class="SectionBody">IronPort</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">snmp</td>
+                <td class="SectionBody">snmp</td>
+                <td class="SectionBody">snmp</td>
+                <td class="SectionBody">No</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td class="SectionBody">Cisco CSS</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">??</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">Yes</td>
+                <td class="SectionBody">No</td>
+                <td class="SectionBody">??</td>
+                <td class="SectionBody">check_snmp_css.pl</td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+
+          </td>
+
+        </tr>
+
+        <td> 
+
+          <p class="SectionBody">This project is hosted on : <br>
+
+            <A href="http://sourceforge.net/projects/nagios-snmp"> <IMG src="http://sourceforge.net/sflogo.php?group_id=134917&type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A> 
+
+          </p>
+
+          <p class="SectionBody"> Nagios and the Nagios logo are registered trademarks 
+
+            of Ethan Galstad.</p>
+
+        </td>
+
+      </table>
+
+    </td>
+
+  </tr>
+
+</table>
+
+</BODY>
+
+</HTML>
+
