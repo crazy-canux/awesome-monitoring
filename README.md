@@ -215,11 +215,14 @@ Lots of monitoring tools are based on nagios.
 
 * [nagios_erlang](https://github.com/lethain/nagios_erlang) - Monitoring erlang
 
+### Monitoring SNMP
+
+* [nagios snmp plugins](http://nagios.manubulon.com/) - For snmp.
+* [nagios snmp plugins SF](https://sourceforge.net/projects/nagios-snmp/) - For snmp.
+
 ### Misc
 
 * [zplugin](https://github.com/crazy-canux/zplugin) - Tons of plugins monitoring your business.
-* [nagios snmp plugins](http://nagios.manubulon.com/) - For snmp.
-* [nagios snmp plugins SF](https://sourceforge.net/projects/nagios-snmp/) - For snmp.
 * [nagios plugins](https://github.com/HariSekhon/nagios-plugins) - Misc.
 * [nagios plugins](https://github.com/willixix/naglio-plugins) - Misc
 * [nagios plugins](https://github.com/jonschipp/nagios-plugins) - Misc.
