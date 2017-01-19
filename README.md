@@ -178,10 +178,16 @@ Lots of monitoring tools are based on nagios.
 * [check_raid.pl](https://github.com/glensc/nagios-plugin-check_raid) - For raid.
 * [check_sstcam.pl](https://github.com/lausser/check_sstcam) - For sstcam.
 
-### Monitoring Vitual Machine
+### Monitoring Virtualization
 
 * [check_wmware_api.pl](https://github.com/op5/check_vmware_api) - For vmware.
 * [check_vmware_esx.pl](https://github.com/BaldMansMojo/check_vmware_esx) - For vmware.
+
+### Monitoring Cloud Computing
+
+* [openstack nagios plugins](https://github.com/cirrax/openstack-nagios-plugins) - Monitoring openstack.
+
+### Monitoring BigData
 
 ### Monitoring Database
 
@@ -195,7 +201,7 @@ Lots of monitoring tools are based on nagios.
 ### Monitoring Log
 
 * [check_logfiles.pl](https://github.com/lausser/check_logfiles) - For logfile.
-* [check_events.pl](https://github.com/pewo/nagios-plugins/tree/master/check_events) - For events.
+* [check events](https://github.com/pewo/nagios-plugins)
 * [check_generic](https://github.com/flackem/check_generic)
 * [check_multi](https://github.com/flackem/check_multi)
 
@@ -223,12 +229,17 @@ Lots of monitoring tools are based on nagios.
 ### Misc
 
 * [zplugin](https://github.com/crazy-canux/zplugin) - Tons of plugins monitoring your business.
-* [nagios plugins](https://github.com/HariSekhon/nagios-plugins) - Misc.
-* [nagios plugins](https://github.com/willixix/naglio-plugins) - Misc
-* [nagios plugins](https://github.com/jonschipp/nagios-plugins) - Misc.
-* [nagios plugins](https://github.com/pewo/nagios-plugins) - Misc.
-* [nagios plugins](https://github.com/kumina/nagios-plugins-kumina) - Misc.
+* [harisekhon plugins](https://github.com/HariSekhon/nagios-plugins) - Misc.
+* [willixix plugins](https://github.com/willixix/naglio-plugins) - Misc
+
+* [nagios plugins](https://github.com/MonitoringPlug/monitoringplug) - Misc.
+* [nagios plugins](https://github.com/AppliedTrust/nagios-plugins) - Misc.
 * [nagios plugins](https://github.com/opinkerfi/nagios-plugins) - Misc.
+* [nagios plugins](https://github.com/kumina/nagios-plugins-kumina) - Misc.
+* [nagios plugins](https://github.com/Inuits/monitoring-plugins) - Misc.
+* [nagios plugins](https://github.com/appfirst/nagios-plugins) - Misc.
+* [nagios plugins](https://github.com/Voxer/nagios-plugins) - Misc.
+* [nagios plugins](https://github.com/innogames/igmonplugins) - Misc.
 
 ***
 
