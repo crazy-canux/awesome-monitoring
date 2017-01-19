@@ -28,3 +28,15 @@
 [submodule "plugins/plugins-willixix"]
 	path = plugins/plugins-willixix
 	url = https://github.com/willixix/naglio-plugins.git
+[submodule "plugins/nagios-plugins-AppliedTrust"]
+	path = plugins/nagios-plugins-AppliedTrust
+	url = https://github.com/AppliedTrust/nagios-plugins.git
+[submodule "plugins/nagios-plugins-Voxer"]
+	path = plugins/nagios-plugins-Voxer
+	url = https://github.com/Voxer/nagios-plugins.git
+[submodule "plugins/nagios-plugins-Inuits"]
+	path = plugins/nagios-plugins-Inuits
+	url = https://github.com/Inuits/monitoring-plugins.git
+[submodule "plugins/nagios-plugins-MonitoringPlug"]
+	path = plugins/nagios-plugins-MonitoringPlug
+	url = https://github.com/MonitoringPlug/monitoringplug.git
