@@ -1,24 +1,6 @@
 [submodule "plugins/monitoring-plugins"]
 	path = plugins/monitoring-plugins
 	url = https://github.com/monitoring-plugins/monitoring-plugins.git
-[submodule "plugins/zplugins"]
-	path = plugins/zplugins
-	url = https://github.com/crazy-canux/zplugin.git
-[submodule "plugins/nagios-plugins-pewo"]
-	path = plugins/nagios-plugins-pewo
-	url = https://github.com/pewo/nagios-plugins.git
-[submodule "plugins/nagios-plugins-harisekhon"]
-	path = plugins/nagios-plugins-harisekhon
-	url = https://github.com/HariSekhon/nagios-plugins.git
-[submodule "plugins/naglio-plugins-willixix"]
-	path = plugins/naglio-plugins-willixix
-	url = https://github.com/willixix/naglio-plugins.git
-[submodule "plugins/monitoringplug-MonitoringPlug"]
-	path = plugins/monitoringplug-MonitoringPlug
-	url = https://github.com/MonitoringPlug/monitoringplug.git
-[submodule "plugins/nagios-plugins-jonschipp"]
-	path = plugins/nagios-plugins-jonschipp
-	url = https://github.com/jonschipp/nagios-plugins.git
 [submodule "plugins/nagios-plugins-kumina"]
 	path = plugins/nagios-plugins-kumina
 	url = https://github.com/kumina/nagios-plugins-kumina.git
@@ -34,15 +16,15 @@
 [submodule "plugins/nagios-plugins-innogames"]
 	path = plugins/nagios-plugins-innogames
 	url = https://github.com/innogames/igmonplugins.git
-[submodule "plugins/nagios-plugins-voxer"]
-	path = plugins/nagios-plugins-voxer
-	url = https://github.com/Voxer/nagios-plugins.git
 [submodule "plugins/nagios-plugins-appfirst"]
 	path = plugins/nagios-plugins-appfirst
 	url = https://github.com/appfirst/nagios-plugins.git
-[submodule "plugins/nagios-plugins-inuits"]
-	path = plugins/nagios-plugins-inuits
-	url = https://github.com/Inuits/monitoring-plugins.git
-[submodule "plugins/nagios-plugins-appliedtrust"]
-	path = plugins/nagios-plugins-appliedtrust
-	url = https://github.com/AppliedTrust/nagios-plugins.git
+[submodule "plugins/plugins-crazy-canux"]
+	path = plugins/plugins-crazy-canux
+	url = https://github.com/crazy-canux/zplugin.git
+[submodule "plugins/plugins-HariSekhon"]
+	path = plugins/plugins-HariSekhon
+	url = https://github.com/HariSekhon/nagios-plugins.git
+[submodule "plugins/plugins-willixix"]
+	path = plugins/plugins-willixix
+	url = https://github.com/willixix/naglio-plugins.git
