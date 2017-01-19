@@ -229,9 +229,8 @@ Lots of monitoring tools are based on nagios.
 ### Misc
 
 * [zplugin](https://github.com/crazy-canux/zplugin) - Tons of plugins monitoring your business.
-* [harisekhon plugins](https://github.com/HariSekhon/nagios-plugins) - Misc.
-* [willixix plugins](https://github.com/willixix/naglio-plugins) - Misc
-
+* [harisekhon plugins](https://github.com/HariSekhon/nagios-plugins) - HariSekhon's plugins.
+* [willixix plugins](https://github.com/willixix/naglio-plugins) - Willixix's plugins.
 * [nagios plugins](https://github.com/MonitoringPlug/monitoringplug) - Misc.
 * [nagios plugins](https://github.com/AppliedTrust/nagios-plugins) - Misc.
 * [nagios plugins](https://github.com/opinkerfi/nagios-plugins) - Misc.

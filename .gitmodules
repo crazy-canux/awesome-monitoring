@@ -31,3 +31,18 @@
 [submodule "addons/nscp"]
 	path = addons/nscp
 	url = https://github.com/mickem/nscp.git
+[submodule "plugins/nagios-plugins-innogames"]
+	path = plugins/nagios-plugins-innogames
+	url = https://github.com/innogames/igmonplugins.git
+[submodule "plugins/nagios-plugins-voxer"]
+	path = plugins/nagios-plugins-voxer
+	url = https://github.com/Voxer/nagios-plugins.git
+[submodule "plugins/nagios-plugins-appfirst"]
+	path = plugins/nagios-plugins-appfirst
+	url = https://github.com/appfirst/nagios-plugins.git
+[submodule "plugins/nagios-plugins-inuits"]
+	path = plugins/nagios-plugins-inuits
+	url = https://github.com/Inuits/monitoring-plugins.git
+[submodule "plugins/nagios-plugins-appliedtrust"]
+	path = plugins/nagios-plugins-appliedtrust
+	url = https://github.com/AppliedTrust/nagios-plugins.git
