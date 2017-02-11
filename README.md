@@ -46,7 +46,7 @@
 
 ## Monitoring
 
-* [Monitoring](http://crazy-canux.github.io/2016/05/18/Monitoring/) - Blog.
+* [Monitoring](http://canuxcheng.com/operations/Monitoring.html) - Blog.
 
 ### Nagios
 
@@ -55,7 +55,7 @@
 * [Nagios exchange](https://exchange.nagios.org/) - Nagios official exchange website.
 * [Nagios core github](https://github.com/NagiosEnterprises/nagioscore) - Nagios core written in C.
 * [Nagios chinese](https://sourceforge.net/projects/nagios-cn/files/?source=navbar) - Nagios chinese document.
-* [Nagios](http://crazy-canux.github.io/2016/03/24/Monitoring%E4%B9%8BNagios/) - Blog.
+* [Nagios](http://canuxcheng.com/operations/Monitoring%E4%B9%8BNagios.html) - Blog.
 
 ### Icinga
 
@@ -107,7 +107,7 @@ Lots of monitoring tools are based on nagios.
 * [Check_mk](http://mathias-kettner.de/check_mk.html) - Check_mk is open source and pure python code.
 * [check_mk exchange](http://mathias-kettner.com/check_mk_exchange.php?HTML=yes) - Check_mk plugins.
 * [check_mk core git](http://git.mathias-kettner.de/git/?p=check_mk.git;a=tree) - Check_mk core written in Python.
-* [Check_mk](http://crazy-canux.github.io/2016/05/11/Monitoring%E4%B9%8Bcheck_MK/) - Blog.
+* [Check_mk](http://canuxcheng.com/operations/Monitoring%E4%B9%8Bcheck_MK.html) - Blog.
 
 ### Sensu
 
@@ -134,7 +134,7 @@ Lots of monitoring tools are based on nagios.
 
 ## Plugins
 
-* [Plugins](http://crazy-canux.github.io/2016/04/08/Monitoring%E4%B9%8BPlugins/) - Blog.
+* [Plugins](http://canuxcheng.com/operations/Monitoring%E4%B9%8BPlugins.html) - Blog.
 
 ### Monitoring Plugins
 
@@ -244,7 +244,7 @@ Lots of monitoring tools are based on nagios.
 
 ## Addons
 
-* [Addons](http://crazy-canux.github.io/2016/06/07/Monitoring%E4%B9%8BAddons/) - Blog
+* [Addons](http://canuxcheng.com/operations/Monitoring%E4%B9%8BAddons.html) - Blog
 
 ### Monitoring Addons
 
