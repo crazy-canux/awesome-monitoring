@@ -231,14 +231,14 @@ Lots of monitoring tools are based on nagios.
 * [zplugin](https://github.com/crazy-canux/zplugin) - Tons of plugins monitoring your business.
 * [harisekhon plugins](https://github.com/HariSekhon/nagios-plugins) - HariSekhon's plugins.
 * [willixix plugins](https://github.com/willixix/naglio-plugins) - Willixix's plugins.
-* [nagios plugins](https://github.com/MonitoringPlug/monitoringplug) - Misc.
-* [nagios plugins](https://github.com/AppliedTrust/nagios-plugins) - Misc.
-* [nagios plugins](https://github.com/opinkerfi/nagios-plugins) - Misc.
-* [nagios plugins](https://github.com/kumina/nagios-plugins-kumina) - Misc.
-* [nagios plugins](https://github.com/Inuits/monitoring-plugins) - Misc.
-* [nagios plugins](https://github.com/appfirst/nagios-plugins) - Misc.
-* [nagios plugins](https://github.com/Voxer/nagios-plugins) - Misc.
-* [nagios plugins](https://github.com/innogames/igmonplugins) - Misc.
+* [nagios plugins](https://github.com/MonitoringPlug/monitoringplug) - MonitoringPlug's plugins.
+* [nagios plugins](https://github.com/AppliedTrust/nagios-plugins) - AppliedTrust's plugins.
+* [nagios plugins](https://github.com/opinkerfi/nagios-plugins) - opinkerfi's plugins.
+* [nagios plugins](https://github.com/kumina/nagios-plugins-kumina) - kumina's plugins.
+* [nagios plugins](https://github.com/Inuits/monitoring-plugins) - Inuits's plugins.
+* [nagios plugins](https://github.com/appfirst/nagios-plugins) - appfirst's plugins.
+* [nagios plugins](https://github.com/Voxer/nagios-plugins) - Voxer's plugins.
+* [nagios plugins](https://github.com/innogames/igmonplugins) - innogames's plugins.
 
 ***
 
