@@ -46,7 +46,7 @@
 
 ## Monitoring
 
-* [Monitoring](http://canuxcheng.com/operations/Monitoring.html) - Blog.
+* [Monitoring](http://canuxcheng.com/devops/Monitoring.html) - Blog.
 
 ### Nagios
 
@@ -55,7 +55,7 @@
 * [Nagios exchange](https://exchange.nagios.org/) - Nagios official exchange website.
 * [Nagios core github](https://github.com/NagiosEnterprises/nagioscore) - Nagios core written in C.
 * [Nagios chinese](https://sourceforge.net/projects/nagios-cn/files/?source=navbar) - Nagios chinese document.
-* [Nagios](http://canuxcheng.com/operations/Monitoring%E4%B9%8BNagios.html) - Blog.
+* [Nagios](http://canuxcheng.com/devops/Monitoring_Nagios.html) - Blog.
 
 ### Icinga
 
@@ -107,7 +107,6 @@ Lots of monitoring tools are based on nagios.
 * [Check_mk](http://mathias-kettner.de/check_mk.html) - Check_mk is open source and pure python code.
 * [check_mk exchange](http://mathias-kettner.com/check_mk_exchange.php?HTML=yes) - Check_mk plugins.
 * [check_mk core git](http://git.mathias-kettner.de/git/?p=check_mk.git;a=tree) - Check_mk core written in Python.
-* [Check_mk](http://canuxcheng.com/operations/Monitoring%E4%B9%8Bcheck_MK.html) - Blog.
 
 ### Sensu
 
@@ -134,7 +133,7 @@ Lots of monitoring tools are based on nagios.
 
 ## Plugins
 
-* [Plugins](http://canuxcheng.com/operations/Monitoring%E4%B9%8BPlugins.html) - Blog.
+* [Plugins](http://canuxcheng.com/devops/Monitoring_Plugins.html) - Blog.
 
 ### Monitoring Plugins
 
@@ -229,8 +228,8 @@ Lots of monitoring tools are based on nagios.
 ### Misc
 
 * [zplugin](https://github.com/crazy-canux/zplugin) - Tons of plugins monitoring your business.
-* [harisekhon plugins](https://github.com/HariSekhon/nagios-plugins) - HariSekhon's plugins.
-* [willixix plugins](https://github.com/willixix/naglio-plugins) - Willixix's plugins.
+* [nagios plugins](https://github.com/HariSekhon/nagios-plugins) - HariSekhon's plugins.
+* [nagios plugins](https://github.com/willixix/naglio-plugins) - Willixix's plugins.
 * [nagios plugins](https://github.com/MonitoringPlug/monitoringplug) - MonitoringPlug's plugins.
 * [nagios plugins](https://github.com/AppliedTrust/nagios-plugins) - AppliedTrust's plugins.
 * [nagios plugins](https://github.com/opinkerfi/nagios-plugins) - opinkerfi's plugins.
@@ -244,7 +243,7 @@ Lots of monitoring tools are based on nagios.
 
 ## Addons
 
-* [Addons](http://canuxcheng.com/operations/Monitoring%E4%B9%8BAddons.html) - Blog
+* [Addons](http://canuxcheng.com/devops/Monitoring_Addons.html) - Blog
 
 ### Monitoring Addons
 
