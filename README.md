@@ -152,8 +152,8 @@ Lots of monitoring tools are based on nagios.
 ### Plugins API
 
 * [monitoring-plugins perl](https://github.com/monitoring-plugins/monitoring-plugin-perl) - Official Perl module for plugins.
-* [pymonitoringplugins](https://github.com/crazy-canux/pymonitoringplugins) - A set of Python API for write your monitoring plugins.
-* [pymonitoringplugins docs](http://pymonitoringplugins.readthedocs.io/en/latest/) - Document for pymonitoringplugins.
+* [arguspy](https://github.com/crazy-canux/arguspy) - A set of Python API for write your monitoring plugins.
+* [arguspy docs](http://arguspy.readthedocs.io/en/latest/) - Document for arguspy.
 
 ### Monitoring Windows server
 
