@@ -328,6 +328,7 @@ Lots of monitoring tools are based on nagios.
 
 * [graphios github](https://github.com/shawn-sterling/graphios) - A program to send nagios perf data to graphite(carbon)/statsd/librato/influxdb.
 * [ledbetter github](https://github.com/github/ledbetter) - Script that scrapes alert statistics from Nagios and reports them to Graphite.
+* [nagflux github](https://github.com/Griesbacher/nagflux) - A connector which copies performancedata from Nagios / Icinga(2) / Naemon to InfluxDB
 
 ### Graphing
 
