@@ -30,6 +30,7 @@
 * [Bosun](#bosun)
 * [Opserver](#opserver)
 * [Netdata](#netdata)
+* [CollectD](#collectd)
 * [Application Performance Monitoring](#application-performance-monitoring)
     * [NewRelic](#newrelic)
     * [AppDynamics](#appdynamics)
@@ -439,6 +440,13 @@ Lots of monitoring tools are based on nagios.
 
 * [netdata](http://my-netdata.io/) - Get control of your servers. Simple. Effective. Awesome.
 * [netdata github](https://github.com/firehol/netdata) - Netdata written in C.
+
+***
+
+## CollectD
+
+* [collectd](http://collectd.org/) - The system statistics collection daemon.
+* [collectd github](https://github.com/collectd/collectd) - collectd written in C.
 
 ***
 
