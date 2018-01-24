@@ -13,7 +13,6 @@
     * [Ganglia](#ganglia)
     * [Zabbix](#zabbix)
     * [Zenoss](#zenoss)
-    * [Bosun](#bosun)
     * [Opserver](#opserver)
     * [Netdata](#netdata)
 * [Nagios Monitoring](#nagios-monitoring)
@@ -87,13 +86,6 @@ Tranditional Monitoring tools.
 
 * [Opserver](http://opserver.org/) - Stack Exchange's monitoring system.
 * [Opserver github](https://github.com/opserver/Opserver) - Opserver written in C#.
-
-### Bosun
-
-> Bosun is an open-source, MIT licensed, monitoring and alerting system by Stack Exchange. It has an expressive domain specific language for evaluating alerts and creating detailed notifications. It also lets you test your alerts against history for a faster development experience.
-
-* [Bosun](http://bosun.org/) - Time Series Alerting Framework.
-* [Bosun github](https://github.com/bosun-monitor) - Bosun written in Go.
 
 ### Netdata
 
@@ -447,16 +439,17 @@ Collect metrics and events.
 * [Graphite carbon github ](https://github.com/graphite-project/carbon) - Graphite carbon.
 * [collectd](http://collectd.org/) - The system statistics collection daemon.
 * [collectd github](https://github.com/collectd/collectd) - collectd written in C.
-* [statsd](https://github.com/etsy/statsd)
+* [statsd](https://github.com/etsy/statsd) - Daemon for easy but powerful stats aggregation.
+* [tcollector](https://github.com/OpenTSDB/tcollector) - Data collection framework for OpenTSDB
 
 ### Storage
 
-* [influxdata](https://influxdata.com) - Influxdata.
+* [influxdata](https://influxdata.com) - Influxdata, written in go.
 * [influxdata github](https://github.com/influxdata/influxdb) - TICK stack.
 * [rrdtool](http://oss.oetiker.ch/rrdtool/) - Round Robin Database Tool, store perfomance data.
 * [rrdtool github](https://github.com/oetiker/rrdtool-1.x) - Rrdtool source code.
 * [graphite-whisper github](https://github.com/graphite-project/whisper) - Graphite whisper.
-* [OpenTSDB](http://opentsdb.net/) - OpenTSDB.
+* [OpenTSDB](http://opentsdb.net/) - OpenTSDB, written in java.
 * [OpenTSDB github](https://github.com/OpenTSDB/opentsdb) - OpenTSDB source code.
 * [prometheus](https://prometheus.io/) - The Prometheus monitoring system and time series database.
 * [prometheus github](https://github.com/prometheus/prometheus)
@@ -465,7 +458,9 @@ Collect metrics and events.
 
 ### Alerting
 
-* [kapacitor](https://github.com/influxdata/kapacitor) - TICK stack
+* [kapacitor](https://github.com/influxdata/kapacitor) - TICK stack, written in go.
+* [Bosun](http://bosun.org/) - Time Series Alerting Framework.
+* [Bosun github](https://github.com/bosun-monitor) - Bosun written in Go.
 
 ### Graphing
 
