@@ -33,7 +33,7 @@
     * [collect](#collect)
     * [storage](#storage)
     * [alerting](#alerting)
-    * [graphing](#visualization)
+    * [graphing](#graphing)
 * [Application Performance Monitoring](#application-performance-monitoring)
     * [NewRelic](#newrelic)
     * [AppDynamics](#appdynamics)
@@ -364,7 +364,7 @@ Monitoring tools based on nagios.
 * [ledbetter github](https://github.com/github/ledbetter) - Script that scrapes alert statistics from Nagios and reports them to Graphite.
 * [nagflux github](https://github.com/Griesbacher/nagflux) - A connector which copies performancedata from Nagios / Icinga(2) / Naemon to InfluxDB
 
-### Graphing
+### Metric Graphing
 
 * [nagiosgraph](http://nagiosgraph.sourceforge.net/) - Create graphs and store data in rrdtool.
 * [nagiosgraph SF](https://sourceforge.net/projects/nagiosgraph/) - Nagiosgraph source code.
