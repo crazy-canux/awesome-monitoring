@@ -27,7 +27,7 @@
     * [Cabot](#cabot)
     * [Server Density](#server-density)
     * [PagerDuty](#pagerduty)
-    * [Nagios Monitroing Plugins](#nagios-monitoring-plugins)
+    * [Nagios Monitoring Plugins](#nagios-monitoring-plugins)
     * [Nagios Monitoring Addons](#nagios-monitoring-addons)
 * [Zabbix Monitoring](#zabbix-monitoring)
     * [Zabbix Monitoring Plugins](#zabbix-monitoring-plugins)
