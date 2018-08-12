@@ -49,6 +49,7 @@
     * [Pinpoint](#pinpoint)
 * [Website Monitoring](#website-monitoring)
     * [pingdom](#pingdom)
+* [API](#API)
 * [Contributing](#contributing)
 * [License](#license)
 
@@ -348,14 +349,7 @@ Monitoring tools based on nagios.
 * [rrdtool](http://oss.oetiker.ch/rrdtool/) - Round Robin Database Tool, store perfomance data.
 * [rrdtool github](https://github.com/oetiker/rrdtool-1.x) - Rrdtool source code.
 * [graphite-whisper github](https://github.com/graphite-project/whisper) - Graphite whisper.
-* [influxdata](https://influxdata.com) - Influxdata.
-* [influxdata github](https://github.com/influxdata/influxdb) - Influxdata source code.
-* [OpenTSDB](http://opentsdb.net/) - OpenTSDB.
-* [OpenTSDB github](https://github.com/OpenTSDB/opentsdb) - OpenTSDB source code.
-* [prometheus](https://prometheus.io/) - The Prometheus monitoring system and time series database.
-* [prometheus github](https://github.com/prometheus/prometheus)
-* [kairosDB](http://kairosdb.github.io/) - KairosDB.
-* [kairosDB github](https://github.com/kairosdb/kairosdb) - KairosDB source code.
+* [statsd github](https://github.com/etsy/statsd) - Daemon for easy but powerful stats aggregation.
 
 #### Metric Forwarding
 
@@ -371,8 +365,6 @@ Monitoring tools based on nagios.
 * [pnp4nagios github](https://github.com/lingej/pnp4nagios) - Php4nagios source code.
 * [Graphite carbon github ](https://github.com/graphite-project/carbon) - Graphite carbon.
 * [Graphite web github](https://github.com/graphite-project/graphite-web) - Graphite web.
-* [grafana](http://grafana.org/) - Grafana.
-* [grafana github](https://github.com/grafana/grafana) - Grafana source code.
 
 #### Configuration
 
@@ -435,31 +427,27 @@ Modern Monitoring tools for devops, container, serverless
 
 ### Collect
 
-Collect metrics and events.
+Collect and transport, metrics and events.
 
-* [telegraf github](https://github.com/influxdata/telegraf) - TICK stack.
-* [Graphite carbon github ](https://github.com/graphite-project/carbon) - Graphite carbon.
-* [collectd](http://collectd.org/) - The system statistics collection daemon.
-* [collectd github](https://github.com/collectd/collectd) - collectd written in C.
-* [statsd](https://github.com/etsy/statsd) - Daemon for easy but powerful stats aggregation.
-* [tcollector](https://github.com/OpenTSDB/tcollector) - Data collection framework for OpenTSDB
+* [telegraf github](https://github.com/influxdata/telegraf) - TICK stack, The plugin-driven server agent for collecting & reporting metrics.
+* [node-exporter github](https://github.com/prometheus/node_exporter) - Prometheus stack, Exporter for machine metrics.
 * [beats github](https://github.com/elastic/beats) - Lightweight shippers for Elasticsearch & Logstash, Elastic stack
 * [logstash github](https://github.com/elastic/logstash) - Transport and process your logs, events, or other data, Elastic stack.
+* [collectd](http://collectd.org/) - The system statistics collection daemon.
+* [collectd github](https://github.com/collectd/collectd) - collectd written in C.
+* [tcollector github](https://github.com/OpenTSDB/tcollector) - Data collection framework for OpenTSDB
 * [falcon-plus github](https://github.com/open-falcon/falcon-plus) - An open-source and enterprise-level monitoring system.
 
 ### Storage
 
-* [influxdata](https://influxdata.com) - Influxdata, written in go.
+* [influxdata](https://influxdata.com) - influxdb, written in go.
 * [influxdata github](https://github.com/influxdata/influxdb) - TICK stack.
+* [prometheus](https://prometheus.io/) - The Prometheus monitoring system and time series database.
+* [prometheus github](https://github.com/prometheus/prometheus) - Prometheus stack.
 * [elasticsearch](https://www.elastic.co/cn/products/elasticsearch) - Open Source, Distributed, RESTful Search Engine, written in java.
 * [elasticsearch github](https://github.com/elastic/elasticsearch) - Elastic stack.
-* [rrdtool](http://oss.oetiker.ch/rrdtool/) - Round Robin Database Tool, store perfomance data.
-* [rrdtool github](https://github.com/oetiker/rrdtool-1.x) - Rrdtool source code.
-* [graphite-whisper github](https://github.com/graphite-project/whisper) - Graphite whisper.
 * [OpenTSDB](http://opentsdb.net/) - OpenTSDB, written in java.
 * [OpenTSDB github](https://github.com/OpenTSDB/opentsdb) - OpenTSDB source code.
-* [prometheus](https://prometheus.io/) - The Prometheus monitoring system and time series database.
-* [prometheus github](https://github.com/prometheus/prometheus)
 * [kairosDB](http://kairosdb.github.io/) - KairosDB.
 * [kairosDB github](https://github.com/kairosdb/kairosdb) - KairosDB source code.
 
@@ -467,13 +455,13 @@ Collect metrics and events.
 
 * [grafana](http://grafana.org/) - Grafana.
 * [grafana github](https://github.com/grafana/grafana) - Grafana source code.
-* [Graphite web github](https://github.com/graphite-project/graphite-web) - Graphite web.
 * [chronograf github](https://github.com/influxdata/chronograf) - TICK stack
 * [kibana github](https://github.com/elastic/kibana) - Elastic stack
 
 ### Alerting
 
-* [kapacitor](https://github.com/influxdata/kapacitor) - TICK stack, written in go.
+* [kapacitor github](https://github.com/influxdata/kapacitor) - TICK stack, written in go.
+* [alertmanager github](https://github.com/prometheus/alertmanager) - Prometheus stack, Prometheus Alertmanager, written in go.
 * [x-pack](https://www.elastic.co/cn/products/x-pack) - Elastic stack.
 * [Bosun](http://bosun.org/) - Time Series Alerting Framework.
 * [Bosun github](https://github.com/bosun-monitor) - Bosun written in Go.
@@ -537,6 +525,13 @@ Monitoring the Website.
 
 * [pingdom](https://www.pingdom.com/) - Website monitoring for everyone.
 * [pingdom github](https://github.com/Pingdom) - Related source code.
+
+***
+
+## API
+
+* [super-devops](http://super-devops.readthedocs.io/en/latest/) - Tons of devops tools for devops related project.
+* [super-devops github](https://github.com/crazy-canux/super-devops)
 
 ***
 
