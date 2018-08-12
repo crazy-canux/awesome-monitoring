@@ -49,7 +49,7 @@
     * [Pinpoint](#pinpoint)
 * [Website Monitoring](#website-monitoring)
     * [pingdom](#pingdom)
-* [API](#API)
+* [API](#api)
     * [super-devops](#super-devops)
 * [Contributing](#contributing)
 * [License](#license)
