@@ -1,0 +1,71 @@
+dbrp "urlprotection"."urlprotection"
+
+var name = 'consumerMQAlert'
+
+var idVar = name
+
+var message = '{{ index .Tags "url" }} - {{.Level}} - {{.Time}}'
+
+var idTag = 'alertID'
+
+var levelTag = 'level'
+
+var messageField = 'message'
+
+var durationField = 'duration'
+
+var details = '''<!DOCTYPE html>
+<html>
+<head>
+<title>===== RabbitMQ Consumer Alert =====</title>
+</head>
+<body>
+<h1 style="color:red;"> RabbitMQ Consumer Alert </h1>
+<p> Rabbitmq consumers have changed. </p>
+<h2>Tags</h2>
+<p> MQ url: {{ index .Tags "url" }} </p>
+<h2>Fields</h2>
+<p> post: {{ index .Fields "past.value" }} </p>
+<p> current: {{ index .Fields "current.value" }} </p>
+<p> changed: {{ index .Fields "value" }} </p>
+</body>
+</html>'''
+
+var shift = 1m
+
+var period = 1m
+var every = 1m
+
+var crit = 0
+
+var data = batch
+    |query('select consumers from "urlprotection"."urlprotection"."rabbitmq_overview"')
+        .period(period)
+        .every(every)
+        .groupBy('host', 'url')
+        .align()
+        .alignGroup()
+    |eval(lambda: "consumers")
+        .as('value')
+
+var past = data
+    |shift(shift)
+
+var current = data
+
+var trigger = past
+    |join(current)
+        .as('past', 'current')
+    |eval(lambda: float("current.value" - "past.value"))
+        .keep()
+        .as('value')
+    |alert()
+        .crit(lambda: "value" != crit)
+        .message(message)
+        .details(details)
+        .id(idVar)
+        .idTag(idTag)
+        .levelTag(levelTag)
+        .messageField(messageField)
+        .durationField(durationField)
+        .noRecoveries()

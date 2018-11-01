@@ -5,7 +5,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.1.3"
+      "version": "5.3.1"
     },
     {
       "type": "panel",
@@ -31,7 +31,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1533790843278,
+  "iteration": 1541063745984,
   "links": [],
   "panels": [
     {
@@ -41,6 +41,7 @@
       "dashes": false,
       "datasource": "$datasource",
       "decimals": null,
+      "description": ">sql errors:  监视 SQL Errors, _Total\n\nErrors/sec\n\n>database:    监视大容量复制操作、备份和还原吞吐量以及事务日志活动. _Total.\n\nWrite Transactions/sec\n\nTransactions/sec\n\nLog Flush Wait Time\n\nLog Flushes/sec\n\nLog Pool Requests/sec\n\nLog Pool Disk Reads/sec\n\nLog Pool Cache Misses/sec\n\n>locks: 提供了有关各种资源类型的 SQL Server 锁的信息, _Total.\n\nLock Timeouts/sec\n\nLock Waits/sec (=0)\n\nNumber of Deadlocks/sec (<1)\n\n>latches: 监视称为闩锁的内部 SQL Server 资源锁.\n\nLatch Waits/sec (<10)",
       "fill": 1,
       "gridPos": {
         "h": 7,
@@ -87,6 +88,12 @@
             },
             {
               "params": [
+                "sql_instance"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
                 "none"
               ],
               "type": "fill"
@@ -95,6 +102,8 @@
           "measurement": "sqlserver_performance",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT non_negative_derivative(mean(\"value\"), 1s) FROM \"sqlserver_performance\" WHERE (\"sql_instance\" =~ /^$instance$/ AND \"instance\" = 'Total' AND \"counter\" = 'Errors/sec') AND $timeFilter GROUP BY time($__interval), \"sql_instance\" fill(none)",
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -715,6 +724,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "$datasource",
+      "description": ">general statistics: 监视服务器范围内的常规活动.\n\nProcesses blocked(=0)\n\nLogins/sec\n\nLogouts/sec\n\nLogical/User Connections\n\n>sql statistics: 监视编译和发送到 SQL Server实例的请求类型.\n\nBatch Requests/sec\n\nSQL Compilations/sec (<10% up)\n\nSQL Re-Compilations/sec (<10% up)",
       "fill": 1,
       "gridPos": {
         "h": 7,
@@ -1179,6 +1189,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "$datasource",
+      "description": ">buffer manager: 监视对磁盘上的数据库页的物理访问.\n\nPage life expectancy\n\nLazy writes/sec (<20)\n\nCheckpoint pages/sec\n\nReadahead pages/sec\n\nPage lookups/sec\n\nPage reads/sec\n\nPage writes/sec\n\n>access methods: 监视如何访问数据库中的逻辑数据的计数器.\n\nFull Scans/sec \n\nIndex Searches/sec\n\nPage Splits/sec",
       "fill": 1,
       "gridPos": {
         "h": 8,
@@ -1929,6 +1940,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "$datasource",
+      "description": ">memory clerks: 实例中当前处于活动状态的全部内存分配器的集合。",
       "fill": 1,
       "gridPos": {
         "h": 8,
@@ -2057,6 +2069,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "$datasource",
+      "description": ">wait task count: 该等待类型的总等待时间（毫秒）",
       "fill": 1,
       "gridPos": {
         "h": 7,
@@ -2185,6 +2198,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "$datasource",
+      "description": ">wait time ms: 该等待类型的等待数",
       "fill": 1,
       "gridPos": {
         "h": 7,
@@ -2629,7 +2643,7 @@
   "schemaVersion": 16,
   "style": "dark",
   "tags": [
-    "db"
+    "mssql"
   ],
   "templating": {
     "list": [
@@ -2645,6 +2659,7 @@
         "query": "influxdb",
         "refresh": 1,
         "regex": "",
+        "skipUrlSync": false,
         "type": "datasource"
       },
       {
@@ -2660,6 +2675,7 @@
         "query": "show tag values from sqlserver_performance with key = sql_instance",
         "refresh": 1,
         "regex": "",
+        "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
         "tags": [],
@@ -2699,7 +2715,7 @@
     ]
   },
   "timezone": "utc",
-  "title": "DBStat",
+  "title": "Mssql",
   "uid": "do-wujdik",
-  "version": 13
+  "version": 18
 }

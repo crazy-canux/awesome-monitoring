@@ -1,0 +1,66 @@
+dbrp "sandboxav"."sandboxav"
+
+var name = 'diskioAlert'
+
+var idVar = name
+
+var message = '{{ index .Tags "host" }} : {{.ID}} - {{.Level}} - {{.Time}}'
+
+var idTag = 'alertID'
+
+var levelTag = 'level'
+
+var messageField = 'message'
+
+var durationField = 'duration'
+
+var triggerType = 'threshold'
+
+var details = '''<!DOCTYPE html>
+<html>
+<head>
+<title>===== DiskIOAlert =====</title>
+</head>
+<body>
+<h1 style="color:red;"> {{.TaskName}} </h1>
+<p> DiskIO usage changed. </p>
+<h2>Tags</h2>
+<p> host: {{ index .Tags "host" }} </p>
+<p> name: {{ index .Tags "name" }} </p>
+<h2>Fields</h2>
+<p> diskio utilization: {{ index .Fields "utilization" }}% </p>
+<p> diskio queue: {{ index .Fields "queue" }} </p>
+</body>
+</html>'''
+
+var period = 2m
+var every = 1m
+
+var warn = 85
+var crit = 95
+
+var data = batch
+    |query('''
+        select non_negative_derivative(mean(io_time), 1ms)*100 as utilization
+        from "sandboxav"."sandboxav"."diskio"
+        where "name" =~ /^(v|s)d(a|b|c|d)$/ and time > now() - 10m
+        group by time(1m)
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy('host', 'name', time(1m))
+        .align()
+        .alignGroup()
+
+var trigger = data
+    |alert()
+        .warn(lambda: "utilization" > warn)
+        .crit(lambda: "utilization" > crit)
+        .message(message)
+        .details(details)
+        .id(idVar)
+        .idTag(idTag)
+        .levelTag(levelTag)
+        .messageField(messageField)
+        .durationField(durationField)
+        .stateChangesOnly()

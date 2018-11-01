@@ -1,0 +1,59 @@
+dbrp "urlprotection"."urlprotection"
+
+var name = 'actRedisAlert'
+
+var idVar = name
+
+var message = '{{ index .Tags "server" }} - {{.Level}} - {{.Time}}'
+
+var idTag = 'alertID'
+
+var levelTag = 'level'
+
+var messageField = 'message'
+
+var durationField = 'duration'
+
+var details = '''<!DOCTYPE html>
+<html>
+<head>
+<title>===== Redis Activity Alert =====</title>
+</head>
+<body>
+<h1 style="color:red;"> Redis Activity Alert </h1>
+<p> Redis have no request.</p>
+<h2>Tags</h2>
+<p> Server: {{ index .Tags "server" }} </p>
+<h2>Fields</h2>
+<p> QPS: {{ index .Fields "qps" }} </p>
+</body>
+</html>'''
+
+var period = 1m
+var every = 1m
+
+var crit = 2
+
+var data = batch
+    |query('''
+        select mean(instantaneous_ops_per_sec) as qps
+        from "urlprotection"."urlprotection"."redis"
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy('server')
+        .align()
+        .alignGroup()
+
+var trigger = data
+    |alert()
+        .crit(lambda: "qps" < crit)
+        .message(message)
+        .details(details)
+        .id(idVar)
+        .idTag(idTag)
+        .levelTag(levelTag)
+        .messageField(messageField)
+        .durationField(durationField)
+        .stateChangesOnly()
+        .noRecoveries()

@@ -1,0 +1,59 @@
+dbrp "urlprotection"."urlprotection"
+
+var name = 'nodeMQAlert'
+
+var idVar = name
+
+var message = '{{ index .Tags "node" }} - {{.Level}} - {{.Time}}'
+
+var idTag = 'alertID'
+
+var levelTag = 'level'
+
+var messageField = 'message'
+
+var durationField = 'duration'
+
+var details = '''<!DOCTYPE html>
+<html>
+<head>
+<title>===== RabbitMQ Node Alert =====</title>
+</head>
+<body>
+<h1 style="color:red;"> RabbitMQ Node Alert </h1>
+<p> Rabbitmq node down.</p>
+<h2>Tags</h2>
+<p> MQ url: {{ index .Tags "url" }} </p>
+<p> Node: {{ index .Tags "node" }} </p>
+<h2>Fields</h2>
+<p> running: {{ index .Fields "total" }} </p>
+</body>
+</html>'''
+
+var period = 1m
+var every = 1m
+
+var crit = 1
+
+var data = batch
+    |query('''
+        select mean(running) as total
+        from "urlprotection"."urlprotection"."rabbitmq_node"
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy('host', 'url', 'node')
+        .align()
+        .alignGroup()
+
+var trigger = data
+    |alert()
+        .crit(lambda: "total" != crit)
+        .message(message)
+        .details(details)
+        .id(idVar)
+        .idTag(idTag)
+        .levelTag(levelTag)
+        .messageField(messageField)
+        .durationField(durationField)
+        .stateChangesOnly()

@@ -1,0 +1,60 @@
+dbrp "urlprotection"."urlprotection"
+
+var name = 'connRedisAlert'
+
+var idVar = name
+
+var message = '{{ index .Tags "server" }} - {{.Level}} - {{.Time}}'
+
+var idTag = 'alertID'
+
+var levelTag = 'level'
+
+var messageField = 'message'
+
+var durationField = 'duration'
+
+var details = '''<!DOCTYPE html>
+<html>
+<head>
+<title>===== Redis Connection Alert =====</title>
+</head>
+<body>
+<h1 style="color:red;"> Redis Connection Alert </h1>
+<p> Redis have blockedClient or rejectedConnections.</p>
+<h2>Tags</h2>
+<p> Server: {{ index .Tags "server" }} </p>
+<h2>Fields</h2>
+<p> Blocked: {{ index .Fields "block" }} </p>
+<p> Rejected: {{ index .Fields "reject" }} </p>
+</body>
+</html>'''
+
+var period = 1m
+var every = 1m
+
+var crit = 0
+
+var data = batch
+    |query('''
+        select mean(blocked_clients) as block, mean(rejected_connections) as reject
+        from "urlprotection"."urlprotection"."redis"
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy('server')
+        .align()
+        .alignGroup()
+
+var trigger = data
+    |alert()
+        .crit(lambda: "block" > crit OR "reject" > crit)
+        .message(message)
+        .details(details)
+        .id(idVar)
+        .idTag(idTag)
+        .levelTag(levelTag)
+        .messageField(messageField)
+        .durationField(durationField)
+        .stateChangesOnly()
+        .noRecoveries()

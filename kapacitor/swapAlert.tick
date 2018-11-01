@@ -1,0 +1,72 @@
+dbrp "sandboxav"."sandboxav"
+
+var name = 'swapAlert'
+
+var idVar = name
+
+var message = '{{ index .Tags "host" }} : {{.ID}} - {{.Level}} - {{.Time}}'
+
+var idTag = 'alertID'
+
+var levelTag = 'level'
+
+var messageField = 'message'
+
+var durationField = 'duration'
+
+var triggerType = 'threshold'
+
+var details = '''<!DOCTYPE html>
+<html>
+<head>
+<title>===== SwapAlert =====</title>
+</head>
+<body>
+<h1 style="color:red;"> {{.TaskName}} </h1>
+<p> Swap usage changed. </p>
+<h2>Tags</h2>
+<p> host: {{ index .Tags "host" }} </p>
+<h2>Fields</h2>
+<p> swap usage: {{ index .Fields "total" }}% </p>
+</body>
+</html>'''
+
+var period = 1m
+var every = 1m
+
+var info = 75
+var warn = 85
+var crit = 95
+
+var infoSig = 2.5
+var warnSig = 3
+var critSig = 3.5
+
+var data = batch
+    |query('''
+        select mean(used_percent) as total
+        from "sandboxav"."sandboxav"."swap"
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy('host')
+        .align()
+        .alignGroup()
+
+var alert = data
+    |eval(lambda: sigma("total"))
+        .as('sigma')
+        .keep()
+
+var trigger = alert
+    |alert()
+        .warn(lambda: "total" > warn)
+        .crit(lambda: "total" > crit)
+        .message(message)
+        .details(details)
+        .id(idVar)
+        .idTag(idTag)
+        .levelTag(levelTag)
+        .messageField(messageField)
+        .durationField(durationField)
+        .stateChangesOnly()

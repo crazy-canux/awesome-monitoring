@@ -1,0 +1,69 @@
+dbrp "sandboxav"."sandboxav"
+
+var name = 'systemAlert'
+
+var idVar = name
+
+var message = '{{ index .Tags "host" }} : {{.ID}} - {{.Level}} - {{.Time}}'
+
+var idTag = 'alertID'
+
+var levelTag = 'level'
+
+var messageField = 'message'
+
+var durationField = 'duration'
+
+var triggerType = 'threshold'
+
+var details = '''<!DOCTYPE html>
+<html>
+<head>
+<title>===== SystemAlert =====</title>
+</head>
+<body>
+<h1 style="color:red;"> {{.TaskName}} </h1>
+<p> CPULoad status changed. </p>
+<h2>Tags</h2>
+<p> host: {{ index .Tags "host" }} </p>
+<h2>Fields</h2>
+<p> load1: {{ index .Fields "load1" }}% </p>
+<p> load5: {{ index .Fields "load5" }}% </p>
+<p> load15: {{ index .Fields "load15" }}% </p>
+</body>
+</html>'''
+
+var period = 1m
+var every = 1m
+
+var warn1 = 85
+var warn5 = 75
+var warn15 = 65
+
+var crit1 = 95
+var crit5 = 85
+var crit15 = 75
+
+var data = batch
+    |query('''
+        select mean(load1) as load1, mean(load5) as load5, mean(load15) as load15
+        from "sandboxav"."sandboxav"."system"
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy('host')
+        .align()
+        .alignGroup()
+
+var trigger = data
+    |alert()
+        .warn(lambda: "load1" > warn1 OR "load5" > warn5 OR "load15" > warn15)
+        .crit(lambda: "load1" > crit1 OR "load5" > crit5 OR "load15" > crit15)
+        .message(message)
+        .details(details)
+        .id(idVar)
+        .idTag(idTag)
+        .levelTag(levelTag)
+        .messageField(messageField)
+        .durationField(durationField)
+        .stateChangesOnly()

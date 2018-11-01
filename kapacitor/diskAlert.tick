@@ -1,0 +1,65 @@
+dbrp "sandboxav"."sandboxav"
+
+var name = 'diskAlert'
+
+var idVar = name
+
+var message = '{{ index .Tags "host" }} : {{.ID}} - {{.Level}} - {{.Time}}'
+
+var idTag = 'alertID'
+
+var levelTag = 'level'
+
+var messageField = 'message'
+
+var durationField = 'duration'
+
+var triggerType = 'threshold'
+
+var details = '''<!DOCTYPE html>
+<html>
+<head>
+<title>===== DiskAlert =====</title>
+</head>
+<body>
+<h1 style="color:red;"> {{.TaskName}} </h1>
+<p> Disk usage changed. </p>
+<h2>Tags</h2>
+<p> host: {{ index .Tags "host" }} </p>
+<p> path: {{ index .Tags "path" }} </p>
+<h2>Fields</h2>
+<p> disk usage: {{ index .Fields "total" }}% </p>
+</body>
+</html>'''
+
+var period = 1m
+var every = 1m
+
+var info = 75
+var warn = 85
+var crit = 95
+
+var data = batch
+    |query('''
+        select mean(used_percent) as total
+        from "sandboxav"."sandboxav"."disk"
+        where path = '/'
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy('host', 'path')
+        .align()
+        .alignGroup()
+
+var trigger = data
+    |alert()
+        .warn(lambda: "total" > warn)
+        .crit(lambda: "total" > crit)
+        .message(message)
+        .details(details)
+        .id(idVar)
+        .idTag(idTag)
+        .levelTag(levelTag)
+        .messageField(messageField)
+        .durationField(durationField)
+        .stateChangesOnly()
