@@ -46,7 +46,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1541065593615,
+  "iteration": 1541221802324,
   "links": [],
   "panels": [
     {
@@ -244,7 +244,7 @@
     ]
   },
   "time": {
-    "from": "now-7d",
+    "from": "now-12h",
     "to": "now"
   },
   "timepicker": {
@@ -273,7 +273,7 @@
     ]
   },
   "timezone": "utc",
-  "title": "Python Logs",
+  "title": "Python Log",
   "uid": "bL76SMamz",
-  "version": 12
+  "version": 17
 }
