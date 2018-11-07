@@ -2,9 +2,151 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a007b171-d45f-4bef-8640-4da0793366ef" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/grafana/Windows-1541133846648.json" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/grafana/System-1541063678228.json" afterPath="$PROJECT_DIR$/grafana/Linux-1541133832862.json" />
+      <change beforePath="$PROJECT_DIR$/addons/nscp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/plugins/monitoring-plugins" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/plugins/nagios-plugins" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/plugins/nagios-plugins-AppliedTrust" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/plugins/nagios-plugins-Inuits" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/plugins/nagios-plugins-MonitoringPlug" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/plugins/nagios-plugins-Voxer" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/plugins/nagios-plugins-appfirst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/plugins/nagios-plugins-innogames" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/plugins/nagios-plugins-kumina" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/plugins/nagios-plugins-opinkerfi" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/README.md" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/README.md" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/check_files/check_MostRecentFile.vbs" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/check_files/check_MostRecentFile.vbs" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/check_files/check_files.vbs" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/check_files/check_files.vbs" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/check_files/check_filesize_r.vbs" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/check_files/check_filesize_r.vbs" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/check_files/check_new_files.vbs" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/check_files/check_new_files.vbs" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/nscp-official/check_60s.bat" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/nscp-official/check_60s.bat" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/nscp-official/check_battery.vbs" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/nscp-official/check_battery.vbs" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/nscp-official/check_files.vbs" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/nscp-official/check_files.vbs" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/nscp-official/check_long.bat" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/nscp-official/check_long.bat" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/nscp-official/check_no_rdp.bat" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/nscp-official/check_no_rdp.bat" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/nscp-official/check_ok.bat" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/nscp-official/check_ok.bat" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/nscp-official/check_ping.bat" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/nscp-official/check_ping.bat" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/nscp-official/check_printer.vbs" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/nscp-official/check_printer.vbs" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/nscp-official/check_test.bat" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/nscp-official/check_test.bat" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/nscp-official/check_test.ps1" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/nscp-official/check_test.ps1" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/nscp-official/check_test.vbs" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/nscp-official/check_test.vbs" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/nscp-official/check_updates.vbs" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/nscp-official/check_updates.vbs" />
+      <change beforePath="$PROJECT_DIR$/plugins/nscp-plugins-windows/nscp-official/powershell.ps1" afterPath="$PROJECT_DIR$/nagios/plugins/nscp-plugins-windows/nscp-official/powershell.ps1" />
+      <change beforePath="$PROJECT_DIR$/plugins/plugins-HariSekhon" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/plugins/plugins-willixix" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/ABOUT-NLS" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/ABOUT-NLS" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/AUTHORS" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/AUTHORS" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/COPYING" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/COPYING" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/ChangeLog" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/ChangeLog" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/INSTALL" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/INSTALL" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/Makefile.am" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/Makefile.am" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/Makefile.in" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/Makefile.in" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/NEWS" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/NEWS" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/README" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/README" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/aclocal.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/aclocal.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/autom4te.cache/output.0" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/autom4te.cache/output.0" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/autom4te.cache/output.1" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/autom4te.cache/output.1" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/autom4te.cache/requests" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/autom4te.cache/requests" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/autom4te.cache/traces.0" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/autom4te.cache/traces.0" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/autom4te.cache/traces.1" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/autom4te.cache/traces.1" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/config.guess" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/config.guess" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/config.h.in" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/config.h.in" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/config.rpath" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/config.rpath" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/config.sub" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/config.sub" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/configure" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/configure" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/configure.in" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/configure.in" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/depcomp" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/depcomp" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/install-sh" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/install-sh" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/ChangeLog" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/ChangeLog" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/codeset.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/codeset.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/gettext.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/gettext.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/glibc2.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/glibc2.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/glibc21.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/glibc21.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/iconv.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/iconv.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/intdiv0.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/intdiv0.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/intmax.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/intmax.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/inttypes-pri.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/inttypes-pri.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/inttypes.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/inttypes.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/inttypes_h.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/inttypes_h.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/isc-posix.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/isc-posix.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/lcmessage.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/lcmessage.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/lib-ld.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/lib-ld.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/lib-link.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/lib-link.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/lib-prefix.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/lib-prefix.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/longdouble.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/longdouble.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/longlong.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/longlong.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/nls.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/nls.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/po.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/po.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/printf-posix.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/printf-posix.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/progtest.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/progtest.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/signed.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/signed.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/size_max.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/size_max.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/stdint_h.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/stdint_h.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/uintmax_t.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/uintmax_t.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/ulonglong.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/ulonglong.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/wchar_t.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/wchar_t.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/wint_t.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/wint_t.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/m4/xsize.m4" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/m4/xsize.m4" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/missing" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/missing" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/mkinstalldirs" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/mkinstalldirs" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/po/ChangeLog" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/po/ChangeLog" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/po/LINGUAS" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/po/LINGUAS" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/po/Makefile.in.in" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/po/Makefile.in.in" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/po/Makevars" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/po/Makevars" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/po/Makevars.template" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/po/Makevars.template" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/po/POTFILES.in" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/po/POTFILES.in" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/po/Rules-quot" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/po/Rules-quot" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/po/boldquot.sed" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/po/boldquot.sed" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/po/en@boldquot.header" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/po/en@boldquot.header" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/po/en@quot.header" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/po/en@quot.header" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/po/fr.gmo" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/po/fr.gmo" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/po/fr.po" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/po/fr.po" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/po/insert-header.sin" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/po/insert-header.sin" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/po/nagios-plugins-snmp.pot" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/po/nagios-plugins-snmp.pot" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/po/quot.sed" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/po/quot.sed" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/po/remove-potcdate.sin" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/po/remove-potcdate.sin" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/po/stamp-po" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/po/stamp-po" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/src/Makefile.am" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/src/Makefile.am" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/src/Makefile.in" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/src/Makefile.in" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/src/autom4te.cache/output.0" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/src/autom4te.cache/output.0" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/src/autom4te.cache/requests" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/src/autom4te.cache/requests" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/src/autom4te.cache/traces.0" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/src/autom4te.cache/traces.0" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/src/check_snmp_int.c" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/src/check_snmp_int.c" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/src/check_snmp_process.c" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/src/check_snmp_process.c" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/src/check_snmp_storage.c" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/src/check_snmp_storage.c" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/src/nagios_common_snmp.c" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/src/nagios_common_snmp.c" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-c/src/nagios_common_snmp.h" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-c/src/nagios_common_snmp.h" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/Changelog" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/Changelog" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/LICENSE" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/LICENSE" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/README" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/README" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/check_snmp_boostedge.pl" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/check_snmp_boostedge.pl" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/check_snmp_cpfw.pl" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/check_snmp_cpfw.pl" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/check_snmp_css.pl" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/check_snmp_css.pl" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/check_snmp_css_main.pl" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/check_snmp_css_main.pl" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/check_snmp_env.pl" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/check_snmp_env.pl" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/check_snmp_int.pl" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/check_snmp_int.pl" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/check_snmp_linkproof_nhr.pl" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/check_snmp_linkproof_nhr.pl" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/check_snmp_load.pl" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/check_snmp_load.pl" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/check_snmp_mem.pl" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/check_snmp_mem.pl" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/check_snmp_nsbox.pl" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/check_snmp_nsbox.pl" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/check_snmp_process.pl" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/check_snmp_process.pl" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/check_snmp_storage.pl" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/check_snmp_storage.pl" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/check_snmp_vrrp.pl" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/check_snmp_vrrp.pl" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/check_snmp_win.pl" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/check_snmp_win.pl" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/doc/faq.html" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/doc/faq.html" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/doc/index.html" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/doc/index.html" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/doc/index_commands.html" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/doc/index_commands.html" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/doc/snmp_cpfw.html" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/doc/snmp_cpfw.html" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/doc/snmp_css.html" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/doc/snmp_css.html" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/doc/snmp_env.html" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/doc/snmp_env.html" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/doc/snmp_int.html" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/doc/snmp_int.html" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/doc/snmp_load.html" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/doc/snmp_load.html" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/doc/snmp_mem.html" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/doc/snmp_mem.html" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/doc/snmp_process.html" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/doc/snmp_process.html" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/doc/snmp_storage.html" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/doc/snmp_storage.html" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/doc/snmp_vrrp.html" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/doc/snmp_vrrp.html" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/doc/snmp_windows.html" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/doc/snmp_windows.html" />
+      <change beforePath="$PROJECT_DIR$/plugins/snmp-plugins-perl/install.sh" afterPath="$PROJECT_DIR$/nagios/plugins/snmp-plugins-perl/install.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -69,8 +211,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="0">
-                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <first_editor relative-caret-position="216">
+                <caret line="75" column="48" lean-forward="false" selection-start-line="75" selection-start-column="41" selection-end-line="75" selection-end-column="49" />
                 <folding />
               </first_editor>
               <second_editor>
@@ -99,7 +241,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="503" />
     <option name="y" value="205" />
     <option name="width" value="1296" />
@@ -148,8 +290,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -157,20 +297,12 @@
               <item name="awesome-monitoring" type="b2602c69:ProjectViewProjectNode" />
               <item name="awesome-monitoring" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="awesome-monitoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="awesome-monitoring" type="462c0819:PsiDirectoryNode" />
-              <item name="grafana" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="awesome-monitoring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="awesome-monitoring" type="462c0819:PsiDirectoryNode" />
-              <item name="kapacitor" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -195,6 +327,7 @@
       <recent name="C:\Users\WCheng\Desktop\Src\awesome-monitoring\grafana" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/nagios" />
       <recent name="$PROJECT_DIR$/grafana" />
     </key>
   </component>
@@ -227,16 +360,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="503" y="205" width="1296" height="668" extended-state="0" />
+    <frame x="65" y="-4" width="1855" height="1204" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.264729" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18395196" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6750973" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33238095" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -257,6 +391,112 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/kapacitor/memAlert.tick">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kapacitor/nodeMQAlert.tick">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kapacitor/actRedisAlert.tick">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kapacitor/connRedisAlert.tick">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kapacitor/consumerMQAlert.tick">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor>
+            <js_state />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kapacitor/memAlert.tick">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kapacitor/nodeMQAlert.tick">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kapacitor/actRedisAlert.tick">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kapacitor/connRedisAlert.tick">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kapacitor/consumerMQAlert.tick">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor>
+            <js_state />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/kapacitor/memAlert.tick">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -361,8 +601,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <first_editor relative-caret-position="216">
+            <caret line="75" column="48" lean-forward="false" selection-start-line="75" selection-start-column="41" selection-end-line="75" selection-end-column="49" />
             <folding />
           </first_editor>
           <second_editor>
