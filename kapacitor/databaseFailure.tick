@@ -1,0 +1,88 @@
+dbrp "sandboxav"."sandboxav"
+
+var name = 'databaseFailure'
+
+var idVar = name
+
+var message = '{{ index .Tags "host" }} - {{.Level}} - {{.Time}}'
+
+var idTag = 'alertID'
+
+var levelTag = 'level'
+
+var messageField = 'message'
+
+var durationField = 'duration'
+
+var triggerType = 'threshold'
+
+var details = '''<!DOCTYPE html>
+<html>
+<head>
+<title>===== Database Failure Alert =====</title>
+</head>
+<body>
+<h1 style="color:red;"> Database Failure Alert </h1>
+<p> jobs/samples failure in database in last 20m. </p>
+<h2>Tags</h2>
+<p> host: {{ index .Tags "host" }} </p>
+<h2>Fields</h2>
+<p> job failure: {{ index .Fields "job.value" }} </p>
+<p> sample failure: {{ index .Fields "sample.value" }} </p>
+</body>
+</html>'''
+
+var period = 10m
+var every = 10m
+
+var jwarn = 0
+var jcrit = 20
+
+var swarn = 0
+var scrit = 10
+
+var samples = batch
+    |query('''
+        select sum(failure) as total
+        from "sandboxav"."sandboxav"."colos"
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy('host')
+        .align()
+        .alignGroup()
+        .fill(0)
+    |eval(lambda: "total")
+        .as('value')
+
+var jobs = batch
+    |query('''
+        select sum(failure) as total
+        from "sandboxav"."sandboxav"."jobs_type"
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy('host')
+        .align()
+        .alignGroup()
+        .fill(0)
+    |eval(lambda: "total")
+        .as('value')
+
+var data = jobs
+    |join(samples)
+        .as('job', 'sample')
+
+var trigger = data
+    |alert()
+        .warn(lambda: "job.value" > jwarn OR "sample.value" > swarn)
+        .crit(lambda: "job.value" > jcrit OR "sample.value" > scrit)
+        .message(message)
+        .details(details)
+        .id(idVar)
+        .idTag(idTag)
+        .levelTag(levelTag)
+        .messageField(messageField)
+        .durationField(durationField)
+        .noRecoveries()
+        .topic('database')

@@ -1,6 +1,6 @@
-dbrp "urlprotection"."urlprotection"
+dbrp "sandboxav"."sandboxav"
 
-var name = 'connRedisAlert'
+var name = 'redisActivity'
 
 var idVar = name
 
@@ -17,28 +17,28 @@ var durationField = 'duration'
 var details = '''<!DOCTYPE html>
 <html>
 <head>
-<title>===== Redis Connection Alert =====</title>
+<title>===== Redis Activity Alert =====</title>
 </head>
 <body>
-<h1 style="color:red;"> Redis Connection Alert </h1>
-<p> Redis have blockedClient or rejectedConnections.</p>
+<h1 style="color:red;"> Redis Activity Alert </h1>
+<p> Redis have too much request.</p>
 <h2>Tags</h2>
 <p> Server: {{ index .Tags "server" }} </p>
 <h2>Fields</h2>
-<p> Blocked: {{ index .Fields "block" }} </p>
-<p> Rejected: {{ index .Fields "reject" }} </p>
+<p> QPS: {{ index .Fields "qps" }} </p>
 </body>
 </html>'''
 
 var period = 1m
 var every = 1m
 
-var crit = 0
+var warn = 5000
+var crit = 6000
 
 var data = batch
     |query('''
-        select mean(blocked_clients) as block, mean(rejected_connections) as reject
-        from "urlprotection"."urlprotection"."redis"
+        select mean(instantaneous_ops_per_sec) as qps
+        from "sandboxav"."sandboxav"."redis"
     ''')
         .period(period)
         .every(every)
@@ -48,7 +48,8 @@ var data = batch
 
 var trigger = data
     |alert()
-        .crit(lambda: "block" > crit OR "reject" > crit)
+        .warn(lambda: "qps" >= warn)
+        .crit(lambda: "qps" >= crit)
         .message(message)
         .details(details)
         .id(idVar)
@@ -58,3 +59,4 @@ var trigger = data
         .durationField(durationField)
         .stateChangesOnly()
         .noRecoveries()
+        .topic('redis')

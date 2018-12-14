@@ -1,0 +1,149 @@
+dbrp "sandboxav"."sandboxav"
+
+var name = 'databaseActivity'
+
+var idVar = name
+
+var message = '{{ index .Tags "host" }} - {{.Level}} - {{.Time}}'
+
+var idTag = 'alertID'
+
+var levelTag = 'level'
+
+var messageField = 'message'
+
+var durationField = 'duration'
+
+var triggerType = 'threshold'
+
+var details = '''<!DOCTYPE html>
+<html>
+<head>
+<title>===== Database Activity Alert =====</title>
+</head>
+<body>
+<h1 style="color:red;"> Database Activity Alert </h1>
+<p> No Task/Sample/Job create/modify/finish in database in last 10m. </p>
+<h2>Tags</h2>
+<p> host: {{ index .Tags "host" }} </p>
+<h2>Fields</h2>
+<p> sample_create: {{ index .Fields "sample0.value" }} </p>
+<p> sample_modify: {{ index .Fields "sample1.value" }} </p>
+<p> job_create: {{ index .Fields "job0.value" }} </p>
+<p> job_finish: {{ index .Fields "job1.value" }} </p>
+<p> task_create: {{ index .Fields "task0.value" }} </p>
+<p> task_finish: {{ index .Fields "task1.value" }} </p>
+</body>
+</html>'''
+
+var period = 10m
+var every = 10m
+
+var crit = 0
+
+var sample_create = batch
+    |query('''
+        select sum(number) as total
+        from "sandboxav"."sandboxav"."sample_times"
+        where time_type = 'create_date'
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy(time(10m), 'host')
+        .align()
+        .alignGroup()
+        .fill(0)
+    |eval(lambda: "total")
+        .as('value')
+
+var sample_modify = batch
+    |query('''
+        select sum(number) as total 
+        from "sandboxav"."sandboxav"."sample_times" 
+        where time_type = 'modify_date' 
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy(time(10m), 'host')
+        .align()
+        .alignGroup()
+        .fill(0)
+    |eval(lambda: "total")
+        .as('value')
+
+var job_create = batch
+    |query('''
+        select sum(number) as total 
+        from "sandboxav"."sandboxav"."job_times" 
+        where time_type = 'create_time' 
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy(time(10m), 'host')
+        .align()
+        .alignGroup()
+        .fill(0)
+    |eval(lambda: "total")
+        .as('value')
+
+var job_finish = batch
+    |query('''
+        select sum(number) as total 
+        from "sandboxav"."sandboxav"."job_times" 
+        where time_type = 'finish_time' 
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy(time(10m), 'host')
+        .align()
+        .alignGroup()
+        .fill(0)
+    |eval(lambda: "total")
+        .as('value')
+
+var task_begin = batch
+    |query('''
+        select sum(number) as total 
+        from "sandboxav"."sandboxav"."task_times" 
+        where time_type = 'session_begin' 
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy(time(10m), 'host')
+        .align()
+        .alignGroup()
+        .fill(0)
+    |eval(lambda: "total")
+        .as('value')
+
+var task_end = batch
+    |query('''
+        select sum(number) as total 
+        from "sandboxav"."sandboxav"."task_times" 
+        where time_type = 'session_end' 
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy(time(10m), 'host')
+        .align()
+        .alignGroup()
+        .fill(0)
+    |eval(lambda: "total")
+        .as('value')
+
+var data = sample_create
+    |join(sample_modify, job_create, job_finish, task_begin, task_end)
+        .as('sample0', 'sample1', 'job0', 'job1', 'task0', 'task1')
+
+var trigger = data
+    |alert()
+        .crit(lambda: "sample0.value" <= crit OR "sample1.value" <= crit OR "job0.value" <= crit OR "job1.value" <= crit OR "task0.value" <= crit OR "task1.value" <= crit)
+        .message(message)
+        .details(details)
+        .id(idVar)
+        .idTag(idTag)
+        .levelTag(levelTag)
+        .messageField(messageField)
+        .durationField(durationField)
+        .noRecoveries()
+        .topic('database')

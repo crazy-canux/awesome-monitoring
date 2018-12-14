@@ -1,10 +1,10 @@
 dbrp "sandboxav"."sandboxav"
 
-var name = 'diskioAlert'
+var name = 'disk'
 
 var idVar = name
 
-var message = '{{ index .Tags "host" }} : {{.ID}} - {{.Level}} - {{.Time}}'
+var message = '{{ index .Tags "host" }} - {{.Level}} - {{.Time}}'
 
 var idTag = 'alertID'
 
@@ -19,21 +19,20 @@ var triggerType = 'threshold'
 var details = '''<!DOCTYPE html>
 <html>
 <head>
-<title>===== DiskIOAlert =====</title>
+<title>===== Disk Alert =====</title>
 </head>
 <body>
-<h1 style="color:red;"> {{.TaskName}} </h1>
-<p> DiskIO usage changed. </p>
+<h1 style="color:red;"> Disk Usage Alert </h1>
+<p> Disk usage alert. </p>
 <h2>Tags</h2>
 <p> host: {{ index .Tags "host" }} </p>
-<p> name: {{ index .Tags "name" }} </p>
+<p> path: {{ index .Tags "path" }} </p>
 <h2>Fields</h2>
-<p> diskio utilization: {{ index .Fields "utilization" }}% </p>
-<p> diskio queue: {{ index .Fields "queue" }} </p>
+<p> disk usage: {{ index .Fields "total" }}% </p>
 </body>
 </html>'''
 
-var period = 2m
+var period = 1m
 var every = 1m
 
 var warn = 85
@@ -41,21 +40,20 @@ var crit = 95
 
 var data = batch
     |query('''
-        select non_negative_derivative(mean(io_time), 1ms)*100 as utilization
-        from "sandboxav"."sandboxav"."diskio"
-        where "name" =~ /^(v|s)d(a|b|c|d)$/ and time > now() - 10m
-        group by time(1m)
+        select mean(used_percent) as total
+        from "sandboxav"."sandboxav"."disk"
+        where path = '/'
     ''')
         .period(period)
         .every(every)
-        .groupBy('host', 'name', time(1m))
+        .groupBy('host', 'path')
         .align()
         .alignGroup()
 
 var trigger = data
     |alert()
-        .warn(lambda: "utilization" > warn)
-        .crit(lambda: "utilization" > crit)
+        .warn(lambda: "total" > warn)
+        .crit(lambda: "total" > crit)
         .message(message)
         .details(details)
         .id(idVar)
@@ -64,3 +62,4 @@ var trigger = data
         .messageField(messageField)
         .durationField(durationField)
         .stateChangesOnly()
+        .topic('system')

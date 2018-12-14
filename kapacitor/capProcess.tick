@@ -1,10 +1,10 @@
 dbrp "sandboxav"."sandboxav"
 
-var name = 'memAlert'
+var name = 'capProcess'
 
 var idVar = name
 
-var message = '{{ index .Tags "host" }} : {{.ID}} - {{.Level}} - {{.Time}}'
+var message = '{{ index .Tags "host" }} - {{.Level}} - {{.Time}}'
 
 var idTag = 'alertID'
 
@@ -19,49 +19,39 @@ var triggerType = 'threshold'
 var details = '''<!DOCTYPE html>
 <html>
 <head>
-<title>===== MemAlert =====</title>
+<title>===== CaptureATP Process Alert =====</title>
 </head>
 <body>
-<h1 style="color:red;"> {{.TaskName}} </h1>
-<p> Memory usage changed. </p>
+<h1 style="color:red;"> CaptureATP Process Status Alert </h1>
+<p> sandboxav daemon down. </p>
 <h2>Tags</h2>
 <p> host: {{ index .Tags "host" }} </p>
+<p> process: {{ index .Tags "keyword" }} </p>
 <h2>Fields</h2>
-<p> memory usage: {{ index .Fields "total" }}% </p>
+<p> process number: {{ index .Fields "number" }} </p>
 </body>
 </html>'''
 
 var period = 1m
 var every = 1m
 
-var info = 75
-var warn = 85
-var crit = 95
-
-var infoSig = 2.5
-var warnSig = 3
-var critSig = 3.5
+var crit = 1
 
 var data = batch
     |query('''
-        select mean(used_percent) as total
-        from "sandboxav"."sandboxav"."mem"
+        select number
+        from "sandboxav"."sandboxav"."maf_process"
+        where keyword = 'sandboxmain.py'
     ''')
         .period(period)
         .every(every)
-        .groupBy('host')
+        .groupBy('host', 'keyword')
         .align()
         .alignGroup()
 
-var alert = data
-    |eval(lambda: sigma("total"))
-        .as('sigma')
-        .keep()
-
-var trigger = alert
+var trigger = data
     |alert()
-        .warn(lambda: "total" > warn)
-        .crit(lambda: "total" > crit)
+        .crit(lambda: "number" < crit)
         .message(message)
         .details(details)
         .id(idVar)
@@ -70,3 +60,4 @@ var trigger = alert
         .messageField(messageField)
         .durationField(durationField)
         .stateChangesOnly()
+        .topic('sandboxav')

@@ -1,10 +1,10 @@
 dbrp "sandboxav"."sandboxav"
 
-var name = 'networkAlert'
+var name = 'network'
 
 var idVar = name
 
-var message = '{{ index .Tags "host" }} : {{.ID}} - {{.Level}} - {{.Time}}'
+var message = '{{ index .Tags "host" }} - {{.Level}} - {{.Time}}'
 
 var idTag = 'alertID'
 
@@ -19,11 +19,11 @@ var triggerType = 'threshold'
 var details = '''<!DOCTYPE html>
 <html>
 <head>
-<title>===== NetworkAlert =====</title>
+<title>===== Network Alert =====</title>
 </head>
 <body>
-<h1 style="color:red;"> {{.TaskName}} </h1>
-<p> Network usage changed. </p>
+<h1 style="color:red;"> Network Usage Alert </h1>
+<p> Network error/drop Alert.</p>
 <h2>Tags</h2>
 <p> host: {{ index .Tags "host" }} </p>
 <p> interface: {{ index .Tags "interface" }} </p>
@@ -94,3 +94,4 @@ var trigger = data
         .messageField(messageField)
         .durationField(durationField)
         .stateChangesOnly()
+        .topic('system')

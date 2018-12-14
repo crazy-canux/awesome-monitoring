@@ -31,7 +31,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1541221757075,
+  "iteration": 1542171391035,
   "links": [],
   "panels": [
     {
@@ -1351,5 +1351,5 @@
   "timezone": "utc",
   "title": "Rabbitmq",
   "uid": "BGy0U7iiz",
-  "version": 21
+  "version": 22
 }

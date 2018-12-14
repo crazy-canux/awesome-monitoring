@@ -1,31 +1,16 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_DEVOPS",
-      "label": "DevOps",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "influxdb",
-      "pluginName": "InfluxDB"
-    }
-  ],
+  "__inputs": [],
   "__requires": [
     {
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.3.1"
+      "version": "5.1.0"
     },
     {
       "type": "panel",
       "id": "graph",
       "name": "Graph",
-      "version": "5.0.0"
-    },
-    {
-      "type": "datasource",
-      "id": "influxdb",
-      "name": "InfluxDB",
       "version": "5.0.0"
     }
   ],
@@ -46,7 +31,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1541063877343,
+  "iteration": 1542275895702,
   "links": [],
   "panels": [
     {
@@ -58,7 +43,7 @@
       "description": "Connected_clients  已连接的客户端数量\n\nBlocked_clients 正在等待阻塞命令的客户端数量\n\nRejected_connections:  拒绝连接的个数\n\nconnected_slaves: 连接的slave实例个数",
       "fill": 1,
       "gridPos": {
-        "h": 9,
+        "h": 12,
         "w": 12,
         "x": 0,
         "y": 0
@@ -187,7 +172,13 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "server",
+              "operator": "=~",
+              "value": "/^$server$/"
+            }
+          ]
         }
       ],
       "thresholds": [],
@@ -239,7 +230,7 @@
       "description": "Keys :  db0的key的数量\n\nExpires: db0的过期的key\n\nAvg_ttl: db0平均存活时间",
       "fill": 1,
       "gridPos": {
-        "h": 9,
+        "h": 12,
         "w": 12,
         "x": 12,
         "y": 0
@@ -414,10 +405,10 @@
       "description": "Used_memory: 由redis内存分配器分配的内存总量\n\nUsed_memory_rss: 消耗的物理内存（和top看到一样）\n\nTotal_net_input_bytes:    redis网络入口流量\n\nTotal_net_output_bytes:  redis网络出口流量\n\nInstantaneous_input_kbps:   每秒读字节数\n\nInstantaneous_output_kbps:  每秒写字节数",
       "fill": 1,
       "gridPos": {
-        "h": 9,
+        "h": 11,
         "w": 12,
         "x": 0,
-        "y": 9
+        "y": 12
       },
       "id": 8,
       "legend": {
@@ -637,10 +628,10 @@
       "description": "Total_commands_processed:   redis处理的命令数\n\nInstantaneous_ops_per_sec    redis内部每秒执行命令数（QPS）\n\nExpired_keys:  总共过期的key的数量\n\nEvicted_keys: 总共剔除的key的数量\n\nKeyspace_hits: 命中个数\n\nKeyspace_misses: 没命中个数",
       "fill": 1,
       "gridPos": {
-        "h": 9,
+        "h": 11,
         "w": 12,
         "x": 12,
-        "y": 9
+        "y": 12
       },
       "id": 6,
       "legend": {
@@ -854,13 +845,16 @@
   ],
   "schemaVersion": 16,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "redis"
+  ],
   "templating": {
     "list": [
       {
         "current": {
-          "text": "DevOps",
-          "value": "DevOps"
+          "tags": [],
+          "text": "MAF",
+          "value": "MAF"
         },
         "hide": 0,
         "label": null,
@@ -875,7 +869,7 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "${DS_DEVOPS}",
+        "datasource": "$datasource",
         "hide": 0,
         "includeAll": true,
         "label": null,
@@ -896,7 +890,7 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {
@@ -924,8 +918,8 @@
       "30d"
     ]
   },
-  "timezone": "browser",
+  "timezone": "utc",
   "title": "Redis",
   "uid": "xxz8wpomk",
-  "version": 20
+  "version": 8
 }

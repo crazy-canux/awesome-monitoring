@@ -1,0 +1,85 @@
+dbrp "sandboxav"."sandboxav"
+
+var name = 'databaseLoad'
+
+var idVar = name
+
+var message = '{{ index .Tags "host" }} - {{.Level}} - {{.Time}}'
+
+var idTag = 'alertID'
+
+var levelTag = 'level'
+
+var messageField = 'message'
+
+var durationField = 'duration'
+
+var triggerType = 'threshold'
+
+var details = '''<!DOCTYPE html>
+<html>
+<head>
+<title>===== Database Load Alert =====</title>
+</head>
+<body>
+<h1 style="color:red;"> Database Load Alert </h1>
+<p> Too much jobs/samples pending in database in last 10m. </p>
+<h2>Tags</h2>
+<p> host: {{ index .Tags "host" }} </p>
+<h2>Fields</h2>
+<p> pending jobs: {{ index .Fields "job.value" }} </p>
+<p> pending samples: {{ index .Fields "sample.value" }} </p>
+</body>
+</html>'''
+
+var period = 10m
+var every = 10m
+
+var crit = 200
+
+var jobs = batch
+    |query('''
+        select sum(number) as total
+        from "sandboxav"."sandboxav"."job_status"
+        where status = 'pending' 
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy(time(10m), 'host')
+        .align()
+        .alignGroup()
+        .fill(0)
+    |eval(lambda: "total")
+        .as('value')
+
+var samples = batch
+    |query('''
+        select sum(number) as total
+        from "sandboxav"."sandboxav"."sample_status"
+        where status = 'pending'
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy(time(10m), 'host')
+        .align()
+        .alignGroup()
+        .fill(0)
+    |eval(lambda: "total")
+        .as('value')
+
+var data = jobs
+    |join(samples)
+        .as('job', 'sample')
+
+var trigger = data
+    |alert()
+        .crit(lambda: "job.value" > crit OR "sample.value" > crit)
+        .message(message)
+        .details(details)
+        .id(idVar)
+        .idTag(idTag)
+        .levelTag(levelTag)
+        .messageField(messageField)
+        .durationField(durationField)
+        .noRecoveries()
+        .topic('database')

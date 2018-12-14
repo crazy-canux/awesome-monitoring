@@ -1,10 +1,10 @@
-dbrp "urlprotection"."urlprotection"
+dbrp "sandboxav"."sandboxav"
 
-var name = 'actRedisAlert'
+var name = 'rabbitmqNode'
 
 var idVar = name
 
-var message = '{{ index .Tags "server" }} - {{.Level}} - {{.Time}}'
+var message = '{{ index .Tags "node" }} - {{.Level}} - {{.Time}}'
 
 var idTag = 'alertID'
 
@@ -17,37 +17,38 @@ var durationField = 'duration'
 var details = '''<!DOCTYPE html>
 <html>
 <head>
-<title>===== Redis Activity Alert =====</title>
+<title>===== RabbitMQ Node Alert =====</title>
 </head>
 <body>
-<h1 style="color:red;"> Redis Activity Alert </h1>
-<p> Redis have no request.</p>
+<h1 style="color:red;"> RabbitMQ Node Alert </h1>
+<p> Rabbitmq node down.</p>
 <h2>Tags</h2>
-<p> Server: {{ index .Tags "server" }} </p>
+<p> MQ url: {{ index .Tags "url" }} </p>
+<p> Node: {{ index .Tags "node" }} </p>
 <h2>Fields</h2>
-<p> QPS: {{ index .Fields "qps" }} </p>
+<p> running: {{ index .Fields "total" }} </p>
 </body>
 </html>'''
 
 var period = 1m
 var every = 1m
 
-var crit = 2
+var crit = 1
 
 var data = batch
     |query('''
-        select mean(instantaneous_ops_per_sec) as qps
-        from "urlprotection"."urlprotection"."redis"
+        select mean(running) as total
+        from "sandboxav"."sandboxav"."rabbitmq_node"
     ''')
         .period(period)
         .every(every)
-        .groupBy('server')
+        .groupBy('url', 'node')
         .align()
         .alignGroup()
 
 var trigger = data
     |alert()
-        .crit(lambda: "qps" < crit)
+        .crit(lambda: "total" != crit)
         .message(message)
         .details(details)
         .id(idVar)
@@ -56,4 +57,4 @@ var trigger = data
         .messageField(messageField)
         .durationField(durationField)
         .stateChangesOnly()
-        .noRecoveries()
+        .topic('rabbitmq')

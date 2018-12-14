@@ -1,10 +1,10 @@
 dbrp "sandboxav"."sandboxav"
 
-var name = 'diskAlert'
+var name = 'redisConnection'
 
 var idVar = name
 
-var message = '{{ index .Tags "host" }} : {{.ID}} - {{.Level}} - {{.Time}}'
+var message = '{{ index .Tags "server" }} - {{.Level}} - {{.Time}}'
 
 var idTag = 'alertID'
 
@@ -14,47 +14,41 @@ var messageField = 'message'
 
 var durationField = 'duration'
 
-var triggerType = 'threshold'
-
 var details = '''<!DOCTYPE html>
 <html>
 <head>
-<title>===== DiskAlert =====</title>
+<title>===== Redis Connection Alert =====</title>
 </head>
 <body>
-<h1 style="color:red;"> {{.TaskName}} </h1>
-<p> Disk usage changed. </p>
+<h1 style="color:red;"> Redis Connection Alert </h1>
+<p> Redis have blockedClient/rejectedConnections.</p>
 <h2>Tags</h2>
-<p> host: {{ index .Tags "host" }} </p>
-<p> path: {{ index .Tags "path" }} </p>
+<p> Server: {{ index .Tags "server" }} </p>
 <h2>Fields</h2>
-<p> disk usage: {{ index .Fields "total" }}% </p>
+<p> Blocked: {{ index .Fields "block" }} </p>
+<p> Rejected: {{ index .Fields "reject" }} </p>
 </body>
 </html>'''
 
 var period = 1m
 var every = 1m
 
-var info = 75
-var warn = 85
-var crit = 95
+var crit = 0
 
 var data = batch
     |query('''
-        select mean(used_percent) as total
-        from "sandboxav"."sandboxav"."disk"
-        where path = '/'
+        select mean(blocked_clients) as block, mean(rejected_connections) as reject
+        from "sandboxav"."sandboxav"."redis"
     ''')
         .period(period)
         .every(every)
-        .groupBy('host', 'path')
+        .groupBy('server')
         .align()
         .alignGroup()
 
 var trigger = data
     |alert()
-        .warn(lambda: "total" > warn)
-        .crit(lambda: "total" > crit)
+        .crit(lambda: "block" > crit OR "reject" > crit)
         .message(message)
         .details(details)
         .id(idVar)
@@ -63,3 +57,6 @@ var trigger = data
         .messageField(messageField)
         .durationField(durationField)
         .stateChangesOnly()
+        .noRecoveries()
+        .topic('redis')
+

@@ -1,6 +1,6 @@
-dbrp "urlprotection"."urlprotection"
+dbrp "sandboxav"."sandboxav"
 
-var name = 'consumerMQAlert'
+var name = 'rabbitmqConsumer'
 
 var idVar = name
 
@@ -25,24 +25,25 @@ var details = '''<!DOCTYPE html>
 <h2>Tags</h2>
 <p> MQ url: {{ index .Tags "url" }} </p>
 <h2>Fields</h2>
-<p> post: {{ index .Fields "past.value" }} </p>
-<p> current: {{ index .Fields "current.value" }} </p>
-<p> changed: {{ index .Fields "value" }} </p>
+<p> current 3m avg: {{ index .Fields "current.value" }} </p>
+<p> last 3m avg: {{ index .Fields "past.value" }} </p>
 </body>
 </html>'''
 
-var shift = 1m
-
-var period = 1m
-var every = 1m
+var shift = 3m
+var period = 3m
+var every = 3m
 
 var crit = 0
 
 var data = batch
-    |query('select consumers from "urlprotection"."urlprotection"."rabbitmq_overview"')
+    |query('''
+        select mean(consumers) as consumers
+        from "sandboxav"."sandboxav"."rabbitmq_overview"
+    ''')
         .period(period)
         .every(every)
-        .groupBy('host', 'url')
+        .groupBy('url', time(3m))
         .align()
         .alignGroup()
     |eval(lambda: "consumers")
@@ -69,3 +70,4 @@ var trigger = past
         .messageField(messageField)
         .durationField(durationField)
         .noRecoveries()
+        .topic('rabbitmq')

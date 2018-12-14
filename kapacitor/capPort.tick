@@ -1,0 +1,77 @@
+dbrp "sandboxav"."sandboxav"
+
+var name = 'capPort'
+
+var idVar = name
+
+var message = '{{ index .Tags "host" }} - {{.Level}} - {{.Time}}'
+
+var idTag = 'alertID'
+
+var levelTag = 'level'
+
+var messageField = 'message'
+
+var durationField = 'duration'
+
+var triggerType = 'threshold'
+
+var details = '''<!DOCTYPE html>
+<html>
+<head>
+<title>===== CaptureATP Port Alert =====</title>
+</head>
+<body>
+<h1 style="color:red;"> CaptureATP Port Status Alert </h1>
+<p> sandboxav port(80/12351) down. </p>
+<h2>Tags</h2>
+<p> host: {{ index .Tags "host" }} </p>
+<h2>Fields</h2>
+<p> 80: {{ index .Fields "http.p80" }}
+<p> 12351: {{ index .Fields "net.p12351" }}
+</body>
+</html>'''
+
+var period = 1m
+var every = 1m
+
+var crit = 0
+
+var http = batch
+    |query('''
+        select result_code as p80
+        from "sandboxav"."sandboxav"."http_response"
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy('host')
+        .align()
+        .alignGroup()
+
+var net = batch
+    |query('''
+        select result_code as p12351
+        from "sandboxav"."sandboxav"."net_response"
+    ''')
+        .period(period)
+        .every(every)
+        .groupBy('host')
+        .align()
+        .alignGroup()
+
+var data = http
+    |join(net)
+        .as('http', 'net')
+
+var trigger = data
+    |alert()
+        .crit(lambda: "http.p80" == crit OR "net.p12351" == crit)
+        .message(message)
+        .details(details)
+        .id(idVar)
+        .idTag(idTag)
+        .levelTag(levelTag)
+        .messageField(messageField)
+        .durationField(durationField)
+        .stateChangesOnly()
+        .topic('sandboxav')

@@ -1,10 +1,10 @@
 dbrp "sandboxav"."sandboxav"
 
-var name = 'cpuAlert'
+var name = 'system'
 
 var idVar = name
 
-var message = '{{ index .Tags "host" }} : {{.ID}} - {{.Level}} - {{.Time}}'
+var message = '{{ index .Tags "host" }} - {{.Level}} - {{.Time}}'
 
 var idTag = 'alertID'
 
@@ -19,34 +19,35 @@ var triggerType = 'threshold'
 var details = '''<!DOCTYPE html>
 <html>
 <head>
-<title>===== CpuAlert =====</title>
+<title>===== System Alert =====</title>
 </head>
 <body>
-<h1 style="color:red;"> {{.TaskName}} </h1>
-<p> CPU usage changed. </p>
+<h1 style="color:red;"> System Load Alert </h1>
+<p> CPU Load Alert. </p>
 <h2>Tags</h2>
 <p> host: {{ index .Tags "host" }} </p>
 <h2>Fields</h2>
-<p> cpu usage: {{ index .Fields "total" }}% </p>
+<p> load1: {{ index .Fields "load1" }}% </p>
+<p> load5: {{ index .Fields "load5" }}% </p>
+<p> load15: {{ index .Fields "load15" }}% </p>
 </body>
 </html>'''
 
 var period = 1m
 var every = 1m
 
-var info = 75
-var warn = 85
-var crit = 95
+var warn1 = 85
+var warn5 = 75
+var warn15 = 65
 
-var infoSig = 2.5
-var warnSig = 3
-var critSig = 3.5
+var crit1 = 95
+var crit5 = 85
+var crit15 = 75
 
 var data = batch
     |query('''
-        select 100 - mean(usage_idle) as total
-        from "sandboxav"."sandboxav"."cpu"
-        where cpu = 'cpu-total'
+        select mean(load1) as load1, mean(load5) as load5, mean(load15) as load15
+        from "sandboxav"."sandboxav"."system"
     ''')
         .period(period)
         .every(every)
@@ -54,15 +55,10 @@ var data = batch
         .align()
         .alignGroup()
 
-var alert = data
-    |eval(lambda: sigma("total"))
-        .as('sigma')
-        .keep()
-
-var trigger = alert
+var trigger = data
     |alert()
-        .warn(lambda: "total" > warn)
-        .crit(lambda: "total" > crit)
+        .warn(lambda: "load1" > warn1 OR "load5" > warn5 OR "load15" > warn15)
+        .crit(lambda: "load1" > crit1 OR "load5" > crit5 OR "load15" > crit15)
         .message(message)
         .details(details)
         .id(idVar)
@@ -71,3 +67,4 @@ var trigger = alert
         .messageField(messageField)
         .durationField(durationField)
         .stateChangesOnly()
+        .topic('system')
