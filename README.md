@@ -51,6 +51,7 @@
     * [pingdom](#pingdom)
 * [API](#api)
     * [super-devops](#super-devops)
+    * [go-devops](#go-devops)
 * [Contributing](#contributing)
 * [License](#license)
 
