@@ -536,6 +536,11 @@ Monitoring the Website.
 * [super-devops](http://super-devops.readthedocs.io/en/latest/) - Tons of devops tools for devops related project.
 * [super-devops github](https://github.com/crazy-canux/super-devops)
 
+### go-devops
+
+* [go-devops](https://godoc.org/github.com/crazy-canux/go-devops) - Tons of devops tools for devops related project.
+* [go-devops github](https://github.com/crazy-canux/go-devops) 
+
 ***
 
 ## Contributing
