@@ -5,7 +5,7 @@ Ensure your pull request adheres to the following guidelines:
 - Search previous suggestions before making a new one, as yours may be a duplicate.
 - Make an individual pull request for each tool/plugin/addon.
 - Use the following format: `[name](link) - Description.`
-- Make sure one tool/plugin/addon shoud have the ofcial website and source code
+- Make sure one tool/plugin/addon shoud have the official website and source code
   website.
 - Additions should be added to the bottom of the relevant category.
 - New categories, or improvements to the existing categorization are welcome.
