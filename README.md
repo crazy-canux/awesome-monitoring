@@ -519,6 +519,13 @@ Monitoring the Application Performance.
 
 * [pinpoint github](https://github.com/naver/pinpoint) - Open source APM tool for large-scale distributed systems written in java.
 
+### AppSignal
+
+* [AppSignal](https://appsignal.com) - Catch errors, track performance, monitor hosts, detect anomalies — all in one tool.
+* [AppSignal for Ruby gem](https://github.com/appsignal/appsignal-ruby) - Related source code.
+* [AppSignal for Elixir package](https://github.com/appsignal/appsignal-elixir) - Related source code.
+
+
 ***
 
 ## Website monitoring
