@@ -47,6 +47,7 @@
     * [Instrumental](#instrumental)
     * [Zipkin](#zipkin)
     * [Pinpoint](#pinpoint)
+    * [Sentry](#sentry)
 * [Website Monitoring](#website-monitoring)
     * [pingdom](#pingdom)
 * [API](#api)
@@ -525,6 +526,11 @@ Monitoring the Application Performance.
 * [AppSignal for Ruby gem](https://github.com/appsignal/appsignal-ruby) - Related source code.
 * [AppSignal for Elixir package](https://github.com/appsignal/appsignal-elixir) - Related source code.
 
+### Sentry
+
+* [Sentry](https://sentry.io/welcome/) - Sentry provides open-source and hosted error monitoring that helps all software
+teams discover, triage, and prioritize errors in real-time.
+* [Sentry github](https://github.com/getsentry/sentry) - Sentry is cross-platform application monitoring, with a focus on error reporting.
 
 ***
 
