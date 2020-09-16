@@ -34,15 +34,9 @@
     * [Zabbix Monitoring Addons](#zabbix-monitoring-addons)
 * [Application Performance Monitoring](#application-performance-monitoring)
     * [NewRelic](#newrelic)
-    * [AppDynamics](#appdynamics)
     * [Javamelody](#javamelody)
     * [kamon](#kamon)
-    * [SPM](#spm)
-    * [OverOps](#overops)
-    * [Instrumental](#instrumental)
-    * [Zipkin](#zipkin)
     * [Pinpoint](#pinpoint)
-    * [AppSignal](#appsignal)
     * [InspectIT](#inspectit)
 * [Metrics and Logging](#modern-monitoring)
     * [collect](#collect)
@@ -50,6 +44,7 @@
     * [alerting](#alerting)
     * [dashboard](#dashboard)
 * [Tracing](#tracing-system)
+    * [Zipkin](#zipkin)
     * [Sentry](#sentry)
     * [Jaeger](#jaeger)
 * [API](#api)
@@ -435,11 +430,6 @@ Monitoring the Application Performance.
 * [new relic](https://newrelic.com/) - Performance management system.
 * [new relic github](https://github.com/newrelic) - New relic written in Ruby.
 
-### AppDynamics
-
-* [appdynamics](https://www.appdynamics.com/) - Business and application performance monitoring.
-* [appdynamics github](https://github.com/Appdynamics) - Related source code.
-
 ### Javamelody
 
 * [javamelody](https://github.com/javamelody/javamelody/wiki) - Monitoring of JavaEE applications.
@@ -450,43 +440,18 @@ Monitoring the Application Performance.
 * [kamon](http://www.kamon.io/) - Monitoring applications running on the JVM.
 * [kamon github](https://github.com/kamon-io/Kamon) - The source code.
 
-### SPM
-
-* [SPM](https://sematext.com/spm/) - solutions for performance monitoring.
-* [SPM github](https://github.com/sematext) - Related source code.
-
-### OverOps
-
-* [OverOps](https://www.overops.com/) - Know when and why code breaks in production.
-* [OverOps github](https://github.com/overops) - Related source code.
-
-### Instrumental
-
-* [Instrumental](https://instrumentalapp.com) - Real-time application and server monitoring
-* [Instrumental GitHub](https://github.com/Instrumental) - Server monitoring deamon and application monitoring agents
-
 ### InspectIT
 
 * [inspectIT Ocelot](https://inspectit.rocks/) - Java agent for collecting performance, tracing and business data.
 * [inspectIT Ocelot github](https://github.com/inspectIT/inspectit-ocelot) - inspectIT Ocelot source code.
 
-### Zipkin
-
-* [zipkin github](https://github.com/openzipkin/zipkin) - A distributed tracing system.
-
 ### Pinpoint
 
 * [pinpoint github](https://github.com/naver/pinpoint) - Open source APM tool for large-scale distributed systems written in java.
 
-### AppSignal
-
-* [AppSignal](https://appsignal.com) - Catch errors, track performance, monitor hosts, detect anomalies — all in one tool.
-* [AppSignal for Ruby gem](https://github.com/appsignal/appsignal-ruby) - Related source code.
-* [AppSignal for Elixir package](https://github.com/appsignal/appsignal-elixir) - Related source code.
-
 ***
 
-## Metrics and Logging
+## Modern Monitoring
 
 Modern Monitoring tools for devops, container(kubernetes) and serverless.
 
@@ -548,9 +513,13 @@ Logging
 
 ## Tracing System
 
+### Zipkin
+
+* [zipkin github](https://github.com/openzipkin/zipkin) - A distributed tracing system.
+
 ### Jaeger
 
-* [Jaeger] (https://www.jaegertracing.io/) 
+* [Jaeger](https://www.jaegertracing.io/) 
 * [Jaeger github](https://github.com/jaegertracing) - Distributed Tracing System
 
 ### Sentry
