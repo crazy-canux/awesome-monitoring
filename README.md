@@ -47,6 +47,7 @@
     * [Zipkin](#zipkin)
     * [Sentry](#sentry)
     * [Jaeger](#jaeger)
+    * [OpenTelementry](#opentelementry)
 * [API](#api)
     * [super-devops](#super-devops)
     * [go-devops](#go-devops)
@@ -527,6 +528,13 @@ Logging
 * [Sentry](https://sentry.io/welcome/) - Sentry provides open-source and hosted error monitoring that helps all software
 teams discover, triage, and prioritize errors in real-time.
 * [Sentry github](https://github.com/getsentry/sentry) - Sentry is cross-platform application monitoring, with a focus on error reporting.
+
+### OpenTelementry
+
+OpenCensus and OpenTracing have merged to form OpenTelemetry.
+
+* [opentelementry](https://opentelemetry.io/) - An observability framework for cloud-native software.
+* [opentelementry github](https://github.com/open-telemetry)
 
 ***
 
