@@ -453,6 +453,7 @@ Metrics
 * [influxdata github](https://github.com/influxdata/influxdb) - TICK stack.
 * [prometheus](https://prometheus.io/) - The Prometheus monitoring system and time series database.
 * [prometheus github](https://github.com/prometheus/prometheus) - Prometheus stack.
+* [VictoriaMetrics](https://github.com/VictoriaMetrics/VictoriaMetrics/) - VictoriaMetrics stack.
 * [OpenTSDB](http://opentsdb.net/) - OpenTSDB, written in java.
 * [OpenTSDB github](https://github.com/OpenTSDB/opentsdb) - OpenTSDB source code.
 * [kairosDB](http://kairosdb.github.io/) - KairosDB.
