@@ -46,7 +46,6 @@
     * [NewRelic](#newrelic)
     * [Javamelody](#javamelody)
     * [kamon](#kamon)
-    * [InspectIT](#inspectit)
 * [API](#api)
     * [super-devops](#super-devops)
     * [go-devops](#go-devops)
@@ -526,11 +525,6 @@ OpenCensus and OpenTracing have merged to form OpenTelemetry.
 
 * [kamon](http://www.kamon.io/) - Monitoring applications running on the JVM.
 * [kamon github](https://github.com/kamon-io/Kamon) - The source code.
-
-### InspectIT
-
-* [inspectIT Ocelot](https://inspectit.rocks/) - Java agent for collecting performance, tracing and business data.
-* [inspectIT Ocelot github](https://github.com/inspectIT/inspectit-ocelot) - inspectIT Ocelot source code.
 
 ***
 
