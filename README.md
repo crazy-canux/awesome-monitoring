@@ -523,9 +523,9 @@ teams discover, triage, and prioritize errors in real-time.
 
 ***
 
-## Observablity
+## Observability
 
-All-In-One observablity.
+All-In-One observability.
 
 ### OpenTelementry
 
