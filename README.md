@@ -45,7 +45,6 @@
     * [NewRelic](#newrelic)
     * [Javamelody](#javamelody)
     * [kamon](#kamon)
-* [Observability](#observability)
     * [OpenTelementry](#opentelementry)
     * [Skywalking](#skywalking)
 * [API](#api)
@@ -521,13 +520,9 @@ teams discover, triage, and prioritize errors in real-time.
 * [kamon](http://www.kamon.io/) - Monitoring applications running on the JVM.
 * [kamon github](https://github.com/kamon-io/Kamon) - The source code.
 
-***
-
-## Observability
-
-All-In-One observability.
-
 ### OpenTelementry
+
+all-in-one.
 
 OpenCensus and OpenTracing have merged to form OpenTelemetry.
 
@@ -535,6 +530,8 @@ OpenCensus and OpenTracing have merged to form OpenTelemetry.
 * [opentelementry github](https://github.com/open-telemetry)
 
 ### SkyWalking
+
+all-in-one
 
 * [skywalking](https://skywalking.apache.org/) - Application performance monitor tool for distributed systems, especially designed for microservices, cloud native and container-based (Kubernetes) architectures.
 * [skywalking github](https://github.com/apache/skywalking) 
