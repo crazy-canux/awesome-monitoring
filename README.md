@@ -304,6 +304,7 @@ Monitoring tools based on nagios.
 * [mod-livestaus github](https://github.com/shinken-monitoring/mod-livestatus) - For Shinken.
 * [MK Livestatus](http://mathias-kettner.com/checkmk_livestatus.html) - For nagios/check_mk.
 * [MK Livestatus git](http://git.mathias-kettner.de/git/?p=check_mk.git;a=tree;f=livestatus;hb=HEAD) - Livesttus source code.
+* [Statusengine github](https://github.com/statusengine) - Database backend for Nagios and Naemon
 
 #### Distributions
 
@@ -340,6 +341,7 @@ Monitoring tools based on nagios.
 * [nagvis github](https://github.com/NagVis/nagvis) - Nagvis source code.
 * [realopinsight](http://realopinsight.com/) - Realopinsight.
 * [realopinsight github](https://github.com/RealOpInsightLabs/realopinsight-workstation) - Realopinsight source code.
+* [openITCOCKPIT github](https://github.com/it-novum/openITCOCKPIT) - Open source monitoring configuration interface for Naemon/Nagios.
 
 #### Metric Storage
 
@@ -353,6 +355,8 @@ Monitoring tools based on nagios.
 * [graphios github](https://github.com/shawn-sterling/graphios) - A program to send nagios perf data to graphite(carbon)/statsd/librato/influxdb.
 * [ledbetter github](https://github.com/github/ledbetter) - Script that scrapes alert statistics from Nagios and reports them to Graphite.
 * [nagflux github](https://github.com/Griesbacher/nagflux) - A connector which copies performancedata from Nagios / Icinga(2) / Naemon to InfluxDB
+* [Statusengine](https://statusengine.org/getting_started/#performance-data) - Store performance data to Graphite, CrateDB, Elasticsearch or MySQL
+
 
 #### Metric Graphing
 
