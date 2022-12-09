@@ -514,7 +514,7 @@ OpenCensus and OpenTracing have merged to form OpenTelemetry.
 
 ### Jaeger
 
-* [Jaeger](https://www.jaegertracing.io/) 
+* [Jaeger](https://www.jaegertracing.io/)
 * [Jaeger github](https://github.com/jaegertracing) - Distributed Tracing System
 
 ### Sentry
@@ -532,7 +532,14 @@ teams discover, triage, and prioritize errors in real-time.
 all-in-one
 
 * [skywalking](https://skywalking.apache.org/) - Application performance monitor tool for distributed systems, especially designed for microservices, cloud native and container-based (Kubernetes) architectures.
-* [skywalking github](https://github.com/apache/skywalking) 
+* [skywalking github](https://github.com/apache/skywalking)
+
+### Uptrace
+
+all-in-one
+
+* [Uptrace](https://uptrace.dev/get/open-source-apm.html) - application performance monitoring tool that supports distributed tracing, metrics, and logs. You can use it to monitor applications and set up automatic alerts to receive notifications via email, Slack, Telegram, and more.
+* [Uptrace github](https://github.com/uptrace/uptrace)
 
 ***
 
@@ -546,7 +553,7 @@ all-in-one
 ### go-devops
 
 * [go-devops](https://godoc.org/github.com/crazy-canux/go-devops) - Tons of devops tools for devops related project.
-* [go-devops github](https://github.com/crazy-canux/go-devops) 
+* [go-devops github](https://github.com/crazy-canux/go-devops)
 
 ***
 
