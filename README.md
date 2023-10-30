@@ -156,9 +156,9 @@ Monitoring tools based on nagios.
 
 ### Sensu
 
-* [Sensu](https://sensuapp.org/) - Monitoring for today's infrastructure.
+* [Sensu](https://sensu.io/) - Monitoring for today's infrastructure.
 * [Sensu github](https://github.com/sensu/sensu) - Sensu core written in Ruby.
-* [Sensu-plugins](http://sensu-plugins.io/) - Sensu plugins.
+* [Sensu Assets](https://bonsai.sensu.io/) - Sensu plugins. 
 * [Sensu-plugins github](https://github.com/sensu-plugins) - Sensu plugins source code.
 
 ### Cabot
