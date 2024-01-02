@@ -47,6 +47,7 @@
 * [API](#api)
     * [super-devops](#super-devops)
     * [go-devops](#go-devops)
+* [Incident management](#incident-management)
 * [Contributing](#contributing)
 * [License](#license)
 
@@ -547,6 +548,14 @@ all-in-one
 
 * [go-devops](https://godoc.org/github.com/crazy-canux/go-devops) - Tons of devops tools for devops related project.
 * [go-devops github](https://github.com/crazy-canux/go-devops) 
+
+***
+
+## Incident management
+
+### Open Source Incident Managemenet
+
+* [harpia](https://github.com/harpia-io/harpia) - Centralized management of alerts from monitoring systems, with the ability to reduce noise, automate actions and enhance valuable information
 
 ***
 
