@@ -552,6 +552,11 @@ all-in-one
 * [Uptrace](https://uptrace.dev/get/open-source-apm.html) - application performance monitoring tool that supports distributed tracing, metrics, and logs. You can use it to monitor applications and set up automatic alerts to receive notifications via email, Slack, Telegram, and more.
 * [Uptrace github](https://github.com/uptrace/uptrace)
 
+### Dash0
+
+* [Dash0](https://www.dash0.com/) - Dash0 is modern OpenTelemetry Native Observability, built on CNCF Open Standards such as PromQL, Perses and OTLP with full cost control. Supports Metrics, Traces and Logs. With dashboarding and alerting capabilities.
+* [Dash0 github](https://github.com/dash0)
+
 ***
 
 ## API
