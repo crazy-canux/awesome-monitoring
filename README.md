@@ -554,7 +554,7 @@ all-in-one
 
 ### Dash0
 
-* [Dash0](https://www.dash0.com/) - OpenTelemetry Native Observability system
+* [Dash0](https://www.dash0.com/) - Dash0 is modern OpenTelemetry Native Observability, built on CNCF Open Standards such as PromQL, Perses and OTLP with full cost control. Supports Metrics, Traces and Logs. With dashboarding and alerting capabilities.
 * [Dash0 github](https://github.com/dash0)
 
 ***
