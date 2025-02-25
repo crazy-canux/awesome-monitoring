@@ -318,6 +318,8 @@ Monitoring tools based on nagios.
 
 * [MK OMD](http://omdistro.org/) - The Open Monitoring Distribution, for Nagios/Naemon/Icinga/Shinken/check_mk.
 * [MK OMD git](http://git.mathias-kettner.de/git/?p=omd.git;a=tree) - OMD source code.
+* [ConSol OMD](https://omd.consol.de/docs/omd/) - The Open Monitoring Distribution, for Naemon/Icinga/Prometheus/Grafana/InfluxDB/Victoriametrics.
+* [ConSol OMD git](https://github.com/consol-monitoring/omd) - OMD source code.
 * [NSCA github](https://github.com/NagiosEnterprises/nsca) - Nagios Service Check Acceptor, for nagios/naemon/icinga.
 * [NSCA-ng](http://www.nsca-ng.org/) - Next Generation of NSCA.
 * [NSCA-ng github](https://github.com/weiss/nsca-ng) - NSCA-ng source code.
