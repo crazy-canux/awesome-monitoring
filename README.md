@@ -304,6 +304,8 @@ Monitoring tools based on nagios.
 * [NSCP](http://nsclient.org/) - NSClient++.
 * [NSCP github](https://github.com/mickem/nscp) - NSCP source code.
 * [NCPA github](https://github.com/NagiosEnterprises/ncpa) - Nagios Cross Platform Agent.
+* [SNClient](https://omd.consol.de/docs/snclient/) - SNClient - Cross Platform Agent (Linux, Windows, OSX)
+* [SNClient github](https://github.com/ConSol-Monitoring/snclient) - SNClient source code
 
 #### Event broker
 
