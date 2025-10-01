@@ -557,6 +557,12 @@ all-in-one
 * [Uptrace github](https://github.com/uptrace/uptrace)
 
 ***
+### Last9
+
+all-in-one
+
+* [Last9](https://last9.io) - OTel-native observability platform for developers. Supports metrics, logs, traces, APM, and RUM with high-cardinality data at scale. Built for cost control and deep debugging.
+* [Last9 github](https://github.com/last9)
 
 ## API
 
