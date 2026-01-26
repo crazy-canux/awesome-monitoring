@@ -578,6 +578,7 @@ all-in-one
 
 * [harpia](https://github.com/harpia-io/harpia) - Centralized management of alerts from monitoring systems, with the ability to reduce noise, automate actions and enhance valuable information
 
+* [What Broke Today](https://whatbroke.today) - AI-powered outage aggregator tracking 100+ cloud services with real-time Telegram alerts
 ***
 
 ## Contributing
