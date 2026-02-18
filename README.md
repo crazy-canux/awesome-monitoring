@@ -107,10 +107,17 @@ Tranditional Data Center Monitoring tools.
 
 ### HertzBeat
 
-> HertzBeat is an open-source, real-time monitoring system with custom-monitor and agentless. Support web service, database, os, middleware and more.  
+> HertzBeat is an open-source, real-time monitoring system with custom-monitor and agentless. Support web service, database, os, middleware and more.
 
 * [HertzBeat](https://www.hertzbeat.com/) - The open-source, real-time monitoring system.
 * [HertzBeat github](https://github.com/dromara/hertzbeat) - HertzBeat github.
+
+### SSL Certificate Monitor
+
+> Open-source SSL/TLS certificate expiry monitoring tool with web UI and RESTful API.
+
+* [SSL Certificate Monitor](https://ssl-certificate-monitor.autocompany.workers.dev) - Open-source SSL certificate expiry monitoring tool.
+* [SSL Certificate Monitor github](https://github.com/brancogao/ssl-certificate-monitor) - SSL Certificate Monitor github.
 
 ***
 
