@@ -510,6 +510,10 @@ Tracing
 * [chronograf github](https://github.com/influxdata/chronograf) - TICK stack.
 * [kibana github](https://github.com/elastic/kibana) - Elastic stack.
 
+### Website Health
+
+* [PageGuard](https://pageguard.org) - Free all-in-one website health scanner covering SEO, performance, accessibility, and best practices with AI-powered action plans and REST API.
+
 ***
 
 ## Distributed Tracing
