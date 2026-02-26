@@ -512,7 +512,7 @@ Tracing
 
 ### Website Health
 
-* [PageGuard](https://pageguard.qiudeqiu.workers.dev) - Free all-in-one website health scanner covering SEO, performance, accessibility, and best practices with AI-powered action plans and REST API.
+* [PageGuard](https://pageguard.org) - Free all-in-one website health scanner covering SEO, performance, accessibility, and best practices with AI-powered action plans and REST API.
 
 ***
 
