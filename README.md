@@ -572,6 +572,14 @@ all-in-one
 
 ***
 
+## API Status Monitoring
+
+* [API Status Check](https://apistatuscheck.com/) - Real-time API status monitoring dashboard. Track 250+ popular APIs and services status pages in one place. Free, no login required.
+* [Upptime](https://upptime.js.org/) - Open-source uptime monitor and status page powered by GitHub.
+* [Cachet](https://github.com/CachetHQ/Cachet) - Open-source status page system.
+* [Statuspage.io](https://www.statuspage.io/) - Atlassian hosted status pages.
+
+***
 ## Incident management
 
 ### Open Source Incident Managemenet
