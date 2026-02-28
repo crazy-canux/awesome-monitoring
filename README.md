@@ -48,6 +48,7 @@
 * [API](#api)
     * [super-devops](#super-devops)
     * [go-devops](#go-devops)
+* [Status Page Aggregators](#status-page-aggregators)
 * [Incident management](#incident-management)
 * [Contributing](#contributing)
 * [License](#license)
@@ -569,6 +570,16 @@ all-in-one
 
 * [go-devops](https://godoc.org/github.com/crazy-canux/go-devops) - Tons of devops tools for devops related project.
 * [go-devops github](https://github.com/crazy-canux/go-devops)
+
+***
+
+## Status Page Aggregators
+
+Tools that aggregate and monitor the status pages of third-party services and APIs.
+
+* [API Status Check](https://apistatuscheck.com/) - Real-time status monitoring for 250+ popular APIs and services. Aggregates official status pages and sends outage alerts via email and Discord. Free.
+* [Statuspal](https://www.statuspal.io/) - Hosted status pages and monitoring. Provides beautiful status pages with incident management.
+* [Instatus](https://instatus.com/) - A quick and beautiful status page. Get a status page in 10 seconds with unlimited subscribers.
 
 ***
 
