@@ -445,6 +445,7 @@ Metrics
 
 * [telegraf github](https://github.com/influxdata/telegraf) - TICK stack, The plugin-driven server agent for collecting & reporting metrics.
 * [node-exporter github](https://github.com/prometheus/node_exporter) - Prometheus stack, Exporter for machine metrics.
+* [duplicacy-exporter github](https://github.com/GeiserX/duplicacy-exporter) - Prometheus exporter for Duplicacy backup metrics with real-time progress, speed tracking, and post-run summaries.
 * [collectd](http://collectd.org/) - The system statistics collection daemon.
 * [collectd github](https://github.com/collectd/collectd) - collectd written in C.
 * [tcollector github](https://github.com/OpenTSDB/tcollector) - Data collection framework for OpenTSDB
