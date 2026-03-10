@@ -460,6 +460,7 @@ Logs
 
 Traces
 
+* [Ingero](https://github.com/ingero-io/ingero) - eBPF-based GPU causal observability agent. Traces CUDA Runtime/Driver APIs and host kernel events to build causal chains explaining GPU latency in production.
 * [new relic github](https://github.com/newrelic) - New relic written in Ruby.
 * [javamelody github](https://github.com/javamelody/javamelody) - The source code.
 * [kamon github](https://github.com/kamon-io/Kamon) - The source code.
