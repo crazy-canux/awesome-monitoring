@@ -17,6 +17,7 @@
     * [Opserver](#opserver)
     * [Netdata](#netdata)
     * [HertzBeat](#hertzbeat)
+    * [VigilOps](#vigilops)
 * [Nagios Monitoring](#nagios-monitoring)
     * [Icinga](#icinga)
     * [Naemon](#naemon)
@@ -111,6 +112,14 @@ Tranditional Data Center Monitoring tools.
 
 * [HertzBeat](https://www.hertzbeat.com/) - The open-source, real-time monitoring system.
 * [HertzBeat github](https://github.com/dromara/hertzbeat) - HertzBeat github.
+
+### VigilOps
+
+> VigilOps is an open-source AI-powered infrastructure monitoring platform with auto-remediation. It features built-in runbooks, AI root cause analysis, and MCP protocol integration for AI agent connectivity.
+
+* [VigilOps](https://github.com/LinChuang2008/vigilops) - AI-powered monitoring with auto-remediation and MCP integration.
+* [VigilOps Demo](https://demo.lchuangnet.com) - Live demo instance.
+* [VigilOps github](https://github.com/LinChuang2008/vigilops) - VigilOps written in Python/React.
 
 ***
 
