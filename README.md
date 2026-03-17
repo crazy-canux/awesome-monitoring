@@ -463,6 +463,7 @@ Traces
 * [new relic github](https://github.com/newrelic) - New relic written in Ruby.
 * [javamelody github](https://github.com/javamelody/javamelody) - The source code.
 * [kamon github](https://github.com/kamon-io/Kamon) - The source code.
+* [agentwatch](https://github.com/nicofains1/agentwatch) - Multi-agent fleet observability with cascade failure detection and forensic replay.
 
 ### Backend
 
@@ -494,6 +495,7 @@ Tracing
 * [new relic github](https://github.com/newrelic) - New relic written in Ruby.
 * [javamelody github](https://github.com/javamelody/javamelody) - The source code.
 * [kamon github](https://github.com/kamon-io/Kamon) - The source code.
+* [agentwatch](https://github.com/nicofains1/agentwatch) - Multi-agent fleet observability with cascade failure detection and forensic replay.
 
 ### Alerting
 
