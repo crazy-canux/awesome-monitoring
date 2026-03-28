@@ -463,6 +463,7 @@ Traces
 * [new relic github](https://github.com/newrelic) - New relic written in Ruby.
 * [javamelody github](https://github.com/javamelody/javamelody) - The source code.
 * [kamon github](https://github.com/kamon-io/Kamon) - The source code.
+- [ReleaseRun](https://releaserun.com/) - Browser-based dependency health checkers for package.json, go.mod, Cargo.toml, requirements.txt, Gemfile, pom.xml, and more. Flags EOL packages and known CVEs.
 
 ### Backend
 
