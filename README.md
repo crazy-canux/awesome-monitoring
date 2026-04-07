@@ -570,6 +570,10 @@ all-in-one
 * [go-devops](https://godoc.org/github.com/crazy-canux/go-devops) - Tons of devops tools for devops related project.
 * [go-devops github](https://github.com/crazy-canux/go-devops)
 
+### AI Skills Marketplace
+
+* [RemoteOpenClaw](https://remoteopenclaw.com) - Open marketplace for AI skills and personas built on OpenClaw.
+
 ***
 
 ## Incident management
