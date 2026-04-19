@@ -392,10 +392,12 @@ Monitoring tools based on nagios.
 
 #### Business Process Intelligence
 
+* [Agent Shadow Brain](https://github.com/theihtisham/agent-shadow-brain) - Self-evolving AI coding intelligence with infinite memory (TurboQuant), genetic algorithm self-evolution, predictive bug detection, PageRank knowledge graphs, swarm intelligence, and adversarial defense.
 * [nagiosBPI github](https://github.com/NagiosEnterprises/nagiosbpi) - NagiosBPI.
 * [BP](http://bp-addon.monitoringexchange.org/) - BP.
 * [BP github](https://github.com/booboo-at-gluga-de/bp-addon) - BP source code.
 
+* [Omni Skills Forge](https://github.com/theihtisham/omni-skills-forge) - 50,000+ curated AI agent skills for Claude Code, Cursor, Copilot, Windsurf, Cline with visual dashboard, one-click install, and auto-update.
 #### SNMP
 
 * [NSTI github](https://github.com/NagiosEnterprises/nsti) - NSTI.
