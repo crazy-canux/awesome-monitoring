@@ -233,6 +233,7 @@ Monitoring tools based on nagios.
 
 #### Monitoring Cloud Computing
 
+* [KubeStellar Console](https://github.com/kubestellar/console) - AI-powered multi-cluster Kubernetes dashboard with real-time observability and CNCF project integrations across edge and cloud clusters.
 * [openstack nagios plugins](https://github.com/cirrax/openstack-nagios-plugins) - Monitoring openstack.
 
 #### Monitoring BigData
