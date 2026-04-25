@@ -509,6 +509,7 @@ Tracing
 * [grafana github](https://github.com/grafana/grafana) - Grafana stack.
 * [chronograf github](https://github.com/influxdata/chronograf) - TICK stack.
 * [kibana github](https://github.com/elastic/kibana) - Elastic stack.
+* [kubestellar-console github](https://github.com/kubestellar/console) - Multi-cluster Kubernetes dashboard with AI-powered operations and real-time observability across edge and cloud clusters.
 
 ***
 
