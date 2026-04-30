@@ -27,6 +27,7 @@
     * [Sensu](#sensu)
     * [Cabot](#cabot)
     * [Server Density](#server-density)
+* [APIWatch](https://github.com/155143783/apiwatch) - Open-source API health monitoring with x402 payment support.
     * [PagerDuty](#pagerduty)
     * [Nagios Monitoring Plugins](#nagios-monitoring-plugins)
     * [Nagios Monitoring Addons](#nagios-monitoring-addons)
