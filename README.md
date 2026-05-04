@@ -9,6 +9,9 @@
 
 ## Contents
 
+- [OpenClaw Monitor](https://github.com/flik2002/openclaw-monitor) - Real-time AI Agent Monitoring Dashboard for OpenClaw | [Demo](http://47.109.47.116/)
+
+
 * [DC Monitoring](#dc-monitoring)
     * [Nagios](#nagios)
     * [Zabbix](#zabbix)
