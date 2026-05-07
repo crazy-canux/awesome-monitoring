@@ -487,6 +487,7 @@ Logging
 * [loki github](https://github.com/grafana/loki) - Loki: like Prometheus, but for logs.
 * [elasticsearch](https://www.elastic.co/cn/products/elasticsearch) - Open Source, Distributed, RESTful Search Engine, written in java.
 * [elasticsearch github](https://github.com/elastic/elasticsearch) - Elastic stack.
+* [pfc-jsonl](https://github.com/ImpossibleForge/pfc-jsonl) - JSONL log compressor with block-level timestamp indexing for cold log archival; ~9% ratio, DuckDB queryable, Fluent Bit compatible.
 
 Tracing
 
