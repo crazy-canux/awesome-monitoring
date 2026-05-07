@@ -503,6 +503,7 @@ Tracing
 * [Bosun](http://bosun.org/) - Time Series Alerting Framework.
 * [Bosun github](https://github.com/bosun-monitor) - Bosun written in Go.
 * [grafana github](https://github.com/grafana/grafana) - Grafana alerting.
+* [guardian-template github](https://github.com/sspoisk/guardian-template) - Minimal one-file Linux server watchdog (~300 lines Python, zero dependencies, MIT). Drop-in for solo devs and small teams (3-10 VPS). Telegram alerts on state transitions.
 
 ### Dashboard
 
