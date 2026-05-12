@@ -487,6 +487,8 @@ Logging
 * [loki github](https://github.com/grafana/loki) - Loki: like Prometheus, but for logs.
 * [elasticsearch](https://www.elastic.co/cn/products/elasticsearch) - Open Source, Distributed, RESTful Search Engine, written in java.
 * [elasticsearch github](https://github.com/elastic/elasticsearch) - Elastic stack.
+* [Middleware](https://middleware.io/product/log-monitoring//) - Faser debug with AI log insights
+
 
 Tracing
 
