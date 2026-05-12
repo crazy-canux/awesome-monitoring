@@ -48,6 +48,7 @@
 * [API](#api)
     * [super-devops](#super-devops)
     * [go-devops](#go-devops)
+* [Uptime Monitoring](#uptime-monitoring)
 * [Incident management](#incident-management)
 * [Contributing](#contributing)
 * [License](#license)
@@ -569,6 +570,15 @@ all-in-one
 
 * [go-devops](https://godoc.org/github.com/crazy-canux/go-devops) - Tons of devops tools for devops related project.
 * [go-devops github](https://github.com/crazy-canux/go-devops)
+
+***
+
+## Uptime Monitoring
+
+SaaS and self-hosted tools for website and API uptime monitoring.
+
+* [DevHelm](https://devhelm.io) - Developer-first uptime monitoring platform with multi-protocol checks (HTTP, DNS, TCP, ICMP, heartbeat), dependency intelligence for 80+ providers, hosted status pages, and config-as-code.
+* [DevHelm github](https://github.com/devhelmhq) - DevHelm open-source developer surface (CLI, SDKs, Terraform provider, MCP server).
 
 ***
 
