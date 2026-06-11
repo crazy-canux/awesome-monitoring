@@ -190,6 +190,8 @@ Monitoring tools based on nagios.
 
 * [monitoring-plugins](https://www.monitoring-plugins.org/) - Monitoring plugins official website.
 * [monitoring-plugins github](https://github.com/monitoring-plugins) - Monitoring plugins source code.
+* [Linuxfabrik monitoring-plugins](https://linuxfabrik.github.io/monitoring-plugins/) - 230+ plugins for Icinga, Nagios and compatible systems, written in Python for all platforms.
+* [Linuxfabrik monitoring-plugins github](https://github.com/Linuxfabrik/monitoring-plugins) - Linuxfabrik monitoring plugins source code.
 
 #### Develop Plugins
 
