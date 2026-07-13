@@ -17,6 +17,7 @@
     * [Opserver](#opserver)
     * [Netdata](#netdata)
     * [HertzBeat](#hertzbeat)
+    * [Crucible](#crucible)
 * [Nagios Monitoring](#nagios-monitoring)
     * [Icinga](#icinga)
     * [Naemon](#naemon)
@@ -111,6 +112,13 @@ Tranditional Data Center Monitoring tools.
 
 * [HertzBeat](https://www.hertzbeat.com/) - The open-source, real-time monitoring system.
 * [HertzBeat github](https://github.com/dromara/hertzbeat) - HertzBeat github.
+
+### Crucible
+
+> Crucible is an open-source monitoring agent for bare-metal servers: 62 opinionated alert rules covering IPMI, SMART, RAID, OS, and network, a five-minute install, and zero configuration.
+
+* [Crucible](https://glassmkr.com/) - Bare-metal server monitoring built by operators.
+* [Crucible github](https://github.com/glassmkr/crucible) - Crucible written in TypeScript, MIT licensed.
 
 ***
 
