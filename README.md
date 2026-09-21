@@ -17,6 +17,7 @@
     * [Opserver](#opserver)
     * [Netdata](#netdata)
     * [HertzBeat](#hertzbeat)
+    * [Rustinion](#rustinion)
 * [Nagios Monitoring](#nagios-monitoring)
     * [Icinga](#icinga)
     * [Naemon](#naemon)
@@ -111,6 +112,12 @@ Tranditional Data Center Monitoring tools.
 
 * [HertzBeat](https://www.hertzbeat.com/) - The open-source, real-time monitoring system.
 * [HertzBeat github](https://github.com/dromara/hertzbeat) - HertzBeat github.
+
+### Rustinion
+
+> Rustinion is a single cross-platform agent (Rust, memory-safe) for device management, patching, and monitoring across Linux, macOS, Windows, BSD, and OpenWRT/pfSense/OPNsense edge devices -- replacing separate MDM/RMM/inventory stacks with one binary. Commercial, free trial available.
+
+* [Rustinion](https://rustinion.com/) - One agent, every platform: patch management, compliance monitoring, and fleet inventory for mixed-OS environments including network edge devices.
 
 ***
 
