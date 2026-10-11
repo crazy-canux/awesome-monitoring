@@ -449,6 +449,7 @@ Metrics
 * [collectd github](https://github.com/collectd/collectd) - collectd written in C.
 * [tcollector github](https://github.com/OpenTSDB/tcollector) - Data collection framework for OpenTSDB
 * [falcon-plus github](https://github.com/open-falcon/falcon-plus) - An open-source and enterprise-level monitoring system.
+* [duplicacy-exporter github](https://github.com/GeiserX/duplicacy-exporter) - Real-time Prometheus exporter for Duplicacy backups with live speed, progress, and completion metrics.
 
 Logs
 
