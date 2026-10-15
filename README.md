@@ -112,6 +112,13 @@ Tranditional Data Center Monitoring tools.
 * [HertzBeat](https://www.hertzbeat.com/) - The open-source, real-time monitoring system.
 * [HertzBeat github](https://github.com/dromara/hertzbeat) - HertzBeat github.
 
+
+### PingGrid
+
+> PingGrid is a lightweight network monitoring dashboard: ping sweeps, port scans, and instant alerts from one terminal view.
+
+* [PingGrid](https://github.com/StefanYasin/pinggrid) - Lightweight network monitoring dashboard in Python, with ping sweeps, port scans and instant alerts.
+
 ***
 
 ## Nagios Monitoring
