@@ -112,6 +112,13 @@ Tranditional Data Center Monitoring tools.
 * [HertzBeat](https://www.hertzbeat.com/) - The open-source, real-time monitoring system.
 * [HertzBeat github](https://github.com/dromara/hertzbeat) - HertzBeat github.
 
+
+### RackPulse
+
+> RackPulse backports modern host and hardware health monitoring onto legacy Dell PowerEdge servers running ESXi 6.7.
+
+* [RackPulse](https://github.com/StefanYasin/rackpulse) - Health monitoring and provisioning for legacy Dell PowerEdge servers on ESXi 6.7.
+
 ***
 
 ## Nagios Monitoring
