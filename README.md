@@ -112,6 +112,13 @@ Tranditional Data Center Monitoring tools.
 * [HertzBeat](https://www.hertzbeat.com/) - The open-source, real-time monitoring system.
 * [HertzBeat github](https://github.com/dromara/hertzbeat) - HertzBeat github.
 
+
+### EndpointWatch
+
+> EndpointWatch is a live-response endpoint monitor for Windows that watches processes, connections and persistence, with plain-English alerts.
+
+* [EndpointWatch](https://github.com/StefanYasin/endpointwatch) - Live-response endpoint monitor for Windows with VirusTotal and AbuseIPDB enrichment.
+
 ***
 
 ## Nagios Monitoring
