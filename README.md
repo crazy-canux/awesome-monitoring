@@ -115,7 +115,7 @@ Tranditional Data Center Monitoring tools.
 
 ### Rustinion
 
-> Rustinion is a single cross-platform agent (Rust, memory-safe) for device management, patching, and monitoring across Linux, macOS, Windows, BSD, and OpenWRT/pfSense/OPNsense edge devices -- replacing separate MDM/RMM/inventory stacks with one binary. Commercial, free trial available.
+> Rustinion is a single cross-platform agent (Rust, memory-safe) for device management, patching, and monitoring across Linux, macOS, Windows, BSD, and OpenWRT/pfSense/OPNsense edge devices -- one native binary per platform instead of separate MDM/RMM/inventory tools. Commercial, from $5/seat/month.
 
 * [Rustinion](https://rustinion.com/) - One agent, every platform: patch management, compliance monitoring, and fleet inventory for mixed-OS environments including network edge devices.
 
