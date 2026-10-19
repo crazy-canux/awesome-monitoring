@@ -48,6 +48,7 @@
 * [API](#api)
     * [super-devops](#super-devops)
     * [go-devops](#go-devops)
+* [Cron & Scheduled Job Monitoring](#cron--scheduled-job-monitoring)
 * [Incident management](#incident-management)
 * [Contributing](#contributing)
 * [License](#license)
@@ -569,6 +570,14 @@ all-in-one
 
 * [go-devops](https://godoc.org/github.com/crazy-canux/go-devops) - Tons of devops tools for devops related project.
 * [go-devops github](https://github.com/crazy-canux/go-devops)
+
+***
+
+## Cron & Scheduled Job Monitoring
+
+Tools for monitoring cron jobs, scheduled tasks, and background processes.
+
+* [WatchCron](https://watchcron.com) - Cron job monitoring service with heartbeat pings, duration tracking, and failure alerts. Supports any language or platform via simple HTTP pings.
 
 ***
 
