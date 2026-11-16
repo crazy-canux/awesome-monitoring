@@ -578,6 +578,10 @@ all-in-one
 
 * [harpia](https://github.com/harpia-io/harpia) - Centralized management of alerts from monitoring systems, with the ability to reduce noise, automate actions and enhance valuable information
 
+### CRON Monitoring
+
+* [SilenceWatch](https://silencewatch.com) - Heartbeat monitoring for cron jobs and scheduled tasks, alerts when a job stops running ([source](https://github.com/liliang-dev/SilenceWatch)).
+
 ***
 
 ## Contributing
