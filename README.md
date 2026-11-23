@@ -48,6 +48,7 @@
 * [API](#api)
     * [super-devops](#super-devops)
     * [go-devops](#go-devops)
+* [Website Availability](#website-availability)
 * [Incident management](#incident-management)
 * [Contributing](#contributing)
 * [License](#license)
@@ -569,6 +570,12 @@ all-in-one
 
 * [go-devops](https://godoc.org/github.com/crazy-canux/go-devops) - Tons of devops tools for devops related project.
 * [go-devops github](https://github.com/crazy-canux/go-devops)
+
+***
+
+## Website Availability
+
+* [SiteWatcher](https://github.com/NikKurkov/sitewatcher) - Self-hosted website uptime and response-time monitoring with TLS and domain expiry checks. [Public status demo](https://monitoring.kurkov.dev/demo).
 
 ***
 
